@@ -1,0 +1,21 @@
+include: package:very_good_analysis/analysis_options.3.0.0.yaml
+
+analyzer:
+  exclude:
+    - lib/**/*.g.dart
+  strong-mode:
+    implicit-dynamic: true
+
+linter:
+  rules:
+    public_member_api_docs: false
+    avoid_print: true
+    require_trailing_commas: true
+    prefer_single_quotes: true
+    cascade_invocations: true
+    always_use_package_imports: true
+    sort_child_properties_last: true
+    sort_constructors_first: true
+    sort_unnamed_constructors_first: true
+    unnecessary_string_interpolations: true
+    omit_local_variable_types: true
