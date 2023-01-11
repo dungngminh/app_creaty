@@ -21,6 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Check out'),
+      ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
