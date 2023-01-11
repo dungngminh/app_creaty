@@ -81,6 +81,9 @@ class HomeApp extends StatelessWidget {
       appBar: AppBar(
         title: const Text('hehe'),
       ),
+      body: Center(
+        child: Column(children: const [Text('Test')]),
+      ),
     );
   }
 }
