@@ -1,5 +1,9 @@
-import 'package:device_frame/device_frame.dart';
-import 'package:flex_color_scheme/flex_color_scheme.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+
+import 'package:app_creaty/common/extensions/context_extension.dart';
+import 'package:app_creaty/common/gen/assets.gen.dart';
+import 'package:app_creaty/presentation/app_editor/app_editor_view.dart';
+import 'package:app_creaty/presentation/navigation/app_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,64 +14,32 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late DeviceInfo _deviceInfo;
-
-  @override
-  void initState() {
-    super.initState();
-    _deviceInfo = Devices.ios.iPad;
-  }
+  late final ValueNotifier<int> _currentContentNotifier;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Check out'),
-      ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: DeviceFrame(
-              device: _deviceInfo,
-              screen: const AppDevice(),
-            ),
-          )
+        leading: IconButton(
+          icon: Assets.icons.home
+              .svg(width: 32, color: context.colorScheme.primary),
+          onPressed: () {},
+        ),
+        title: const Text('My project'),
+        actions: [
+          
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(
-          Icons.change_circle,
-        ),
-        onPressed: () {
-          setState(() {
-            _deviceInfo = Devices.android.samsungGalaxyA50;
-          });
-        },
+      body: Row(
+        children: [
+          AppNavigationBar(
+            onItemChanged: (index) {
+              _currentContentNotifier.value = index;
+            },
+          ),
+          const AppEditorView(),
+        ],
       ),
-    );
-  }
-}
-
-class AppDevice extends StatelessWidget {
-  const AppDevice({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'App Creaty',
-      debugShowCheckedModeBanner: false,
-      theme: FlexThemeData.light(
-        scheme: FlexScheme.blue,
-        useMaterial3: true,
-        useMaterial3ErrorColors: true,
-      ),
-      darkTheme: FlexThemeData.light(
-        scheme: FlexScheme.blue,
-        useMaterial3: true,
-        useMaterial3ErrorColors: true,
-      ),
-      home: const HomeApp(),
     );
   }
 }
@@ -78,9 +50,6 @@ class HomeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('hehe'),
-      ),
       body: Center(
         child: Column(children: const [Text('Test')]),
       ),

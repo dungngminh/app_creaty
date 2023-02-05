@@ -3,13 +3,13 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:logger/logger.dart';
 
+final logger = Logger(
+  printer: PrettyPrinter(
+    methodCount: 0,
+    printEmojis: false,
+  ),
+);
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
-  final logger = Logger(
-    printer: PrettyPrinter(
-      methodCount: 0,
-      printEmojis: false,
-    ),
-  );
   FlutterError.onError = (details) {
     logger.e('Flutter Error =>>', details.exceptionAsString(), details.stack);
   };
