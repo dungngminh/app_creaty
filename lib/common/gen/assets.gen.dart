@@ -14,14 +14,26 @@ import 'package:flutter/services.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/add_component.svg
+  SvgGenImage get addComponent =>
+      const SvgGenImage('assets/icons/add_component.svg');
+
+  /// File path: assets/icons/home.svg
+  SvgGenImage get home => const SvgGenImage('assets/icons/home.svg');
+
   /// File path: assets/icons/pen.svg
   SvgGenImage get pen => const SvgGenImage('assets/icons/pen.svg');
 
   /// File path: assets/icons/plus.svg
   SvgGenImage get plus => const SvgGenImage('assets/icons/plus.svg');
 
+  /// File path: assets/icons/tree_structure.svg
+  SvgGenImage get treeStructure =>
+      const SvgGenImage('assets/icons/tree_structure.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [pen, plus];
+  List<SvgGenImage> get values =>
+      [addComponent, home, pen, plus, treeStructure];
 }
 
 class Assets {
@@ -142,4 +154,6 @@ class SvgGenImage {
   }
 
   String get path => _assetName;
+
+  String get keyName => _assetName;
 }
