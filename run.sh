@@ -10,4 +10,3 @@ flutter pub get
 # run `build runner`
 echo "Run build_runner:"
 flutter pub run build_runner build --delete-conflicting-outputs
-
