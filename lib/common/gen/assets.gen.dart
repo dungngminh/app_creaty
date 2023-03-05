@@ -5,7 +5,7 @@
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
-// ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal
+// ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,26 +14,78 @@ import 'package:flutter/services.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/add_component.svg
+  $AssetsIconsBoldGen get bold => const $AssetsIconsBoldGen();
+  $AssetsIconsOtherGen get other => const $AssetsIconsOtherGen();
+  $AssetsIconsOutlineGen get outline => const $AssetsIconsOutlineGen();
+}
+
+class $AssetsIconsBoldGen {
+  const $AssetsIconsBoldGen();
+
+  /// File path: assets/icons/bold/add_component.svg
   SvgGenImage get addComponent =>
-      const SvgGenImage('assets/icons/add_component.svg');
+      const SvgGenImage('assets/icons/bold/add_component.svg');
 
-  /// File path: assets/icons/home.svg
-  SvgGenImage get home => const SvgGenImage('assets/icons/home.svg');
+  /// File path: assets/icons/bold/components.svg
+  SvgGenImage get components =>
+      const SvgGenImage('assets/icons/bold/components.svg');
 
-  /// File path: assets/icons/pen.svg
-  SvgGenImage get pen => const SvgGenImage('assets/icons/pen.svg');
+  /// File path: assets/icons/bold/home.svg
+  SvgGenImage get home => const SvgGenImage('assets/icons/bold/home.svg');
 
-  /// File path: assets/icons/plus.svg
-  SvgGenImage get plus => const SvgGenImage('assets/icons/plus.svg');
+  /// File path: assets/icons/bold/pen.svg
+  SvgGenImage get pen => const SvgGenImage('assets/icons/bold/pen.svg');
 
-  /// File path: assets/icons/tree_structure.svg
-  SvgGenImage get treeStructure =>
-      const SvgGenImage('assets/icons/tree_structure.svg');
+  /// File path: assets/icons/bold/setting.svg
+  SvgGenImage get setting => const SvgGenImage('assets/icons/bold/setting.svg');
 
   /// List of all assets
   List<SvgGenImage> get values =>
-      [addComponent, home, pen, plus, treeStructure];
+      [addComponent, components, home, pen, setting];
+}
+
+class $AssetsIconsOtherGen {
+  const $AssetsIconsOtherGen();
+
+  /// File path: assets/icons/other/menu_hamburger.svg
+  SvgGenImage get menuHamburger =>
+      const SvgGenImage('assets/icons/other/menu_hamburger.svg');
+
+  /// File path: assets/icons/other/plus.svg
+  SvgGenImage get plus => const SvgGenImage('assets/icons/other/plus.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [menuHamburger, plus];
+}
+
+class $AssetsIconsOutlineGen {
+  const $AssetsIconsOutlineGen();
+
+  /// File path: assets/icons/outline/add_component.svg
+  SvgGenImage get addComponent =>
+      const SvgGenImage('assets/icons/outline/add_component.svg');
+
+  /// File path: assets/icons/outline/components.svg
+  SvgGenImage get components =>
+      const SvgGenImage('assets/icons/outline/components.svg');
+
+  /// File path: assets/icons/outline/delete.svg
+  SvgGenImage get delete =>
+      const SvgGenImage('assets/icons/outline/delete.svg');
+
+  /// File path: assets/icons/outline/home.svg
+  SvgGenImage get home => const SvgGenImage('assets/icons/outline/home.svg');
+
+  /// File path: assets/icons/outline/pen.svg
+  SvgGenImage get pen => const SvgGenImage('assets/icons/outline/pen.svg');
+
+  /// File path: assets/icons/outline/setting.svg
+  SvgGenImage get setting =>
+      const SvgGenImage('assets/icons/outline/setting.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values =>
+      [addComponent, components, delete, home, pen, setting];
 }
 
 class Assets {
@@ -123,13 +175,14 @@ class SvgGenImage {
     AlignmentGeometry alignment = Alignment.center,
     bool allowDrawingOutsideViewBox = false,
     WidgetBuilder? placeholderBuilder,
-    Color? color,
-    BlendMode colorBlendMode = BlendMode.srcIn,
     String? semanticsLabel,
     bool excludeFromSemantics = false,
-    Clip clipBehavior = Clip.hardEdge,
-    bool cacheColorFilter = false,
-    SvgTheme? theme,
+    SvgTheme theme = const SvgTheme(),
+    ColorFilter? colorFilter,
+    @deprecated Color? color,
+    @deprecated BlendMode colorBlendMode = BlendMode.srcIn,
+    @deprecated Clip? clipBehavior,
+    @deprecated bool cacheColorFilter = false,
   }) {
     return SvgPicture.asset(
       _assetName,
@@ -143,13 +196,14 @@ class SvgGenImage {
       alignment: alignment,
       allowDrawingOutsideViewBox: allowDrawingOutsideViewBox,
       placeholderBuilder: placeholderBuilder,
-      color: color,
-      colorBlendMode: colorBlendMode,
       semanticsLabel: semanticsLabel,
       excludeFromSemantics: excludeFromSemantics,
+      theme: theme,
+      colorFilter: colorFilter,
+      color: color,
+      colorBlendMode: colorBlendMode,
       clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,
-      theme: theme,
     );
   }
 

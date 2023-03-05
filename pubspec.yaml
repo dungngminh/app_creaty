@@ -17,8 +17,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_svg: ^1.1.6
-  intl: ^0.18.0
+  flutter_localizations:
+    sdk: flutter
+  flutter_svg: ^2.0.2
+  gap: ^2.0.1
+  intl: ^0.17.0
   logger: ^1.1.0
   multi_split_view: ^2.2.0
   path: ^1.8.2
@@ -36,7 +39,9 @@ flutter:
   generate: true
 
   assets:
-    - assets/icons/
+    - assets/icons/outline/
+    - assets/icons/bold/
+    - assets/icons/other/
   #   - assets/fonts/
   #   - assets/images/
   #   - assets/lottie/
