@@ -1,15 +1,16 @@
-import 'package:app_creaty/common/gen/assets.gen.dart';
+import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 
 class AppNavigationRail extends StatefulWidget {
   const AppNavigationRail({
-    super.key,
     required this.onIndexChanged,
+    required this.isMenuExtended,
+    super.key,
   });
 
   final ValueChanged<int> onIndexChanged;
+  final bool isMenuExtended;
 
   @override
   State<AppNavigationRail> createState() => _AppNavigationRailState();
@@ -17,20 +18,15 @@ class AppNavigationRail extends StatefulWidget {
 
 class _AppNavigationRailState extends State<AppNavigationRail> {
   int currentIndex = 0;
-  bool isMenuExtended = false;
 
   void _onChangeIndex(int newIndex) => setState(() {
         currentIndex = newIndex;
       });
 
-  void _onExtendMenuChanged() => setState(() {
-        isMenuExtended = !isMenuExtended;
-      });
-
   @override
   Widget build(BuildContext context) {
     return NavigationRail(
-      extended: isMenuExtended,
+      extended: widget.isMenuExtended,
       selectedIndex: currentIndex,
       onDestinationSelected: (index) {
         _onChangeIndex(index);
@@ -53,20 +49,6 @@ class _AppNavigationRailState extends State<AppNavigationRail> {
           label: Text(context.l10n.settings),
         ),
       ],
-      leading: Column(
-        children: [
-          IconButton(
-            icon: Assets.icons.other.menuHamburger.svg(),
-            onPressed: _onExtendMenuChanged,
-          ),
-          const Gap(16),
-          FloatingActionButton(
-            child: Assets.icons.bold.home.svg(),
-            onPressed: () {},
-          )
-        ],
-      ),
-      groupAlignment: -0.9,
     );
   }
 }

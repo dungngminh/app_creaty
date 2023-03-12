@@ -3,7 +3,10 @@ import 'package:app_creaty/presentation/tool_panel/view/list_component_panel.dar
 import 'package:flutter/material.dart';
 
 class ToolPanelView extends StatelessWidget {
-  const ToolPanelView({super.key, required this.currentIndex});
+  const ToolPanelView({
+    required this.currentIndex,
+    super.key,
+  });
 
   final int currentIndex;
 

@@ -19,6 +19,17 @@ class $AssetsIconsGen {
   $AssetsIconsOutlineGen get outline => const $AssetsIconsOutlineGen();
 }
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/app_logo.png
+  AssetGenImage get appLogo =>
+      const AssetGenImage('assets/images/app_logo.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [appLogo];
+}
+
 class $AssetsIconsBoldGen {
   const $AssetsIconsBoldGen();
 
@@ -92,6 +103,7 @@ class Assets {
   Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {

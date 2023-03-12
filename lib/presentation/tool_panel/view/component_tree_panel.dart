@@ -1,4 +1,4 @@
-import 'package:app_creaty/common/extensions/context_extension.dart';
+import 'package:app_creaty/commons/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class ComponentTreePanel extends StatelessWidget {
