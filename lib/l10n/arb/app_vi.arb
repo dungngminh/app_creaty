@@ -4,7 +4,7 @@
   "home": "Trang chủ",
   "about": "Về tôi",
   "edit": "Chỉnh sửa",
-  "new": "Tạo mới",
+  "generalNew": "Tạo mới",
   "save": "Lưu",
   "delete": "Xóa",
   "undo": "Khôi phục",
@@ -20,5 +20,8 @@
   "saveAs": "Lưu như",
   "import": "Nhập",
   "export": "Xuất",
-  "exit": "Thoát"
+  "exit": "Thoát",
+  "uiComponent": "Thành phần giao diện",
+  "componentTree": "Cây thành phần",
+  "extendMenu": "Mở rộng menu"
 }

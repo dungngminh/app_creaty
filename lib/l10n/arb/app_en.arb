@@ -4,7 +4,7 @@
   "home": "Home",
   "about": "About",
   "edit": "Edit",
-  "new": "New",
+  "generalNew": "New",
   "save": "Save",
   "delete": "Delete",
   "undo": "Undo",
@@ -20,5 +20,8 @@
   "saveAs": "Save As",
   "import": "Import",
   "export": "Export",
-  "exit": "Exit"
+  "exit": "Exit",
+  "uiComponent": "UI Component",
+  "componentTree": "Component Tree",
+  "extendMenu": "Extend menu"
 }
