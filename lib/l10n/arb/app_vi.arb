@@ -1,6 +1,6 @@
 {
   "@@locale": "vi",
-  "@@appName": "App Creaty",
+  "appName": "App Creaty",
   "home": "Trang chủ",
   "about": "Về tôi",
   "edit": "Chỉnh sửa",
@@ -15,7 +15,7 @@
   "properties": "Thuộc tính",
   "settings": "Cài đặt",
   "help": "Trợ giúp",
-  "recent": "Gần đây",
+  "recents": "Gần đây",
   "open": "Mở",
   "saveAs": "Lưu như",
   "import": "Nhập",
@@ -23,5 +23,6 @@
   "exit": "Thoát",
   "uiComponent": "Thành phần giao diện",
   "componentTree": "Cây thành phần",
-  "extendMenu": "Mở rộng menu"
+  "extendMenu": "Mở rộng menu",
+  "newProject": "Dự án mới"
 }

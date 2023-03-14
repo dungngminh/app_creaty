@@ -1,5 +1,7 @@
 import 'package:app_creaty/commons/gen/assets.gen.dart';
+import 'package:app_creaty/l10n/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class MainEditorAppBar extends StatelessWidget with PreferredSizeWidget {
   const MainEditorAppBar({
@@ -24,7 +26,8 @@ class MainEditorAppBar extends StatelessWidget with PreferredSizeWidget {
             onPressed: onHomeButtonPressed,
             child: Assets.icons.bold.home.svg(),
           ),
-          Column(children: [Text("App Creaty")],)
+          const Gap(16),
+          Text(context.l10n.appName)
         ],
       ),
     );

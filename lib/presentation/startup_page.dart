@@ -1,4 +1,4 @@
-import 'package:app_creaty/presentation/editor/view/main_editor_view.dart';
+import 'package:app_creaty/presentation/home/home.dart';
 import 'package:flutter/material.dart';
 
 class StartupPage extends StatelessWidget {
@@ -6,6 +6,6 @@ class StartupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MainEditorView();
+    return const HomeView();
   }
 }
