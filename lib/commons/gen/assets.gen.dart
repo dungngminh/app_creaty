@@ -11,6 +11,50 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 
+class $AssetsFontsGen {
+  const $AssetsFontsGen();
+
+  /// File path: assets/fonts/Nunito-Black.ttf
+  String get nunitoBlack => 'assets/fonts/Nunito-Black.ttf';
+
+  /// File path: assets/fonts/Nunito-Bold.ttf
+  String get nunitoBold => 'assets/fonts/Nunito-Bold.ttf';
+
+  /// File path: assets/fonts/Nunito-ExtraBold.ttf
+  String get nunitoExtraBold => 'assets/fonts/Nunito-ExtraBold.ttf';
+
+  /// File path: assets/fonts/Nunito-ExtraLight.ttf
+  String get nunitoExtraLight => 'assets/fonts/Nunito-ExtraLight.ttf';
+
+  /// File path: assets/fonts/Nunito-Italic.ttf
+  String get nunitoItalic => 'assets/fonts/Nunito-Italic.ttf';
+
+  /// File path: assets/fonts/Nunito-Light.ttf
+  String get nunitoLight => 'assets/fonts/Nunito-Light.ttf';
+
+  /// File path: assets/fonts/Nunito-Medium.ttf
+  String get nunitoMedium => 'assets/fonts/Nunito-Medium.ttf';
+
+  /// File path: assets/fonts/Nunito-Regular.ttf
+  String get nunitoRegular => 'assets/fonts/Nunito-Regular.ttf';
+
+  /// File path: assets/fonts/Nunito-SemiBold.ttf
+  String get nunitoSemiBold => 'assets/fonts/Nunito-SemiBold.ttf';
+
+  /// List of all assets
+  List<String> get values => [
+        nunitoBlack,
+        nunitoBold,
+        nunitoExtraBold,
+        nunitoExtraLight,
+        nunitoItalic,
+        nunitoLight,
+        nunitoMedium,
+        nunitoRegular,
+        nunitoSemiBold
+      ];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -22,12 +66,7 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/app_logo.png
-  AssetGenImage get appLogo =>
-      const AssetGenImage('assets/images/app_logo.png');
-
-  /// List of all assets
-  List<AssetGenImage> get values => [appLogo];
+  $AssetsImagesSvgGen get svg => const $AssetsImagesSvgGen();
 }
 
 class $AssetsIconsBoldGen {
@@ -37,9 +76,17 @@ class $AssetsIconsBoldGen {
   SvgGenImage get addComponent =>
       const SvgGenImage('assets/icons/bold/add_component.svg');
 
+  /// File path: assets/icons/bold/clock_recent.svg
+  SvgGenImage get clockRecent =>
+      const SvgGenImage('assets/icons/bold/clock_recent.svg');
+
   /// File path: assets/icons/bold/components.svg
   SvgGenImage get components =>
       const SvgGenImage('assets/icons/bold/components.svg');
+
+  /// File path: assets/icons/bold/file_new.svg
+  SvgGenImage get fileNew =>
+      const SvgGenImage('assets/icons/bold/file_new.svg');
 
   /// File path: assets/icons/bold/home.svg
   SvgGenImage get home => const SvgGenImage('assets/icons/bold/home.svg');
@@ -52,7 +99,7 @@ class $AssetsIconsBoldGen {
 
   /// List of all assets
   List<SvgGenImage> get values =>
-      [addComponent, components, home, pen, setting];
+      [addComponent, clockRecent, components, fileNew, home, pen, setting];
 }
 
 class $AssetsIconsOtherGen {
@@ -76,6 +123,10 @@ class $AssetsIconsOutlineGen {
   SvgGenImage get addComponent =>
       const SvgGenImage('assets/icons/outline/add_component.svg');
 
+  /// File path: assets/icons/outline/clock_recent.svg
+  SvgGenImage get clockRecent =>
+      const SvgGenImage('assets/icons/outline/clock_recent.svg');
+
   /// File path: assets/icons/outline/components.svg
   SvgGenImage get components =>
       const SvgGenImage('assets/icons/outline/components.svg');
@@ -83,6 +134,10 @@ class $AssetsIconsOutlineGen {
   /// File path: assets/icons/outline/delete.svg
   SvgGenImage get delete =>
       const SvgGenImage('assets/icons/outline/delete.svg');
+
+  /// File path: assets/icons/outline/file_new.svg
+  SvgGenImage get fileNew =>
+      const SvgGenImage('assets/icons/outline/file_new.svg');
 
   /// File path: assets/icons/outline/home.svg
   SvgGenImage get home => const SvgGenImage('assets/icons/outline/home.svg');
@@ -95,13 +150,37 @@ class $AssetsIconsOutlineGen {
       const SvgGenImage('assets/icons/outline/setting.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values =>
-      [addComponent, components, delete, home, pen, setting];
+  List<SvgGenImage> get values => [
+        addComponent,
+        clockRecent,
+        components,
+        delete,
+        fileNew,
+        home,
+        pen,
+        setting
+      ];
+}
+
+class $AssetsImagesSvgGen {
+  const $AssetsImagesSvgGen();
+
+  /// File path: assets/images/svg/app_logo_no_background.svg
+  SvgGenImage get appLogoNoBackground =>
+      const SvgGenImage('assets/images/svg/app_logo_no_background.svg');
+
+  /// File path: assets/images/svg/app_logo_with_background.svg
+  SvgGenImage get appLogoWithBackground =>
+      const SvgGenImage('assets/images/svg/app_logo_with_background.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [appLogoNoBackground, appLogoWithBackground];
 }
 
 class Assets {
   Assets._();
 
+  static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }

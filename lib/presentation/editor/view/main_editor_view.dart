@@ -1,6 +1,6 @@
 import 'package:app_creaty/commons/router/app_router.dart';
 import 'package:app_creaty/presentation/editor/view/editor_panel.dart';
-import 'package:app_creaty/presentation/navigation/app_navigation_rail.dart';
+import 'package:app_creaty/presentation/editor/widgets/editor_navigation_rail.dart';
 import 'package:app_creaty/presentation/editor/widgets/main_editor_app_bar.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +49,7 @@ class _MainEditorViewState extends State<MainEditorView> {
             ValueListenableBuilder(
               valueListenable: _isMenuExtendedNotifier,
               builder: (context, isMenuExtended, _) {
-                return AppNavigationRail(
+                return AppEditorNavigationRail(
                   onIndexChanged: (onIndexChanged) =>
                       _currentTabNotifier.value = onIndexChanged,
                   isMenuExtended: isMenuExtended,

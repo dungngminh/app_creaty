@@ -2,8 +2,8 @@ import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
-class AppNavigationRail extends StatefulWidget {
-  const AppNavigationRail({
+class AppEditorNavigationRail extends StatefulWidget {
+  const AppEditorNavigationRail({
     required this.onIndexChanged,
     required this.isMenuExtended,
     super.key,
@@ -13,10 +13,11 @@ class AppNavigationRail extends StatefulWidget {
   final bool isMenuExtended;
 
   @override
-  State<AppNavigationRail> createState() => _AppNavigationRailState();
+  State<AppEditorNavigationRail> createState() =>
+      _AppEditorNavigationRailState();
 }
 
-class _AppNavigationRailState extends State<AppNavigationRail> {
+class _AppEditorNavigationRailState extends State<AppEditorNavigationRail> {
   int currentIndex = 0;
 
   void _onChangeIndex(int newIndex) => setState(() {

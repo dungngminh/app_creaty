@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "@@appName": "App Creaty",
+  "appName": "App Creaty",
   "home": "Home",
   "about": "About",
   "edit": "Edit",
@@ -15,7 +15,7 @@
   "properties": "Properties",
   "settings": "Settings",
   "help": "Help",
-  "recent": "Recent",
+  "recents": "Recents",
   "open": "Open",
   "saveAs": "Save As",
   "import": "Import",
@@ -23,5 +23,6 @@
   "exit": "Exit",
   "uiComponent": "UI Component",
   "componentTree": "Component Tree",
-  "extendMenu": "Extend menu"
+  "extendMenu": "Extend menu",
+  "newProjectTitle":"New Project"
 }
