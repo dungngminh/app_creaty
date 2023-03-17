@@ -21,7 +21,7 @@ class _MainEditorViewState extends State<MainEditorView> {
   @override
   void initState() {
     super.initState();
-    _currentDevice = Devices.ios.iPhone12;
+    _currentDevice = Devices.android.samsungGalaxyA50;
     _currentTabNotifier = ValueNotifier(0);
     _isMenuExtendedNotifier = ValueNotifier(false);
   }
