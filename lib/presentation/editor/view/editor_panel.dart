@@ -58,25 +58,34 @@ class _EditorPanelState extends State<EditorPanel> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiSplitView(
-      controller: _splitViewController,
-      children: [
-        ValueListenableBuilder(
-          valueListenable: _currentToolPanelNotifier,
-          builder: (context, currentToolPanelIndex, _) {
-            return ToolPanelView(
-              currentIndex: currentToolPanelIndex,
-            );
-          },
+    return MultiSplitViewTheme(
+      data: MultiSplitViewThemeData(
+        dividerPainter: DividerPainters.grooved1(
+          color: Colors.indigo.shade100,
+          highlightedColor: Colors.indigo.shade900,
+          size: 30,
         ),
-        ValueListenableBuilder(
-          valueListenable: _currentDeviceNotifier,
-          builder: (context, currentDevice, _) {
-            return DeviceShowcaseView(currentDevice: currentDevice);
-          },
-        ),
-        const PropertiesPanelView(),
-      ],
+      ),
+      child: MultiSplitView(
+        controller: _splitViewController,
+        children: [
+          ValueListenableBuilder(
+            valueListenable: _currentToolPanelNotifier,
+            builder: (context, currentToolPanelIndex, _) {
+              return ToolPanelView(
+                currentIndex: currentToolPanelIndex,
+              );
+            },
+          ),
+          ValueListenableBuilder(
+            valueListenable: _currentDeviceNotifier,
+            builder: (context, currentDevice, _) {
+              return DeviceShowcaseView(currentDevice: currentDevice);
+            },
+          ),
+          const PropertiesPanelView(),
+        ],
+      ),
     );
   }
 }
