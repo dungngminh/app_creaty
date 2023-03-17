@@ -19,14 +19,6 @@ abstract class AppRouter {
         },
       ),
       GoRoute(
-        path: routePathEditorPage,
-        builder: (context, state) {
-          return MainEditorView(
-            key: state.pageKey,
-          );
-        },
-      ),
-      GoRoute(
         path: routePathHomePage,
         builder: (context, state) {
           return HomeView(
@@ -34,6 +26,15 @@ abstract class AppRouter {
           );
         },
       ),
+      GoRoute(
+        path: '$routePathEditorPage/:projectId',
+        builder: (context, state) {
+          return MainEditorView(
+            key: state.pageKey,
+          );
+        },
+      ),
+    
     ],
     debugLogDiagnostics: true,
   );
