@@ -1,5 +1,7 @@
 import 'package:app_creaty/commons/extensions/context_extension.dart';
 import 'package:app_creaty/l10n/l10n.dart';
+import 'package:app_creaty/models/app_creaty_project.dart';
+import 'package:dart_date/dart_date.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -16,16 +18,47 @@ class NewProjectView extends StatelessWidget {
         ),
         const Gap(8),
         Expanded(
-          child: GridView.count(
-            crossAxisSpacing: 30,
-            crossAxisCount: 4,
-            mainAxisSpacing: 30,
-            children: List.generate(
-              12,
-              (_) => Container(
-                color: Colors.red,
-              ),
+          child: GridView.builder(
+            padding: const EdgeInsets.all(8),
+            itemCount: mockProjects.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              childAspectRatio: 1.4,
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 8,
             ),
+            itemBuilder: (context, index) {
+              final project = mockProjects[index];
+              return Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          const CircleAvatar(),
+                          const Gap(16),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                project.name,
+                                style: context.textTheme.titleMedium?.copyWith(
+                                  color: context.colorScheme.onBackground,
+                                ),
+                              ),
+                              Text(
+                                project.createdAt.timeago(),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              );
+            },
           ),
         )
       ],

@@ -105,6 +105,10 @@ class $AssetsIconsBoldGen {
 class $AssetsIconsOtherGen {
   const $AssetsIconsOtherGen();
 
+  /// File path: assets/icons/other/bold_menu_kebab.svg
+  SvgGenImage get boldMenuKebab =>
+      const SvgGenImage('assets/icons/other/bold_menu_kebab.svg');
+
   /// File path: assets/icons/other/menu_hamburger.svg
   SvgGenImage get menuHamburger =>
       const SvgGenImage('assets/icons/other/menu_hamburger.svg');
@@ -113,7 +117,7 @@ class $AssetsIconsOtherGen {
   SvgGenImage get plus => const SvgGenImage('assets/icons/other/plus.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [menuHamburger, plus];
+  List<SvgGenImage> get values => [boldMenuKebab, menuHamburger, plus];
 }
 
 class $AssetsIconsOutlineGen {

@@ -10,9 +10,9 @@ final logger = Logger(
   ),
 );
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
-  FlutterError.onError = (details) {
-    logger.e('Flutter Error =>>', details.exceptionAsString(), details.stack);
-  };
+  // FlutterError.onError = (details) {
+  //   logger.e('Flutter Error =>>', details.exceptionAsString(), details.stack);
+  // };
   WidgetsFlutterBinding.ensureInitialized();
   await runZonedGuarded(
     () async => runApp(await builder()),

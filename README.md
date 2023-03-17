@@ -4,6 +4,8 @@
 
 # App Creaty - An app can create app
 
+<img alt="AppLogo.jpeg" height="100" src=".github/screenshots/AppLogo.jpeg" width="100"/>
+
 An app can create app created by dungngminh.
 
 ## Getting Started 🤖
@@ -29,7 +31,6 @@ An app can create app created by dungngminh.
     <td align="center"><img src="https://avatars.githubusercontent.com/u/63831488?v=4" width="100px;" alt=""/><br /><sub><b>Nguyen Minh Dung</b></sub></a><br /><a href="https://github.com/dungngminh/app_creaty/commits?author=dungngminh" title="Maintainer">💻</a> 
 </tr>
 </table>
-
 
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
