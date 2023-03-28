@@ -10,6 +10,7 @@ environment:
   flutter: ">=3.3.0"
 
 dependencies:
+  after_layout: ^1.2.0
   cached_network_image: ^3.2.3
   cupertino_icons: ^1.0.2
   dart_date: ^1.2.1
@@ -23,15 +24,17 @@ dependencies:
   flutter_lazy_indexed_stack: ^0.0.5
   flutter_localizations:
     sdk: flutter
-  flutter_svg: ^2.0.4
+  flutter_svg: ^2.0.0
   gap: ^2.0.1
-  go_router: ^6.2.0
+  go_router: ^6.5.0
+  image_picker: ^0.8.7
   intl: ^0.17.0
   logger: ^1.3.0
   multi_split_view: ^2.4.0
   package_info_plus: ^3.0.3
   path: ^1.8.2
-  path_provider: ^2.0.13
+  path_provider: ^2.0.14
+  recase: ^4.1.0
   uuid: ^3.0.7
 
 dev_dependencies:

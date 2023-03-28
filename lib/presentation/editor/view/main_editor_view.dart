@@ -43,7 +43,7 @@ class _MainEditorViewState extends State<MainEditorView> {
         onHomeButtonPressed: _onHomeButtonPressed,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 16),
+        padding: const EdgeInsets.only(top: 16, bottom: 16),
         child: Row(
           children: [
             ValueListenableBuilder(

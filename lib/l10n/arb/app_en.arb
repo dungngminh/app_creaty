@@ -24,5 +24,7 @@
   "uiComponent": "UI Component",
   "componentTree": "Component Tree",
   "extendMenu": "Extend menu",
-  "newProjectTitle":"New Project"
+  "newProjectTitle":"New Project",
+  "projectName":"Project name",
+  "projectNameSavedAsName":"Project name (saved as name)"
 }

@@ -18,10 +18,15 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    currentIndexTab = 0;
+    currentIndexTab = 1;
   }
 
   void _onCurrentIndexTab(int newIndex) {
+    if (newIndex == 0) {
+      showNewProjectViewDialog<void>(context);
+      return;
+    }
+
     setState(() {
       currentIndexTab = newIndex;
     });
@@ -41,7 +46,7 @@ class _HomeViewState extends State<HomeView> {
               child: LazyIndexedStack(
                 index: currentIndexTab,
                 children: const [
-                  NewProjectView(),
+                  SizedBox(),
                   RecentsView(),
                   SettingsView(),
                 ],

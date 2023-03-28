@@ -37,5 +37,3 @@ class RecentsView extends StatelessWidget {
     );
   }
 }
-
-

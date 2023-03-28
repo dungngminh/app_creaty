@@ -1,67 +1,81 @@
 import 'package:app_creaty/commons/extensions/context_extension.dart';
 import 'package:app_creaty/l10n/l10n.dart';
-import 'package:app_creaty/models/app_creaty_project.dart';
-import 'package:dart_date/dart_date.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:recase/recase.dart';
 
-class NewProjectView extends StatelessWidget {
+Future<T?> showNewProjectViewDialog<T>(BuildContext context) {
+  return showDialog(
+    context: context,
+    builder: (_) {
+      return const NewProjectView();
+    },
+  );
+}
+
+class NewProjectView extends StatefulWidget {
   const NewProjectView({super.key});
 
   @override
+  State<NewProjectView> createState() => _NewProjectViewState();
+}
+
+class _NewProjectViewState extends State<NewProjectView> {
+  late final TextEditingController projectNameTextEditingController;
+  late final TextEditingController saveProjectAsNameTextEditingController;
+
+  @override
+  void initState() {
+    super.initState();
+    saveProjectAsNameTextEditingController = TextEditingController();
+    projectNameTextEditingController = TextEditingController()
+      ..addListener(convertProjectNameToSnackCase);
+  }
+
+  void convertProjectNameToSnackCase() {
+    saveProjectAsNameTextEditingController.text =
+        projectNameTextEditingController.text.snakeCase;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          context.l10n.newProjectTitle,
-          style: context.textTheme.displaySmall,
+    const gap16 = Gap(16);
+    return Dialog(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 16,
+          horizontal: 16,
         ),
-        const Gap(8),
-        Expanded(
-          child: GridView.builder(
-            padding: const EdgeInsets.all(8),
-            itemCount: mockProjects.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              childAspectRatio: 1.4,
-              crossAxisSpacing: 8,
-              mainAxisSpacing: 8,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              context.l10n.newProjectTitle,
+              style: context.textTheme.titleLarge,
             ),
-            itemBuilder: (context, index) {
-              final project = mockProjects[index];
-              return Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          const CircleAvatar(),
-                          const Gap(16),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                project.name,
-                                style: context.textTheme.titleMedium?.copyWith(
-                                  color: context.colorScheme.onBackground,
-                                ),
-                              ),
-                              Text(
-                                project.createdAt.timeago(),
-                              ),
-                            ],
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              );
-            },
-          ),
-        )
-      ],
+            gap16,
+            TextField(
+              controller: projectNameTextEditingController,
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(),
+                labelText: context.l10n.projectName,
+              ),
+            ),
+            gap16,
+            TextField(
+              readOnly: true,
+              controller: saveProjectAsNameTextEditingController,
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(),
+                labelText: context.l10n.projectNameSavedAsName,
+                enabled: false,
+              ),
+            ),
+            
+          ],
+        ),
+      ),
     );
   }
 }

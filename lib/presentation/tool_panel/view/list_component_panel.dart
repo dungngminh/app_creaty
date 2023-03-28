@@ -12,7 +12,7 @@ class ListComponentPanel extends StatefulWidget {
 class _ListComponentPanelState extends State<ListComponentPanel> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: context.colorScheme.background,
       child: Wrap(
         runSpacing: 24,
@@ -40,10 +40,27 @@ class _ListComponentPanelState extends State<ListComponentPanel> {
               color: Colors.red,
             ),
           ),
-          Container(
-            height: 120,
-            width: 120,
-            color: Colors.red,
+          Draggable<Widget>(
+            feedback: Container(
+              height: 120,
+              width: 120,
+              color: Colors.blue,
+            ),
+            childWhenDragging: Container(
+              height: 120,
+              width: 120,
+              color: Colors.blue,
+            ),
+            data: Container(
+              height: 120,
+              width: 120,
+              color: Colors.blue,
+            ),
+            child: Container(
+              height: 120,
+              width: 120,
+              color: Colors.blue,
+            ),
           ),
           Container(
             height: 120,
