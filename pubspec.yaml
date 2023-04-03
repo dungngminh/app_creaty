@@ -16,7 +16,7 @@ dependencies:
   dartx: ^1.1.0
   device_frame: ^1.1.0
   equatable: ^2.0.5
-  flex_color_scheme: ^6.1.2
+  flex_color_scheme: ^7.0.0
   flutter:
     sdk: flutter
 
