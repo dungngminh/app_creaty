@@ -27,5 +27,11 @@
   "newProjectTitle": "New Project",
   "projectName": "Project name",
   "projectNameSavedAsName": "Project name (saved as name)",
-  "generalCreate": "Create"
+  "generalCreate": "Create",
+  "textComponent": "Text",
+  "columnComponent": "Column",
+  "rowComponent": "Row",
+  "containerComponent": "Container",
+  "imageComponent": "Image",
+  "dividerComponent": "Divider"
 }

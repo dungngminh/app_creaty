@@ -6,4 +6,5 @@ part 'new_project_state.dart';
 
 class NewProjectCubit extends Cubit<NewProjectState> {
   NewProjectCubit() : super(const NewProjectState());
+
 }

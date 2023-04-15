@@ -1,9 +1,12 @@
 import 'package:app_creaty/commons/extensions/context_extension.dart';
+import 'package:app_creaty/models/app_creaty_widget.dart';
+import 'package:app_creaty/models/ui_component.dart';
+import 'package:app_creaty/presentation/tool_panel/widgets/ui_component_card.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
 class ListComponentPanel extends StatefulWidget {
   const ListComponentPanel({super.key});
-
 
   @override
   State<ListComponentPanel> createState() => _ListComponentPanelState();
@@ -17,72 +20,13 @@ class _ListComponentPanelState extends State<ListComponentPanel> {
       child: Wrap(
         runSpacing: 24,
         spacing: 24,
-        children: [
-          Draggable<Widget>(
-            feedback: Container(
-              height: 120,
-              width: 120,
-              color: Colors.red,
-            ),
-            childWhenDragging: Container(
-              height: 120,
-              width: 120,
-              color: Colors.red,
-            ),
-            data: Container(
-              height: 120,
-              width: 120,
-              color: Colors.red,
-            ),
-            child: Container(
-              height: 120,
-              width: 120,
-              color: Colors.red,
-            ),
-          ),
-          Draggable<Widget>(
-            feedback: Container(
-              height: 120,
-              width: 120,
-              color: Colors.blue,
-            ),
-            childWhenDragging: Container(
-              height: 120,
-              width: 120,
-              color: Colors.blue,
-            ),
-            data: Container(
-              height: 120,
-              width: 120,
-              color: Colors.blue,
-            ),
-            child: Container(
-              height: 120,
-              width: 120,
-              color: Colors.blue,
-            ),
-          ),
-          Container(
-            height: 120,
-            width: 120,
-            color: Colors.red,
-          ),
-          Container(
-            height: 120,
-            width: 120,
-            color: Colors.red,
-          ),
-          Container(
-            height: 120,
-            width: 120,
-            color: Colors.red,
-          ),
-          Container(
-            height: 120,
-            width: 120,
-            color: Colors.red,
-          ),
-        ],
+        children: MainWidget.values.mapIndexed((index, widget) {
+          final widget = MainWidget.values[index];
+          final uiComponent = UIComponent(widget: widget);
+          return UIComponentCard(
+            component: uiComponent,
+          );
+        }).toList(),
       ),
     );
   }

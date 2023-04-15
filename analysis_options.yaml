@@ -19,3 +19,4 @@ linter:
     sort_unnamed_constructors_first: true
     unnecessary_string_interpolations: true
     omit_local_variable_types: true
+    always_put_required_named_parameters_first: false

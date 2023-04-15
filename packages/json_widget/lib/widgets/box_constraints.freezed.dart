@@ -1,0 +1,218 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of box_constraints;
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+BoxConstraints _$BoxConstraintsFromJson(Map<String, dynamic> json) {
+  return _BoxConstraints.fromJson(json);
+}
+
+/// @nodoc
+mixin _$BoxConstraints {
+  double get minWidth => throw _privateConstructorUsedError;
+  double get maxWidth => throw _privateConstructorUsedError;
+  double get minHeight => throw _privateConstructorUsedError;
+  double get maxHeight => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $BoxConstraintsCopyWith<BoxConstraints> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BoxConstraintsCopyWith<$Res> {
+  factory $BoxConstraintsCopyWith(
+          BoxConstraints value, $Res Function(BoxConstraints) then) =
+      _$BoxConstraintsCopyWithImpl<$Res, BoxConstraints>;
+  @useResult
+  $Res call(
+      {double minWidth, double maxWidth, double minHeight, double maxHeight});
+}
+
+/// @nodoc
+class _$BoxConstraintsCopyWithImpl<$Res, $Val extends BoxConstraints>
+    implements $BoxConstraintsCopyWith<$Res> {
+  _$BoxConstraintsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? minWidth = null,
+    Object? maxWidth = null,
+    Object? minHeight = null,
+    Object? maxHeight = null,
+  }) {
+    return _then(_value.copyWith(
+      minWidth: null == minWidth
+          ? _value.minWidth
+          : minWidth // ignore: cast_nullable_to_non_nullable
+              as double,
+      maxWidth: null == maxWidth
+          ? _value.maxWidth
+          : maxWidth // ignore: cast_nullable_to_non_nullable
+              as double,
+      minHeight: null == minHeight
+          ? _value.minHeight
+          : minHeight // ignore: cast_nullable_to_non_nullable
+              as double,
+      maxHeight: null == maxHeight
+          ? _value.maxHeight
+          : maxHeight // ignore: cast_nullable_to_non_nullable
+              as double,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_BoxConstraintsCopyWith<$Res>
+    implements $BoxConstraintsCopyWith<$Res> {
+  factory _$$_BoxConstraintsCopyWith(
+          _$_BoxConstraints value, $Res Function(_$_BoxConstraints) then) =
+      __$$_BoxConstraintsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {double minWidth, double maxWidth, double minHeight, double maxHeight});
+}
+
+/// @nodoc
+class __$$_BoxConstraintsCopyWithImpl<$Res>
+    extends _$BoxConstraintsCopyWithImpl<$Res, _$_BoxConstraints>
+    implements _$$_BoxConstraintsCopyWith<$Res> {
+  __$$_BoxConstraintsCopyWithImpl(
+      _$_BoxConstraints _value, $Res Function(_$_BoxConstraints) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? minWidth = null,
+    Object? maxWidth = null,
+    Object? minHeight = null,
+    Object? maxHeight = null,
+  }) {
+    return _then(_$_BoxConstraints(
+      minWidth: null == minWidth
+          ? _value.minWidth
+          : minWidth // ignore: cast_nullable_to_non_nullable
+              as double,
+      maxWidth: null == maxWidth
+          ? _value.maxWidth
+          : maxWidth // ignore: cast_nullable_to_non_nullable
+              as double,
+      minHeight: null == minHeight
+          ? _value.minHeight
+          : minHeight // ignore: cast_nullable_to_non_nullable
+              as double,
+      maxHeight: null == maxHeight
+          ? _value.maxHeight
+          : maxHeight // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_BoxConstraints implements _BoxConstraints {
+  const _$_BoxConstraints(
+      {this.minWidth = 0.0,
+      this.maxWidth = double.infinity,
+      this.minHeight = 0.0,
+      this.maxHeight = double.infinity});
+
+  factory _$_BoxConstraints.fromJson(Map<String, dynamic> json) =>
+      _$$_BoxConstraintsFromJson(json);
+
+  @override
+  @JsonKey()
+  final double minWidth;
+  @override
+  @JsonKey()
+  final double maxWidth;
+  @override
+  @JsonKey()
+  final double minHeight;
+  @override
+  @JsonKey()
+  final double maxHeight;
+
+  @override
+  String toString() {
+    return 'BoxConstraints(minWidth: $minWidth, maxWidth: $maxWidth, minHeight: $minHeight, maxHeight: $maxHeight)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_BoxConstraints &&
+            (identical(other.minWidth, minWidth) ||
+                other.minWidth == minWidth) &&
+            (identical(other.maxWidth, maxWidth) ||
+                other.maxWidth == maxWidth) &&
+            (identical(other.minHeight, minHeight) ||
+                other.minHeight == minHeight) &&
+            (identical(other.maxHeight, maxHeight) ||
+                other.maxHeight == maxHeight));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, minWidth, maxWidth, minHeight, maxHeight);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_BoxConstraintsCopyWith<_$_BoxConstraints> get copyWith =>
+      __$$_BoxConstraintsCopyWithImpl<_$_BoxConstraints>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_BoxConstraintsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _BoxConstraints implements BoxConstraints {
+  const factory _BoxConstraints(
+      {final double minWidth,
+      final double maxWidth,
+      final double minHeight,
+      final double maxHeight}) = _$_BoxConstraints;
+
+  factory _BoxConstraints.fromJson(Map<String, dynamic> json) =
+      _$_BoxConstraints.fromJson;
+
+  @override
+  double get minWidth;
+  @override
+  double get maxWidth;
+  @override
+  double get minHeight;
+  @override
+  double get maxHeight;
+  @override
+  @JsonKey(ignore: true)
+  _$$_BoxConstraintsCopyWith<_$_BoxConstraints> get copyWith =>
+      throw _privateConstructorUsedError;
+}

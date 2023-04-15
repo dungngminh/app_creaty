@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +26,7 @@ class _DeviceShowcaseViewState extends State<DeviceShowcaseView> {
 
   @override
   Widget build(BuildContext context) {
-    return DragTarget<Widget>(
+    return DragTarget<Map<String, dynamic>>(
       builder: (context, candidateData, rejectedData) {
         return DeviceFrame(
           device: widget.currentDevice,
@@ -43,9 +45,7 @@ class _DeviceShowcaseViewState extends State<DeviceShowcaseView> {
         );
       },
       onAccept: (data) {
-        setState(() {
-          widgets.add(data);
-        });
+        log(data.toString());
       },
     );
   }
