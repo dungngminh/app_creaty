@@ -14,24 +14,11 @@ _$_ScrollPhysics _$$_ScrollPhysicsFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$_ScrollPhysicsFieldMap = <String, String>{
-  'parent': 'parent',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$_ScrollPhysicsToJson(_$_ScrollPhysics instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('parent', instance.parent);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$_ScrollPhysicsToJson(_$_ScrollPhysics instance) =>
+    <String, dynamic>{
+      'parent': instance.parent?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$RangeMaintainingScrollPhysics _$$RangeMaintainingScrollPhysicsFromJson(
         Map<String, dynamic> json) =>
@@ -42,25 +29,12 @@ _$RangeMaintainingScrollPhysics _$$RangeMaintainingScrollPhysicsFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$RangeMaintainingScrollPhysicsFieldMap = <String, String>{
-  'parent': 'parent',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$RangeMaintainingScrollPhysicsToJson(
-    _$RangeMaintainingScrollPhysics instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('parent', instance.parent);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$RangeMaintainingScrollPhysics instance) =>
+    <String, dynamic>{
+      'parent': instance.parent?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$BouncingScrollScrollPhysics _$$BouncingScrollScrollPhysicsFromJson(
         Map<String, dynamic> json) =>
@@ -74,29 +48,14 @@ _$BouncingScrollScrollPhysics _$$BouncingScrollScrollPhysicsFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$BouncingScrollScrollPhysicsFieldMap = <String, String>{
-  'decelerationRate': 'decelerationRate',
-  'parent': 'parent',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$BouncingScrollScrollPhysicsToJson(
-    _$BouncingScrollScrollPhysics instance) {
-  final val = <String, dynamic>{
-    'decelerationRate':
-        _$ScrollDecelerationRateEnumMap[instance.decelerationRate]!,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('parent', instance.parent);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$BouncingScrollScrollPhysics instance) =>
+    <String, dynamic>{
+      'decelerationRate':
+          _$ScrollDecelerationRateEnumMap[instance.decelerationRate]!,
+      'parent': instance.parent?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 const _$ScrollDecelerationRateEnumMap = {
   ScrollDecelerationRate.normal: 'normal',
@@ -112,25 +71,12 @@ _$ClampingScrollPhysics _$$ClampingScrollPhysicsFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ClampingScrollPhysicsFieldMap = <String, String>{
-  'parent': 'parent',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$ClampingScrollPhysicsToJson(
-    _$ClampingScrollPhysics instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('parent', instance.parent);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$ClampingScrollPhysics instance) =>
+    <String, dynamic>{
+      'parent': instance.parent?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$AlwaysScrollableScrollPhysics _$$AlwaysScrollableScrollPhysicsFromJson(
         Map<String, dynamic> json) =>
@@ -141,25 +87,12 @@ _$AlwaysScrollableScrollPhysics _$$AlwaysScrollableScrollPhysicsFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$AlwaysScrollableScrollPhysicsFieldMap = <String, String>{
-  'parent': 'parent',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$AlwaysScrollableScrollPhysicsToJson(
-    _$AlwaysScrollableScrollPhysics instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('parent', instance.parent);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$AlwaysScrollableScrollPhysics instance) =>
+    <String, dynamic>{
+      'parent': instance.parent?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$NeverScrollableScrollPhysics _$$NeverScrollableScrollPhysicsFromJson(
         Map<String, dynamic> json) =>
@@ -170,25 +103,12 @@ _$NeverScrollableScrollPhysics _$$NeverScrollableScrollPhysicsFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$NeverScrollableScrollPhysicsFieldMap = <String, String>{
-  'parent': 'parent',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$NeverScrollableScrollPhysicsToJson(
-    _$NeverScrollableScrollPhysics instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('parent', instance.parent);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$NeverScrollableScrollPhysics instance) =>
+    <String, dynamic>{
+      'parent': instance.parent?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$PageScrollPhysics _$$PageScrollPhysicsFromJson(Map<String, dynamic> json) =>
     _$PageScrollPhysics(
@@ -198,24 +118,11 @@ _$PageScrollPhysics _$$PageScrollPhysicsFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$PageScrollPhysicsFieldMap = <String, String>{
-  'parent': 'parent',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$PageScrollPhysicsToJson(_$PageScrollPhysics instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('parent', instance.parent);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$PageScrollPhysicsToJson(_$PageScrollPhysics instance) =>
+    <String, dynamic>{
+      'parent': instance.parent?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$FixedExtentScrollPhysics _$$FixedExtentScrollPhysicsFromJson(
         Map<String, dynamic> json) =>
@@ -226,22 +133,9 @@ _$FixedExtentScrollPhysics _$$FixedExtentScrollPhysicsFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FixedExtentScrollPhysicsFieldMap = <String, String>{
-  'parent': 'parent',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$FixedExtentScrollPhysicsToJson(
-    _$FixedExtentScrollPhysics instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('parent', instance.parent);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$FixedExtentScrollPhysics instance) =>
+    <String, dynamic>{
+      'parent': instance.parent?.toJson(),
+      'runtimeType': instance.$type,
+    };

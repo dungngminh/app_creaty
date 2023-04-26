@@ -13,15 +13,9 @@ _$ColorFilterMode _$$ColorFilterModeFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ColorFilterModeFieldMap = <String, String>{
-  'color': 'color',
-  'blendMode': 'blendMode',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$ColorFilterModeToJson(_$ColorFilterMode instance) =>
     <String, dynamic>{
-      'color': instance.color,
+      'color': instance.color.toJson(),
       'blendMode': _$BlendModeEnumMap[instance.blendMode]!,
       'runtimeType': instance.$type,
     };
@@ -66,11 +60,6 @@ _$ColorFilterMatrix _$$ColorFilterMatrixFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ColorFilterMatrixFieldMap = <String, String>{
-  'matrix': 'matrix',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$ColorFilterMatrixToJson(_$ColorFilterMatrix instance) =>
     <String, dynamic>{
       'matrix': instance.matrix,
@@ -83,10 +72,6 @@ _$ColorFilterLinearToSrgbGamma _$$ColorFilterLinearToSrgbGammaFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ColorFilterLinearToSrgbGammaFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$ColorFilterLinearToSrgbGammaToJson(
         _$ColorFilterLinearToSrgbGamma instance) =>
     <String, dynamic>{
@@ -98,10 +83,6 @@ _$ColorFilterSrgbToLinearGamma _$$ColorFilterSrgbToLinearGammaFromJson(
     _$ColorFilterSrgbToLinearGamma(
       $type: json['runtimeType'] as String?,
     );
-
-const _$$ColorFilterSrgbToLinearGammaFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$ColorFilterSrgbToLinearGammaToJson(
         _$ColorFilterSrgbToLinearGamma instance) =>

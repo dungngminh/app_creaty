@@ -11,10 +11,6 @@ _$_TextAlignVertical _$$_TextAlignVerticalFromJson(Map<String, dynamic> json) =>
       y: (json['y'] as num).toDouble(),
     );
 
-const _$$_TextAlignVerticalFieldMap = <String, String>{
-  'y': 'y',
-};
-
 Map<String, dynamic> _$$_TextAlignVerticalToJson(
         _$_TextAlignVertical instance) =>
     <String, dynamic>{

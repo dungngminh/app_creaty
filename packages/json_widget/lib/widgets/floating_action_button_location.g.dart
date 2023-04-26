@@ -13,10 +13,6 @@ _$_StartTopFloatingActionButtonLocation
           $type: json['runtimeType'] as String?,
         );
 
-const _$$_StartTopFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$_StartTopFloatingActionButtonLocationToJson(
         _$_StartTopFloatingActionButtonLocation instance) =>
     <String, dynamic>{
@@ -29,10 +25,6 @@ _$_MiniStartTopFloatingActionButtonLocation
         _$_MiniStartTopFloatingActionButtonLocation(
           $type: json['runtimeType'] as String?,
         );
-
-const _$$_MiniStartTopFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$_MiniStartTopFloatingActionButtonLocationToJson(
         _$_MiniStartTopFloatingActionButtonLocation instance) =>
@@ -47,10 +39,6 @@ _$_CenterTopFloatingActionButtonLocation
           $type: json['runtimeType'] as String?,
         );
 
-const _$$_CenterTopFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$_CenterTopFloatingActionButtonLocationToJson(
         _$_CenterTopFloatingActionButtonLocation instance) =>
     <String, dynamic>{
@@ -64,10 +52,6 @@ _$_MiniCenterTopFloatingActionButtonLocation
           $type: json['runtimeType'] as String?,
         );
 
-const _$$_MiniCenterTopFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$_MiniCenterTopFloatingActionButtonLocationToJson(
         _$_MiniCenterTopFloatingActionButtonLocation instance) =>
     <String, dynamic>{
@@ -79,10 +63,6 @@ _$_EndTopFloatingActionButtonLocation
         _$_EndTopFloatingActionButtonLocation(
           $type: json['runtimeType'] as String?,
         );
-
-const _$$_EndTopFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$_EndTopFloatingActionButtonLocationToJson(
         _$_EndTopFloatingActionButtonLocation instance) =>
@@ -97,10 +77,6 @@ _$_MiniEndTopFloatingActionButtonLocation
           $type: json['runtimeType'] as String?,
         );
 
-const _$$_MiniEndTopFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$_MiniEndTopFloatingActionButtonLocationToJson(
         _$_MiniEndTopFloatingActionButtonLocation instance) =>
     <String, dynamic>{
@@ -113,10 +89,6 @@ _$_StartFloatFloatingActionButtonLocation
         _$_StartFloatFloatingActionButtonLocation(
           $type: json['runtimeType'] as String?,
         );
-
-const _$$_StartFloatFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$_StartFloatFloatingActionButtonLocationToJson(
         _$_StartFloatFloatingActionButtonLocation instance) =>
@@ -131,10 +103,6 @@ _$_MiniStartFloatFloatingActionButtonLocation
           $type: json['runtimeType'] as String?,
         );
 
-const _$$_MiniStartFloatFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$_MiniStartFloatFloatingActionButtonLocationToJson(
         _$_MiniStartFloatFloatingActionButtonLocation instance) =>
     <String, dynamic>{
@@ -147,10 +115,6 @@ _$_CenterFloatFloatingActionButtonLocation
         _$_CenterFloatFloatingActionButtonLocation(
           $type: json['runtimeType'] as String?,
         );
-
-const _$$_CenterFloatFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$_CenterFloatFloatingActionButtonLocationToJson(
         _$_CenterFloatFloatingActionButtonLocation instance) =>
@@ -165,11 +129,6 @@ _$_MiniCenterFloatFloatingActionButtonLocation
           $type: json['runtimeType'] as String?,
         );
 
-const _$$_MiniCenterFloatFloatingActionButtonLocationFieldMap =
-    <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$_MiniCenterFloatFloatingActionButtonLocationToJson(
         _$_MiniCenterFloatFloatingActionButtonLocation instance) =>
     <String, dynamic>{
@@ -182,10 +141,6 @@ _$_EndFloatFloatingActionButtonLocation
         _$_EndFloatFloatingActionButtonLocation(
           $type: json['runtimeType'] as String?,
         );
-
-const _$$_EndFloatFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$_EndFloatFloatingActionButtonLocationToJson(
         _$_EndFloatFloatingActionButtonLocation instance) =>
@@ -200,10 +155,6 @@ _$_MiniEndFloatFloatingActionButtonLocation
           $type: json['runtimeType'] as String?,
         );
 
-const _$$_MiniEndFloatFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$_MiniEndFloatFloatingActionButtonLocationToJson(
         _$_MiniEndFloatFloatingActionButtonLocation instance) =>
     <String, dynamic>{
@@ -216,10 +167,6 @@ _$_StartDockedFloatingActionButtonLocation
         _$_StartDockedFloatingActionButtonLocation(
           $type: json['runtimeType'] as String?,
         );
-
-const _$$_StartDockedFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$_StartDockedFloatingActionButtonLocationToJson(
         _$_StartDockedFloatingActionButtonLocation instance) =>
@@ -234,11 +181,6 @@ _$_MiniStartDockedFloatingActionButtonLocation
           $type: json['runtimeType'] as String?,
         );
 
-const _$$_MiniStartDockedFloatingActionButtonLocationFieldMap =
-    <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$_MiniStartDockedFloatingActionButtonLocationToJson(
         _$_MiniStartDockedFloatingActionButtonLocation instance) =>
     <String, dynamic>{
@@ -251,10 +193,6 @@ _$_CenterDockedFloatingActionButtonLocation
         _$_CenterDockedFloatingActionButtonLocation(
           $type: json['runtimeType'] as String?,
         );
-
-const _$$_CenterDockedFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$_CenterDockedFloatingActionButtonLocationToJson(
         _$_CenterDockedFloatingActionButtonLocation instance) =>
@@ -269,11 +207,6 @@ _$_MiniCenterDockedFloatingActionButtonLocation
           $type: json['runtimeType'] as String?,
         );
 
-const _$$_MiniCenterDockedFloatingActionButtonLocationFieldMap =
-    <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$_MiniCenterDockedFloatingActionButtonLocationToJson(
         _$_MiniCenterDockedFloatingActionButtonLocation instance) =>
     <String, dynamic>{
@@ -286,10 +219,6 @@ _$_EndDockedFloatingActionButtonLocation
         _$_EndDockedFloatingActionButtonLocation(
           $type: json['runtimeType'] as String?,
         );
-
-const _$$_EndDockedFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$_EndDockedFloatingActionButtonLocationToJson(
         _$_EndDockedFloatingActionButtonLocation instance) =>
@@ -304,10 +233,6 @@ _$_MiniEndDockedFloatingActionButtonLocation
           $type: json['runtimeType'] as String?,
         );
 
-const _$$_MiniEndDockedFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$_MiniEndDockedFloatingActionButtonLocationToJson(
         _$_MiniEndDockedFloatingActionButtonLocation instance) =>
     <String, dynamic>{
@@ -320,10 +245,6 @@ _$_EndContainedFloatingActionButtonLocation
         _$_EndContainedFloatingActionButtonLocation(
           $type: json['runtimeType'] as String?,
         );
-
-const _$$_EndContainedFloatingActionButtonLocationFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$_EndContainedFloatingActionButtonLocationToJson(
         _$_EndContainedFloatingActionButtonLocation instance) =>

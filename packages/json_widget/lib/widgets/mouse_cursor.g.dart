@@ -11,10 +11,6 @@ _$_MouseCursor _$$_MouseCursorFromJson(Map<String, dynamic> json) =>
       kind: json['kind'] as String,
     );
 
-const _$$_MouseCursorFieldMap = <String, String>{
-  'kind': 'kind',
-};
-
 Map<String, dynamic> _$$_MouseCursorToJson(_$_MouseCursor instance) =>
     <String, dynamic>{
       'kind': instance.kind,

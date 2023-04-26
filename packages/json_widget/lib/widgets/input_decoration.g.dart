@@ -133,122 +133,60 @@ _$_InputDecoration _$$_InputDecorationFromJson(Map<String, dynamic> json) =>
               json['constraints'] as Map<String, dynamic>),
     );
 
-const _$$_InputDecorationFieldMap = <String, String>{
-  'icon': 'icon',
-  'iconColor': 'iconColor',
-  'label': 'label',
-  'labelText': 'labelText',
-  'labelStyle': 'labelStyle',
-  'floatingLabelStyle': 'floatingLabelStyle',
-  'helperText': 'helperText',
-  'helperStyle': 'helperStyle',
-  'helperMaxLines': 'helperMaxLines',
-  'hintText': 'hintText',
-  'hintStyle': 'hintStyle',
-  'hintTextDirection': 'hintTextDirection',
-  'hintMaxLines': 'hintMaxLines',
-  'errorText': 'errorText',
-  'errorStyle': 'errorStyle',
-  'errorMaxLines': 'errorMaxLines',
-  'floatingLabelBehavior': 'floatingLabelBehavior',
-  'floatingLabelAlignment': 'floatingLabelAlignment',
-  'isCollapsed': 'isCollapsed',
-  'isDense': 'isDense',
-  'contentPadding': 'contentPadding',
-  'prefixIcon': 'prefixIcon',
-  'prefixIconConstraints': 'prefixIconConstraints',
-  'prefix': 'prefix',
-  'prefixText': 'prefixText',
-  'prefixStyle': 'prefixStyle',
-  'prefixIconColor': 'prefixIconColor',
-  'suffixIcon': 'suffixIcon',
-  'suffix': 'suffix',
-  'suffixText': 'suffixText',
-  'suffixStyle': 'suffixStyle',
-  'suffixIconColor': 'suffixIconColor',
-  'suffixIconConstraints': 'suffixIconConstraints',
-  'counter': 'counter',
-  'counterText': 'counterText',
-  'counterStyle': 'counterStyle',
-  'filled': 'filled',
-  'fillColor': 'fillColor',
-  'focusColor': 'focusColor',
-  'hoverColor': 'hoverColor',
-  'errorBorder': 'errorBorder',
-  'focusedBorder': 'focusedBorder',
-  'focusedErrorBorder': 'focusedErrorBorder',
-  'disabledBorder': 'disabledBorder',
-  'enabledBorder': 'enabledBorder',
-  'border': 'border',
-  'enabled': 'enabled',
-  'semanticCounterText': 'semanticCounterText',
-  'alignLabelWithHint': 'alignLabelWithHint',
-  'constraints': 'constraints',
-};
-
-Map<String, dynamic> _$$_InputDecorationToJson(_$_InputDecoration instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('icon', instance.icon);
-  writeNotNull('iconColor', instance.iconColor);
-  writeNotNull('label', instance.label);
-  writeNotNull('labelText', instance.labelText);
-  writeNotNull('labelStyle', instance.labelStyle);
-  writeNotNull('floatingLabelStyle', instance.floatingLabelStyle);
-  writeNotNull('helperText', instance.helperText);
-  writeNotNull('helperStyle', instance.helperStyle);
-  writeNotNull('helperMaxLines', instance.helperMaxLines);
-  writeNotNull('hintText', instance.hintText);
-  writeNotNull('hintStyle', instance.hintStyle);
-  writeNotNull(
-      'hintTextDirection', _$TextDirectionEnumMap[instance.hintTextDirection]);
-  writeNotNull('hintMaxLines', instance.hintMaxLines);
-  writeNotNull('errorText', instance.errorText);
-  writeNotNull('errorStyle', instance.errorStyle);
-  writeNotNull('errorMaxLines', instance.errorMaxLines);
-  writeNotNull('floatingLabelBehavior',
-      _$FloatingLabelBehaviorEnumMap[instance.floatingLabelBehavior]);
-  writeNotNull('floatingLabelAlignment', instance.floatingLabelAlignment);
-  val['isCollapsed'] = instance.isCollapsed;
-  writeNotNull('isDense', instance.isDense);
-  writeNotNull('contentPadding', instance.contentPadding);
-  writeNotNull('prefixIcon', instance.prefixIcon);
-  writeNotNull('prefixIconConstraints', instance.prefixIconConstraints);
-  writeNotNull('prefix', instance.prefix);
-  writeNotNull('prefixText', instance.prefixText);
-  writeNotNull('prefixStyle', instance.prefixStyle);
-  writeNotNull('prefixIconColor', instance.prefixIconColor);
-  writeNotNull('suffixIcon', instance.suffixIcon);
-  writeNotNull('suffix', instance.suffix);
-  writeNotNull('suffixText', instance.suffixText);
-  writeNotNull('suffixStyle', instance.suffixStyle);
-  writeNotNull('suffixIconColor', instance.suffixIconColor);
-  writeNotNull('suffixIconConstraints', instance.suffixIconConstraints);
-  writeNotNull('counter', instance.counter);
-  writeNotNull('counterText', instance.counterText);
-  writeNotNull('counterStyle', instance.counterStyle);
-  writeNotNull('filled', instance.filled);
-  writeNotNull('fillColor', instance.fillColor);
-  writeNotNull('focusColor', instance.focusColor);
-  writeNotNull('hoverColor', instance.hoverColor);
-  writeNotNull('errorBorder', instance.errorBorder);
-  writeNotNull('focusedBorder', instance.focusedBorder);
-  writeNotNull('focusedErrorBorder', instance.focusedErrorBorder);
-  writeNotNull('disabledBorder', instance.disabledBorder);
-  writeNotNull('enabledBorder', instance.enabledBorder);
-  writeNotNull('border', instance.border);
-  val['enabled'] = instance.enabled;
-  writeNotNull('semanticCounterText', instance.semanticCounterText);
-  writeNotNull('alignLabelWithHint', instance.alignLabelWithHint);
-  writeNotNull('constraints', instance.constraints);
-  return val;
-}
+Map<String, dynamic> _$$_InputDecorationToJson(_$_InputDecoration instance) =>
+    <String, dynamic>{
+      'icon': instance.icon?.toJson(),
+      'iconColor': instance.iconColor?.toJson(),
+      'label': instance.label?.toJson(),
+      'labelText': instance.labelText,
+      'labelStyle': instance.labelStyle?.toJson(),
+      'floatingLabelStyle': instance.floatingLabelStyle?.toJson(),
+      'helperText': instance.helperText,
+      'helperStyle': instance.helperStyle?.toJson(),
+      'helperMaxLines': instance.helperMaxLines,
+      'hintText': instance.hintText,
+      'hintStyle': instance.hintStyle?.toJson(),
+      'hintTextDirection': _$TextDirectionEnumMap[instance.hintTextDirection],
+      'hintMaxLines': instance.hintMaxLines,
+      'errorText': instance.errorText,
+      'errorStyle': instance.errorStyle?.toJson(),
+      'errorMaxLines': instance.errorMaxLines,
+      'floatingLabelBehavior':
+          _$FloatingLabelBehaviorEnumMap[instance.floatingLabelBehavior],
+      'floatingLabelAlignment': instance.floatingLabelAlignment?.toJson(),
+      'isCollapsed': instance.isCollapsed,
+      'isDense': instance.isDense,
+      'contentPadding': instance.contentPadding?.toJson(),
+      'prefixIcon': instance.prefixIcon?.toJson(),
+      'prefixIconConstraints': instance.prefixIconConstraints?.toJson(),
+      'prefix': instance.prefix?.toJson(),
+      'prefixText': instance.prefixText,
+      'prefixStyle': instance.prefixStyle?.toJson(),
+      'prefixIconColor': instance.prefixIconColor?.toJson(),
+      'suffixIcon': instance.suffixIcon?.toJson(),
+      'suffix': instance.suffix?.toJson(),
+      'suffixText': instance.suffixText,
+      'suffixStyle': instance.suffixStyle?.toJson(),
+      'suffixIconColor': instance.suffixIconColor?.toJson(),
+      'suffixIconConstraints': instance.suffixIconConstraints?.toJson(),
+      'counter': instance.counter?.toJson(),
+      'counterText': instance.counterText,
+      'counterStyle': instance.counterStyle?.toJson(),
+      'filled': instance.filled,
+      'fillColor': instance.fillColor?.toJson(),
+      'focusColor': instance.focusColor?.toJson(),
+      'hoverColor': instance.hoverColor?.toJson(),
+      'errorBorder': instance.errorBorder?.toJson(),
+      'focusedBorder': instance.focusedBorder?.toJson(),
+      'focusedErrorBorder': instance.focusedErrorBorder?.toJson(),
+      'disabledBorder': instance.disabledBorder?.toJson(),
+      'enabledBorder': instance.enabledBorder?.toJson(),
+      'border': instance.border?.toJson(),
+      'enabled': instance.enabled,
+      'semanticCounterText': instance.semanticCounterText,
+      'alignLabelWithHint': instance.alignLabelWithHint,
+      'constraints': instance.constraints?.toJson(),
+    };
 
 const _$TextDirectionEnumMap = {
   TextDirection.rtl: 'rtl',

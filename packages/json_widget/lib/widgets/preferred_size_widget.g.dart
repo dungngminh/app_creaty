@@ -17,28 +17,13 @@ _$PreferredSize _$$PreferredSizeFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$PreferredSizeFieldMap = <String, String>{
-  'key': 'key',
-  'preferredSize': 'preferredSize',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$PreferredSizeToJson(_$PreferredSize instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['preferredSize'] = instance.preferredSize;
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$PreferredSizeToJson(_$PreferredSize instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'preferredSize': instance.preferredSize.toJson(),
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$AppBar _$$AppBarFromJson(Map<String, dynamic> json) => _$AppBar(
       key: json['key'] == null
@@ -100,72 +85,34 @@ _$AppBar _$$AppBarFromJson(Map<String, dynamic> json) => _$AppBar(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$AppBarFieldMap = <String, String>{
-  'key': 'key',
-  'leading': 'leading',
-  'automaticallyImplyLeading': 'automaticallyImplyLeading',
-  'title': 'title',
-  'actions': 'actions',
-  'flexibleSpace': 'flexibleSpace',
-  'bottom': 'bottom',
-  'elevation': 'elevation',
-  'scrolledUnderElevation': 'scrolledUnderElevation',
-  'shadowColor': 'shadowColor',
-  'surfaceTintColor': 'surfaceTintColor',
-  'shape': 'shape',
-  'backgroundColor': 'backgroundColor',
-  'foregroundColor': 'foregroundColor',
-  'primary': 'primary',
-  'centerTitle': 'centerTitle',
-  'excludeHeaderSemantics': 'excludeHeaderSemantics',
-  'titleSpacing': 'titleSpacing',
-  'toolbarOpacity': 'toolbarOpacity',
-  'bottomOpacity': 'bottomOpacity',
-  'toolbarHeight': 'toolbarHeight',
-  'leadingWidth': 'leadingWidth',
-  'toolbarTextStyle': 'toolbarTextStyle',
-  'titleTextStyle': 'titleTextStyle',
-  'forceMaterialTransparency': 'forceMaterialTransparency',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$AppBarToJson(_$AppBar instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('leading', instance.leading);
-  val['automaticallyImplyLeading'] = instance.automaticallyImplyLeading;
-  writeNotNull('title', instance.title);
-  writeNotNull('actions', instance.actions);
-  writeNotNull('flexibleSpace', instance.flexibleSpace);
-  writeNotNull('bottom', instance.bottom);
-  writeNotNull('elevation', instance.elevation);
-  writeNotNull('scrolledUnderElevation', instance.scrolledUnderElevation);
-  writeNotNull('shadowColor', instance.shadowColor);
-  writeNotNull('surfaceTintColor', instance.surfaceTintColor);
-  writeNotNull('shape', instance.shape);
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('foregroundColor', instance.foregroundColor);
-  val['primary'] = instance.primary;
-  writeNotNull('centerTitle', instance.centerTitle);
-  val['excludeHeaderSemantics'] = instance.excludeHeaderSemantics;
-  writeNotNull('titleSpacing', instance.titleSpacing);
-  val['toolbarOpacity'] = instance.toolbarOpacity;
-  val['bottomOpacity'] = instance.bottomOpacity;
-  writeNotNull('toolbarHeight', instance.toolbarHeight);
-  writeNotNull('leadingWidth', instance.leadingWidth);
-  writeNotNull('toolbarTextStyle', instance.toolbarTextStyle);
-  writeNotNull('titleTextStyle', instance.titleTextStyle);
-  val['forceMaterialTransparency'] = instance.forceMaterialTransparency;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$AppBarToJson(_$AppBar instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'leading': instance.leading?.toJson(),
+      'automaticallyImplyLeading': instance.automaticallyImplyLeading,
+      'title': instance.title?.toJson(),
+      'actions': instance.actions?.map((e) => e.toJson()).toList(),
+      'flexibleSpace': instance.flexibleSpace?.toJson(),
+      'bottom': instance.bottom?.toJson(),
+      'elevation': instance.elevation,
+      'scrolledUnderElevation': instance.scrolledUnderElevation,
+      'shadowColor': instance.shadowColor?.toJson(),
+      'surfaceTintColor': instance.surfaceTintColor?.toJson(),
+      'shape': instance.shape?.toJson(),
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'foregroundColor': instance.foregroundColor?.toJson(),
+      'primary': instance.primary,
+      'centerTitle': instance.centerTitle,
+      'excludeHeaderSemantics': instance.excludeHeaderSemantics,
+      'titleSpacing': instance.titleSpacing,
+      'toolbarOpacity': instance.toolbarOpacity,
+      'bottomOpacity': instance.bottomOpacity,
+      'toolbarHeight': instance.toolbarHeight,
+      'leadingWidth': instance.leadingWidth,
+      'toolbarTextStyle': instance.toolbarTextStyle?.toJson(),
+      'titleTextStyle': instance.titleTextStyle?.toJson(),
+      'forceMaterialTransparency': instance.forceMaterialTransparency,
+      'runtimeType': instance.$type,
+    };
 
 _$TabBar _$$TabBarFromJson(Map<String, dynamic> json) => _$TabBar(
       key: json['key'] == null
@@ -238,71 +185,34 @@ _$TabBar _$$TabBarFromJson(Map<String, dynamic> json) => _$TabBar(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$TabBarFieldMap = <String, String>{
-  'key': 'key',
-  'tabs': 'tabs',
-  'isScrollable': 'isScrollable',
-  'onTap': 'onTap',
-  'padding': 'padding',
-  'indicatorColor': 'indicatorColor',
-  'automaticIndicatorColorAdjustment': 'automaticIndicatorColorAdjustment',
-  'indicatorWeight': 'indicatorWeight',
-  'indicatorPadding': 'indicatorPadding',
-  'indicator': 'indicator',
-  'indicatorSize': 'indicatorSize',
-  'dividerColor': 'dividerColor',
-  'labelColor': 'labelColor',
-  'labelStyle': 'labelStyle',
-  'labelPadding': 'labelPadding',
-  'unselectedLabelColor': 'unselectedLabelColor',
-  'unselectedLabelStyle': 'unselectedLabelStyle',
-  'dragStartBehavior': 'dragStartBehavior',
-  'overlayColor': 'overlayColor',
-  'mouseCursor': 'mouseCursor',
-  'enableFeedback': 'enableFeedback',
-  'physics': 'physics',
-  'splashBorderRadius': 'splashBorderRadius',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$TabBarToJson(_$TabBar instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['tabs'] = instance.tabs;
-  val['isScrollable'] = instance.isScrollable;
-  writeNotNull('onTap', instance.onTap);
-  writeNotNull('padding', instance.padding);
-  writeNotNull('indicatorColor', instance.indicatorColor);
-  val['automaticIndicatorColorAdjustment'] =
-      instance.automaticIndicatorColorAdjustment;
-  val['indicatorWeight'] = instance.indicatorWeight;
-  val['indicatorPadding'] = instance.indicatorPadding;
-  writeNotNull('indicator', instance.indicator);
-  writeNotNull(
-      'indicatorSize', _$TabBarIndicatorSizeEnumMap[instance.indicatorSize]);
-  writeNotNull('dividerColor', instance.dividerColor);
-  writeNotNull('labelColor', instance.labelColor);
-  writeNotNull('labelStyle', instance.labelStyle);
-  writeNotNull('labelPadding', instance.labelPadding);
-  writeNotNull('unselectedLabelColor', instance.unselectedLabelColor);
-  writeNotNull('unselectedLabelStyle', instance.unselectedLabelStyle);
-  val['dragStartBehavior'] =
-      _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!;
-  writeNotNull('overlayColor', instance.overlayColor);
-  writeNotNull('mouseCursor', instance.mouseCursor);
-  writeNotNull('enableFeedback', instance.enableFeedback);
-  writeNotNull('physics', instance.physics);
-  writeNotNull('splashBorderRadius', instance.splashBorderRadius);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$TabBarToJson(_$TabBar instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'tabs': instance.tabs.map((e) => e.toJson()).toList(),
+      'isScrollable': instance.isScrollable,
+      'onTap': instance.onTap?.toJson(),
+      'padding': instance.padding?.toJson(),
+      'indicatorColor': instance.indicatorColor?.toJson(),
+      'automaticIndicatorColorAdjustment':
+          instance.automaticIndicatorColorAdjustment,
+      'indicatorWeight': instance.indicatorWeight,
+      'indicatorPadding': instance.indicatorPadding.toJson(),
+      'indicator': instance.indicator?.toJson(),
+      'indicatorSize': _$TabBarIndicatorSizeEnumMap[instance.indicatorSize],
+      'dividerColor': instance.dividerColor?.toJson(),
+      'labelColor': instance.labelColor?.toJson(),
+      'labelStyle': instance.labelStyle?.toJson(),
+      'labelPadding': instance.labelPadding?.toJson(),
+      'unselectedLabelColor': instance.unselectedLabelColor?.toJson(),
+      'unselectedLabelStyle': instance.unselectedLabelStyle?.toJson(),
+      'dragStartBehavior':
+          _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!,
+      'overlayColor': instance.overlayColor?.toJson(),
+      'mouseCursor': instance.mouseCursor?.toJson(),
+      'enableFeedback': instance.enableFeedback,
+      'physics': instance.physics?.toJson(),
+      'splashBorderRadius': instance.splashBorderRadius?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 const _$TabBarIndicatorSizeEnumMap = {
   TabBarIndicatorSize.tab: 'tab',

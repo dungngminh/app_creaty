@@ -26,31 +26,13 @@ _$_NavigationRailDestination _$$_NavigationRailDestinationFromJson(
           : EdgeInsets.fromJson(json['padding'] as Map<String, dynamic>),
     );
 
-const _$$_NavigationRailDestinationFieldMap = <String, String>{
-  'icon': 'icon',
-  'selectedIcon': 'selectedIcon',
-  'indicatorColor': 'indicatorColor',
-  'indicatorShape': 'indicatorShape',
-  'label': 'label',
-  'padding': 'padding',
-};
-
 Map<String, dynamic> _$$_NavigationRailDestinationToJson(
-    _$_NavigationRailDestination instance) {
-  final val = <String, dynamic>{
-    'icon': instance.icon,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('selectedIcon', instance.selectedIcon);
-  writeNotNull('indicatorColor', instance.indicatorColor);
-  writeNotNull('indicatorShape', instance.indicatorShape);
-  val['label'] = instance.label;
-  writeNotNull('padding', instance.padding);
-  return val;
-}
+        _$_NavigationRailDestination instance) =>
+    <String, dynamic>{
+      'icon': instance.icon.toJson(),
+      'selectedIcon': instance.selectedIcon?.toJson(),
+      'indicatorColor': instance.indicatorColor?.toJson(),
+      'indicatorShape': instance.indicatorShape?.toJson(),
+      'label': instance.label.toJson(),
+      'padding': instance.padding?.toJson(),
+    };

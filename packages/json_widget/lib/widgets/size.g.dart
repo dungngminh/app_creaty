@@ -11,11 +11,6 @@ _$_Size _$$_SizeFromJson(Map<String, dynamic> json) => _$_Size(
       (json['height'] as num).toDouble(),
     );
 
-const _$$_SizeFieldMap = <String, String>{
-  'width': 'width',
-  'height': 'height',
-};
-
 Map<String, dynamic> _$$_SizeToJson(_$_Size instance) => <String, dynamic>{
       'width': instance.width,
       'height': instance.height,

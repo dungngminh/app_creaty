@@ -33,26 +33,15 @@ _$_TableBorder _$$_TableBorderFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$_TableBorderFieldMap = <String, String>{
-  'top': 'top',
-  'right': 'right',
-  'bottom': 'bottom',
-  'left': 'left',
-  'horizontalInside': 'horizontalInside',
-  'verticalInside': 'verticalInside',
-  'borderRadius': 'borderRadius',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$_TableBorderToJson(_$_TableBorder instance) =>
     <String, dynamic>{
-      'top': instance.top,
-      'right': instance.right,
-      'bottom': instance.bottom,
-      'left': instance.left,
-      'horizontalInside': instance.horizontalInside,
-      'verticalInside': instance.verticalInside,
-      'borderRadius': instance.borderRadius,
+      'top': instance.top.toJson(),
+      'right': instance.right.toJson(),
+      'bottom': instance.bottom.toJson(),
+      'left': instance.left.toJson(),
+      'horizontalInside': instance.horizontalInside.toJson(),
+      'verticalInside': instance.verticalInside.toJson(),
+      'borderRadius': instance.borderRadius.toJson(),
       'runtimeType': instance.$type,
     };
 
@@ -70,20 +59,12 @@ _$TableBorderAll _$$TableBorderAllFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$TableBorderAllFieldMap = <String, String>{
-  'color': 'color',
-  'width': 'width',
-  'style': 'style',
-  'borderRadius': 'borderRadius',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$TableBorderAllToJson(_$TableBorderAll instance) =>
     <String, dynamic>{
-      'color': instance.color,
+      'color': instance.color.toJson(),
       'width': instance.width,
       'style': _$BorderStyleEnumMap[instance.style]!,
-      'borderRadius': instance.borderRadius,
+      'borderRadius': instance.borderRadius.toJson(),
       'runtimeType': instance.$type,
     };
 
@@ -104,16 +85,10 @@ _$TableBorderSymmetric _$$TableBorderSymmetricFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$TableBorderSymmetricFieldMap = <String, String>{
-  'inside': 'inside',
-  'outside': 'outside',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$TableBorderSymmetricToJson(
         _$TableBorderSymmetric instance) =>
     <String, dynamic>{
-      'inside': instance.inside,
-      'outside': instance.outside,
+      'inside': instance.inside.toJson(),
+      'outside': instance.outside.toJson(),
       'runtimeType': instance.$type,
     };

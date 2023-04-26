@@ -13,13 +13,6 @@ _$_Rect _$$_RectFromJson(Map<String, dynamic> json) => _$_Rect(
       (json['bottom'] as num).toDouble(),
     );
 
-const _$$_RectFieldMap = <String, String>{
-  'left': 'left',
-  'top': 'top',
-  'right': 'right',
-  'bottom': 'bottom',
-};
-
 Map<String, dynamic> _$$_RectToJson(_$_Rect instance) => <String, dynamic>{
       'left': instance.left,
       'top': instance.top,

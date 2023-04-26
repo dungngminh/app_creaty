@@ -11,10 +11,6 @@ _$TextDecorationNone _$$TextDecorationNoneFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$TextDecorationNoneFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$TextDecorationNoneToJson(
         _$TextDecorationNone instance) =>
     <String, dynamic>{
@@ -26,10 +22,6 @@ _$TextDecorationUnderline _$$TextDecorationUnderlineFromJson(
     _$TextDecorationUnderline(
       $type: json['runtimeType'] as String?,
     );
-
-const _$$TextDecorationUnderlineFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$TextDecorationUnderlineToJson(
         _$TextDecorationUnderline instance) =>
@@ -43,10 +35,6 @@ _$TextDecorationOverline _$$TextDecorationOverlineFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$TextDecorationOverlineFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$TextDecorationOverlineToJson(
         _$TextDecorationOverline instance) =>
     <String, dynamic>{
@@ -58,10 +46,6 @@ _$TextDecorationLineThrough _$$TextDecorationLineThroughFromJson(
     _$TextDecorationLineThrough(
       $type: json['runtimeType'] as String?,
     );
-
-const _$$TextDecorationLineThroughFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$TextDecorationLineThroughToJson(
         _$TextDecorationLineThrough instance) =>

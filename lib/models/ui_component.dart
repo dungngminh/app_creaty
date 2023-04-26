@@ -1,4 +1,4 @@
-import 'package:app_creaty/models/app_creaty_widget.dart';
+import 'package:app_creaty/models/app_creaty_component.dart';
 import 'package:equatable/equatable.dart';
 
 class UIComponent extends Equatable {
@@ -6,7 +6,7 @@ class UIComponent extends Equatable {
     required this.widget,
   }) : currentData = widget.data;
   
-  final AppCreatyWidget widget;
+  final AppCreatyComponent widget;
   final Map<String, dynamic> currentData;
 
   @override

@@ -22,19 +22,11 @@ _$Border _$$BorderFromJson(Map<String, dynamic> json) => _$Border(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$BorderFieldMap = <String, String>{
-  'top': 'top',
-  'right': 'right',
-  'bottom': 'bottom',
-  'left': 'left',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$BorderToJson(_$Border instance) => <String, dynamic>{
-      'top': instance.top,
-      'right': instance.right,
-      'bottom': instance.bottom,
-      'left': instance.left,
+      'top': instance.top.toJson(),
+      'right': instance.right.toJson(),
+      'bottom': instance.bottom.toJson(),
+      'left': instance.left.toJson(),
       'runtimeType': instance.$type,
     };
 
@@ -55,20 +47,12 @@ _$BorderDirectional _$$BorderDirectionalFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$BorderDirectionalFieldMap = <String, String>{
-  'top': 'top',
-  'start': 'start',
-  'end': 'end',
-  'bottom': 'bottom',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$BorderDirectionalToJson(_$BorderDirectional instance) =>
     <String, dynamic>{
-      'top': instance.top,
-      'start': instance.start,
-      'end': instance.end,
-      'bottom': instance.bottom,
+      'top': instance.top.toJson(),
+      'start': instance.start.toJson(),
+      'end': instance.end.toJson(),
+      'bottom': instance.bottom.toJson(),
       'runtimeType': instance.$type,
     };
 
@@ -84,17 +68,11 @@ _$RoundedRectangleBorder _$$RoundedRectangleBorderFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$RoundedRectangleBorderFieldMap = <String, String>{
-  'side': 'side',
-  'borderRadius': 'borderRadius',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$RoundedRectangleBorderToJson(
         _$RoundedRectangleBorder instance) =>
     <String, dynamic>{
-      'side': instance.side,
-      'borderRadius': instance.borderRadius,
+      'side': instance.side.toJson(),
+      'borderRadius': instance.borderRadius.toJson(),
       'runtimeType': instance.$type,
     };
 
@@ -106,14 +84,9 @@ _$StadiumBorder _$$StadiumBorderFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$StadiumBorderFieldMap = <String, String>{
-  'side': 'side',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$StadiumBorderToJson(_$StadiumBorder instance) =>
     <String, dynamic>{
-      'side': instance.side,
+      'side': instance.side.toJson(),
       'runtimeType': instance.$type,
     };
 
@@ -125,15 +98,9 @@ _$OvalBorder _$$OvalBorderFromJson(Map<String, dynamic> json) => _$OvalBorder(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$OvalBorderFieldMap = <String, String>{
-  'side': 'side',
-  'eccentricity': 'eccentricity',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$OvalBorderToJson(_$OvalBorder instance) =>
     <String, dynamic>{
-      'side': instance.side,
+      'side': instance.side.toJson(),
       'eccentricity': instance.eccentricity,
       'runtimeType': instance.$type,
     };
@@ -147,15 +114,9 @@ _$CircleBorder _$$CircleBorderFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$CircleBorderFieldMap = <String, String>{
-  'side': 'side',
-  'eccentricity': 'eccentricity',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$CircleBorderToJson(_$CircleBorder instance) =>
     <String, dynamic>{
-      'side': instance.side,
+      'side': instance.side.toJson(),
       'eccentricity': instance.eccentricity,
       'runtimeType': instance.$type,
     };
@@ -172,17 +133,11 @@ _$ContinuousRectangleBorder _$$ContinuousRectangleBorderFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ContinuousRectangleBorderFieldMap = <String, String>{
-  'side': 'side',
-  'borderRadius': 'borderRadius',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$ContinuousRectangleBorderToJson(
         _$ContinuousRectangleBorder instance) =>
     <String, dynamic>{
-      'side': instance.side,
-      'borderRadius': instance.borderRadius,
+      'side': instance.side.toJson(),
+      'borderRadius': instance.borderRadius.toJson(),
       'runtimeType': instance.$type,
     };
 
@@ -198,17 +153,11 @@ _$BeveledRectangleBorder _$$BeveledRectangleBorderFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$BeveledRectangleBorderFieldMap = <String, String>{
-  'side': 'side',
-  'borderRadius': 'borderRadius',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$BeveledRectangleBorderToJson(
         _$BeveledRectangleBorder instance) =>
     <String, dynamic>{
-      'side': instance.side,
-      'borderRadius': instance.borderRadius,
+      'side': instance.side.toJson(),
+      'borderRadius': instance.borderRadius.toJson(),
       'runtimeType': instance.$type,
     };
 
@@ -220,22 +169,16 @@ _$UnderlineInputBorder _$$UnderlineInputBorderFromJson(
           : BorderSide.fromJson(json['side'] as Map<String, dynamic>),
       borderRadius: json['borderRadius'] == null
           ? const BorderRadius.only(
-              topLeft: Radius.circular(4.0), topRight: Radius.circular(4.0))
+              topLeft: Radius.circular(4), topRight: Radius.circular(4))
           : BorderRadius.fromJson(json['borderRadius'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
-const _$$UnderlineInputBorderFieldMap = <String, String>{
-  'side': 'side',
-  'borderRadius': 'borderRadius',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$UnderlineInputBorderToJson(
         _$UnderlineInputBorder instance) =>
     <String, dynamic>{
-      'side': instance.side,
-      'borderRadius': instance.borderRadius,
+      'side': instance.side.toJson(),
+      'borderRadius': instance.borderRadius.toJson(),
       'runtimeType': instance.$type,
     };
 
@@ -245,24 +188,17 @@ _$OutlineInputBorder _$$OutlineInputBorderFromJson(Map<String, dynamic> json) =>
           ? const BorderSide()
           : BorderSide.fromJson(json['side'] as Map<String, dynamic>),
       borderRadius: json['borderRadius'] == null
-          ? const BorderRadius.all(Radius.circular(4.0))
+          ? const BorderRadius.all(Radius.circular(4))
           : BorderRadius.fromJson(json['borderRadius'] as Map<String, dynamic>),
       gapPadding: (json['gapPadding'] as num?)?.toDouble() ?? 4.0,
       $type: json['runtimeType'] as String?,
     );
 
-const _$$OutlineInputBorderFieldMap = <String, String>{
-  'side': 'side',
-  'borderRadius': 'borderRadius',
-  'gapPadding': 'gapPadding',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$OutlineInputBorderToJson(
         _$OutlineInputBorder instance) =>
     <String, dynamic>{
-      'side': instance.side,
-      'borderRadius': instance.borderRadius,
+      'side': instance.side.toJson(),
+      'borderRadius': instance.borderRadius.toJson(),
       'gapPadding': instance.gapPadding,
       'runtimeType': instance.$type,
     };
@@ -271,10 +207,6 @@ _$InputBorderNone _$$InputBorderNoneFromJson(Map<String, dynamic> json) =>
     _$InputBorderNone(
       $type: json['runtimeType'] as String?,
     );
-
-const _$$InputBorderNoneFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$InputBorderNoneToJson(_$InputBorderNone instance) =>
     <String, dynamic>{
@@ -294,20 +226,9 @@ _$StarBorder _$$StarBorderFromJson(Map<String, dynamic> json) => _$StarBorder(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$StarBorderFieldMap = <String, String>{
-  'side': 'side',
-  'points': 'points',
-  'innerRadiusRatio': 'innerRadiusRatio',
-  'pointRounding': 'pointRounding',
-  'valleyRounding': 'valleyRounding',
-  'rotation': 'rotation',
-  'squash': 'squash',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$StarBorderToJson(_$StarBorder instance) =>
     <String, dynamic>{
-      'side': instance.side,
+      'side': instance.side.toJson(),
       'points': instance.points,
       'innerRadiusRatio': instance.innerRadiusRatio,
       'pointRounding': instance.pointRounding,

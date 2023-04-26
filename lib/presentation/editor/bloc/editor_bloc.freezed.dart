@@ -166,6 +166,7 @@ abstract class _Started implements EditorEvent {
 /// @nodoc
 mixin _$EditorState {
   DeviceInfo get currentDevice => throw _privateConstructorUsedError;
+  bool get isFrameVisibe => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EditorStateCopyWith<EditorState> get copyWith =>
@@ -178,7 +179,7 @@ abstract class $EditorStateCopyWith<$Res> {
           EditorState value, $Res Function(EditorState) then) =
       _$EditorStateCopyWithImpl<$Res, EditorState>;
   @useResult
-  $Res call({DeviceInfo currentDevice});
+  $Res call({DeviceInfo currentDevice, bool isFrameVisibe});
 
   $DeviceInfoCopyWith<$Res> get currentDevice;
 }
@@ -197,12 +198,17 @@ class _$EditorStateCopyWithImpl<$Res, $Val extends EditorState>
   @override
   $Res call({
     Object? currentDevice = null,
+    Object? isFrameVisibe = null,
   }) {
     return _then(_value.copyWith(
       currentDevice: null == currentDevice
           ? _value.currentDevice
           : currentDevice // ignore: cast_nullable_to_non_nullable
               as DeviceInfo,
+      isFrameVisibe: null == isFrameVisibe
+          ? _value.isFrameVisibe
+          : isFrameVisibe // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -223,7 +229,7 @@ abstract class _$$_EditorStateCopyWith<$Res>
       __$$_EditorStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DeviceInfo currentDevice});
+  $Res call({DeviceInfo currentDevice, bool isFrameVisibe});
 
   @override
   $DeviceInfoCopyWith<$Res> get currentDevice;
@@ -241,12 +247,17 @@ class __$$_EditorStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? currentDevice = null,
+    Object? isFrameVisibe = null,
   }) {
     return _then(_$_EditorState(
       currentDevice: null == currentDevice
           ? _value.currentDevice
           : currentDevice // ignore: cast_nullable_to_non_nullable
               as DeviceInfo,
+      isFrameVisibe: null == isFrameVisibe
+          ? _value.isFrameVisibe
+          : isFrameVisibe // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -254,14 +265,18 @@ class __$$_EditorStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_EditorState implements _EditorState {
-  const _$_EditorState({required this.currentDevice});
+  const _$_EditorState(
+      {required this.currentDevice, this.isFrameVisibe = true});
 
   @override
   final DeviceInfo currentDevice;
+  @override
+  @JsonKey()
+  final bool isFrameVisibe;
 
   @override
   String toString() {
-    return 'EditorState(currentDevice: $currentDevice)';
+    return 'EditorState(currentDevice: $currentDevice, isFrameVisibe: $isFrameVisibe)';
   }
 
   @override
@@ -270,11 +285,13 @@ class _$_EditorState implements _EditorState {
         (other.runtimeType == runtimeType &&
             other is _$_EditorState &&
             (identical(other.currentDevice, currentDevice) ||
-                other.currentDevice == currentDevice));
+                other.currentDevice == currentDevice) &&
+            (identical(other.isFrameVisibe, isFrameVisibe) ||
+                other.isFrameVisibe == isFrameVisibe));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentDevice);
+  int get hashCode => Object.hash(runtimeType, currentDevice, isFrameVisibe);
 
   @JsonKey(ignore: true)
   @override
@@ -284,11 +301,14 @@ class _$_EditorState implements _EditorState {
 }
 
 abstract class _EditorState implements EditorState {
-  const factory _EditorState({required final DeviceInfo currentDevice}) =
-      _$_EditorState;
+  const factory _EditorState(
+      {required final DeviceInfo currentDevice,
+      final bool isFrameVisibe}) = _$_EditorState;
 
   @override
   DeviceInfo get currentDevice;
+  @override
+  bool get isFrameVisibe;
   @override
   @JsonKey(ignore: true)
   _$$_EditorStateCopyWith<_$_EditorState> get copyWith =>

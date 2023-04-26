@@ -12,11 +12,6 @@ _$_FontFeature _$$_FontFeatureFromJson(Map<String, dynamic> json) =>
       value: json['value'] as int? ?? 1,
     );
 
-const _$$_FontFeatureFieldMap = <String, String>{
-  'feature': 'feature',
-  'value': 'value',
-};
-
 Map<String, dynamic> _$$_FontFeatureToJson(_$_FontFeature instance) =>
     <String, dynamic>{
       'feature': instance.feature,

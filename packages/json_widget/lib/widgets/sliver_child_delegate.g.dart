@@ -18,18 +18,10 @@ _$SliverChildListDelegateFixed _$$SliverChildListDelegateFixedFromJson(
       semanticIndexOffset: json['semanticIndexOffset'] as int? ?? 0,
     );
 
-const _$$SliverChildListDelegateFixedFieldMap = <String, String>{
-  'children': 'children',
-  'addAutomaticKeepAlives': 'addAutomaticKeepAlives',
-  'addRepaintBoundaries': 'addRepaintBoundaries',
-  'addSemanticIndexes': 'addSemanticIndexes',
-  'semanticIndexOffset': 'semanticIndexOffset',
-};
-
 Map<String, dynamic> _$$SliverChildListDelegateFixedToJson(
         _$SliverChildListDelegateFixed instance) =>
     <String, dynamic>{
-      'children': instance.children,
+      'children': instance.children.map((e) => e.toJson()).toList(),
       'addAutomaticKeepAlives': instance.addAutomaticKeepAlives,
       'addRepaintBoundaries': instance.addRepaintBoundaries,
       'addSemanticIndexes': instance.addSemanticIndexes,

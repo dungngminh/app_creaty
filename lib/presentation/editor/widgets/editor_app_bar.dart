@@ -3,8 +3,8 @@ import 'package:app_creaty/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class MainEditorAppBar extends StatelessWidget with PreferredSizeWidget {
-  const MainEditorAppBar({
+class EditorAppBar extends StatelessWidget with PreferredSizeWidget {
+  const EditorAppBar({
     super.key,
     this.onExtendMenuPressed,
     this.onHomeButtonPressed,

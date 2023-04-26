@@ -18,12 +18,6 @@ _$_TextHeightBehavior _$$_TextHeightBehaviorFromJson(
           TextLeadingDistribution.proportional,
     );
 
-const _$$_TextHeightBehaviorFieldMap = <String, String>{
-  'applyHeightToFirstAscent': 'applyHeightToFirstAscent',
-  'applyHeightToLastDescent': 'applyHeightToLastDescent',
-  'leadingDistribution': 'leadingDistribution',
-};
-
 Map<String, dynamic> _$$_TextHeightBehaviorToJson(
         _$_TextHeightBehavior instance) =>
     <String, dynamic>{

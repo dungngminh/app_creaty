@@ -14,13 +14,6 @@ _$_BoxConstraints _$$_BoxConstraintsFromJson(Map<String, dynamic> json) =>
       maxHeight: (json['maxHeight'] as num?)?.toDouble() ?? double.infinity,
     );
 
-const _$$_BoxConstraintsFieldMap = <String, String>{
-  'minWidth': 'minWidth',
-  'maxWidth': 'maxWidth',
-  'minHeight': 'minHeight',
-  'maxHeight': 'maxHeight',
-};
-
 Map<String, dynamic> _$$_BoxConstraintsToJson(_$_BoxConstraints instance) =>
     <String, dynamic>{
       'minWidth': instance.minWidth,

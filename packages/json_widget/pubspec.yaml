@@ -12,7 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
   freezed_annotation: ^2.2.0
+  http: ^0.13.5
   json_annotation: ^4.8.0
+  url_launcher: ^6.1.10
   vector_math: ^2.1.4
 
 dev_dependencies:

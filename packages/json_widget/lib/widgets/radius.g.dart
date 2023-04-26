@@ -12,11 +12,6 @@ _$RadiusCircular _$$RadiusCircularFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$RadiusCircularFieldMap = <String, String>{
-  'radius': 'radius',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$RadiusCircularToJson(_$RadiusCircular instance) =>
     <String, dynamic>{
       'radius': instance.radius,
@@ -29,12 +24,6 @@ _$RadiusElliptical _$$RadiusEllipticalFromJson(Map<String, dynamic> json) =>
       (json['y'] as num).toDouble(),
       $type: json['runtimeType'] as String?,
     );
-
-const _$$RadiusEllipticalFieldMap = <String, String>{
-  'x': 'x',
-  'y': 'y',
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$RadiusEllipticalToJson(_$RadiusElliptical instance) =>
     <String, dynamic>{

@@ -22,29 +22,12 @@ _$_DropdownMenuItem _$$_DropdownMenuItemFromJson(Map<String, dynamic> json) =>
       child: Widget.fromJson(json['child'] as Map<String, dynamic>),
     );
 
-const _$$_DropdownMenuItemFieldMap = <String, String>{
-  'key': 'key',
-  'onTap': 'onTap',
-  'value': 'value',
-  'enabled': 'enabled',
-  'alignment': 'alignment',
-  'child': 'child',
-};
-
-Map<String, dynamic> _$$_DropdownMenuItemToJson(_$_DropdownMenuItem instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('onTap', instance.onTap);
-  writeNotNull('value', instance.value);
-  val['enabled'] = instance.enabled;
-  val['alignment'] = instance.alignment;
-  val['child'] = instance.child;
-  return val;
-}
+Map<String, dynamic> _$$_DropdownMenuItemToJson(_$_DropdownMenuItem instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'onTap': instance.onTap?.toJson(),
+      'value': instance.value,
+      'enabled': instance.enabled,
+      'alignment': instance.alignment.toJson(),
+      'child': instance.child.toJson(),
+    };

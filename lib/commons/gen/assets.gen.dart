@@ -107,6 +107,10 @@ class $AssetsIconsBoldGen {
 class $AssetsIconsComponentsGen {
   const $AssetsIconsComponentsGen();
 
+  /// File path: assets/icons/components/button.svg
+  SvgGenImage get button =>
+      const SvgGenImage('assets/icons/components/button.svg');
+
   /// File path: assets/icons/components/column.svg
   SvgGenImage get column =>
       const SvgGenImage('assets/icons/components/column.svg');
@@ -131,7 +135,7 @@ class $AssetsIconsComponentsGen {
 
   /// List of all assets
   List<SvgGenImage> get values =>
-      [column, container, divider, image, row, text];
+      [button, column, container, divider, image, row, text];
 }
 
 class $AssetsIconsOtherGen {

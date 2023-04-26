@@ -29,35 +29,16 @@ _$LinearGradient _$$LinearGradientFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$LinearGradientFieldMap = <String, String>{
-  'begin': 'begin',
-  'end': 'end',
-  'colors': 'colors',
-  'stops': 'stops',
-  'tileMode': 'tileMode',
-  'transform': 'transform',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$LinearGradientToJson(_$LinearGradient instance) {
-  final val = <String, dynamic>{
-    'begin': instance.begin,
-    'end': instance.end,
-    'colors': instance.colors,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('stops', instance.stops);
-  val['tileMode'] = _$TileModeEnumMap[instance.tileMode]!;
-  writeNotNull('transform', instance.transform);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$LinearGradientToJson(_$LinearGradient instance) =>
+    <String, dynamic>{
+      'begin': instance.begin.toJson(),
+      'end': instance.end.toJson(),
+      'colors': instance.colors.map((e) => e.toJson()).toList(),
+      'stops': instance.stops,
+      'tileMode': _$TileModeEnumMap[instance.tileMode]!,
+      'transform': instance.transform?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 const _$TileModeEnumMap = {
   TileMode.clamp: 'clamp',
@@ -91,39 +72,18 @@ _$RadialGradient _$$RadialGradientFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$RadialGradientFieldMap = <String, String>{
-  'center': 'center',
-  'radius': 'radius',
-  'colors': 'colors',
-  'stops': 'stops',
-  'tileMode': 'tileMode',
-  'focal': 'focal',
-  'focalRadius': 'focalRadius',
-  'transform': 'transform',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$RadialGradientToJson(_$RadialGradient instance) {
-  final val = <String, dynamic>{
-    'center': instance.center,
-    'radius': instance.radius,
-    'colors': instance.colors,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('stops', instance.stops);
-  val['tileMode'] = _$TileModeEnumMap[instance.tileMode]!;
-  writeNotNull('focal', instance.focal);
-  val['focalRadius'] = instance.focalRadius;
-  writeNotNull('transform', instance.transform);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$RadialGradientToJson(_$RadialGradient instance) =>
+    <String, dynamic>{
+      'center': instance.center.toJson(),
+      'radius': instance.radius,
+      'colors': instance.colors.map((e) => e.toJson()).toList(),
+      'stops': instance.stops,
+      'tileMode': _$TileModeEnumMap[instance.tileMode]!,
+      'focal': instance.focal?.toJson(),
+      'focalRadius': instance.focalRadius,
+      'transform': instance.transform?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SweepGradient _$$SweepGradientFromJson(Map<String, dynamic> json) =>
     _$SweepGradient(
@@ -147,34 +107,14 @@ _$SweepGradient _$$SweepGradientFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SweepGradientFieldMap = <String, String>{
-  'center': 'center',
-  'startAngle': 'startAngle',
-  'endAngle': 'endAngle',
-  'colors': 'colors',
-  'stops': 'stops',
-  'tileMode': 'tileMode',
-  'transform': 'transform',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SweepGradientToJson(_$SweepGradient instance) {
-  final val = <String, dynamic>{
-    'center': instance.center,
-    'startAngle': instance.startAngle,
-    'endAngle': instance.endAngle,
-    'colors': instance.colors,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('stops', instance.stops);
-  val['tileMode'] = _$TileModeEnumMap[instance.tileMode]!;
-  writeNotNull('transform', instance.transform);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SweepGradientToJson(_$SweepGradient instance) =>
+    <String, dynamic>{
+      'center': instance.center.toJson(),
+      'startAngle': instance.startAngle,
+      'endAngle': instance.endAngle,
+      'colors': instance.colors.map((e) => e.toJson()).toList(),
+      'stops': instance.stops,
+      'tileMode': _$TileModeEnumMap[instance.tileMode]!,
+      'transform': instance.transform?.toJson(),
+      'runtimeType': instance.$type,
+    };

@@ -20,34 +20,16 @@ _$SliverGridDelegateWithFixedCrossAxisCount
           $type: json['runtimeType'] as String?,
         );
 
-const _$$SliverGridDelegateWithFixedCrossAxisCountFieldMap = <String, String>{
-  'crossAxisCount': 'crossAxisCount',
-  'mainAxisSpacing': 'mainAxisSpacing',
-  'crossAxisSpacing': 'crossAxisSpacing',
-  'childAspectRatio': 'childAspectRatio',
-  'mainAxisExtent': 'mainAxisExtent',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$SliverGridDelegateWithFixedCrossAxisCountToJson(
-    _$SliverGridDelegateWithFixedCrossAxisCount instance) {
-  final val = <String, dynamic>{
-    'crossAxisCount': instance.crossAxisCount,
-    'mainAxisSpacing': instance.mainAxisSpacing,
-    'crossAxisSpacing': instance.crossAxisSpacing,
-    'childAspectRatio': instance.childAspectRatio,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('mainAxisExtent', instance.mainAxisExtent);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$SliverGridDelegateWithFixedCrossAxisCount instance) =>
+    <String, dynamic>{
+      'crossAxisCount': instance.crossAxisCount,
+      'mainAxisSpacing': instance.mainAxisSpacing,
+      'crossAxisSpacing': instance.crossAxisSpacing,
+      'childAspectRatio': instance.childAspectRatio,
+      'mainAxisExtent': instance.mainAxisExtent,
+      'runtimeType': instance.$type,
+    };
 
 _$SliverGridDelegateWithMaxCrossAxisExtent
     _$$SliverGridDelegateWithMaxCrossAxisExtentFromJson(
@@ -63,31 +45,13 @@ _$SliverGridDelegateWithMaxCrossAxisExtent
           $type: json['runtimeType'] as String?,
         );
 
-const _$$SliverGridDelegateWithMaxCrossAxisExtentFieldMap = <String, String>{
-  'maxCrossAxisExtent': 'maxCrossAxisExtent',
-  'mainAxisSpacing': 'mainAxisSpacing',
-  'crossAxisSpacing': 'crossAxisSpacing',
-  'childAspectRatio': 'childAspectRatio',
-  'mainAxisExtent': 'mainAxisExtent',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$SliverGridDelegateWithMaxCrossAxisExtentToJson(
-    _$SliverGridDelegateWithMaxCrossAxisExtent instance) {
-  final val = <String, dynamic>{
-    'maxCrossAxisExtent': instance.maxCrossAxisExtent,
-    'mainAxisSpacing': instance.mainAxisSpacing,
-    'crossAxisSpacing': instance.crossAxisSpacing,
-    'childAspectRatio': instance.childAspectRatio,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('mainAxisExtent', instance.mainAxisExtent);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$SliverGridDelegateWithMaxCrossAxisExtent instance) =>
+    <String, dynamic>{
+      'maxCrossAxisExtent': instance.maxCrossAxisExtent,
+      'mainAxisSpacing': instance.mainAxisSpacing,
+      'crossAxisSpacing': instance.crossAxisSpacing,
+      'childAspectRatio': instance.childAspectRatio,
+      'mainAxisExtent': instance.mainAxisExtent,
+      'runtimeType': instance.$type,
+    };

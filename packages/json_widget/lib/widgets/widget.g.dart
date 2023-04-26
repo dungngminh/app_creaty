@@ -40,54 +40,24 @@ _$Text _$$TextFromJson(Map<String, dynamic> json) => _$Text(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$TextFieldMap = <String, String>{
-  'data': 'data',
-  'key': 'key',
-  'style': 'style',
-  'strutStyle': 'strutStyle',
-  'textAlign': 'textAlign',
-  'textDirection': 'textDirection',
-  'locale': 'locale',
-  'softWrap': 'softWrap',
-  'overflow': 'overflow',
-  'textScaleFactor': 'textScaleFactor',
-  'maxLines': 'maxLines',
-  'semanticsLabel': 'semanticsLabel',
-  'textWidthBasis': 'textWidthBasis',
-  'textHeightBehavior': 'textHeightBehavior',
-  'selectionColor': 'selectionColor',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$TextToJson(_$Text instance) {
-  final val = <String, dynamic>{
-    'data': instance.data,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('style', instance.style);
-  writeNotNull('strutStyle', instance.strutStyle);
-  writeNotNull('textAlign', _$TextAlignEnumMap[instance.textAlign]);
-  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
-  writeNotNull('locale', instance.locale);
-  writeNotNull('softWrap', instance.softWrap);
-  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
-  writeNotNull('textScaleFactor', instance.textScaleFactor);
-  writeNotNull('maxLines', instance.maxLines);
-  writeNotNull('semanticsLabel', instance.semanticsLabel);
-  writeNotNull(
-      'textWidthBasis', _$TextWidthBasisEnumMap[instance.textWidthBasis]);
-  writeNotNull('textHeightBehavior', instance.textHeightBehavior);
-  writeNotNull('selectionColor', instance.selectionColor);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$TextToJson(_$Text instance) => <String, dynamic>{
+      'data': instance.data,
+      'key': instance.key?.toJson(),
+      'style': instance.style?.toJson(),
+      'strutStyle': instance.strutStyle?.toJson(),
+      'textAlign': _$TextAlignEnumMap[instance.textAlign],
+      'textDirection': _$TextDirectionEnumMap[instance.textDirection],
+      'locale': instance.locale?.toJson(),
+      'softWrap': instance.softWrap,
+      'overflow': _$TextOverflowEnumMap[instance.overflow],
+      'textScaleFactor': instance.textScaleFactor,
+      'maxLines': instance.maxLines,
+      'semanticsLabel': instance.semanticsLabel,
+      'textWidthBasis': _$TextWidthBasisEnumMap[instance.textWidthBasis],
+      'textHeightBehavior': instance.textHeightBehavior?.toJson(),
+      'selectionColor': instance.selectionColor?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 const _$TextAlignEnumMap = {
   TextAlign.left: 'left',
@@ -127,30 +97,14 @@ _$SizedBox _$$SizedBoxFromJson(Map<String, dynamic> json) => _$SizedBox(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SizedBoxFieldMap = <String, String>{
-  'key': 'key',
-  'width': 'width',
-  'height': 'height',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SizedBoxToJson(_$SizedBox instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('width', instance.width);
-  writeNotNull('height', instance.height);
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SizedBoxToJson(_$SizedBox instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'width': instance.width,
+      'height': instance.height,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SizedBoxExpanded _$$SizedBoxExpandedFromJson(Map<String, dynamic> json) =>
     _$SizedBoxExpanded(
@@ -163,26 +117,12 @@ _$SizedBoxExpanded _$$SizedBoxExpandedFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SizedBoxExpandedFieldMap = <String, String>{
-  'key': 'key',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SizedBoxExpandedToJson(_$SizedBoxExpanded instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SizedBoxExpandedToJson(_$SizedBoxExpanded instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SizedBoxShrink _$$SizedBoxShrinkFromJson(Map<String, dynamic> json) =>
     _$SizedBoxShrink(
@@ -195,26 +135,12 @@ _$SizedBoxShrink _$$SizedBoxShrinkFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SizedBoxShrinkFieldMap = <String, String>{
-  'key': 'key',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SizedBoxShrinkToJson(_$SizedBoxShrink instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SizedBoxShrinkToJson(_$SizedBoxShrink instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Container _$$ContainerFromJson(Map<String, dynamic> json) => _$Container(
       key: json['key'] == null
@@ -259,53 +185,25 @@ _$Container _$$ContainerFromJson(Map<String, dynamic> json) => _$Container(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ContainerFieldMap = <String, String>{
-  'key': 'key',
-  'alignment': 'alignment',
-  'padding': 'padding',
-  'color': 'color',
-  'decoration': 'decoration',
-  'foregroundDecoration': 'foregroundDecoration',
-  'width': 'width',
-  'height': 'height',
-  'constraints': 'constraints',
-  'margin': 'margin',
-  'transform': 'transform',
-  'transformAlignment': 'transformAlignment',
-  'child': 'child',
-  'clipBehavior': 'clipBehavior',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ContainerToJson(_$Container instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('alignment', instance.alignment);
-  writeNotNull('padding', instance.padding);
-  writeNotNull('color', instance.color);
-  writeNotNull('decoration', instance.decoration);
-  writeNotNull('foregroundDecoration', instance.foregroundDecoration);
-  writeNotNull('width', instance.width);
-  writeNotNull('height', instance.height);
-  writeNotNull('constraints', instance.constraints);
-  writeNotNull('margin', instance.margin);
-  writeNotNull(
-      'transform',
-      _$JsonConverterToJson<List<double>, Matrix4>(
-          instance.transform, matrixConverter.toJson));
-  writeNotNull('transformAlignment', instance.transformAlignment);
-  writeNotNull('child', instance.child);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ContainerToJson(_$Container instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'alignment': instance.alignment?.toJson(),
+      'padding': instance.padding?.toJson(),
+      'color': instance.color?.toJson(),
+      'decoration': instance.decoration?.toJson(),
+      'foregroundDecoration': instance.foregroundDecoration?.toJson(),
+      'width': instance.width,
+      'height': instance.height,
+      'constraints': instance.constraints?.toJson(),
+      'margin': instance.margin?.toJson(),
+      'transform': _$JsonConverterToJson<List<double>, Matrix4>(
+          instance.transform, matrixConverter.toJson),
+      'transformAlignment': instance.transformAlignment?.toJson(),
+      'child': instance.child?.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'runtimeType': instance.$type,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,
@@ -339,28 +237,13 @@ _$ConstrainedBox _$$ConstrainedBoxFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ConstrainedBoxFieldMap = <String, String>{
-  'key': 'key',
-  'constraints': 'constraints',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ConstrainedBoxToJson(_$ConstrainedBox instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['constraints'] = instance.constraints;
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ConstrainedBoxToJson(_$ConstrainedBox instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'constraints': instance.constraints.toJson(),
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Flex _$$FlexFromJson(Map<String, dynamic> json) => _$Flex(
       key: json['key'] == null
@@ -392,45 +275,22 @@ _$Flex _$$FlexFromJson(Map<String, dynamic> json) => _$Flex(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FlexFieldMap = <String, String>{
-  'key': 'key',
-  'direction': 'direction',
-  'mainAxisAlignment': 'mainAxisAlignment',
-  'mainAxisSize': 'mainAxisSize',
-  'crossAxisAlignment': 'crossAxisAlignment',
-  'textDirection': 'textDirection',
-  'verticalDirection': 'verticalDirection',
-  'textBaseline': 'textBaseline',
-  'clipBehavior': 'clipBehavior',
-  'children': 'children',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FlexToJson(_$Flex instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['direction'] = _$AxisEnumMap[instance.direction]!;
-  val['mainAxisAlignment'] =
-      _$MainAxisAlignmentEnumMap[instance.mainAxisAlignment]!;
-  val['mainAxisSize'] = _$MainAxisSizeEnumMap[instance.mainAxisSize]!;
-  val['crossAxisAlignment'] =
-      _$CrossAxisAlignmentEnumMap[instance.crossAxisAlignment]!;
-  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
-  val['verticalDirection'] =
-      _$VerticalDirectionEnumMap[instance.verticalDirection]!;
-  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['children'] = instance.children;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FlexToJson(_$Flex instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'direction': _$AxisEnumMap[instance.direction]!,
+      'mainAxisAlignment':
+          _$MainAxisAlignmentEnumMap[instance.mainAxisAlignment]!,
+      'mainAxisSize': _$MainAxisSizeEnumMap[instance.mainAxisSize]!,
+      'crossAxisAlignment':
+          _$CrossAxisAlignmentEnumMap[instance.crossAxisAlignment]!,
+      'textDirection': _$TextDirectionEnumMap[instance.textDirection],
+      'verticalDirection':
+          _$VerticalDirectionEnumMap[instance.verticalDirection]!,
+      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'children': instance.children.map((e) => e.toJson()).toList(),
+      'runtimeType': instance.$type,
+    };
 
 const _$AxisEnumMap = {
   Axis.horizontal: 'horizontal',
@@ -500,46 +360,22 @@ _$Wrap _$$WrapFromJson(Map<String, dynamic> json) => _$Wrap(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$WrapFieldMap = <String, String>{
-  'key': 'key',
-  'direction': 'direction',
-  'alignment': 'alignment',
-  'spacing': 'spacing',
-  'runAlignment': 'runAlignment',
-  'runSpacing': 'runSpacing',
-  'crossAxisAlignment': 'crossAxisAlignment',
-  'textDirection': 'textDirection',
-  'verticalDirection': 'verticalDirection',
-  'clipBehavior': 'clipBehavior',
-  'children': 'children',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$WrapToJson(_$Wrap instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['direction'] = _$AxisEnumMap[instance.direction]!;
-  val['alignment'] = _$WrapAlignmentEnumMap[instance.alignment]!;
-  val['spacing'] = instance.spacing;
-  val['runAlignment'] = _$WrapAlignmentEnumMap[instance.runAlignment]!;
-  val['runSpacing'] = instance.runSpacing;
-  val['crossAxisAlignment'] =
-      _$WrapCrossAlignmentEnumMap[instance.crossAxisAlignment]!;
-  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
-  val['verticalDirection'] =
-      _$VerticalDirectionEnumMap[instance.verticalDirection]!;
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['children'] = instance.children;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$WrapToJson(_$Wrap instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'direction': _$AxisEnumMap[instance.direction]!,
+      'alignment': _$WrapAlignmentEnumMap[instance.alignment]!,
+      'spacing': instance.spacing,
+      'runAlignment': _$WrapAlignmentEnumMap[instance.runAlignment]!,
+      'runSpacing': instance.runSpacing,
+      'crossAxisAlignment':
+          _$WrapCrossAlignmentEnumMap[instance.crossAxisAlignment]!,
+      'textDirection': _$TextDirectionEnumMap[instance.textDirection],
+      'verticalDirection':
+          _$VerticalDirectionEnumMap[instance.verticalDirection]!,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'children': instance.children.map((e) => e.toJson()).toList(),
+      'runtimeType': instance.$type,
+    };
 
 const _$WrapAlignmentEnumMap = {
   WrapAlignment.start: 'start',
@@ -583,41 +419,20 @@ _$Row _$$RowFromJson(Map<String, dynamic> json) => _$Row(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$RowFieldMap = <String, String>{
-  'key': 'key',
-  'mainAxisAlignment': 'mainAxisAlignment',
-  'mainAxisSize': 'mainAxisSize',
-  'crossAxisAlignment': 'crossAxisAlignment',
-  'textDirection': 'textDirection',
-  'verticalDirection': 'verticalDirection',
-  'textBaseline': 'textBaseline',
-  'children': 'children',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$RowToJson(_$Row instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['mainAxisAlignment'] =
-      _$MainAxisAlignmentEnumMap[instance.mainAxisAlignment]!;
-  val['mainAxisSize'] = _$MainAxisSizeEnumMap[instance.mainAxisSize]!;
-  val['crossAxisAlignment'] =
-      _$CrossAxisAlignmentEnumMap[instance.crossAxisAlignment]!;
-  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
-  val['verticalDirection'] =
-      _$VerticalDirectionEnumMap[instance.verticalDirection]!;
-  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
-  val['children'] = instance.children;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$RowToJson(_$Row instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'mainAxisAlignment':
+          _$MainAxisAlignmentEnumMap[instance.mainAxisAlignment]!,
+      'mainAxisSize': _$MainAxisSizeEnumMap[instance.mainAxisSize]!,
+      'crossAxisAlignment':
+          _$CrossAxisAlignmentEnumMap[instance.crossAxisAlignment]!,
+      'textDirection': _$TextDirectionEnumMap[instance.textDirection],
+      'verticalDirection':
+          _$VerticalDirectionEnumMap[instance.verticalDirection]!,
+      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
+      'children': instance.children.map((e) => e.toJson()).toList(),
+      'runtimeType': instance.$type,
+    };
 
 _$Column _$$ColumnFromJson(Map<String, dynamic> json) => _$Column(
       key: json['key'] == null
@@ -646,41 +461,20 @@ _$Column _$$ColumnFromJson(Map<String, dynamic> json) => _$Column(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ColumnFieldMap = <String, String>{
-  'key': 'key',
-  'mainAxisAlignment': 'mainAxisAlignment',
-  'mainAxisSize': 'mainAxisSize',
-  'crossAxisAlignment': 'crossAxisAlignment',
-  'textDirection': 'textDirection',
-  'verticalDirection': 'verticalDirection',
-  'textBaseline': 'textBaseline',
-  'children': 'children',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ColumnToJson(_$Column instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['mainAxisAlignment'] =
-      _$MainAxisAlignmentEnumMap[instance.mainAxisAlignment]!;
-  val['mainAxisSize'] = _$MainAxisSizeEnumMap[instance.mainAxisSize]!;
-  val['crossAxisAlignment'] =
-      _$CrossAxisAlignmentEnumMap[instance.crossAxisAlignment]!;
-  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
-  val['verticalDirection'] =
-      _$VerticalDirectionEnumMap[instance.verticalDirection]!;
-  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
-  val['children'] = instance.children;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ColumnToJson(_$Column instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'mainAxisAlignment':
+          _$MainAxisAlignmentEnumMap[instance.mainAxisAlignment]!,
+      'mainAxisSize': _$MainAxisSizeEnumMap[instance.mainAxisSize]!,
+      'crossAxisAlignment':
+          _$CrossAxisAlignmentEnumMap[instance.crossAxisAlignment]!,
+      'textDirection': _$TextDirectionEnumMap[instance.textDirection],
+      'verticalDirection':
+          _$VerticalDirectionEnumMap[instance.verticalDirection]!,
+      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
+      'children': instance.children.map((e) => e.toJson()).toList(),
+      'runtimeType': instance.$type,
+    };
 
 _$Stack _$$StackFromJson(Map<String, dynamic> json) => _$Stack(
       key: json['key'] == null
@@ -702,34 +496,15 @@ _$Stack _$$StackFromJson(Map<String, dynamic> json) => _$Stack(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$StackFieldMap = <String, String>{
-  'key': 'key',
-  'alignment': 'alignment',
-  'textDirection': 'textDirection',
-  'fit': 'fit',
-  'clipBehavior': 'clipBehavior',
-  'children': 'children',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$StackToJson(_$Stack instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['alignment'] = instance.alignment;
-  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
-  val['fit'] = _$StackFitEnumMap[instance.fit]!;
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['children'] = instance.children;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$StackToJson(_$Stack instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'alignment': instance.alignment.toJson(),
+      'textDirection': _$TextDirectionEnumMap[instance.textDirection],
+      'fit': _$StackFitEnumMap[instance.fit]!,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'children': instance.children.map((e) => e.toJson()).toList(),
+      'runtimeType': instance.$type,
+    };
 
 const _$StackFitEnumMap = {
   StackFit.loose: 'loose',
@@ -751,38 +526,18 @@ _$Positioned _$$PositionedFromJson(Map<String, dynamic> json) => _$Positioned(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$PositionedFieldMap = <String, String>{
-  'key': 'key',
-  'left': 'left',
-  'top': 'top',
-  'right': 'right',
-  'bottom': 'bottom',
-  'width': 'width',
-  'height': 'height',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$PositionedToJson(_$Positioned instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('left', instance.left);
-  writeNotNull('top', instance.top);
-  writeNotNull('right', instance.right);
-  writeNotNull('bottom', instance.bottom);
-  writeNotNull('width', instance.width);
-  writeNotNull('height', instance.height);
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$PositionedToJson(_$Positioned instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'left': instance.left,
+      'top': instance.top,
+      'right': instance.right,
+      'bottom': instance.bottom,
+      'width': instance.width,
+      'height': instance.height,
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Image _$$ImageFromJson(Map<String, dynamic> json) => _$Image(
       key: json['key'] == null
@@ -816,54 +571,25 @@ _$Image _$$ImageFromJson(Map<String, dynamic> json) => _$Image(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ImageFieldMap = <String, String>{
-  'key': 'key',
-  'image': 'image',
-  'semanticLabel': 'semanticLabel',
-  'excludeFromSemantics': 'excludeFromSemantics',
-  'width': 'width',
-  'height': 'height',
-  'color': 'color',
-  'colorBlendMode': 'colorBlendMode',
-  'fit': 'fit',
-  'alignment': 'alignment',
-  'repeat': 'repeat',
-  'centerSlice': 'centerSlice',
-  'matchTextDirection': 'matchTextDirection',
-  'gaplessPlayback': 'gaplessPlayback',
-  'isAntiAlias': 'isAntiAlias',
-  'filterQuality': 'filterQuality',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ImageToJson(_$Image instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['image'] = instance.image;
-  writeNotNull('semanticLabel', instance.semanticLabel);
-  val['excludeFromSemantics'] = instance.excludeFromSemantics;
-  writeNotNull('width', instance.width);
-  writeNotNull('height', instance.height);
-  writeNotNull('color', instance.color);
-  writeNotNull('colorBlendMode', _$BlendModeEnumMap[instance.colorBlendMode]);
-  writeNotNull('fit', _$BoxFitEnumMap[instance.fit]);
-  val['alignment'] = instance.alignment;
-  val['repeat'] = _$ImageRepeatEnumMap[instance.repeat]!;
-  writeNotNull('centerSlice', instance.centerSlice);
-  val['matchTextDirection'] = instance.matchTextDirection;
-  val['gaplessPlayback'] = instance.gaplessPlayback;
-  val['isAntiAlias'] = instance.isAntiAlias;
-  val['filterQuality'] = _$FilterQualityEnumMap[instance.filterQuality]!;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ImageToJson(_$Image instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'image': instance.image.toJson(),
+      'semanticLabel': instance.semanticLabel,
+      'excludeFromSemantics': instance.excludeFromSemantics,
+      'width': instance.width,
+      'height': instance.height,
+      'color': instance.color?.toJson(),
+      'colorBlendMode': _$BlendModeEnumMap[instance.colorBlendMode],
+      'fit': _$BoxFitEnumMap[instance.fit],
+      'alignment': instance.alignment.toJson(),
+      'repeat': _$ImageRepeatEnumMap[instance.repeat]!,
+      'centerSlice': instance.centerSlice?.toJson(),
+      'matchTextDirection': instance.matchTextDirection,
+      'gaplessPlayback': instance.gaplessPlayback,
+      'isAntiAlias': instance.isAntiAlias,
+      'filterQuality': _$FilterQualityEnumMap[instance.filterQuality]!,
+      'runtimeType': instance.$type,
+    };
 
 const _$BlendModeEnumMap = {
   BlendMode.clear: 'clear',
@@ -931,30 +657,14 @@ _$Flexible _$$FlexibleFromJson(Map<String, dynamic> json) => _$Flexible(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FlexibleFieldMap = <String, String>{
-  'key': 'key',
-  'flex': 'flex',
-  'fit': 'fit',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FlexibleToJson(_$Flexible instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['flex'] = instance.flex;
-  val['fit'] = _$FlexFitEnumMap[instance.fit]!;
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FlexibleToJson(_$Flexible instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'flex': instance.flex,
+      'fit': _$FlexFitEnumMap[instance.fit]!,
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 const _$FlexFitEnumMap = {
   FlexFit.tight: 'tight',
@@ -970,28 +680,13 @@ _$Expanded _$$ExpandedFromJson(Map<String, dynamic> json) => _$Expanded(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ExpandedFieldMap = <String, String>{
-  'key': 'key',
-  'flex': 'flex',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ExpandedToJson(_$Expanded instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['flex'] = instance.flex;
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ExpandedToJson(_$Expanded instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'flex': instance.flex,
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Center _$$CenterFromJson(Map<String, dynamic> json) => _$Center(
       key: json['key'] == null
@@ -1003,30 +698,13 @@ _$Center _$$CenterFromJson(Map<String, dynamic> json) => _$Center(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$CenterFieldMap = <String, String>{
-  'key': 'key',
-  'widthFactor': 'widthFactor',
-  'heightFactor': 'heightFactor',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$CenterToJson(_$Center instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('widthFactor', instance.widthFactor);
-  writeNotNull('heightFactor', instance.heightFactor);
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$CenterToJson(_$Center instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'widthFactor': instance.widthFactor,
+      'heightFactor': instance.heightFactor,
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Padding _$$PaddingFromJson(Map<String, dynamic> json) => _$Padding(
       key: json['key'] == null
@@ -1037,28 +715,12 @@ _$Padding _$$PaddingFromJson(Map<String, dynamic> json) => _$Padding(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$PaddingFieldMap = <String, String>{
-  'key': 'key',
-  'padding': 'padding',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$PaddingToJson(_$Padding instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['padding'] = instance.padding;
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$PaddingToJson(_$Padding instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'padding': instance.padding.toJson(),
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Spacer _$$SpacerFromJson(Map<String, dynamic> json) => _$Spacer(
       key: json['key'] == null
@@ -1068,26 +730,11 @@ _$Spacer _$$SpacerFromJson(Map<String, dynamic> json) => _$Spacer(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SpacerFieldMap = <String, String>{
-  'key': 'key',
-  'flex': 'flex',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SpacerToJson(_$Spacer instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['flex'] = instance.flex;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SpacerToJson(_$Spacer instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'flex': instance.flex,
+      'runtimeType': instance.$type,
+    };
 
 _$ScrollBar _$$ScrollBarFromJson(Map<String, dynamic> json) => _$ScrollBar(
       key: json['key'] == null
@@ -1106,39 +753,19 @@ _$ScrollBar _$$ScrollBarFromJson(Map<String, dynamic> json) => _$ScrollBar(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ScrollBarFieldMap = <String, String>{
-  'key': 'key',
-  'child': 'child',
-  'thumbVisibility': 'thumbVisibility',
-  'trackVisibility': 'trackVisibility',
-  'thickness': 'thickness',
-  'radius': 'radius',
-  'interactive': 'interactive',
-  'scrollbarOrientation': 'scrollbarOrientation',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ScrollBarToJson(_$ScrollBar instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['child'] = instance.child;
-  writeNotNull('thumbVisibility', instance.thumbVisibility);
-  writeNotNull('trackVisibility', instance.trackVisibility);
-  writeNotNull('thickness', instance.thickness);
-  writeNotNull('radius', instance.radius);
-  writeNotNull('interactive', instance.interactive);
-  writeNotNull('scrollbarOrientation',
-      _$ScrollbarOrientationEnumMap[instance.scrollbarOrientation]);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ScrollBarToJson(_$ScrollBar instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'child': instance.child.toJson(),
+      'thumbVisibility': instance.thumbVisibility,
+      'trackVisibility': instance.trackVisibility,
+      'thickness': instance.thickness,
+      'radius': instance.radius?.toJson(),
+      'interactive': instance.interactive,
+      'scrollbarOrientation':
+          _$ScrollbarOrientationEnumMap[instance.scrollbarOrientation],
+      'runtimeType': instance.$type,
+    };
 
 const _$ScrollbarOrientationEnumMap = {
   ScrollbarOrientation.left: 'left',
@@ -1177,44 +804,22 @@ _$SingleChildScrollView _$$SingleChildScrollViewFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SingleChildScrollViewFieldMap = <String, String>{
-  'key': 'key',
-  'scrollDirection': 'scrollDirection',
-  'reverse': 'reverse',
-  'padding': 'padding',
-  'primary': 'primary',
-  'physics': 'physics',
-  'child': 'child',
-  'clipBehavior': 'clipBehavior',
-  'restorationId': 'restorationId',
-  'keyboardDismissBehavior': 'keyboardDismissBehavior',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$SingleChildScrollViewToJson(
-    _$SingleChildScrollView instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['scrollDirection'] = _$AxisEnumMap[instance.scrollDirection]!;
-  val['reverse'] = instance.reverse;
-  writeNotNull('padding', instance.padding);
-  writeNotNull('primary', instance.primary);
-  writeNotNull('physics', instance.physics);
-  writeNotNull('child', instance.child);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  writeNotNull('restorationId', instance.restorationId);
-  val['keyboardDismissBehavior'] = _$ScrollViewKeyboardDismissBehaviorEnumMap[
-      instance.keyboardDismissBehavior]!;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$SingleChildScrollView instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'scrollDirection': _$AxisEnumMap[instance.scrollDirection]!,
+      'reverse': instance.reverse,
+      'padding': instance.padding?.toJson(),
+      'primary': instance.primary,
+      'physics': instance.physics?.toJson(),
+      'child': instance.child?.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'restorationId': instance.restorationId,
+      'keyboardDismissBehavior': _$ScrollViewKeyboardDismissBehaviorEnumMap[
+          instance.keyboardDismissBehavior]!,
+      'runtimeType': instance.$type,
+    };
 
 const _$ScrollViewKeyboardDismissBehaviorEnumMap = {
   ScrollViewKeyboardDismissBehavior.manual: 'manual',
@@ -1256,56 +861,27 @@ _$ListView _$$ListViewFromJson(Map<String, dynamic> json) => _$ListView(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ListViewFieldMap = <String, String>{
-  'key': 'key',
-  'scrollDirection': 'scrollDirection',
-  'reverse': 'reverse',
-  'primary': 'primary',
-  'physics': 'physics',
-  'shrinkWrap': 'shrinkWrap',
-  'padding': 'padding',
-  'itemExtent': 'itemExtent',
-  'prototypeItem': 'prototypeItem',
-  'addAutomaticKeepAlives': 'addAutomaticKeepAlives',
-  'addRepaintBoundaries': 'addRepaintBoundaries',
-  'addSemanticIndexes': 'addSemanticIndexes',
-  'cacheExtent': 'cacheExtent',
-  'children': 'children',
-  'semanticChildCount': 'semanticChildCount',
-  'restorationId': 'restorationId',
-  'clipBehavior': 'clipBehavior',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ListViewToJson(_$ListView instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['scrollDirection'] = _$AxisEnumMap[instance.scrollDirection]!;
-  val['reverse'] = instance.reverse;
-  writeNotNull('primary', instance.primary);
-  writeNotNull('physics', instance.physics);
-  val['shrinkWrap'] = instance.shrinkWrap;
-  writeNotNull('padding', instance.padding);
-  writeNotNull('itemExtent', instance.itemExtent);
-  writeNotNull('prototypeItem', instance.prototypeItem);
-  val['addAutomaticKeepAlives'] = instance.addAutomaticKeepAlives;
-  val['addRepaintBoundaries'] = instance.addRepaintBoundaries;
-  val['addSemanticIndexes'] = instance.addSemanticIndexes;
-  writeNotNull('cacheExtent', instance.cacheExtent);
-  val['children'] = instance.children;
-  writeNotNull('semanticChildCount', instance.semanticChildCount);
-  writeNotNull('restorationId', instance.restorationId);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ListViewToJson(_$ListView instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'scrollDirection': _$AxisEnumMap[instance.scrollDirection]!,
+      'reverse': instance.reverse,
+      'primary': instance.primary,
+      'physics': instance.physics?.toJson(),
+      'shrinkWrap': instance.shrinkWrap,
+      'padding': instance.padding?.toJson(),
+      'itemExtent': instance.itemExtent,
+      'prototypeItem': instance.prototypeItem?.toJson(),
+      'addAutomaticKeepAlives': instance.addAutomaticKeepAlives,
+      'addRepaintBoundaries': instance.addRepaintBoundaries,
+      'addSemanticIndexes': instance.addSemanticIndexes,
+      'cacheExtent': instance.cacheExtent,
+      'children': instance.children.map((e) => e.toJson()).toList(),
+      'semanticChildCount': instance.semanticChildCount,
+      'restorationId': instance.restorationId,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'runtimeType': instance.$type,
+    };
 
 _$Icon _$$IconFromJson(Map<String, dynamic> json) => _$Icon(
       json['icon'] == null
@@ -1331,44 +907,20 @@ _$Icon _$$IconFromJson(Map<String, dynamic> json) => _$Icon(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$IconFieldMap = <String, String>{
-  'icon': 'icon',
-  'key': 'key',
-  'size': 'size',
-  'fill': 'fill',
-  'weight': 'weight',
-  'grade': 'grade',
-  'opticalSize': 'opticalSize',
-  'color': 'color',
-  'shadows': 'shadows',
-  'semanticLabel': 'semanticLabel',
-  'textDirection': 'textDirection',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$IconToJson(_$Icon instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('icon', instance.icon);
-  writeNotNull('key', instance.key);
-  writeNotNull('size', instance.size);
-  writeNotNull('fill', instance.fill);
-  writeNotNull('weight', instance.weight);
-  writeNotNull('grade', instance.grade);
-  writeNotNull('opticalSize', instance.opticalSize);
-  writeNotNull('color', instance.color);
-  writeNotNull('shadows', instance.shadows);
-  writeNotNull('semanticLabel', instance.semanticLabel);
-  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$IconToJson(_$Icon instance) => <String, dynamic>{
+      'icon': instance.icon?.toJson(),
+      'key': instance.key?.toJson(),
+      'size': instance.size,
+      'fill': instance.fill,
+      'weight': instance.weight,
+      'grade': instance.grade,
+      'opticalSize': instance.opticalSize,
+      'color': instance.color?.toJson(),
+      'shadows': instance.shadows?.map((e) => e.toJson()).toList(),
+      'semanticLabel': instance.semanticLabel,
+      'textDirection': _$TextDirectionEnumMap[instance.textDirection],
+      'runtimeType': instance.$type,
+    };
 
 _$IconButton _$$IconButtonFromJson(Map<String, dynamic> json) => _$IconButton(
       key: json['key'] == null
@@ -1423,64 +975,31 @@ _$IconButton _$$IconButtonFromJson(Map<String, dynamic> json) => _$IconButton(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$IconButtonFieldMap = <String, String>{
-  'key': 'key',
-  'iconSize': 'iconSize',
-  'visualDensity': 'visualDensity',
-  'padding': 'padding',
-  'alignment': 'alignment',
-  'splashRadius': 'splashRadius',
-  'color': 'color',
-  'focusColor': 'focusColor',
-  'hoverColor': 'hoverColor',
-  'highlightColor': 'highlightColor',
-  'splashColor': 'splashColor',
-  'disabledColor': 'disabledColor',
-  'onPressed': 'onPressed',
-  'mouseCursor': 'mouseCursor',
-  'autofocus': 'autofocus',
-  'tooltip': 'tooltip',
-  'enableFeedback': 'enableFeedback',
-  'constraints': 'constraints',
-  'isSelected': 'isSelected',
-  'selectedIcon': 'selectedIcon',
-  'icon': 'icon',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$IconButtonToJson(_$IconButton instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('iconSize', instance.iconSize);
-  writeNotNull('visualDensity', instance.visualDensity);
-  writeNotNull('padding', instance.padding);
-  writeNotNull('alignment', instance.alignment);
-  writeNotNull('splashRadius', instance.splashRadius);
-  writeNotNull('color', instance.color);
-  writeNotNull('focusColor', instance.focusColor);
-  writeNotNull('hoverColor', instance.hoverColor);
-  writeNotNull('highlightColor', instance.highlightColor);
-  writeNotNull('splashColor', instance.splashColor);
-  writeNotNull('disabledColor', instance.disabledColor);
-  val['onPressed'] = instance.onPressed;
-  writeNotNull('mouseCursor', instance.mouseCursor);
-  val['autofocus'] = instance.autofocus;
-  writeNotNull('tooltip', instance.tooltip);
-  writeNotNull('enableFeedback', instance.enableFeedback);
-  writeNotNull('constraints', instance.constraints);
-  writeNotNull('isSelected', instance.isSelected);
-  writeNotNull('selectedIcon', instance.selectedIcon);
-  val['icon'] = instance.icon;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$IconButtonToJson(_$IconButton instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'iconSize': instance.iconSize,
+      'visualDensity': instance.visualDensity?.toJson(),
+      'padding': instance.padding?.toJson(),
+      'alignment': instance.alignment?.toJson(),
+      'splashRadius': instance.splashRadius,
+      'color': instance.color?.toJson(),
+      'focusColor': instance.focusColor?.toJson(),
+      'hoverColor': instance.hoverColor?.toJson(),
+      'highlightColor': instance.highlightColor?.toJson(),
+      'splashColor': instance.splashColor?.toJson(),
+      'disabledColor': instance.disabledColor?.toJson(),
+      'onPressed': instance.onPressed.toJson(),
+      'mouseCursor': instance.mouseCursor?.toJson(),
+      'autofocus': instance.autofocus,
+      'tooltip': instance.tooltip,
+      'enableFeedback': instance.enableFeedback,
+      'constraints': instance.constraints?.toJson(),
+      'isSelected': instance.isSelected,
+      'selectedIcon': instance.selectedIcon?.toJson(),
+      'icon': instance.icon.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Scaffold _$$ScaffoldFromJson(Map<String, dynamic> json) => _$Scaffold(
       key: json['key'] == null
@@ -1541,66 +1060,33 @@ _$Scaffold _$$ScaffoldFromJson(Map<String, dynamic> json) => _$Scaffold(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ScaffoldFieldMap = <String, String>{
-  'key': 'key',
-  'appBar': 'appBar',
-  'body': 'body',
-  'floatingActionButton': 'floatingActionButton',
-  'floatingActionButtonLocation': 'floatingActionButtonLocation',
-  'persistentFooterButtons': 'persistentFooterButtons',
-  'persistentFooterAlignment': 'persistentFooterAlignment',
-  'drawer': 'drawer',
-  'endDrawer': 'endDrawer',
-  'bottomNavigationBar': 'bottomNavigationBar',
-  'bottomSheet': 'bottomSheet',
-  'backgroundColor': 'backgroundColor',
-  'resizeToAvoidBottomInset': 'resizeToAvoidBottomInset',
-  'primary': 'primary',
-  'extendBody': 'extendBody',
-  'extendBodyBehindAppBar': 'extendBodyBehindAppBar',
-  'drawerScrimColor': 'drawerScrimColor',
-  'drawerEdgeDragWidth': 'drawerEdgeDragWidth',
-  'drawerEnableOpenDragGesture': 'drawerEnableOpenDragGesture',
-  'endDrawerEnableOpenDragGesture': 'endDrawerEnableOpenDragGesture',
-  'restorationId': 'restorationId',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ScaffoldToJson(_$Scaffold instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('appBar', instance.appBar);
-  writeNotNull('body', instance.body);
-  writeNotNull('floatingActionButton', instance.floatingActionButton);
-  writeNotNull(
-      'floatingActionButtonLocation', instance.floatingActionButtonLocation);
-  writeNotNull('persistentFooterButtons', instance.persistentFooterButtons);
-  val['persistentFooterAlignment'] = instance.persistentFooterAlignment;
-  writeNotNull('drawer', instance.drawer);
-  writeNotNull('endDrawer', instance.endDrawer);
-  writeNotNull('bottomNavigationBar', instance.bottomNavigationBar);
-  writeNotNull('bottomSheet', instance.bottomSheet);
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('resizeToAvoidBottomInset', instance.resizeToAvoidBottomInset);
-  val['primary'] = instance.primary;
-  val['extendBody'] = instance.extendBody;
-  val['extendBodyBehindAppBar'] = instance.extendBodyBehindAppBar;
-  writeNotNull('drawerScrimColor', instance.drawerScrimColor);
-  writeNotNull('drawerEdgeDragWidth', instance.drawerEdgeDragWidth);
-  val['drawerEnableOpenDragGesture'] = instance.drawerEnableOpenDragGesture;
-  val['endDrawerEnableOpenDragGesture'] =
-      instance.endDrawerEnableOpenDragGesture;
-  writeNotNull('restorationId', instance.restorationId);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ScaffoldToJson(_$Scaffold instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'appBar': instance.appBar?.toJson(),
+      'body': instance.body?.toJson(),
+      'floatingActionButton': instance.floatingActionButton?.toJson(),
+      'floatingActionButtonLocation':
+          instance.floatingActionButtonLocation?.toJson(),
+      'persistentFooterButtons':
+          instance.persistentFooterButtons?.map((e) => e.toJson()).toList(),
+      'persistentFooterAlignment': instance.persistentFooterAlignment.toJson(),
+      'drawer': instance.drawer?.toJson(),
+      'endDrawer': instance.endDrawer?.toJson(),
+      'bottomNavigationBar': instance.bottomNavigationBar?.toJson(),
+      'bottomSheet': instance.bottomSheet?.toJson(),
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'resizeToAvoidBottomInset': instance.resizeToAvoidBottomInset,
+      'primary': instance.primary,
+      'extendBody': instance.extendBody,
+      'extendBodyBehindAppBar': instance.extendBodyBehindAppBar,
+      'drawerScrimColor': instance.drawerScrimColor?.toJson(),
+      'drawerEdgeDragWidth': instance.drawerEdgeDragWidth,
+      'drawerEnableOpenDragGesture': instance.drawerEnableOpenDragGesture,
+      'endDrawerEnableOpenDragGesture': instance.endDrawerEnableOpenDragGesture,
+      'restorationId': instance.restorationId,
+      'runtimeType': instance.$type,
+    };
 
 _$FloatingActionButton _$$FloatingActionButtonFromJson(
         Map<String, dynamic> json) =>
@@ -1652,68 +1138,34 @@ _$FloatingActionButton _$$FloatingActionButtonFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FloatingActionButtonFieldMap = <String, String>{
-  'key': 'key',
-  'child': 'child',
-  'tooltip': 'tooltip',
-  'foregroundColor': 'foregroundColor',
-  'backgroundColor': 'backgroundColor',
-  'focusColor': 'focusColor',
-  'hoverColor': 'hoverColor',
-  'splashColor': 'splashColor',
-  'elevation': 'elevation',
-  'focusElevation': 'focusElevation',
-  'hoverElevation': 'hoverElevation',
-  'highlightElevation': 'highlightElevation',
-  'disabledElevation': 'disabledElevation',
-  'onPressed': 'onPressed',
-  'mouseCursor': 'mouseCursor',
-  'mini': 'mini',
-  'shape': 'shape',
-  'clipBehavior': 'clipBehavior',
-  'autofocus': 'autofocus',
-  'materialTapTargetSize': 'materialTapTargetSize',
-  'isExtended': 'isExtended',
-  'enableFeedback': 'enableFeedback',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$FloatingActionButtonToJson(
-    _$FloatingActionButton instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('child', instance.child);
-  writeNotNull('tooltip', instance.tooltip);
-  writeNotNull('foregroundColor', instance.foregroundColor);
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('focusColor', instance.focusColor);
-  writeNotNull('hoverColor', instance.hoverColor);
-  writeNotNull('splashColor', instance.splashColor);
-  writeNotNull('elevation', instance.elevation);
-  writeNotNull('focusElevation', instance.focusElevation);
-  writeNotNull('hoverElevation', instance.hoverElevation);
-  writeNotNull('highlightElevation', instance.highlightElevation);
-  writeNotNull('disabledElevation', instance.disabledElevation);
-  writeNotNull('onPressed', instance.onPressed);
-  writeNotNull('mouseCursor', instance.mouseCursor);
-  val['mini'] = instance.mini;
-  writeNotNull('shape', instance.shape);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['autofocus'] = instance.autofocus;
-  writeNotNull('materialTapTargetSize',
-      _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize]);
-  val['isExtended'] = instance.isExtended;
-  writeNotNull('enableFeedback', instance.enableFeedback);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$FloatingActionButton instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'child': instance.child?.toJson(),
+      'tooltip': instance.tooltip,
+      'foregroundColor': instance.foregroundColor?.toJson(),
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'focusColor': instance.focusColor?.toJson(),
+      'hoverColor': instance.hoverColor?.toJson(),
+      'splashColor': instance.splashColor?.toJson(),
+      'elevation': instance.elevation,
+      'focusElevation': instance.focusElevation,
+      'hoverElevation': instance.hoverElevation,
+      'highlightElevation': instance.highlightElevation,
+      'disabledElevation': instance.disabledElevation,
+      'onPressed': instance.onPressed?.toJson(),
+      'mouseCursor': instance.mouseCursor?.toJson(),
+      'mini': instance.mini,
+      'shape': instance.shape?.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'autofocus': instance.autofocus,
+      'materialTapTargetSize':
+          _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize],
+      'isExtended': instance.isExtended,
+      'enableFeedback': instance.enableFeedback,
+      'runtimeType': instance.$type,
+    };
 
 const _$MaterialTapTargetSizeEnumMap = {
   MaterialTapTargetSize.padded: 'padded',
@@ -1770,68 +1222,34 @@ _$FloatingActionButtonExtended _$$FloatingActionButtonExtendedFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FloatingActionButtonExtendedFieldMap = <String, String>{
-  'key': 'key',
-  'label': 'label',
-  'icon': 'icon',
-  'tooltip': 'tooltip',
-  'foregroundColor': 'foregroundColor',
-  'backgroundColor': 'backgroundColor',
-  'focusColor': 'focusColor',
-  'hoverColor': 'hoverColor',
-  'splashColor': 'splashColor',
-  'elevation': 'elevation',
-  'focusElevation': 'focusElevation',
-  'hoverElevation': 'hoverElevation',
-  'highlightElevation': 'highlightElevation',
-  'disabledElevation': 'disabledElevation',
-  'onPressed': 'onPressed',
-  'mouseCursor': 'mouseCursor',
-  'shape': 'shape',
-  'clipBehavior': 'clipBehavior',
-  'autofocus': 'autofocus',
-  'materialTapTargetSize': 'materialTapTargetSize',
-  'isExtended': 'isExtended',
-  'enableFeedback': 'enableFeedback',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$FloatingActionButtonExtendedToJson(
-    _$FloatingActionButtonExtended instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['label'] = instance.label;
-  writeNotNull('icon', instance.icon);
-  writeNotNull('tooltip', instance.tooltip);
-  writeNotNull('foregroundColor', instance.foregroundColor);
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('focusColor', instance.focusColor);
-  writeNotNull('hoverColor', instance.hoverColor);
-  writeNotNull('splashColor', instance.splashColor);
-  writeNotNull('elevation', instance.elevation);
-  writeNotNull('focusElevation', instance.focusElevation);
-  writeNotNull('hoverElevation', instance.hoverElevation);
-  writeNotNull('highlightElevation', instance.highlightElevation);
-  writeNotNull('disabledElevation', instance.disabledElevation);
-  writeNotNull('onPressed', instance.onPressed);
-  writeNotNull('mouseCursor', instance.mouseCursor);
-  writeNotNull('shape', instance.shape);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['autofocus'] = instance.autofocus;
-  writeNotNull('materialTapTargetSize',
-      _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize]);
-  val['isExtended'] = instance.isExtended;
-  writeNotNull('enableFeedback', instance.enableFeedback);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$FloatingActionButtonExtended instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'label': instance.label.toJson(),
+      'icon': instance.icon?.toJson(),
+      'tooltip': instance.tooltip,
+      'foregroundColor': instance.foregroundColor?.toJson(),
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'focusColor': instance.focusColor?.toJson(),
+      'hoverColor': instance.hoverColor?.toJson(),
+      'splashColor': instance.splashColor?.toJson(),
+      'elevation': instance.elevation,
+      'focusElevation': instance.focusElevation,
+      'hoverElevation': instance.hoverElevation,
+      'highlightElevation': instance.highlightElevation,
+      'disabledElevation': instance.disabledElevation,
+      'onPressed': instance.onPressed?.toJson(),
+      'mouseCursor': instance.mouseCursor?.toJson(),
+      'shape': instance.shape?.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'autofocus': instance.autofocus,
+      'materialTapTargetSize':
+          _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize],
+      'isExtended': instance.isExtended,
+      'enableFeedback': instance.enableFeedback,
+      'runtimeType': instance.$type,
+    };
 
 _$Card _$$CardFromJson(Map<String, dynamic> json) => _$Card(
       key: json['key'] == null
@@ -1862,44 +1280,20 @@ _$Card _$$CardFromJson(Map<String, dynamic> json) => _$Card(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$CardFieldMap = <String, String>{
-  'key': 'key',
-  'color': 'color',
-  'shadowColor': 'shadowColor',
-  'surfaceTintColor': 'surfaceTintColor',
-  'elevation': 'elevation',
-  'shape': 'shape',
-  'borderOnForeground': 'borderOnForeground',
-  'margin': 'margin',
-  'clipBehavior': 'clipBehavior',
-  'child': 'child',
-  'semanticContainer': 'semanticContainer',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$CardToJson(_$Card instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('color', instance.color);
-  writeNotNull('shadowColor', instance.shadowColor);
-  writeNotNull('surfaceTintColor', instance.surfaceTintColor);
-  writeNotNull('elevation', instance.elevation);
-  writeNotNull('shape', instance.shape);
-  val['borderOnForeground'] = instance.borderOnForeground;
-  writeNotNull('margin', instance.margin);
-  writeNotNull('clipBehavior', _$ClipEnumMap[instance.clipBehavior]);
-  writeNotNull('child', instance.child);
-  val['semanticContainer'] = instance.semanticContainer;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$CardToJson(_$Card instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'color': instance.color?.toJson(),
+      'shadowColor': instance.shadowColor?.toJson(),
+      'surfaceTintColor': instance.surfaceTintColor?.toJson(),
+      'elevation': instance.elevation,
+      'shape': instance.shape?.toJson(),
+      'borderOnForeground': instance.borderOnForeground,
+      'margin': instance.margin?.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior],
+      'child': instance.child?.toJson(),
+      'semanticContainer': instance.semanticContainer,
+      'runtimeType': instance.$type,
+    };
 
 _$Divider _$$DividerFromJson(Map<String, dynamic> json) => _$Divider(
       key: json['key'] == null
@@ -1915,34 +1309,15 @@ _$Divider _$$DividerFromJson(Map<String, dynamic> json) => _$Divider(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$DividerFieldMap = <String, String>{
-  'key': 'key',
-  'height': 'height',
-  'thickness': 'thickness',
-  'indent': 'indent',
-  'endIndent': 'endIndent',
-  'color': 'color',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$DividerToJson(_$Divider instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('height', instance.height);
-  writeNotNull('thickness', instance.thickness);
-  writeNotNull('indent', instance.indent);
-  writeNotNull('endIndent', instance.endIndent);
-  writeNotNull('color', instance.color);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$DividerToJson(_$Divider instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'height': instance.height,
+      'thickness': instance.thickness,
+      'indent': instance.indent,
+      'endIndent': instance.endIndent,
+      'color': instance.color?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$VerticalDivider _$$VerticalDividerFromJson(Map<String, dynamic> json) =>
     _$VerticalDivider(
@@ -1959,34 +1334,16 @@ _$VerticalDivider _$$VerticalDividerFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$VerticalDividerFieldMap = <String, String>{
-  'key': 'key',
-  'width': 'width',
-  'thickness': 'thickness',
-  'indent': 'indent',
-  'endIndent': 'endIndent',
-  'color': 'color',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$VerticalDividerToJson(_$VerticalDivider instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('width', instance.width);
-  writeNotNull('thickness', instance.thickness);
-  writeNotNull('indent', instance.indent);
-  writeNotNull('endIndent', instance.endIndent);
-  writeNotNull('color', instance.color);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$VerticalDividerToJson(_$VerticalDivider instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'width': instance.width,
+      'thickness': instance.thickness,
+      'indent': instance.indent,
+      'endIndent': instance.endIndent,
+      'color': instance.color?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Material _$$MaterialFromJson(Map<String, dynamic> json) => _$Material(
       key: json['key'] == null
@@ -2025,48 +1382,23 @@ _$Material _$$MaterialFromJson(Map<String, dynamic> json) => _$Material(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$MaterialFieldMap = <String, String>{
-  'key': 'key',
-  'type': 'type',
-  'elevation': 'elevation',
-  'color': 'color',
-  'shadowColor': 'shadowColor',
-  'surfaceTintColor': 'surfaceTintColor',
-  'textStyle': 'textStyle',
-  'borderRadius': 'borderRadius',
-  'shape': 'shape',
-  'borderOnForeground': 'borderOnForeground',
-  'clipBehavior': 'clipBehavior',
-  'animationDuration': 'animationDuration',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$MaterialToJson(_$Material instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['type'] = _$MaterialTypeEnumMap[instance.type]!;
-  val['elevation'] = instance.elevation;
-  writeNotNull('color', instance.color);
-  writeNotNull('shadowColor', instance.shadowColor);
-  writeNotNull('surfaceTintColor', instance.surfaceTintColor);
-  writeNotNull('textStyle', instance.textStyle);
-  writeNotNull('borderRadius', instance.borderRadius);
-  writeNotNull('shape', instance.shape);
-  val['borderOnForeground'] = instance.borderOnForeground;
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['animationDuration'] = instance.animationDuration.inMicroseconds;
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$MaterialToJson(_$Material instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'type': _$MaterialTypeEnumMap[instance.type]!,
+      'elevation': instance.elevation,
+      'color': instance.color?.toJson(),
+      'shadowColor': instance.shadowColor?.toJson(),
+      'surfaceTintColor': instance.surfaceTintColor?.toJson(),
+      'textStyle': instance.textStyle?.toJson(),
+      'borderRadius': instance.borderRadius?.toJson(),
+      'shape': instance.shape?.toJson(),
+      'borderOnForeground': instance.borderOnForeground,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'animationDuration': instance.animationDuration.inMicroseconds,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 const _$MaterialTypeEnumMap = {
   MaterialType.canvas: 'canvas',
@@ -2148,82 +1480,40 @@ _$MaterialButton _$$MaterialButtonFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$MaterialButtonFieldMap = <String, String>{
-  'key': 'key',
-  'onPressed': 'onPressed',
-  'onLongPress': 'onLongPress',
-  'mouseCursor': 'mouseCursor',
-  'textColor': 'textColor',
-  'disabledTextColor': 'disabledTextColor',
-  'color': 'color',
-  'disabledColor': 'disabledColor',
-  'focusColor': 'focusColor',
-  'hoverColor': 'hoverColor',
-  'highlightColor': 'highlightColor',
-  'splashColor': 'splashColor',
-  'colorBrightness': 'colorBrightness',
-  'elevation': 'elevation',
-  'focusElevation': 'focusElevation',
-  'hoverElevation': 'hoverElevation',
-  'highlightElevation': 'highlightElevation',
-  'disabledElevation': 'disabledElevation',
-  'padding': 'padding',
-  'visualDensity': 'visualDensity',
-  'shape': 'shape',
-  'clipBehavior': 'clipBehavior',
-  'autofocus': 'autofocus',
-  'materialTapTargetSize': 'materialTapTargetSize',
-  'animationDuration': 'animationDuration',
-  'minWidth': 'minWidth',
-  'height': 'height',
-  'enableFeedback': 'enableFeedback',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$MaterialButtonToJson(_$MaterialButton instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('onPressed', instance.onPressed);
-  writeNotNull('onLongPress', instance.onLongPress);
-  writeNotNull('mouseCursor', instance.mouseCursor);
-  writeNotNull('textColor', instance.textColor);
-  writeNotNull('disabledTextColor', instance.disabledTextColor);
-  writeNotNull('color', instance.color);
-  writeNotNull('disabledColor', instance.disabledColor);
-  writeNotNull('focusColor', instance.focusColor);
-  writeNotNull('hoverColor', instance.hoverColor);
-  writeNotNull('highlightColor', instance.highlightColor);
-  writeNotNull('splashColor', instance.splashColor);
-  writeNotNull(
-      'colorBrightness', _$BrightnessEnumMap[instance.colorBrightness]);
-  writeNotNull('elevation', instance.elevation);
-  writeNotNull('focusElevation', instance.focusElevation);
-  writeNotNull('hoverElevation', instance.hoverElevation);
-  writeNotNull('highlightElevation', instance.highlightElevation);
-  writeNotNull('disabledElevation', instance.disabledElevation);
-  writeNotNull('padding', instance.padding);
-  writeNotNull('visualDensity', instance.visualDensity);
-  writeNotNull('shape', instance.shape);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['autofocus'] = instance.autofocus;
-  writeNotNull('materialTapTargetSize',
-      _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize]);
-  writeNotNull('animationDuration', instance.animationDuration?.inMicroseconds);
-  writeNotNull('minWidth', instance.minWidth);
-  writeNotNull('height', instance.height);
-  val['enableFeedback'] = instance.enableFeedback;
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$MaterialButtonToJson(_$MaterialButton instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'onPressed': instance.onPressed?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'mouseCursor': instance.mouseCursor?.toJson(),
+      'textColor': instance.textColor?.toJson(),
+      'disabledTextColor': instance.disabledTextColor?.toJson(),
+      'color': instance.color?.toJson(),
+      'disabledColor': instance.disabledColor?.toJson(),
+      'focusColor': instance.focusColor?.toJson(),
+      'hoverColor': instance.hoverColor?.toJson(),
+      'highlightColor': instance.highlightColor?.toJson(),
+      'splashColor': instance.splashColor?.toJson(),
+      'colorBrightness': _$BrightnessEnumMap[instance.colorBrightness],
+      'elevation': instance.elevation,
+      'focusElevation': instance.focusElevation,
+      'hoverElevation': instance.hoverElevation,
+      'highlightElevation': instance.highlightElevation,
+      'disabledElevation': instance.disabledElevation,
+      'padding': instance.padding?.toJson(),
+      'visualDensity': instance.visualDensity?.toJson(),
+      'shape': instance.shape?.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'autofocus': instance.autofocus,
+      'materialTapTargetSize':
+          _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize],
+      'animationDuration': instance.animationDuration?.inMicroseconds,
+      'minWidth': instance.minWidth,
+      'height': instance.height,
+      'enableFeedback': instance.enableFeedback,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 const _$BrightnessEnumMap = {
   Brightness.dark: 'dark',
@@ -2248,34 +1538,16 @@ _$OutlinedButton _$$OutlinedButtonFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$OutlinedButtonFieldMap = <String, String>{
-  'key': 'key',
-  'onPressed': 'onPressed',
-  'onLongPress': 'onLongPress',
-  'autofocus': 'autofocus',
-  'clipBehavior': 'clipBehavior',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$OutlinedButtonToJson(_$OutlinedButton instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('onPressed', instance.onPressed);
-  writeNotNull('onLongPress', instance.onLongPress);
-  val['autofocus'] = instance.autofocus;
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$OutlinedButtonToJson(_$OutlinedButton instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'onPressed': instance.onPressed?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'autofocus': instance.autofocus,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$OutlinedButtonIcon _$$OutlinedButtonIconFromJson(Map<String, dynamic> json) =>
     _$OutlinedButtonIcon(
@@ -2295,37 +1567,18 @@ _$OutlinedButtonIcon _$$OutlinedButtonIconFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$OutlinedButtonIconFieldMap = <String, String>{
-  'key': 'key',
-  'onPressed': 'onPressed',
-  'onLongPress': 'onLongPress',
-  'autofocus': 'autofocus',
-  'clipBehavior': 'clipBehavior',
-  'icon': 'icon',
-  'label': 'label',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$OutlinedButtonIconToJson(
-    _$OutlinedButtonIcon instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('onPressed', instance.onPressed);
-  writeNotNull('onLongPress', instance.onLongPress);
-  writeNotNull('autofocus', instance.autofocus);
-  writeNotNull('clipBehavior', _$ClipEnumMap[instance.clipBehavior]);
-  val['icon'] = instance.icon;
-  val['label'] = instance.label;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$OutlinedButtonIcon instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'onPressed': instance.onPressed?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'autofocus': instance.autofocus,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior],
+      'icon': instance.icon.toJson(),
+      'label': instance.label.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$TextButton _$$TextButtonFromJson(Map<String, dynamic> json) => _$TextButton(
       key: json['key'] == null
@@ -2344,34 +1597,16 @@ _$TextButton _$$TextButtonFromJson(Map<String, dynamic> json) => _$TextButton(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$TextButtonFieldMap = <String, String>{
-  'key': 'key',
-  'onPressed': 'onPressed',
-  'onLongPress': 'onLongPress',
-  'autofocus': 'autofocus',
-  'clipBehavior': 'clipBehavior',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$TextButtonToJson(_$TextButton instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('onPressed', instance.onPressed);
-  writeNotNull('onLongPress', instance.onLongPress);
-  val['autofocus'] = instance.autofocus;
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$TextButtonToJson(_$TextButton instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'onPressed': instance.onPressed?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'autofocus': instance.autofocus,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$TextButtonIcon _$$TextButtonIconFromJson(Map<String, dynamic> json) =>
     _$TextButtonIcon(
@@ -2391,36 +1626,17 @@ _$TextButtonIcon _$$TextButtonIconFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$TextButtonIconFieldMap = <String, String>{
-  'key': 'key',
-  'onPressed': 'onPressed',
-  'onLongPress': 'onLongPress',
-  'autofocus': 'autofocus',
-  'clipBehavior': 'clipBehavior',
-  'icon': 'icon',
-  'label': 'label',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$TextButtonIconToJson(_$TextButtonIcon instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('onPressed', instance.onPressed);
-  writeNotNull('onLongPress', instance.onLongPress);
-  writeNotNull('autofocus', instance.autofocus);
-  writeNotNull('clipBehavior', _$ClipEnumMap[instance.clipBehavior]);
-  val['icon'] = instance.icon;
-  val['label'] = instance.label;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$TextButtonIconToJson(_$TextButtonIcon instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'onPressed': instance.onPressed?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'autofocus': instance.autofocus,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior],
+      'icon': instance.icon.toJson(),
+      'label': instance.label.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$FilledButton _$$FilledButtonFromJson(Map<String, dynamic> json) =>
     _$FilledButton(
@@ -2440,34 +1656,16 @@ _$FilledButton _$$FilledButtonFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FilledButtonFieldMap = <String, String>{
-  'key': 'key',
-  'onPressed': 'onPressed',
-  'onLongPress': 'onLongPress',
-  'autofocus': 'autofocus',
-  'clipBehavior': 'clipBehavior',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FilledButtonToJson(_$FilledButton instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('onPressed', instance.onPressed);
-  writeNotNull('onLongPress', instance.onLongPress);
-  val['autofocus'] = instance.autofocus;
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FilledButtonToJson(_$FilledButton instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'onPressed': instance.onPressed?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'autofocus': instance.autofocus,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$FilledButtonIcon _$$FilledButtonIconFromJson(Map<String, dynamic> json) =>
     _$FilledButtonIcon(
@@ -2487,36 +1685,17 @@ _$FilledButtonIcon _$$FilledButtonIconFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FilledButtonIconFieldMap = <String, String>{
-  'key': 'key',
-  'onPressed': 'onPressed',
-  'onLongPress': 'onLongPress',
-  'autofocus': 'autofocus',
-  'clipBehavior': 'clipBehavior',
-  'icon': 'icon',
-  'label': 'label',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FilledButtonIconToJson(_$FilledButtonIcon instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('onPressed', instance.onPressed);
-  writeNotNull('onLongPress', instance.onLongPress);
-  writeNotNull('autofocus', instance.autofocus);
-  writeNotNull('clipBehavior', _$ClipEnumMap[instance.clipBehavior]);
-  val['icon'] = instance.icon;
-  val['label'] = instance.label;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FilledButtonIconToJson(_$FilledButtonIcon instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'onPressed': instance.onPressed?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'autofocus': instance.autofocus,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior],
+      'icon': instance.icon.toJson(),
+      'label': instance.label.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$FilledTonalButton _$$FilledTonalButtonFromJson(Map<String, dynamic> json) =>
     _$FilledTonalButton(
@@ -2536,34 +1715,16 @@ _$FilledTonalButton _$$FilledTonalButtonFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FilledTonalButtonFieldMap = <String, String>{
-  'key': 'key',
-  'onPressed': 'onPressed',
-  'onLongPress': 'onLongPress',
-  'autofocus': 'autofocus',
-  'clipBehavior': 'clipBehavior',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FilledTonalButtonToJson(_$FilledTonalButton instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('onPressed', instance.onPressed);
-  writeNotNull('onLongPress', instance.onLongPress);
-  val['autofocus'] = instance.autofocus;
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FilledTonalButtonToJson(_$FilledTonalButton instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'onPressed': instance.onPressed?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'autofocus': instance.autofocus,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$FilledTonalButtonIcon _$$FilledTonalButtonIconFromJson(
         Map<String, dynamic> json) =>
@@ -2584,37 +1745,18 @@ _$FilledTonalButtonIcon _$$FilledTonalButtonIconFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FilledTonalButtonIconFieldMap = <String, String>{
-  'key': 'key',
-  'onPressed': 'onPressed',
-  'onLongPress': 'onLongPress',
-  'autofocus': 'autofocus',
-  'clipBehavior': 'clipBehavior',
-  'icon': 'icon',
-  'label': 'label',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$FilledTonalButtonIconToJson(
-    _$FilledTonalButtonIcon instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('onPressed', instance.onPressed);
-  writeNotNull('onLongPress', instance.onLongPress);
-  writeNotNull('autofocus', instance.autofocus);
-  writeNotNull('clipBehavior', _$ClipEnumMap[instance.clipBehavior]);
-  val['icon'] = instance.icon;
-  val['label'] = instance.label;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$FilledTonalButtonIcon instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'onPressed': instance.onPressed?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'autofocus': instance.autofocus,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior],
+      'icon': instance.icon.toJson(),
+      'label': instance.label.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$ElevatedButton _$$ElevatedButtonFromJson(Map<String, dynamic> json) =>
     _$ElevatedButton(
@@ -2634,34 +1776,16 @@ _$ElevatedButton _$$ElevatedButtonFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ElevatedButtonFieldMap = <String, String>{
-  'key': 'key',
-  'onPressed': 'onPressed',
-  'onLongPress': 'onLongPress',
-  'autofocus': 'autofocus',
-  'clipBehavior': 'clipBehavior',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ElevatedButtonToJson(_$ElevatedButton instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('onPressed', instance.onPressed);
-  writeNotNull('onLongPress', instance.onLongPress);
-  val['autofocus'] = instance.autofocus;
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ElevatedButtonToJson(_$ElevatedButton instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'onPressed': instance.onPressed?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'autofocus': instance.autofocus,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$ElevatedButtonIcon _$$ElevatedButtonIconFromJson(Map<String, dynamic> json) =>
     _$ElevatedButtonIcon(
@@ -2681,37 +1805,18 @@ _$ElevatedButtonIcon _$$ElevatedButtonIconFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ElevatedButtonIconFieldMap = <String, String>{
-  'key': 'key',
-  'onPressed': 'onPressed',
-  'onLongPress': 'onLongPress',
-  'autofocus': 'autofocus',
-  'clipBehavior': 'clipBehavior',
-  'icon': 'icon',
-  'label': 'label',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$ElevatedButtonIconToJson(
-    _$ElevatedButtonIcon instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('onPressed', instance.onPressed);
-  writeNotNull('onLongPress', instance.onLongPress);
-  writeNotNull('autofocus', instance.autofocus);
-  writeNotNull('clipBehavior', _$ClipEnumMap[instance.clipBehavior]);
-  val['icon'] = instance.icon;
-  val['label'] = instance.label;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$ElevatedButtonIcon instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'onPressed': instance.onPressed?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'autofocus': instance.autofocus,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior],
+      'icon': instance.icon.toJson(),
+      'label': instance.label.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$FractionallySizedBox _$$FractionallySizedBoxFromJson(
         Map<String, dynamic> json) =>
@@ -2730,33 +1835,16 @@ _$FractionallySizedBox _$$FractionallySizedBoxFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FractionallySizedBoxFieldMap = <String, String>{
-  'key': 'key',
-  'alignment': 'alignment',
-  'widthFactor': 'widthFactor',
-  'heightFactor': 'heightFactor',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$FractionallySizedBoxToJson(
-    _$FractionallySizedBox instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['alignment'] = instance.alignment;
-  writeNotNull('widthFactor', instance.widthFactor);
-  writeNotNull('heightFactor', instance.heightFactor);
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$FractionallySizedBox instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'alignment': instance.alignment.toJson(),
+      'widthFactor': instance.widthFactor,
+      'heightFactor': instance.heightFactor,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$FittedBox _$$FittedBoxFromJson(Map<String, dynamic> json) => _$FittedBox(
       key: json['key'] == null
@@ -2774,32 +1862,15 @@ _$FittedBox _$$FittedBoxFromJson(Map<String, dynamic> json) => _$FittedBox(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FittedBoxFieldMap = <String, String>{
-  'key': 'key',
-  'fit': 'fit',
-  'alignment': 'alignment',
-  'clipBehavior': 'clipBehavior',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FittedBoxToJson(_$FittedBox instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['fit'] = _$BoxFitEnumMap[instance.fit]!;
-  val['alignment'] = instance.alignment;
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FittedBoxToJson(_$FittedBox instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'fit': _$BoxFitEnumMap[instance.fit]!,
+      'alignment': instance.alignment.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$GridView _$$GridViewFromJson(Map<String, dynamic> json) => _$GridView(
       key: json['key'] == null
@@ -2838,57 +1909,28 @@ _$GridView _$$GridViewFromJson(Map<String, dynamic> json) => _$GridView(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$GridViewFieldMap = <String, String>{
-  'key': 'key',
-  'scrollDirection': 'scrollDirection',
-  'reverse': 'reverse',
-  'primary': 'primary',
-  'physics': 'physics',
-  'shrinkWrap': 'shrinkWrap',
-  'padding': 'padding',
-  'gridDelegate': 'gridDelegate',
-  'addAutomaticKeepAlives': 'addAutomaticKeepAlives',
-  'addRepaintBoundaries': 'addRepaintBoundaries',
-  'addSemanticIndexes': 'addSemanticIndexes',
-  'cacheExtent': 'cacheExtent',
-  'children': 'children',
-  'semanticChildCount': 'semanticChildCount',
-  'clipBehavior': 'clipBehavior',
-  'keyboardDismissBehavior': 'keyboardDismissBehavior',
-  'restorationId': 'restorationId',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$GridViewToJson(_$GridView instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['scrollDirection'] = _$AxisEnumMap[instance.scrollDirection]!;
-  val['reverse'] = instance.reverse;
-  writeNotNull('primary', instance.primary);
-  writeNotNull('physics', instance.physics);
-  val['shrinkWrap'] = instance.shrinkWrap;
-  writeNotNull('padding', instance.padding);
-  val['gridDelegate'] = instance.gridDelegate;
-  val['addAutomaticKeepAlives'] = instance.addAutomaticKeepAlives;
-  val['addRepaintBoundaries'] = instance.addRepaintBoundaries;
-  val['addSemanticIndexes'] = instance.addSemanticIndexes;
-  writeNotNull('cacheExtent', instance.cacheExtent);
-  val['children'] = instance.children;
-  writeNotNull('semanticChildCount', instance.semanticChildCount);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['keyboardDismissBehavior'] = _$ScrollViewKeyboardDismissBehaviorEnumMap[
-      instance.keyboardDismissBehavior]!;
-  writeNotNull('restorationId', instance.restorationId);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$GridViewToJson(_$GridView instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'scrollDirection': _$AxisEnumMap[instance.scrollDirection]!,
+      'reverse': instance.reverse,
+      'primary': instance.primary,
+      'physics': instance.physics?.toJson(),
+      'shrinkWrap': instance.shrinkWrap,
+      'padding': instance.padding?.toJson(),
+      'gridDelegate': instance.gridDelegate.toJson(),
+      'addAutomaticKeepAlives': instance.addAutomaticKeepAlives,
+      'addRepaintBoundaries': instance.addRepaintBoundaries,
+      'addSemanticIndexes': instance.addSemanticIndexes,
+      'cacheExtent': instance.cacheExtent,
+      'children': instance.children.map((e) => e.toJson()).toList(),
+      'semanticChildCount': instance.semanticChildCount,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'keyboardDismissBehavior': _$ScrollViewKeyboardDismissBehaviorEnumMap[
+          instance.keyboardDismissBehavior]!,
+      'restorationId': instance.restorationId,
+      'runtimeType': instance.$type,
+    };
 
 _$Placeholder _$$PlaceholderFromJson(Map<String, dynamic> json) =>
     _$Placeholder(
@@ -2907,34 +1949,16 @@ _$Placeholder _$$PlaceholderFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$PlaceholderFieldMap = <String, String>{
-  'key': 'key',
-  'color': 'color',
-  'strokeWidth': 'strokeWidth',
-  'fallbackWidth': 'fallbackWidth',
-  'fallbackHeight': 'fallbackHeight',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$PlaceholderToJson(_$Placeholder instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['color'] = instance.color;
-  val['strokeWidth'] = instance.strokeWidth;
-  val['fallbackWidth'] = instance.fallbackWidth;
-  val['fallbackHeight'] = instance.fallbackHeight;
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$PlaceholderToJson(_$Placeholder instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'color': instance.color.toJson(),
+      'strokeWidth': instance.strokeWidth,
+      'fallbackWidth': instance.fallbackWidth,
+      'fallbackHeight': instance.fallbackHeight,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$CircularProgressIndicator _$$CircularProgressIndicatorFromJson(
         Map<String, dynamic> json) =>
@@ -2955,37 +1979,18 @@ _$CircularProgressIndicator _$$CircularProgressIndicatorFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$CircularProgressIndicatorFieldMap = <String, String>{
-  'key': 'key',
-  'value': 'value',
-  'backgroundColor': 'backgroundColor',
-  'color': 'color',
-  'strokeWidth': 'strokeWidth',
-  'semanticsLabel': 'semanticsLabel',
-  'semanticsValue': 'semanticsValue',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$CircularProgressIndicatorToJson(
-    _$CircularProgressIndicator instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('value', instance.value);
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('color', instance.color);
-  val['strokeWidth'] = instance.strokeWidth;
-  writeNotNull('semanticsLabel', instance.semanticsLabel);
-  writeNotNull('semanticsValue', instance.semanticsValue);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$CircularProgressIndicator instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'value': instance.value,
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'color': instance.color?.toJson(),
+      'strokeWidth': instance.strokeWidth,
+      'semanticsLabel': instance.semanticsLabel,
+      'semanticsValue': instance.semanticsValue,
+      'runtimeType': instance.$type,
+    };
 
 _$LinearProgressIndicator _$$LinearProgressIndicatorFromJson(
         Map<String, dynamic> json) =>
@@ -3006,37 +2011,18 @@ _$LinearProgressIndicator _$$LinearProgressIndicatorFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$LinearProgressIndicatorFieldMap = <String, String>{
-  'key': 'key',
-  'value': 'value',
-  'backgroundColor': 'backgroundColor',
-  'color': 'color',
-  'minHeight': 'minHeight',
-  'semanticsLabel': 'semanticsLabel',
-  'semanticsValue': 'semanticsValue',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$LinearProgressIndicatorToJson(
-    _$LinearProgressIndicator instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('value', instance.value);
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('color', instance.color);
-  writeNotNull('minHeight', instance.minHeight);
-  writeNotNull('semanticsLabel', instance.semanticsLabel);
-  writeNotNull('semanticsValue', instance.semanticsValue);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$LinearProgressIndicator instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'value': instance.value,
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'color': instance.color?.toJson(),
+      'minHeight': instance.minHeight,
+      'semanticsLabel': instance.semanticsLabel,
+      'semanticsValue': instance.semanticsValue,
+      'runtimeType': instance.$type,
+    };
 
 _$MaterialApp _$$MaterialAppFromJson(Map<String, dynamic> json) =>
     _$MaterialApp(
@@ -3098,69 +2084,34 @@ _$MaterialApp _$$MaterialAppFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$MaterialAppFieldMap = <String, String>{
-  'key': 'key',
-  'home': 'home',
-  'initialRoute': 'initialRoute',
-  'title': 'title',
-  'color': 'color',
-  'theme': 'theme',
-  'darkTheme': 'darkTheme',
-  'highContrastTheme': 'highContrastTheme',
-  'highContrastDarkTheme': 'highContrastDarkTheme',
-  'themeMode': 'themeMode',
-  'themeAnimationDuration': 'themeAnimationDuration',
-  'themeAnimationCurve': 'themeAnimationCurve',
-  'locale': 'locale',
-  'supportedLocales': 'supportedLocales',
-  'debugShowMaterialGrid': 'debugShowMaterialGrid',
-  'showPerformanceOverlay': 'showPerformanceOverlay',
-  'checkerboardRasterCacheImages': 'checkerboardRasterCacheImages',
-  'checkerboardOffscreenLayers': 'checkerboardOffscreenLayers',
-  'showSemanticsDebugger': 'showSemanticsDebugger',
-  'debugShowCheckedModeBanner': 'debugShowCheckedModeBanner',
-  'restorationScopeId': 'restorationScopeId',
-  'useInheritedMediaQuery': 'useInheritedMediaQuery',
-  'routes': 'routes',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$MaterialAppToJson(_$MaterialApp instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('home', instance.home);
-  writeNotNull('initialRoute', instance.initialRoute);
-  val['title'] = instance.title;
-  writeNotNull('color', instance.color);
-  writeNotNull('theme', instance.theme);
-  writeNotNull('darkTheme', instance.darkTheme);
-  writeNotNull('highContrastTheme', instance.highContrastTheme);
-  writeNotNull('highContrastDarkTheme', instance.highContrastDarkTheme);
-  writeNotNull('themeMode', _$ThemeModeEnumMap[instance.themeMode]);
-  val['themeAnimationDuration'] =
-      instance.themeAnimationDuration.inMicroseconds;
-  val['themeAnimationCurve'] = instance.themeAnimationCurve;
-  writeNotNull('locale', instance.locale);
-  val['supportedLocales'] = instance.supportedLocales.toList();
-  val['debugShowMaterialGrid'] = instance.debugShowMaterialGrid;
-  val['showPerformanceOverlay'] = instance.showPerformanceOverlay;
-  val['checkerboardRasterCacheImages'] = instance.checkerboardRasterCacheImages;
-  val['checkerboardOffscreenLayers'] = instance.checkerboardOffscreenLayers;
-  val['showSemanticsDebugger'] = instance.showSemanticsDebugger;
-  val['debugShowCheckedModeBanner'] = instance.debugShowCheckedModeBanner;
-  writeNotNull('restorationScopeId', instance.restorationScopeId);
-  val['useInheritedMediaQuery'] = instance.useInheritedMediaQuery;
-  val['routes'] = instance.routes;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$MaterialAppToJson(_$MaterialApp instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'home': instance.home?.toJson(),
+      'initialRoute': instance.initialRoute,
+      'title': instance.title,
+      'color': instance.color?.toJson(),
+      'theme': instance.theme?.toJson(),
+      'darkTheme': instance.darkTheme?.toJson(),
+      'highContrastTheme': instance.highContrastTheme?.toJson(),
+      'highContrastDarkTheme': instance.highContrastDarkTheme?.toJson(),
+      'themeMode': _$ThemeModeEnumMap[instance.themeMode],
+      'themeAnimationDuration': instance.themeAnimationDuration.inMicroseconds,
+      'themeAnimationCurve': instance.themeAnimationCurve.toJson(),
+      'locale': instance.locale?.toJson(),
+      'supportedLocales':
+          instance.supportedLocales.map((e) => e.toJson()).toList(),
+      'debugShowMaterialGrid': instance.debugShowMaterialGrid,
+      'showPerformanceOverlay': instance.showPerformanceOverlay,
+      'checkerboardRasterCacheImages': instance.checkerboardRasterCacheImages,
+      'checkerboardOffscreenLayers': instance.checkerboardOffscreenLayers,
+      'showSemanticsDebugger': instance.showSemanticsDebugger,
+      'debugShowCheckedModeBanner': instance.debugShowCheckedModeBanner,
+      'restorationScopeId': instance.restorationScopeId,
+      'useInheritedMediaQuery': instance.useInheritedMediaQuery,
+      'routes': instance.routes.map((k, e) => MapEntry(k, e.toJson())),
+      'runtimeType': instance.$type,
+    };
 
 const _$ThemeModeEnumMap = {
   ThemeMode.system: 'system',
@@ -3196,49 +2147,24 @@ _$InteractiveViewer _$$InteractiveViewerFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$InteractiveViewerFieldMap = <String, String>{
-  'key': 'key',
-  'clipBehavior': 'clipBehavior',
-  'panAxis': 'panAxis',
-  'boundaryMargin': 'boundaryMargin',
-  'constrained': 'constrained',
-  'maxScale': 'maxScale',
-  'minScale': 'minScale',
-  'interactionEndFrictionCoefficient': 'interactionEndFrictionCoefficient',
-  'panEnabled': 'panEnabled',
-  'scaleEnabled': 'scaleEnabled',
-  'scaleFactor': 'scaleFactor',
-  'alignment': 'alignment',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$InteractiveViewerToJson(_$InteractiveViewer instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['panAxis'] = _$PanAxisEnumMap[instance.panAxis]!;
-  val['boundaryMargin'] = instance.boundaryMargin;
-  val['constrained'] = instance.constrained;
-  val['maxScale'] = instance.maxScale;
-  val['minScale'] = instance.minScale;
-  val['interactionEndFrictionCoefficient'] =
-      instance.interactionEndFrictionCoefficient;
-  val['panEnabled'] = instance.panEnabled;
-  val['scaleEnabled'] = instance.scaleEnabled;
-  val['scaleFactor'] = instance.scaleFactor;
-  writeNotNull('alignment', instance.alignment);
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$InteractiveViewerToJson(_$InteractiveViewer instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'panAxis': _$PanAxisEnumMap[instance.panAxis]!,
+      'boundaryMargin': instance.boundaryMargin.toJson(),
+      'constrained': instance.constrained,
+      'maxScale': instance.maxScale,
+      'minScale': instance.minScale,
+      'interactionEndFrictionCoefficient':
+          instance.interactionEndFrictionCoefficient,
+      'panEnabled': instance.panEnabled,
+      'scaleEnabled': instance.scaleEnabled,
+      'scaleFactor': instance.scaleFactor,
+      'alignment': instance.alignment?.toJson(),
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 const _$PanAxisEnumMap = {
   PanAxis.horizontal: 'horizontal',
@@ -3281,51 +2207,25 @@ _$CustomScrollView _$$CustomScrollViewFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$CustomScrollViewFieldMap = <String, String>{
-  'key': 'key',
-  'scrollDirection': 'scrollDirection',
-  'reverse': 'reverse',
-  'primary': 'primary',
-  'physics': 'physics',
-  'shrinkWrap': 'shrinkWrap',
-  'center': 'center',
-  'anchor': 'anchor',
-  'cacheExtent': 'cacheExtent',
-  'slivers': 'slivers',
-  'semanticChildCount': 'semanticChildCount',
-  'keyboardDismissBehavior': 'keyboardDismissBehavior',
-  'restorationId': 'restorationId',
-  'clipBehavior': 'clipBehavior',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$CustomScrollViewToJson(_$CustomScrollView instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['scrollDirection'] = _$AxisEnumMap[instance.scrollDirection]!;
-  val['reverse'] = instance.reverse;
-  writeNotNull('primary', instance.primary);
-  writeNotNull('physics', instance.physics);
-  val['shrinkWrap'] = instance.shrinkWrap;
-  writeNotNull('center', instance.center);
-  val['anchor'] = instance.anchor;
-  writeNotNull('cacheExtent', instance.cacheExtent);
-  val['slivers'] = instance.slivers;
-  writeNotNull('semanticChildCount', instance.semanticChildCount);
-  val['keyboardDismissBehavior'] = _$ScrollViewKeyboardDismissBehaviorEnumMap[
-      instance.keyboardDismissBehavior]!;
-  writeNotNull('restorationId', instance.restorationId);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$CustomScrollViewToJson(_$CustomScrollView instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'scrollDirection': _$AxisEnumMap[instance.scrollDirection]!,
+      'reverse': instance.reverse,
+      'primary': instance.primary,
+      'physics': instance.physics?.toJson(),
+      'shrinkWrap': instance.shrinkWrap,
+      'center': instance.center?.toJson(),
+      'anchor': instance.anchor,
+      'cacheExtent': instance.cacheExtent,
+      'slivers': instance.slivers.map((e) => e.toJson()).toList(),
+      'semanticChildCount': instance.semanticChildCount,
+      'keyboardDismissBehavior': _$ScrollViewKeyboardDismissBehaviorEnumMap[
+          instance.keyboardDismissBehavior]!,
+      'restorationId': instance.restorationId,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'runtimeType': instance.$type,
+    };
 
 _$ListViewCustom _$$ListViewCustomFromJson(Map<String, dynamic> json) =>
     _$ListViewCustom(
@@ -3362,53 +2262,26 @@ _$ListViewCustom _$$ListViewCustomFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ListViewCustomFieldMap = <String, String>{
-  'key': 'key',
-  'scrollDirection': 'scrollDirection',
-  'reverse': 'reverse',
-  'primary': 'primary',
-  'physics': 'physics',
-  'shrinkWrap': 'shrinkWrap',
-  'padding': 'padding',
-  'itemExtent': 'itemExtent',
-  'prototypeItem': 'prototypeItem',
-  'childrenDelegate': 'childrenDelegate',
-  'cacheExtent': 'cacheExtent',
-  'semanticChildCount': 'semanticChildCount',
-  'keyboardDismissBehavior': 'keyboardDismissBehavior',
-  'restorationId': 'restorationId',
-  'clipBehavior': 'clipBehavior',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ListViewCustomToJson(_$ListViewCustom instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['scrollDirection'] = _$AxisEnumMap[instance.scrollDirection]!;
-  val['reverse'] = instance.reverse;
-  writeNotNull('primary', instance.primary);
-  writeNotNull('physics', instance.physics);
-  val['shrinkWrap'] = instance.shrinkWrap;
-  writeNotNull('padding', instance.padding);
-  writeNotNull('itemExtent', instance.itemExtent);
-  writeNotNull('prototypeItem', instance.prototypeItem);
-  val['childrenDelegate'] = instance.childrenDelegate;
-  writeNotNull('cacheExtent', instance.cacheExtent);
-  writeNotNull('semanticChildCount', instance.semanticChildCount);
-  val['keyboardDismissBehavior'] = _$ScrollViewKeyboardDismissBehaviorEnumMap[
-      instance.keyboardDismissBehavior]!;
-  writeNotNull('restorationId', instance.restorationId);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ListViewCustomToJson(_$ListViewCustom instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'scrollDirection': _$AxisEnumMap[instance.scrollDirection]!,
+      'reverse': instance.reverse,
+      'primary': instance.primary,
+      'physics': instance.physics?.toJson(),
+      'shrinkWrap': instance.shrinkWrap,
+      'padding': instance.padding?.toJson(),
+      'itemExtent': instance.itemExtent,
+      'prototypeItem': instance.prototypeItem?.toJson(),
+      'childrenDelegate': instance.childrenDelegate.toJson(),
+      'cacheExtent': instance.cacheExtent,
+      'semanticChildCount': instance.semanticChildCount,
+      'keyboardDismissBehavior': _$ScrollViewKeyboardDismissBehaviorEnumMap[
+          instance.keyboardDismissBehavior]!,
+      'restorationId': instance.restorationId,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'runtimeType': instance.$type,
+    };
 
 _$SafeArea _$$SafeAreaFromJson(Map<String, dynamic> json) => _$SafeArea(
       key: json['key'] == null
@@ -3427,38 +2300,18 @@ _$SafeArea _$$SafeAreaFromJson(Map<String, dynamic> json) => _$SafeArea(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SafeAreaFieldMap = <String, String>{
-  'key': 'key',
-  'left': 'left',
-  'top': 'top',
-  'right': 'right',
-  'bottom': 'bottom',
-  'minimum': 'minimum',
-  'maintainBottomViewPadding': 'maintainBottomViewPadding',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SafeAreaToJson(_$SafeArea instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['left'] = instance.left;
-  val['top'] = instance.top;
-  val['right'] = instance.right;
-  val['bottom'] = instance.bottom;
-  val['minimum'] = instance.minimum;
-  val['maintainBottomViewPadding'] = instance.maintainBottomViewPadding;
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SafeAreaToJson(_$SafeArea instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'left': instance.left,
+      'top': instance.top,
+      'right': instance.right,
+      'bottom': instance.bottom,
+      'minimum': instance.minimum.toJson(),
+      'maintainBottomViewPadding': instance.maintainBottomViewPadding,
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Offstage _$$OffstageFromJson(Map<String, dynamic> json) => _$Offstage(
       key: json['key'] == null
@@ -3471,28 +2324,13 @@ _$Offstage _$$OffstageFromJson(Map<String, dynamic> json) => _$Offstage(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$OffstageFieldMap = <String, String>{
-  'key': 'key',
-  'offstage': 'offstage',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$OffstageToJson(_$Offstage instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['offstage'] = instance.offstage;
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$OffstageToJson(_$Offstage instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'offstage': instance.offstage,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Opacity _$$OpacityFromJson(Map<String, dynamic> json) => _$Opacity(
       key: json['key'] == null
@@ -3506,30 +2344,13 @@ _$Opacity _$$OpacityFromJson(Map<String, dynamic> json) => _$Opacity(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$OpacityFieldMap = <String, String>{
-  'key': 'key',
-  'opacity': 'opacity',
-  'alwaysIncludeSemantics': 'alwaysIncludeSemantics',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$OpacityToJson(_$Opacity instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['opacity'] = instance.opacity;
-  val['alwaysIncludeSemantics'] = instance.alwaysIncludeSemantics;
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$OpacityToJson(_$Opacity instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'opacity': instance.opacity,
+      'alwaysIncludeSemantics': instance.alwaysIncludeSemantics,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$NestedScrollView _$$NestedScrollViewFromJson(Map<String, dynamic> json) =>
     _$NestedScrollView(
@@ -3558,42 +2379,21 @@ _$NestedScrollView _$$NestedScrollViewFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$NestedScrollViewFieldMap = <String, String>{
-  'key': 'key',
-  'scrollDirection': 'scrollDirection',
-  'reverse': 'reverse',
-  'physics': 'physics',
-  'slivers': 'slivers',
-  'innerBoxIsScrolledSlivers': 'innerBoxIsScrolledSlivers',
-  'body': 'body',
-  'floatHeaderSlivers': 'floatHeaderSlivers',
-  'clipBehavior': 'clipBehavior',
-  'restorationId': 'restorationId',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$NestedScrollViewToJson(_$NestedScrollView instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['scrollDirection'] = _$AxisEnumMap[instance.scrollDirection]!;
-  val['reverse'] = instance.reverse;
-  writeNotNull('physics', instance.physics);
-  val['slivers'] = instance.slivers;
-  writeNotNull('innerBoxIsScrolledSlivers', instance.innerBoxIsScrolledSlivers);
-  val['body'] = instance.body;
-  val['floatHeaderSlivers'] = instance.floatHeaderSlivers;
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  writeNotNull('restorationId', instance.restorationId);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$NestedScrollViewToJson(_$NestedScrollView instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'scrollDirection': _$AxisEnumMap[instance.scrollDirection]!,
+      'reverse': instance.reverse,
+      'physics': instance.physics?.toJson(),
+      'slivers': instance.slivers.map((e) => e.toJson()).toList(),
+      'innerBoxIsScrolledSlivers':
+          instance.innerBoxIsScrolledSlivers?.map((e) => e.toJson()).toList(),
+      'body': instance.body.toJson(),
+      'floatHeaderSlivers': instance.floatHeaderSlivers,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'restorationId': instance.restorationId,
+      'runtimeType': instance.$type,
+    };
 
 _$AspectRatio _$$AspectRatioFromJson(Map<String, dynamic> json) =>
     _$AspectRatio(
@@ -3607,28 +2407,13 @@ _$AspectRatio _$$AspectRatioFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$AspectRatioFieldMap = <String, String>{
-  'key': 'key',
-  'aspectRatio': 'aspectRatio',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$AspectRatioToJson(_$AspectRatio instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['aspectRatio'] = instance.aspectRatio;
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$AspectRatioToJson(_$AspectRatio instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'aspectRatio': instance.aspectRatio,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Chip _$$ChipFromJson(Map<String, dynamic> json) => _$Chip(
       key: json['key'] == null
@@ -3685,64 +2470,30 @@ _$Chip _$$ChipFromJson(Map<String, dynamic> json) => _$Chip(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ChipFieldMap = <String, String>{
-  'key': 'key',
-  'avatar': 'avatar',
-  'label': 'label',
-  'labelStyle': 'labelStyle',
-  'labelPadding': 'labelPadding',
-  'deleteIcon': 'deleteIcon',
-  'onDeleted': 'onDeleted',
-  'deleteIconColor': 'deleteIconColor',
-  'deleteButtonTooltipMessage': 'deleteButtonTooltipMessage',
-  'side': 'side',
-  'shape': 'shape',
-  'clipBehavior': 'clipBehavior',
-  'autofocus': 'autofocus',
-  'backgroundColor': 'backgroundColor',
-  'padding': 'padding',
-  'visualDensity': 'visualDensity',
-  'materialTapTargetSize': 'materialTapTargetSize',
-  'elevation': 'elevation',
-  'shadowColor': 'shadowColor',
-  'surfaceTintColor': 'surfaceTintColor',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ChipToJson(_$Chip instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('avatar', instance.avatar);
-  val['label'] = instance.label;
-  writeNotNull('labelStyle', instance.labelStyle);
-  writeNotNull('labelPadding', instance.labelPadding);
-  writeNotNull('deleteIcon', instance.deleteIcon);
-  writeNotNull('onDeleted', instance.onDeleted);
-  writeNotNull('deleteIconColor', instance.deleteIconColor);
-  writeNotNull(
-      'deleteButtonTooltipMessage', instance.deleteButtonTooltipMessage);
-  writeNotNull('side', instance.side);
-  writeNotNull('shape', instance.shape);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['autofocus'] = instance.autofocus;
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('padding', instance.padding);
-  writeNotNull('visualDensity', instance.visualDensity);
-  writeNotNull('materialTapTargetSize',
-      _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize]);
-  writeNotNull('elevation', instance.elevation);
-  writeNotNull('shadowColor', instance.shadowColor);
-  writeNotNull('surfaceTintColor', instance.surfaceTintColor);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ChipToJson(_$Chip instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'avatar': instance.avatar?.toJson(),
+      'label': instance.label.toJson(),
+      'labelStyle': instance.labelStyle?.toJson(),
+      'labelPadding': instance.labelPadding?.toJson(),
+      'deleteIcon': instance.deleteIcon?.toJson(),
+      'onDeleted': instance.onDeleted?.toJson(),
+      'deleteIconColor': instance.deleteIconColor?.toJson(),
+      'deleteButtonTooltipMessage': instance.deleteButtonTooltipMessage,
+      'side': instance.side?.toJson(),
+      'shape': instance.shape?.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'autofocus': instance.autofocus,
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'padding': instance.padding?.toJson(),
+      'visualDensity': instance.visualDensity?.toJson(),
+      'materialTapTargetSize':
+          _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize],
+      'elevation': instance.elevation,
+      'shadowColor': instance.shadowColor?.toJson(),
+      'surfaceTintColor': instance.surfaceTintColor?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Magnifier _$$MagnifierFromJson(Map<String, dynamic> json) => _$Magnifier(
       key: json['key'] == null
@@ -3774,34 +2525,17 @@ _$Magnifier _$$MagnifierFromJson(Map<String, dynamic> json) => _$Magnifier(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$MagnifierFieldMap = <String, String>{
-  'key': 'key',
-  'additionalFocalPointOffset': 'additionalFocalPointOffset',
-  'borderRadius': 'borderRadius',
-  'filmColor': 'filmColor',
-  'shadows': 'shadows',
-  'size': 'size',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$MagnifierToJson(_$Magnifier instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['additionalFocalPointOffset'] = instance.additionalFocalPointOffset;
-  val['borderRadius'] = instance.borderRadius;
-  val['filmColor'] = instance.filmColor;
-  val['shadows'] = instance.shadows;
-  val['size'] = instance.size;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$MagnifierToJson(_$Magnifier instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'additionalFocalPointOffset':
+          instance.additionalFocalPointOffset.toJson(),
+      'borderRadius': instance.borderRadius.toJson(),
+      'filmColor': instance.filmColor.toJson(),
+      'shadows': instance.shadows.map((e) => e.toJson()).toList(),
+      'size': instance.size.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Table _$$TableFromJson(Map<String, dynamic> json) => _$Table(
       key: json['key'] == null
@@ -3833,40 +2567,19 @@ _$Table _$$TableFromJson(Map<String, dynamic> json) => _$Table(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$TableFieldMap = <String, String>{
-  'key': 'key',
-  'children': 'children',
-  'columnWidths': 'columnWidths',
-  'defaultColumnWidth': 'defaultColumnWidth',
-  'textDirection': 'textDirection',
-  'border': 'border',
-  'defaultVerticalAlignment': 'defaultVerticalAlignment',
-  'textBaseline': 'textBaseline',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$TableToJson(_$Table instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['children'] = instance.children;
-  writeNotNull('columnWidths',
-      instance.columnWidths?.map((k, e) => MapEntry(k.toString(), e)));
-  val['defaultColumnWidth'] = instance.defaultColumnWidth;
-  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
-  writeNotNull('border', instance.border);
-  val['defaultVerticalAlignment'] =
-      _$TableCellVerticalAlignmentEnumMap[instance.defaultVerticalAlignment]!;
-  writeNotNull('textBaseline', _$TextBaselineEnumMap[instance.textBaseline]);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$TableToJson(_$Table instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'children': instance.children.map((e) => e.toJson()).toList(),
+      'columnWidths': instance.columnWidths
+          ?.map((k, e) => MapEntry(k.toString(), e.toJson())),
+      'defaultColumnWidth': instance.defaultColumnWidth.toJson(),
+      'textDirection': _$TextDirectionEnumMap[instance.textDirection],
+      'border': instance.border?.toJson(),
+      'defaultVerticalAlignment': _$TableCellVerticalAlignmentEnumMap[
+          instance.defaultVerticalAlignment]!,
+      'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
+      'runtimeType': instance.$type,
+    };
 
 const _$TableCellVerticalAlignmentEnumMap = {
   TableCellVerticalAlignment.top: 'top',
@@ -3929,66 +2642,32 @@ _$DataTable _$$DataTableFromJson(Map<String, dynamic> json) => _$DataTable(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$DataTableFieldMap = <String, String>{
-  'key': 'key',
-  'columns': 'columns',
-  'sortColumnIndex': 'sortColumnIndex',
-  'sortAscending': 'sortAscending',
-  'onSelectAll': 'onSelectAll',
-  'onDeselectAll': 'onDeselectAll',
-  'decoration': 'decoration',
-  'dataRowColor': 'dataRowColor',
-  'dataRowHeight': 'dataRowHeight',
-  'dataTextStyle': 'dataTextStyle',
-  'headingRowColor': 'headingRowColor',
-  'headingRowHeight': 'headingRowHeight',
-  'headingTextStyle': 'headingTextStyle',
-  'horizontalMargin': 'horizontalMargin',
-  'columnSpacing': 'columnSpacing',
-  'showCheckboxColumn': 'showCheckboxColumn',
-  'showBottomBorder': 'showBottomBorder',
-  'dividerThickness': 'dividerThickness',
-  'rows': 'rows',
-  'checkboxHorizontalMargin': 'checkboxHorizontalMargin',
-  'border': 'border',
-  'clipBehavior': 'clipBehavior',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$DataTableToJson(_$DataTable instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['columns'] = instance.columns;
-  writeNotNull('sortColumnIndex', instance.sortColumnIndex);
-  val['sortAscending'] = instance.sortAscending;
-  writeNotNull('onSelectAll', instance.onSelectAll);
-  writeNotNull('onDeselectAll', instance.onDeselectAll);
-  writeNotNull('decoration', instance.decoration);
-  writeNotNull('dataRowColor', instance.dataRowColor);
-  writeNotNull('dataRowHeight', instance.dataRowHeight);
-  writeNotNull('dataTextStyle', instance.dataTextStyle);
-  writeNotNull('headingRowColor', instance.headingRowColor);
-  writeNotNull('headingRowHeight', instance.headingRowHeight);
-  writeNotNull('headingTextStyle', instance.headingTextStyle);
-  writeNotNull('horizontalMargin', instance.horizontalMargin);
-  writeNotNull('columnSpacing', instance.columnSpacing);
-  val['showCheckboxColumn'] = instance.showCheckboxColumn;
-  val['showBottomBorder'] = instance.showBottomBorder;
-  writeNotNull('dividerThickness', instance.dividerThickness);
-  val['rows'] = instance.rows;
-  writeNotNull('checkboxHorizontalMargin', instance.checkboxHorizontalMargin);
-  writeNotNull('border', instance.border);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$DataTableToJson(_$DataTable instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'columns': instance.columns.map((e) => e.toJson()).toList(),
+      'sortColumnIndex': instance.sortColumnIndex,
+      'sortAscending': instance.sortAscending,
+      'onSelectAll': instance.onSelectAll?.toJson(),
+      'onDeselectAll': instance.onDeselectAll?.toJson(),
+      'decoration': instance.decoration?.toJson(),
+      'dataRowColor': instance.dataRowColor?.toJson(),
+      'dataRowHeight': instance.dataRowHeight,
+      'dataTextStyle': instance.dataTextStyle?.toJson(),
+      'headingRowColor': instance.headingRowColor?.toJson(),
+      'headingRowHeight': instance.headingRowHeight,
+      'headingTextStyle': instance.headingTextStyle?.toJson(),
+      'horizontalMargin': instance.horizontalMargin,
+      'columnSpacing': instance.columnSpacing,
+      'showCheckboxColumn': instance.showCheckboxColumn,
+      'showBottomBorder': instance.showBottomBorder,
+      'dividerThickness': instance.dividerThickness,
+      'rows': instance.rows.map((e) => e.toJson()).toList(),
+      'checkboxHorizontalMargin': instance.checkboxHorizontalMargin,
+      'border': instance.border?.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'runtimeType': instance.$type,
+    };
 
 _$RepaintBoundary _$$RepaintBoundaryFromJson(Map<String, dynamic> json) =>
     _$RepaintBoundary(
@@ -4001,26 +2680,12 @@ _$RepaintBoundary _$$RepaintBoundaryFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$RepaintBoundaryFieldMap = <String, String>{
-  'key': 'key',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$RepaintBoundaryToJson(_$RepaintBoundary instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$RepaintBoundaryToJson(_$RepaintBoundary instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$ClipRect _$$ClipRectFromJson(Map<String, dynamic> json) => _$ClipRect(
       key: json['key'] == null
@@ -4034,28 +2699,13 @@ _$ClipRect _$$ClipRectFromJson(Map<String, dynamic> json) => _$ClipRect(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ClipRectFieldMap = <String, String>{
-  'key': 'key',
-  'clipBehavior': 'clipBehavior',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ClipRectToJson(_$ClipRect instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ClipRectToJson(_$ClipRect instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$ClipRRect _$$ClipRRectFromJson(Map<String, dynamic> json) => _$ClipRRect(
       key: json['key'] == null
@@ -4072,30 +2722,14 @@ _$ClipRRect _$$ClipRRectFromJson(Map<String, dynamic> json) => _$ClipRRect(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ClipRRectFieldMap = <String, String>{
-  'key': 'key',
-  'borderRadius': 'borderRadius',
-  'clipBehavior': 'clipBehavior',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ClipRRectToJson(_$ClipRRect instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('borderRadius', instance.borderRadius);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ClipRRectToJson(_$ClipRRect instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'borderRadius': instance.borderRadius?.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$ClipOval _$$ClipOvalFromJson(Map<String, dynamic> json) => _$ClipOval(
       key: json['key'] == null
@@ -4109,28 +2743,13 @@ _$ClipOval _$$ClipOvalFromJson(Map<String, dynamic> json) => _$ClipOval(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ClipOvalFieldMap = <String, String>{
-  'key': 'key',
-  'clipBehavior': 'clipBehavior',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ClipOvalToJson(_$ClipOval instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ClipOvalToJson(_$ClipOval instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Checkbox _$$CheckboxFromJson(Map<String, dynamic> json) => _$Checkbox(
       key: json['key'] == null
@@ -4182,59 +2801,29 @@ _$Checkbox _$$CheckboxFromJson(Map<String, dynamic> json) => _$Checkbox(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$CheckboxFieldMap = <String, String>{
-  'key': 'key',
-  'value': 'value',
-  'tristate': 'tristate',
-  'field': 'field',
-  'mouseCursor': 'mouseCursor',
-  'activeColor': 'activeColor',
-  'fillColor': 'fillColor',
-  'checkColor': 'checkColor',
-  'focusColor': 'focusColor',
-  'hoverColor': 'hoverColor',
-  'overlayColor': 'overlayColor',
-  'splashRadius': 'splashRadius',
-  'materialTapTargetSize': 'materialTapTargetSize',
-  'visualDensity': 'visualDensity',
-  'autofocus': 'autofocus',
-  'shape': 'shape',
-  'side': 'side',
-  'isError': 'isError',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$CheckboxToJson(_$Checkbox instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('value', instance.value);
-  val['tristate'] = instance.tristate;
-  writeNotNull('field', instance.field);
-  writeNotNull('mouseCursor', instance.mouseCursor);
-  writeNotNull('activeColor', instance.activeColor);
-  writeNotNull('fillColor', instance.fillColor);
-  writeNotNull('checkColor', instance.checkColor);
-  writeNotNull('focusColor', instance.focusColor);
-  writeNotNull('hoverColor', instance.hoverColor);
-  writeNotNull('overlayColor', instance.overlayColor);
-  writeNotNull('splashRadius', instance.splashRadius);
-  writeNotNull('materialTapTargetSize',
-      _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize]);
-  writeNotNull('visualDensity', instance.visualDensity);
-  val['autofocus'] = instance.autofocus;
-  writeNotNull('shape', instance.shape);
-  writeNotNull('side', instance.side);
-  val['isError'] = instance.isError;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$CheckboxToJson(_$Checkbox instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'value': instance.value,
+      'tristate': instance.tristate,
+      'field': instance.field?.toJson(),
+      'mouseCursor': instance.mouseCursor?.toJson(),
+      'activeColor': instance.activeColor?.toJson(),
+      'fillColor': instance.fillColor?.toJson(),
+      'checkColor': instance.checkColor?.toJson(),
+      'focusColor': instance.focusColor?.toJson(),
+      'hoverColor': instance.hoverColor?.toJson(),
+      'overlayColor': instance.overlayColor?.toJson(),
+      'splashRadius': instance.splashRadius,
+      'materialTapTargetSize':
+          _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize],
+      'visualDensity': instance.visualDensity?.toJson(),
+      'autofocus': instance.autofocus,
+      'shape': instance.shape?.toJson(),
+      'side': instance.side?.toJson(),
+      'isError': instance.isError,
+      'runtimeType': instance.$type,
+    };
 
 _$ListTile _$$ListTileFromJson(Map<String, dynamic> json) => _$ListTile(
       key: json['key'] == null
@@ -4307,78 +2896,38 @@ _$ListTile _$$ListTileFromJson(Map<String, dynamic> json) => _$ListTile(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ListTileFieldMap = <String, String>{
-  'key': 'key',
-  'leading': 'leading',
-  'title': 'title',
-  'subtitle': 'subtitle',
-  'trailing': 'trailing',
-  'isThreeLine': 'isThreeLine',
-  'dense': 'dense',
-  'visualDensity': 'visualDensity',
-  'shape': 'shape',
-  'selectedColor': 'selectedColor',
-  'iconColor': 'iconColor',
-  'textColor': 'textColor',
-  'contentPadding': 'contentPadding',
-  'enabled': 'enabled',
-  'onTap': 'onTap',
-  'onLongPress': 'onLongPress',
-  'mouseCursor': 'mouseCursor',
-  'selected': 'selected',
-  'focusColor': 'focusColor',
-  'hoverColor': 'hoverColor',
-  'splashColor': 'splashColor',
-  'autofocus': 'autofocus',
-  'tileColor': 'tileColor',
-  'selectedTileColor': 'selectedTileColor',
-  'enableFeedback': 'enableFeedback',
-  'horizontalTitleGap': 'horizontalTitleGap',
-  'minVerticalPadding': 'minVerticalPadding',
-  'minLeadingWidth': 'minLeadingWidth',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ListTileToJson(_$ListTile instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('leading', instance.leading);
-  writeNotNull('title', instance.title);
-  writeNotNull('subtitle', instance.subtitle);
-  writeNotNull('trailing', instance.trailing);
-  val['isThreeLine'] = instance.isThreeLine;
-  writeNotNull('dense', instance.dense);
-  writeNotNull('visualDensity', instance.visualDensity);
-  writeNotNull('shape', instance.shape);
-  writeNotNull('selectedColor', instance.selectedColor);
-  writeNotNull('iconColor', instance.iconColor);
-  writeNotNull('textColor', instance.textColor);
-  writeNotNull('contentPadding', instance.contentPadding);
-  val['enabled'] = instance.enabled;
-  writeNotNull('onTap', instance.onTap);
-  writeNotNull('onLongPress', instance.onLongPress);
-  writeNotNull('mouseCursor', instance.mouseCursor);
-  val['selected'] = instance.selected;
-  writeNotNull('focusColor', instance.focusColor);
-  writeNotNull('hoverColor', instance.hoverColor);
-  writeNotNull('splashColor', instance.splashColor);
-  val['autofocus'] = instance.autofocus;
-  writeNotNull('tileColor', instance.tileColor);
-  writeNotNull('selectedTileColor', instance.selectedTileColor);
-  writeNotNull('enableFeedback', instance.enableFeedback);
-  writeNotNull('horizontalTitleGap', instance.horizontalTitleGap);
-  writeNotNull('minVerticalPadding', instance.minVerticalPadding);
-  writeNotNull('minLeadingWidth', instance.minLeadingWidth);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ListTileToJson(_$ListTile instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'leading': instance.leading?.toJson(),
+      'title': instance.title?.toJson(),
+      'subtitle': instance.subtitle?.toJson(),
+      'trailing': instance.trailing?.toJson(),
+      'isThreeLine': instance.isThreeLine,
+      'dense': instance.dense,
+      'visualDensity': instance.visualDensity?.toJson(),
+      'shape': instance.shape?.toJson(),
+      'selectedColor': instance.selectedColor?.toJson(),
+      'iconColor': instance.iconColor?.toJson(),
+      'textColor': instance.textColor?.toJson(),
+      'contentPadding': instance.contentPadding?.toJson(),
+      'enabled': instance.enabled,
+      'onTap': instance.onTap?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'mouseCursor': instance.mouseCursor?.toJson(),
+      'selected': instance.selected,
+      'focusColor': instance.focusColor?.toJson(),
+      'hoverColor': instance.hoverColor?.toJson(),
+      'splashColor': instance.splashColor?.toJson(),
+      'autofocus': instance.autofocus,
+      'tileColor': instance.tileColor?.toJson(),
+      'selectedTileColor': instance.selectedTileColor?.toJson(),
+      'enableFeedback': instance.enableFeedback,
+      'horizontalTitleGap': instance.horizontalTitleGap,
+      'minVerticalPadding': instance.minVerticalPadding,
+      'minLeadingWidth': instance.minLeadingWidth,
+      'runtimeType': instance.$type,
+    };
 
 _$ExpansionTile _$$ExpansionTileFromJson(Map<String, dynamic> json) =>
     _$ExpansionTile(
@@ -4446,68 +2995,34 @@ _$ExpansionTile _$$ExpansionTileFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ExpansionTileFieldMap = <String, String>{
-  'key': 'key',
-  'leading': 'leading',
-  'title': 'title',
-  'subtitle': 'subtitle',
-  'children': 'children',
-  'trailing': 'trailing',
-  'initiallyExpanded': 'initiallyExpanded',
-  'maintainState': 'maintainState',
-  'tilePadding': 'tilePadding',
-  'expandedCrossAxisAlignment': 'expandedCrossAxisAlignment',
-  'expandedAlignment': 'expandedAlignment',
-  'childrenPadding': 'childrenPadding',
-  'backgroundColor': 'backgroundColor',
-  'collapsedBackgroundColor': 'collapsedBackgroundColor',
-  'textColor': 'textColor',
-  'collapsedTextColor': 'collapsedTextColor',
-  'iconColor': 'iconColor',
-  'collapsedIconColor': 'collapsedIconColor',
-  'shape': 'shape',
-  'collapsedShape': 'collapsedShape',
-  'clipBehavior': 'clipBehavior',
-  'controlAffinity': 'controlAffinity',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ExpansionTileToJson(_$ExpansionTile instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('leading', instance.leading);
-  val['title'] = instance.title;
-  writeNotNull('subtitle', instance.subtitle);
-  val['children'] = instance.children;
-  writeNotNull('trailing', instance.trailing);
-  val['initiallyExpanded'] = instance.initiallyExpanded;
-  val['maintainState'] = instance.maintainState;
-  writeNotNull('tilePadding', instance.tilePadding);
-  writeNotNull('expandedCrossAxisAlignment',
-      _$CrossAxisAlignmentEnumMap[instance.expandedCrossAxisAlignment]);
-  writeNotNull('expandedAlignment', instance.expandedAlignment);
-  writeNotNull('childrenPadding', instance.childrenPadding);
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('collapsedBackgroundColor', instance.collapsedBackgroundColor);
-  writeNotNull('textColor', instance.textColor);
-  writeNotNull('collapsedTextColor', instance.collapsedTextColor);
-  writeNotNull('iconColor', instance.iconColor);
-  writeNotNull('collapsedIconColor', instance.collapsedIconColor);
-  writeNotNull('shape', instance.shape);
-  writeNotNull('collapsedShape', instance.collapsedShape);
-  writeNotNull('clipBehavior', _$ClipEnumMap[instance.clipBehavior]);
-  writeNotNull('controlAffinity',
-      _$ListTileControlAffinityEnumMap[instance.controlAffinity]);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ExpansionTileToJson(_$ExpansionTile instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'leading': instance.leading?.toJson(),
+      'title': instance.title.toJson(),
+      'subtitle': instance.subtitle?.toJson(),
+      'children': instance.children.map((e) => e.toJson()).toList(),
+      'trailing': instance.trailing?.toJson(),
+      'initiallyExpanded': instance.initiallyExpanded,
+      'maintainState': instance.maintainState,
+      'tilePadding': instance.tilePadding?.toJson(),
+      'expandedCrossAxisAlignment':
+          _$CrossAxisAlignmentEnumMap[instance.expandedCrossAxisAlignment],
+      'expandedAlignment': instance.expandedAlignment?.toJson(),
+      'childrenPadding': instance.childrenPadding?.toJson(),
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'collapsedBackgroundColor': instance.collapsedBackgroundColor?.toJson(),
+      'textColor': instance.textColor?.toJson(),
+      'collapsedTextColor': instance.collapsedTextColor?.toJson(),
+      'iconColor': instance.iconColor?.toJson(),
+      'collapsedIconColor': instance.collapsedIconColor?.toJson(),
+      'shape': instance.shape?.toJson(),
+      'collapsedShape': instance.collapsedShape?.toJson(),
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior],
+      'controlAffinity':
+          _$ListTileControlAffinityEnumMap[instance.controlAffinity],
+      'runtimeType': instance.$type,
+    };
 
 const _$ListTileControlAffinityEnumMap = {
   ListTileControlAffinity.leading: 'leading',
@@ -4529,30 +3044,14 @@ _$GridTile _$$GridTileFromJson(Map<String, dynamic> json) => _$GridTile(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$GridTileFieldMap = <String, String>{
-  'key': 'key',
-  'header': 'header',
-  'footer': 'footer',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$GridTileToJson(_$GridTile instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('header', instance.header);
-  writeNotNull('footer', instance.footer);
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$GridTileToJson(_$GridTile instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'header': instance.header?.toJson(),
+      'footer': instance.footer?.toJson(),
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$DefaultTabController _$$DefaultTabControllerFromJson(
         Map<String, dynamic> json) =>
@@ -4569,33 +3068,16 @@ _$DefaultTabController _$$DefaultTabControllerFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$DefaultTabControllerFieldMap = <String, String>{
-  'key': 'key',
-  'length': 'length',
-  'initialIndex': 'initialIndex',
-  'child': 'child',
-  'animationDuration': 'animationDuration',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$DefaultTabControllerToJson(
-    _$DefaultTabController instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['length'] = instance.length;
-  val['initialIndex'] = instance.initialIndex;
-  val['child'] = instance.child;
-  writeNotNull('animationDuration', instance.animationDuration?.inMicroseconds);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$DefaultTabController instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'length': instance.length,
+      'initialIndex': instance.initialIndex,
+      'child': instance.child.toJson(),
+      'animationDuration': instance.animationDuration?.inMicroseconds,
+      'runtimeType': instance.$type,
+    };
 
 _$DefaultTextStyle _$$DefaultTextStyleFromJson(Map<String, dynamic> json) =>
     _$DefaultTextStyle(
@@ -4619,40 +3101,19 @@ _$DefaultTextStyle _$$DefaultTextStyleFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$DefaultTextStyleFieldMap = <String, String>{
-  'key': 'key',
-  'style': 'style',
-  'textAlign': 'textAlign',
-  'softWrap': 'softWrap',
-  'overflow': 'overflow',
-  'maxLines': 'maxLines',
-  'textWidthBasis': 'textWidthBasis',
-  'textHeightBehavior': 'textHeightBehavior',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$DefaultTextStyleToJson(_$DefaultTextStyle instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['style'] = instance.style;
-  writeNotNull('textAlign', _$TextAlignEnumMap[instance.textAlign]);
-  val['softWrap'] = instance.softWrap;
-  val['overflow'] = _$TextOverflowEnumMap[instance.overflow]!;
-  writeNotNull('maxLines', instance.maxLines);
-  val['textWidthBasis'] = _$TextWidthBasisEnumMap[instance.textWidthBasis]!;
-  writeNotNull('textHeightBehavior', instance.textHeightBehavior);
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$DefaultTextStyleToJson(_$DefaultTextStyle instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'style': instance.style.toJson(),
+      'textAlign': _$TextAlignEnumMap[instance.textAlign],
+      'softWrap': instance.softWrap,
+      'overflow': _$TextOverflowEnumMap[instance.overflow]!,
+      'maxLines': instance.maxLines,
+      'textWidthBasis': _$TextWidthBasisEnumMap[instance.textWidthBasis]!,
+      'textHeightBehavior': instance.textHeightBehavior?.toJson(),
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Theme _$$ThemeFromJson(Map<String, dynamic> json) => _$Theme(
       key: json['key'] == null
@@ -4663,28 +3124,12 @@ _$Theme _$$ThemeFromJson(Map<String, dynamic> json) => _$Theme(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ThemeFieldMap = <String, String>{
-  'key': 'key',
-  'data': 'data',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ThemeToJson(_$Theme instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['data'] = instance.data;
-  val['child'] = instance.child;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ThemeToJson(_$Theme instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'data': instance.data.toJson(),
+      'child': instance.child.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$TabBarView _$$TabBarViewFromJson(Map<String, dynamic> json) => _$TabBarView(
       key: json['key'] == null
@@ -4705,35 +3150,17 @@ _$TabBarView _$$TabBarViewFromJson(Map<String, dynamic> json) => _$TabBarView(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$TabBarViewFieldMap = <String, String>{
-  'key': 'key',
-  'children': 'children',
-  'physics': 'physics',
-  'dragStartBehavior': 'dragStartBehavior',
-  'viewportFraction': 'viewportFraction',
-  'clipBehavior': 'clipBehavior',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$TabBarViewToJson(_$TabBarView instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['children'] = instance.children;
-  writeNotNull('physics', instance.physics);
-  val['dragStartBehavior'] =
-      _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!;
-  val['viewportFraction'] = instance.viewportFraction;
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$TabBarViewToJson(_$TabBarView instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'children': instance.children.map((e) => e.toJson()).toList(),
+      'physics': instance.physics?.toJson(),
+      'dragStartBehavior':
+          _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!,
+      'viewportFraction': instance.viewportFraction,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'runtimeType': instance.$type,
+    };
 
 const _$DragStartBehaviorEnumMap = {
   DragStartBehavior.down: 'down',
@@ -4797,63 +3224,30 @@ _$NavigationRail _$$NavigationRailFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$NavigationRailFieldMap = <String, String>{
-  'key': 'key',
-  'backgroundColor': 'backgroundColor',
-  'extended': 'extended',
-  'leading': 'leading',
-  'trailing': 'trailing',
-  'destinations': 'destinations',
-  'selectedIndex': 'selectedIndex',
-  'onDestinationSelected': 'onDestinationSelected',
-  'elevation': 'elevation',
-  'groupAlignment': 'groupAlignment',
-  'labelType': 'labelType',
-  'unselectedLabelTextStyle': 'unselectedLabelTextStyle',
-  'selectedLabelTextStyle': 'selectedLabelTextStyle',
-  'unselectedIconTheme': 'unselectedIconTheme',
-  'selectedIconTheme': 'selectedIconTheme',
-  'minWidth': 'minWidth',
-  'minExtendedWidth': 'minExtendedWidth',
-  'useIndicator': 'useIndicator',
-  'indicatorColor': 'indicatorColor',
-  'indicatorShape': 'indicatorShape',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$NavigationRailToJson(_$NavigationRail instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  val['extended'] = instance.extended;
-  writeNotNull('leading', instance.leading);
-  writeNotNull('trailing', instance.trailing);
-  val['destinations'] = instance.destinations;
-  writeNotNull('selectedIndex', instance.selectedIndex);
-  writeNotNull('onDestinationSelected', instance.onDestinationSelected);
-  writeNotNull('elevation', instance.elevation);
-  writeNotNull('groupAlignment', instance.groupAlignment);
-  writeNotNull(
-      'labelType', _$NavigationRailLabelTypeEnumMap[instance.labelType]);
-  writeNotNull('unselectedLabelTextStyle', instance.unselectedLabelTextStyle);
-  writeNotNull('selectedLabelTextStyle', instance.selectedLabelTextStyle);
-  writeNotNull('unselectedIconTheme', instance.unselectedIconTheme);
-  writeNotNull('selectedIconTheme', instance.selectedIconTheme);
-  writeNotNull('minWidth', instance.minWidth);
-  writeNotNull('minExtendedWidth', instance.minExtendedWidth);
-  writeNotNull('useIndicator', instance.useIndicator);
-  writeNotNull('indicatorColor', instance.indicatorColor);
-  writeNotNull('indicatorShape', instance.indicatorShape);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$NavigationRailToJson(_$NavigationRail instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'extended': instance.extended,
+      'leading': instance.leading?.toJson(),
+      'trailing': instance.trailing?.toJson(),
+      'destinations': instance.destinations.map((e) => e.toJson()).toList(),
+      'selectedIndex': instance.selectedIndex,
+      'onDestinationSelected': instance.onDestinationSelected?.toJson(),
+      'elevation': instance.elevation,
+      'groupAlignment': instance.groupAlignment,
+      'labelType': _$NavigationRailLabelTypeEnumMap[instance.labelType],
+      'unselectedLabelTextStyle': instance.unselectedLabelTextStyle?.toJson(),
+      'selectedLabelTextStyle': instance.selectedLabelTextStyle?.toJson(),
+      'unselectedIconTheme': instance.unselectedIconTheme?.toJson(),
+      'selectedIconTheme': instance.selectedIconTheme?.toJson(),
+      'minWidth': instance.minWidth,
+      'minExtendedWidth': instance.minExtendedWidth,
+      'useIndicator': instance.useIndicator,
+      'indicatorColor': instance.indicatorColor?.toJson(),
+      'indicatorShape': instance.indicatorShape?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 const _$NavigationRailLabelTypeEnumMap = {
   NavigationRailLabelType.none: 'none',
@@ -4900,49 +3294,24 @@ _$NavigationBar _$$NavigationBarFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$NavigationBarFieldMap = <String, String>{
-  'key': 'key',
-  'animationDuration': 'animationDuration',
-  'selectedIndex': 'selectedIndex',
-  'destinations': 'destinations',
-  'onDestinationSelected': 'onDestinationSelected',
-  'backgroundColor': 'backgroundColor',
-  'elevation': 'elevation',
-  'shadowColor': 'shadowColor',
-  'surfaceTintColor': 'surfaceTintColor',
-  'indicatorColor': 'indicatorColor',
-  'indicatorShape': 'indicatorShape',
-  'height': 'height',
-  'labelBehavior': 'labelBehavior',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$NavigationBarToJson(_$NavigationBar instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('animationDuration', instance.animationDuration?.inMicroseconds);
-  val['selectedIndex'] = instance.selectedIndex;
-  val['destinations'] = instance.destinations;
-  writeNotNull('onDestinationSelected', instance.onDestinationSelected);
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('elevation', instance.elevation);
-  writeNotNull('shadowColor', instance.shadowColor);
-  writeNotNull('surfaceTintColor', instance.surfaceTintColor);
-  writeNotNull('indicatorColor', instance.indicatorColor);
-  writeNotNull('indicatorShape', instance.indicatorShape);
-  writeNotNull('height', instance.height);
-  writeNotNull('labelBehavior',
-      _$NavigationDestinationLabelBehaviorEnumMap[instance.labelBehavior]);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$NavigationBarToJson(_$NavigationBar instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'animationDuration': instance.animationDuration?.inMicroseconds,
+      'selectedIndex': instance.selectedIndex,
+      'destinations': instance.destinations.map((e) => e.toJson()).toList(),
+      'onDestinationSelected': instance.onDestinationSelected?.toJson(),
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'elevation': instance.elevation,
+      'shadowColor': instance.shadowColor?.toJson(),
+      'surfaceTintColor': instance.surfaceTintColor?.toJson(),
+      'indicatorColor': instance.indicatorColor?.toJson(),
+      'indicatorShape': instance.indicatorShape?.toJson(),
+      'height': instance.height,
+      'labelBehavior':
+          _$NavigationDestinationLabelBehaviorEnumMap[instance.labelBehavior],
+      'runtimeType': instance.$type,
+    };
 
 const _$NavigationDestinationLabelBehaviorEnumMap = {
   NavigationDestinationLabelBehavior.alwaysShow: 'alwaysShow',
@@ -4959,7 +3328,7 @@ _$Tab _$$TabFromJson(Map<String, dynamic> json) => _$Tab(
           ? null
           : Widget.fromJson(json['icon'] as Map<String, dynamic>),
       iconMargin: json['iconMargin'] == null
-          ? const EdgeInsets.only(bottom: 10.0)
+          ? const EdgeInsets.only(bottom: 10)
           : EdgeInsets.fromJson(json['iconMargin'] as Map<String, dynamic>),
       height: (json['height'] as num?)?.toDouble(),
       child: json['child'] == null
@@ -4968,34 +3337,15 @@ _$Tab _$$TabFromJson(Map<String, dynamic> json) => _$Tab(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$TabFieldMap = <String, String>{
-  'key': 'key',
-  'text': 'text',
-  'icon': 'icon',
-  'iconMargin': 'iconMargin',
-  'height': 'height',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$TabToJson(_$Tab instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('text', instance.text);
-  writeNotNull('icon', instance.icon);
-  val['iconMargin'] = instance.iconMargin;
-  writeNotNull('height', instance.height);
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$TabToJson(_$Tab instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'text': instance.text,
+      'icon': instance.icon?.toJson(),
+      'iconMargin': instance.iconMargin.toJson(),
+      'height': instance.height,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$Form _$$FormFromJson(Map<String, dynamic> json) => _$Form(
       key: json['key'] == null
@@ -5010,31 +3360,13 @@ _$Form _$$FormFromJson(Map<String, dynamic> json) => _$Form(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FormFieldMap = <String, String>{
-  'key': 'key',
-  'child': 'child',
-  'onChanged': 'onChanged',
-  'autovalidateMode': 'autovalidateMode',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FormToJson(_$Form instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['child'] = instance.child;
-  writeNotNull('onChanged', instance.onChanged);
-  writeNotNull(
-      'autovalidateMode', _$AutovalidateModeEnumMap[instance.autovalidateMode]);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FormToJson(_$Form instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'child': instance.child.toJson(),
+      'onChanged': instance.onChanged?.toJson(),
+      'autovalidateMode': _$AutovalidateModeEnumMap[instance.autovalidateMode],
+      'runtimeType': instance.$type,
+    };
 
 const _$AutovalidateModeEnumMap = {
   AutovalidateMode.disabled: 'disabled',
@@ -5076,54 +3408,25 @@ _$RichText _$$RichTextFromJson(Map<String, dynamic> json) => _$RichText(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$RichTextFieldMap = <String, String>{
-  'textSpan': 'textSpan',
-  'key': 'key',
-  'style': 'style',
-  'strutStyle': 'strutStyle',
-  'textAlign': 'textAlign',
-  'textDirection': 'textDirection',
-  'locale': 'locale',
-  'softWrap': 'softWrap',
-  'overflow': 'overflow',
-  'textScaleFactor': 'textScaleFactor',
-  'maxLines': 'maxLines',
-  'semanticsLabel': 'semanticsLabel',
-  'textWidthBasis': 'textWidthBasis',
-  'textHeightBehavior': 'textHeightBehavior',
-  'selectionColor': 'selectionColor',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$RichTextToJson(_$RichText instance) {
-  final val = <String, dynamic>{
-    'textSpan': instance.textSpan,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('style', instance.style);
-  writeNotNull('strutStyle', instance.strutStyle);
-  writeNotNull('textAlign', _$TextAlignEnumMap[instance.textAlign]);
-  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
-  writeNotNull('locale', instance.locale);
-  writeNotNull('softWrap', instance.softWrap);
-  writeNotNull('overflow', _$TextOverflowEnumMap[instance.overflow]);
-  writeNotNull('textScaleFactor', instance.textScaleFactor);
-  writeNotNull('maxLines', instance.maxLines);
-  writeNotNull('semanticsLabel', instance.semanticsLabel);
-  writeNotNull(
-      'textWidthBasis', _$TextWidthBasisEnumMap[instance.textWidthBasis]);
-  writeNotNull('textHeightBehavior', instance.textHeightBehavior);
-  writeNotNull('selectionColor', instance.selectionColor);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$RichTextToJson(_$RichText instance) =>
+    <String, dynamic>{
+      'textSpan': instance.textSpan.toJson(),
+      'key': instance.key?.toJson(),
+      'style': instance.style?.toJson(),
+      'strutStyle': instance.strutStyle?.toJson(),
+      'textAlign': _$TextAlignEnumMap[instance.textAlign],
+      'textDirection': _$TextDirectionEnumMap[instance.textDirection],
+      'locale': instance.locale?.toJson(),
+      'softWrap': instance.softWrap,
+      'overflow': _$TextOverflowEnumMap[instance.overflow],
+      'textScaleFactor': instance.textScaleFactor,
+      'maxLines': instance.maxLines,
+      'semanticsLabel': instance.semanticsLabel,
+      'textWidthBasis': _$TextWidthBasisEnumMap[instance.textWidthBasis],
+      'textHeightBehavior': instance.textHeightBehavior?.toJson(),
+      'selectionColor': instance.selectionColor?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SelectableText _$$SelectableTextFromJson(Map<String, dynamic> json) =>
     _$SelectableText(
@@ -5181,75 +3484,37 @@ _$SelectableText _$$SelectableTextFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SelectableTextFieldMap = <String, String>{
-  'data': 'data',
-  'key': 'key',
-  'style': 'style',
-  'strutStyle': 'strutStyle',
-  'textAlign': 'textAlign',
-  'textDirection': 'textDirection',
-  'textScaleFactor': 'textScaleFactor',
-  'showCursor': 'showCursor',
-  'autofocus': 'autofocus',
-  'minLines': 'minLines',
-  'maxLines': 'maxLines',
-  'cursorWidth': 'cursorWidth',
-  'cursorHeight': 'cursorHeight',
-  'cursorRadius': 'cursorRadius',
-  'cursorColor': 'cursorColor',
-  'selectionHeightStyle': 'selectionHeightStyle',
-  'selectionWidthStyle': 'selectionWidthStyle',
-  'dragStartBehavior': 'dragStartBehavior',
-  'enableInteractiveSelection': 'enableInteractiveSelection',
-  'onTap': 'onTap',
-  'scrollPhysics': 'scrollPhysics',
-  'semanticsLabel': 'semanticsLabel',
-  'textHeightBehavior': 'textHeightBehavior',
-  'textWidthBasis': 'textWidthBasis',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SelectableTextToJson(_$SelectableText instance) {
-  final val = <String, dynamic>{
-    'data': instance.data,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('style', instance.style);
-  writeNotNull('strutStyle', instance.strutStyle);
-  writeNotNull('textAlign', _$TextAlignEnumMap[instance.textAlign]);
-  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
-  writeNotNull('textScaleFactor', instance.textScaleFactor);
-  val['showCursor'] = instance.showCursor;
-  val['autofocus'] = instance.autofocus;
-  writeNotNull('minLines', instance.minLines);
-  writeNotNull('maxLines', instance.maxLines);
-  val['cursorWidth'] = instance.cursorWidth;
-  writeNotNull('cursorHeight', instance.cursorHeight);
-  writeNotNull('cursorRadius', instance.cursorRadius);
-  writeNotNull('cursorColor', instance.cursorColor);
-  val['selectionHeightStyle'] =
-      _$BoxHeightStyleEnumMap[instance.selectionHeightStyle]!;
-  val['selectionWidthStyle'] =
-      _$BoxWidthStyleEnumMap[instance.selectionWidthStyle]!;
-  val['dragStartBehavior'] =
-      _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!;
-  val['enableInteractiveSelection'] = instance.enableInteractiveSelection;
-  writeNotNull('onTap', instance.onTap);
-  writeNotNull('scrollPhysics', instance.scrollPhysics);
-  writeNotNull('semanticsLabel', instance.semanticsLabel);
-  writeNotNull('textHeightBehavior', instance.textHeightBehavior);
-  writeNotNull(
-      'textWidthBasis', _$TextWidthBasisEnumMap[instance.textWidthBasis]);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SelectableTextToJson(_$SelectableText instance) =>
+    <String, dynamic>{
+      'data': instance.data,
+      'key': instance.key?.toJson(),
+      'style': instance.style?.toJson(),
+      'strutStyle': instance.strutStyle?.toJson(),
+      'textAlign': _$TextAlignEnumMap[instance.textAlign],
+      'textDirection': _$TextDirectionEnumMap[instance.textDirection],
+      'textScaleFactor': instance.textScaleFactor,
+      'showCursor': instance.showCursor,
+      'autofocus': instance.autofocus,
+      'minLines': instance.minLines,
+      'maxLines': instance.maxLines,
+      'cursorWidth': instance.cursorWidth,
+      'cursorHeight': instance.cursorHeight,
+      'cursorRadius': instance.cursorRadius?.toJson(),
+      'cursorColor': instance.cursorColor?.toJson(),
+      'selectionHeightStyle':
+          _$BoxHeightStyleEnumMap[instance.selectionHeightStyle]!,
+      'selectionWidthStyle':
+          _$BoxWidthStyleEnumMap[instance.selectionWidthStyle]!,
+      'dragStartBehavior':
+          _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!,
+      'enableInteractiveSelection': instance.enableInteractiveSelection,
+      'onTap': instance.onTap?.toJson(),
+      'scrollPhysics': instance.scrollPhysics?.toJson(),
+      'semanticsLabel': instance.semanticsLabel,
+      'textHeightBehavior': instance.textHeightBehavior?.toJson(),
+      'textWidthBasis': _$TextWidthBasisEnumMap[instance.textWidthBasis],
+      'runtimeType': instance.$type,
+    };
 
 const _$BoxHeightStyleEnumMap = {
   BoxHeightStyle.tight: 'tight',
@@ -5321,76 +3586,38 @@ _$RichSelectableText _$$RichSelectableTextFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$RichSelectableTextFieldMap = <String, String>{
-  'textSpan': 'textSpan',
-  'key': 'key',
-  'style': 'style',
-  'strutStyle': 'strutStyle',
-  'textAlign': 'textAlign',
-  'textDirection': 'textDirection',
-  'textScaleFactor': 'textScaleFactor',
-  'showCursor': 'showCursor',
-  'autofocus': 'autofocus',
-  'minLines': 'minLines',
-  'maxLines': 'maxLines',
-  'cursorWidth': 'cursorWidth',
-  'cursorHeight': 'cursorHeight',
-  'cursorRadius': 'cursorRadius',
-  'cursorColor': 'cursorColor',
-  'selectionHeightStyle': 'selectionHeightStyle',
-  'selectionWidthStyle': 'selectionWidthStyle',
-  'dragStartBehavior': 'dragStartBehavior',
-  'enableInteractiveSelection': 'enableInteractiveSelection',
-  'onTap': 'onTap',
-  'scrollPhysics': 'scrollPhysics',
-  'semanticsLabel': 'semanticsLabel',
-  'textHeightBehavior': 'textHeightBehavior',
-  'textWidthBasis': 'textWidthBasis',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$RichSelectableTextToJson(
-    _$RichSelectableText instance) {
-  final val = <String, dynamic>{
-    'textSpan': instance.textSpan,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('style', instance.style);
-  writeNotNull('strutStyle', instance.strutStyle);
-  writeNotNull('textAlign', _$TextAlignEnumMap[instance.textAlign]);
-  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
-  writeNotNull('textScaleFactor', instance.textScaleFactor);
-  val['showCursor'] = instance.showCursor;
-  val['autofocus'] = instance.autofocus;
-  writeNotNull('minLines', instance.minLines);
-  writeNotNull('maxLines', instance.maxLines);
-  val['cursorWidth'] = instance.cursorWidth;
-  writeNotNull('cursorHeight', instance.cursorHeight);
-  writeNotNull('cursorRadius', instance.cursorRadius);
-  writeNotNull('cursorColor', instance.cursorColor);
-  val['selectionHeightStyle'] =
-      _$BoxHeightStyleEnumMap[instance.selectionHeightStyle]!;
-  val['selectionWidthStyle'] =
-      _$BoxWidthStyleEnumMap[instance.selectionWidthStyle]!;
-  val['dragStartBehavior'] =
-      _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!;
-  val['enableInteractiveSelection'] = instance.enableInteractiveSelection;
-  writeNotNull('onTap', instance.onTap);
-  writeNotNull('scrollPhysics', instance.scrollPhysics);
-  writeNotNull('semanticsLabel', instance.semanticsLabel);
-  writeNotNull('textHeightBehavior', instance.textHeightBehavior);
-  writeNotNull(
-      'textWidthBasis', _$TextWidthBasisEnumMap[instance.textWidthBasis]);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$RichSelectableText instance) =>
+    <String, dynamic>{
+      'textSpan': instance.textSpan.toJson(),
+      'key': instance.key?.toJson(),
+      'style': instance.style?.toJson(),
+      'strutStyle': instance.strutStyle?.toJson(),
+      'textAlign': _$TextAlignEnumMap[instance.textAlign],
+      'textDirection': _$TextDirectionEnumMap[instance.textDirection],
+      'textScaleFactor': instance.textScaleFactor,
+      'showCursor': instance.showCursor,
+      'autofocus': instance.autofocus,
+      'minLines': instance.minLines,
+      'maxLines': instance.maxLines,
+      'cursorWidth': instance.cursorWidth,
+      'cursorHeight': instance.cursorHeight,
+      'cursorRadius': instance.cursorRadius?.toJson(),
+      'cursorColor': instance.cursorColor?.toJson(),
+      'selectionHeightStyle':
+          _$BoxHeightStyleEnumMap[instance.selectionHeightStyle]!,
+      'selectionWidthStyle':
+          _$BoxWidthStyleEnumMap[instance.selectionWidthStyle]!,
+      'dragStartBehavior':
+          _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!,
+      'enableInteractiveSelection': instance.enableInteractiveSelection,
+      'onTap': instance.onTap?.toJson(),
+      'scrollPhysics': instance.scrollPhysics?.toJson(),
+      'semanticsLabel': instance.semanticsLabel,
+      'textHeightBehavior': instance.textHeightBehavior?.toJson(),
+      'textWidthBasis': _$TextWidthBasisEnumMap[instance.textWidthBasis],
+      'runtimeType': instance.$type,
+    };
 
 _$InkWell _$$InkWellFromJson(Map<String, dynamic> json) => _$InkWell(
       key: json['key'] == null
@@ -5456,66 +3683,31 @@ _$InkWell _$$InkWellFromJson(Map<String, dynamic> json) => _$InkWell(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$InkWellFieldMap = <String, String>{
-  'key': 'key',
-  'child': 'child',
-  'onTap': 'onTap',
-  'onDoubleTap': 'onDoubleTap',
-  'onLongPress': 'onLongPress',
-  'onTapCancel': 'onTapCancel',
-  'onHighlightChanged': 'onHighlightChanged',
-  'onHover': 'onHover',
-  'mouseCursor': 'mouseCursor',
-  'focusColor': 'focusColor',
-  'hoverColor': 'hoverColor',
-  'highlightColor': 'highlightColor',
-  'overlayColor': 'overlayColor',
-  'splashColor': 'splashColor',
-  'radius': 'radius',
-  'borderRadius': 'borderRadius',
-  'customBorder': 'customBorder',
-  'enableFeedback': 'enableFeedback',
-  'excludeFromSemantics': 'excludeFromSemantics',
-  'canRequestFocus': 'canRequestFocus',
-  'onFocusChange': 'onFocusChange',
-  'autofocus': 'autofocus',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$InkWellToJson(_$InkWell instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('child', instance.child);
-  writeNotNull('onTap', instance.onTap);
-  writeNotNull('onDoubleTap', instance.onDoubleTap);
-  writeNotNull('onLongPress', instance.onLongPress);
-  writeNotNull('onTapCancel', instance.onTapCancel);
-  writeNotNull('onHighlightChanged', instance.onHighlightChanged);
-  writeNotNull('onHover', instance.onHover);
-  writeNotNull('mouseCursor', instance.mouseCursor);
-  writeNotNull('focusColor', instance.focusColor);
-  writeNotNull('hoverColor', instance.hoverColor);
-  writeNotNull('highlightColor', instance.highlightColor);
-  writeNotNull('overlayColor', instance.overlayColor);
-  writeNotNull('splashColor', instance.splashColor);
-  writeNotNull('radius', instance.radius);
-  writeNotNull('borderRadius', instance.borderRadius);
-  writeNotNull('customBorder', instance.customBorder);
-  writeNotNull('enableFeedback', instance.enableFeedback);
-  val['excludeFromSemantics'] = instance.excludeFromSemantics;
-  val['canRequestFocus'] = instance.canRequestFocus;
-  writeNotNull('onFocusChange', instance.onFocusChange);
-  val['autofocus'] = instance.autofocus;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$InkWellToJson(_$InkWell instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'child': instance.child?.toJson(),
+      'onTap': instance.onTap?.toJson(),
+      'onDoubleTap': instance.onDoubleTap?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'onTapCancel': instance.onTapCancel?.toJson(),
+      'onHighlightChanged': instance.onHighlightChanged?.toJson(),
+      'onHover': instance.onHover?.toJson(),
+      'mouseCursor': instance.mouseCursor?.toJson(),
+      'focusColor': instance.focusColor?.toJson(),
+      'hoverColor': instance.hoverColor?.toJson(),
+      'highlightColor': instance.highlightColor?.toJson(),
+      'overlayColor': instance.overlayColor?.toJson(),
+      'splashColor': instance.splashColor?.toJson(),
+      'radius': instance.radius,
+      'borderRadius': instance.borderRadius?.toJson(),
+      'customBorder': instance.customBorder?.toJson(),
+      'enableFeedback': instance.enableFeedback,
+      'excludeFromSemantics': instance.excludeFromSemantics,
+      'canRequestFocus': instance.canRequestFocus,
+      'onFocusChange': instance.onFocusChange?.toJson(),
+      'autofocus': instance.autofocus,
+      'runtimeType': instance.$type,
+    };
 
 _$GestureDetector _$$GestureDetectorFromJson(Map<String, dynamic> json) =>
     _$GestureDetector(
@@ -5605,78 +3797,39 @@ _$GestureDetector _$$GestureDetectorFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$GestureDetectorFieldMap = <String, String>{
-  'key': 'key',
-  'child': 'child',
-  'onTap': 'onTap',
-  'onTapCancel': 'onTapCancel',
-  'onSecondaryTap': 'onSecondaryTap',
-  'onSecondaryTapCancel': 'onSecondaryTapCancel',
-  'onTertiaryTapCancel': 'onTertiaryTapCancel',
-  'onDoubleTap': 'onDoubleTap',
-  'onDoubleTapCancel': 'onDoubleTapCancel',
-  'onLongPressCancel': 'onLongPressCancel',
-  'onLongPress': 'onLongPress',
-  'onLongPressUp': 'onLongPressUp',
-  'onSecondaryLongPressCancel': 'onSecondaryLongPressCancel',
-  'onSecondaryLongPress': 'onSecondaryLongPress',
-  'onSecondaryLongPressUp': 'onSecondaryLongPressUp',
-  'onTertiaryLongPressCancel': 'onTertiaryLongPressCancel',
-  'onTertiaryLongPress': 'onTertiaryLongPress',
-  'onTertiaryLongPressUp': 'onTertiaryLongPressUp',
-  'onVerticalDragCancel': 'onVerticalDragCancel',
-  'onHorizontalDragCancel': 'onHorizontalDragCancel',
-  'onPanCancel': 'onPanCancel',
-  'behavior': 'behavior',
-  'excludeFromSemantics': 'excludeFromSemantics',
-  'dragStartBehavior': 'dragStartBehavior',
-  'supportedDevices': 'supportedDevices',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$GestureDetectorToJson(_$GestureDetector instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('child', instance.child);
-  writeNotNull('onTap', instance.onTap);
-  writeNotNull('onTapCancel', instance.onTapCancel);
-  writeNotNull('onSecondaryTap', instance.onSecondaryTap);
-  writeNotNull('onSecondaryTapCancel', instance.onSecondaryTapCancel);
-  writeNotNull('onTertiaryTapCancel', instance.onTertiaryTapCancel);
-  writeNotNull('onDoubleTap', instance.onDoubleTap);
-  writeNotNull('onDoubleTapCancel', instance.onDoubleTapCancel);
-  writeNotNull('onLongPressCancel', instance.onLongPressCancel);
-  writeNotNull('onLongPress', instance.onLongPress);
-  writeNotNull('onLongPressUp', instance.onLongPressUp);
-  writeNotNull(
-      'onSecondaryLongPressCancel', instance.onSecondaryLongPressCancel);
-  writeNotNull('onSecondaryLongPress', instance.onSecondaryLongPress);
-  writeNotNull('onSecondaryLongPressUp', instance.onSecondaryLongPressUp);
-  writeNotNull('onTertiaryLongPressCancel', instance.onTertiaryLongPressCancel);
-  writeNotNull('onTertiaryLongPress', instance.onTertiaryLongPress);
-  writeNotNull('onTertiaryLongPressUp', instance.onTertiaryLongPressUp);
-  writeNotNull('onVerticalDragCancel', instance.onVerticalDragCancel);
-  writeNotNull('onHorizontalDragCancel', instance.onHorizontalDragCancel);
-  writeNotNull('onPanCancel', instance.onPanCancel);
-  writeNotNull('behavior', _$HitTestBehaviorEnumMap[instance.behavior]);
-  val['excludeFromSemantics'] = instance.excludeFromSemantics;
-  val['dragStartBehavior'] =
-      _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!;
-  writeNotNull(
-      'supportedDevices',
-      instance.supportedDevices
+Map<String, dynamic> _$$GestureDetectorToJson(_$GestureDetector instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'child': instance.child?.toJson(),
+      'onTap': instance.onTap?.toJson(),
+      'onTapCancel': instance.onTapCancel?.toJson(),
+      'onSecondaryTap': instance.onSecondaryTap?.toJson(),
+      'onSecondaryTapCancel': instance.onSecondaryTapCancel?.toJson(),
+      'onTertiaryTapCancel': instance.onTertiaryTapCancel?.toJson(),
+      'onDoubleTap': instance.onDoubleTap?.toJson(),
+      'onDoubleTapCancel': instance.onDoubleTapCancel?.toJson(),
+      'onLongPressCancel': instance.onLongPressCancel?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'onLongPressUp': instance.onLongPressUp?.toJson(),
+      'onSecondaryLongPressCancel':
+          instance.onSecondaryLongPressCancel?.toJson(),
+      'onSecondaryLongPress': instance.onSecondaryLongPress?.toJson(),
+      'onSecondaryLongPressUp': instance.onSecondaryLongPressUp?.toJson(),
+      'onTertiaryLongPressCancel': instance.onTertiaryLongPressCancel?.toJson(),
+      'onTertiaryLongPress': instance.onTertiaryLongPress?.toJson(),
+      'onTertiaryLongPressUp': instance.onTertiaryLongPressUp?.toJson(),
+      'onVerticalDragCancel': instance.onVerticalDragCancel?.toJson(),
+      'onHorizontalDragCancel': instance.onHorizontalDragCancel?.toJson(),
+      'onPanCancel': instance.onPanCancel?.toJson(),
+      'behavior': _$HitTestBehaviorEnumMap[instance.behavior],
+      'excludeFromSemantics': instance.excludeFromSemantics,
+      'dragStartBehavior':
+          _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!,
+      'supportedDevices': instance.supportedDevices
           ?.map((e) => _$PointerDeviceKindEnumMap[e]!)
-          .toList());
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+          .toList(),
+      'runtimeType': instance.$type,
+    };
 
 const _$HitTestBehaviorEnumMap = {
   HitTestBehavior.deferToChild: 'deferToChild',
@@ -5772,7 +3925,7 @@ _$TextFormField _$$TextFormFieldFromJson(Map<String, dynamic> json) =>
       keyboardAppearance:
           $enumDecodeNullable(_$BrightnessEnumMap, json['keyboardAppearance']),
       scrollPadding: json['scrollPadding'] == null
-          ? const EdgeInsets.all(20.0)
+          ? const EdgeInsets.all(20)
           : EdgeInsets.fromJson(json['scrollPadding'] as Map<String, dynamic>),
       enableInteractiveSelection: json['enableInteractiveSelection'] as bool?,
       scrollPhysics: json['scrollPhysics'] == null
@@ -5792,118 +3945,57 @@ _$TextFormField _$$TextFormFieldFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$TextFormFieldFieldMap = <String, String>{
-  'key': 'key',
-  'initialValue': 'initialValue',
-  'field': 'field',
-  'decoration': 'decoration',
-  'keyboardType': 'keyboardType',
-  'textCapitalization': 'textCapitalization',
-  'textInputAction': 'textInputAction',
-  'style': 'style',
-  'strutStyle': 'strutStyle',
-  'textDirection': 'textDirection',
-  'textAlign': 'textAlign',
-  'textAlignVertical': 'textAlignVertical',
-  'autofocus': 'autofocus',
-  'readOnly': 'readOnly',
-  'showCursor': 'showCursor',
-  'obscuringCharacter': 'obscuringCharacter',
-  'obscureText': 'obscureText',
-  'autocorrect': 'autocorrect',
-  'smartDashesType': 'smartDashesType',
-  'smartQuotesType': 'smartQuotesType',
-  'enableSuggestions': 'enableSuggestions',
-  'maxLengthEnforcement': 'maxLengthEnforcement',
-  'maxLines': 'maxLines',
-  'minLines': 'minLines',
-  'expands': 'expands',
-  'maxLength': 'maxLength',
-  'onTap': 'onTap',
-  'validatorMessages': 'validatorMessages',
-  'onEditingComplete': 'onEditingComplete',
-  'inputFormatters': 'inputFormatters',
-  'enabled': 'enabled',
-  'cursorWidth': 'cursorWidth',
-  'cursorHeight': 'cursorHeight',
-  'cursorRadius': 'cursorRadius',
-  'cursorColor': 'cursorColor',
-  'keyboardAppearance': 'keyboardAppearance',
-  'scrollPadding': 'scrollPadding',
-  'enableInteractiveSelection': 'enableInteractiveSelection',
-  'scrollPhysics': 'scrollPhysics',
-  'autofillHints': 'autofillHints',
-  'autovalidateMode': 'autovalidateMode',
-  'restorationId': 'restorationId',
-  'enableIMEPersonalizedLearning': 'enableIMEPersonalizedLearning',
-  'mouseCursor': 'mouseCursor',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$TextFormFieldToJson(_$TextFormField instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('initialValue', instance.initialValue);
-  writeNotNull('field', instance.field);
-  writeNotNull('decoration', instance.decoration);
-  writeNotNull('keyboardType', instance.keyboardType);
-  val['textCapitalization'] =
-      _$TextCapitalizationEnumMap[instance.textCapitalization]!;
-  writeNotNull(
-      'textInputAction', _$TextInputActionEnumMap[instance.textInputAction]);
-  writeNotNull('style', instance.style);
-  writeNotNull('strutStyle', instance.strutStyle);
-  writeNotNull('textDirection', _$TextDirectionEnumMap[instance.textDirection]);
-  val['textAlign'] = _$TextAlignEnumMap[instance.textAlign]!;
-  writeNotNull('textAlignVertical', instance.textAlignVertical);
-  val['autofocus'] = instance.autofocus;
-  val['readOnly'] = instance.readOnly;
-  writeNotNull('showCursor', instance.showCursor);
-  val['obscuringCharacter'] = instance.obscuringCharacter;
-  val['obscureText'] = instance.obscureText;
-  val['autocorrect'] = instance.autocorrect;
-  writeNotNull(
-      'smartDashesType', _$SmartDashesTypeEnumMap[instance.smartDashesType]);
-  writeNotNull(
-      'smartQuotesType', _$SmartQuotesTypeEnumMap[instance.smartQuotesType]);
-  val['enableSuggestions'] = instance.enableSuggestions;
-  writeNotNull('maxLengthEnforcement',
-      _$MaxLengthEnforcementEnumMap[instance.maxLengthEnforcement]);
-  writeNotNull('maxLines', instance.maxLines);
-  writeNotNull('minLines', instance.minLines);
-  val['expands'] = instance.expands;
-  writeNotNull('maxLength', instance.maxLength);
-  writeNotNull('onTap', instance.onTap);
-  writeNotNull('validatorMessages', instance.validatorMessages);
-  writeNotNull('onEditingComplete', instance.onEditingComplete);
-  writeNotNull('inputFormatters', instance.inputFormatters);
-  writeNotNull('enabled', instance.enabled);
-  val['cursorWidth'] = instance.cursorWidth;
-  writeNotNull('cursorHeight', instance.cursorHeight);
-  writeNotNull('cursorRadius', instance.cursorRadius);
-  writeNotNull('cursorColor', instance.cursorColor);
-  writeNotNull(
-      'keyboardAppearance', _$BrightnessEnumMap[instance.keyboardAppearance]);
-  val['scrollPadding'] = instance.scrollPadding;
-  writeNotNull(
-      'enableInteractiveSelection', instance.enableInteractiveSelection);
-  writeNotNull('scrollPhysics', instance.scrollPhysics);
-  writeNotNull('autofillHints', instance.autofillHints?.toList());
-  writeNotNull(
-      'autovalidateMode', _$AutovalidateModeEnumMap[instance.autovalidateMode]);
-  writeNotNull('restorationId', instance.restorationId);
-  val['enableIMEPersonalizedLearning'] = instance.enableIMEPersonalizedLearning;
-  writeNotNull('mouseCursor', instance.mouseCursor);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$TextFormFieldToJson(_$TextFormField instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'initialValue': instance.initialValue,
+      'field': instance.field?.toJson(),
+      'decoration': instance.decoration?.toJson(),
+      'keyboardType': instance.keyboardType?.toJson(),
+      'textCapitalization':
+          _$TextCapitalizationEnumMap[instance.textCapitalization]!,
+      'textInputAction': _$TextInputActionEnumMap[instance.textInputAction],
+      'style': instance.style?.toJson(),
+      'strutStyle': instance.strutStyle?.toJson(),
+      'textDirection': _$TextDirectionEnumMap[instance.textDirection],
+      'textAlign': _$TextAlignEnumMap[instance.textAlign]!,
+      'textAlignVertical': instance.textAlignVertical?.toJson(),
+      'autofocus': instance.autofocus,
+      'readOnly': instance.readOnly,
+      'showCursor': instance.showCursor,
+      'obscuringCharacter': instance.obscuringCharacter,
+      'obscureText': instance.obscureText,
+      'autocorrect': instance.autocorrect,
+      'smartDashesType': _$SmartDashesTypeEnumMap[instance.smartDashesType],
+      'smartQuotesType': _$SmartQuotesTypeEnumMap[instance.smartQuotesType],
+      'enableSuggestions': instance.enableSuggestions,
+      'maxLengthEnforcement':
+          _$MaxLengthEnforcementEnumMap[instance.maxLengthEnforcement],
+      'maxLines': instance.maxLines,
+      'minLines': instance.minLines,
+      'expands': instance.expands,
+      'maxLength': instance.maxLength,
+      'onTap': instance.onTap?.toJson(),
+      'validatorMessages': instance.validatorMessages,
+      'onEditingComplete': instance.onEditingComplete?.toJson(),
+      'inputFormatters':
+          instance.inputFormatters?.map((e) => e.toJson()).toList(),
+      'enabled': instance.enabled,
+      'cursorWidth': instance.cursorWidth,
+      'cursorHeight': instance.cursorHeight,
+      'cursorRadius': instance.cursorRadius?.toJson(),
+      'cursorColor': instance.cursorColor?.toJson(),
+      'keyboardAppearance': _$BrightnessEnumMap[instance.keyboardAppearance],
+      'scrollPadding': instance.scrollPadding.toJson(),
+      'enableInteractiveSelection': instance.enableInteractiveSelection,
+      'scrollPhysics': instance.scrollPhysics?.toJson(),
+      'autofillHints': instance.autofillHints?.toList(),
+      'autovalidateMode': _$AutovalidateModeEnumMap[instance.autovalidateMode],
+      'restorationId': instance.restorationId,
+      'enableIMEPersonalizedLearning': instance.enableIMEPersonalizedLearning,
+      'mouseCursor': instance.mouseCursor?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 const _$TextCapitalizationEnumMap = {
   TextCapitalization.words: 'words',
@@ -6008,64 +4100,31 @@ _$Switch _$$SwitchFromJson(Map<String, dynamic> json) => _$Switch(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SwitchFieldMap = <String, String>{
-  'key': 'key',
-  'value': 'value',
-  'field': 'field',
-  'activeColor': 'activeColor',
-  'activeTrackColor': 'activeTrackColor',
-  'inactiveThumbColor': 'inactiveThumbColor',
-  'inactiveTrackColor': 'inactiveTrackColor',
-  'activeThumbImage': 'activeThumbImage',
-  'inactiveThumbImage': 'inactiveThumbImage',
-  'thumbColor': 'thumbColor',
-  'trackColor': 'trackColor',
-  'materialTapTargetSize': 'materialTapTargetSize',
-  'dragStartBehavior': 'dragStartBehavior',
-  'mouseCursor': 'mouseCursor',
-  'focusColor': 'focusColor',
-  'hoverColor': 'hoverColor',
-  'overlayColor': 'overlayColor',
-  'splashRadius': 'splashRadius',
-  'onFocusChange': 'onFocusChange',
-  'autofocus': 'autofocus',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SwitchToJson(_$Switch instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['value'] = instance.value;
-  writeNotNull('field', instance.field);
-  writeNotNull('activeColor', instance.activeColor);
-  writeNotNull('activeTrackColor', instance.activeTrackColor);
-  writeNotNull('inactiveThumbColor', instance.inactiveThumbColor);
-  writeNotNull('inactiveTrackColor', instance.inactiveTrackColor);
-  writeNotNull('activeThumbImage', instance.activeThumbImage);
-  writeNotNull('inactiveThumbImage', instance.inactiveThumbImage);
-  writeNotNull('thumbColor', instance.thumbColor);
-  writeNotNull('trackColor', instance.trackColor);
-  writeNotNull('materialTapTargetSize',
-      _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize]);
-  val['dragStartBehavior'] =
-      _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!;
-  writeNotNull('mouseCursor', instance.mouseCursor);
-  writeNotNull('focusColor', instance.focusColor);
-  writeNotNull('hoverColor', instance.hoverColor);
-  writeNotNull('overlayColor', instance.overlayColor);
-  writeNotNull('splashRadius', instance.splashRadius);
-  writeNotNull('onFocusChange', instance.onFocusChange);
-  val['autofocus'] = instance.autofocus;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SwitchToJson(_$Switch instance) => <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'value': instance.value,
+      'field': instance.field?.toJson(),
+      'activeColor': instance.activeColor?.toJson(),
+      'activeTrackColor': instance.activeTrackColor?.toJson(),
+      'inactiveThumbColor': instance.inactiveThumbColor?.toJson(),
+      'inactiveTrackColor': instance.inactiveTrackColor?.toJson(),
+      'activeThumbImage': instance.activeThumbImage?.toJson(),
+      'inactiveThumbImage': instance.inactiveThumbImage?.toJson(),
+      'thumbColor': instance.thumbColor?.toJson(),
+      'trackColor': instance.trackColor?.toJson(),
+      'materialTapTargetSize':
+          _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize],
+      'dragStartBehavior':
+          _$DragStartBehaviorEnumMap[instance.dragStartBehavior]!,
+      'mouseCursor': instance.mouseCursor?.toJson(),
+      'focusColor': instance.focusColor?.toJson(),
+      'hoverColor': instance.hoverColor?.toJson(),
+      'overlayColor': instance.overlayColor?.toJson(),
+      'splashRadius': instance.splashRadius,
+      'onFocusChange': instance.onFocusChange?.toJson(),
+      'autofocus': instance.autofocus,
+      'runtimeType': instance.$type,
+    };
 
 _$InputDatePickerFormField _$$InputDatePickerFormFieldFromJson(
         Map<String, dynamic> json) =>
@@ -6093,45 +4152,22 @@ _$InputDatePickerFormField _$$InputDatePickerFormFieldFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$InputDatePickerFormFieldFieldMap = <String, String>{
-  'key': 'key',
-  'initialDate': 'initialDate',
-  'firstDate': 'firstDate',
-  'lastDate': 'lastDate',
-  'field': 'field',
-  'errorFormatText': 'errorFormatText',
-  'errorInvalidText': 'errorInvalidText',
-  'fieldHintText': 'fieldHintText',
-  'fieldLabelText': 'fieldLabelText',
-  'keyboardType': 'keyboardType',
-  'autofocus': 'autofocus',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$InputDatePickerFormFieldToJson(
-    _$InputDatePickerFormField instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('initialDate', instance.initialDate?.toIso8601String());
-  val['firstDate'] = instance.firstDate.toIso8601String();
-  val['lastDate'] = instance.lastDate.toIso8601String();
-  writeNotNull('field', instance.field);
-  writeNotNull('errorFormatText', instance.errorFormatText);
-  writeNotNull('errorInvalidText', instance.errorInvalidText);
-  writeNotNull('fieldHintText', instance.fieldHintText);
-  writeNotNull('fieldLabelText', instance.fieldLabelText);
-  writeNotNull('keyboardType', instance.keyboardType);
-  val['autofocus'] = instance.autofocus;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$InputDatePickerFormField instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'initialDate': instance.initialDate?.toIso8601String(),
+      'firstDate': instance.firstDate.toIso8601String(),
+      'lastDate': instance.lastDate.toIso8601String(),
+      'field': instance.field?.toJson(),
+      'errorFormatText': instance.errorFormatText,
+      'errorInvalidText': instance.errorInvalidText,
+      'fieldHintText': instance.fieldHintText,
+      'fieldLabelText': instance.fieldLabelText,
+      'keyboardType': instance.keyboardType?.toJson(),
+      'autofocus': instance.autofocus,
+      'runtimeType': instance.$type,
+    };
 
 _$DropdownButtonFormField _$$DropdownButtonFormFieldFromJson(
         Map<String, dynamic> json) =>
@@ -6200,76 +4236,37 @@ _$DropdownButtonFormField _$$DropdownButtonFormFieldFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$DropdownButtonFormFieldFieldMap = <String, String>{
-  'key': 'key',
-  'field': 'field',
-  'items': 'items',
-  'value': 'value',
-  'hint': 'hint',
-  'disabledHint': 'disabledHint',
-  'onTap': 'onTap',
-  'elevation': 'elevation',
-  'style': 'style',
-  'icon': 'icon',
-  'iconDisabledColor': 'iconDisabledColor',
-  'iconEnabledColor': 'iconEnabledColor',
-  'iconSize': 'iconSize',
-  'isDense': 'isDense',
-  'isExpanded': 'isExpanded',
-  'itemHeight': 'itemHeight',
-  'focusColor': 'focusColor',
-  'autofocus': 'autofocus',
-  'dropdownColor': 'dropdownColor',
-  'decoration': 'decoration',
-  'validatorMessages': 'validatorMessages',
-  'autovalidateMode': 'autovalidateMode',
-  'menuMaxHeight': 'menuMaxHeight',
-  'enableFeedback': 'enableFeedback',
-  'alignment': 'alignment',
-  'borderRadius': 'borderRadius',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$DropdownButtonFormFieldToJson(
-    _$DropdownButtonFormField instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('field', instance.field);
-  val['items'] = instance.items;
-  writeNotNull('value', instance.value);
-  writeNotNull('hint', instance.hint);
-  writeNotNull('disabledHint', instance.disabledHint);
-  writeNotNull('onTap', instance.onTap);
-  val['elevation'] = instance.elevation;
-  writeNotNull('style', instance.style);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('iconDisabledColor', instance.iconDisabledColor);
-  writeNotNull('iconEnabledColor', instance.iconEnabledColor);
-  val['iconSize'] = instance.iconSize;
-  val['isDense'] = instance.isDense;
-  val['isExpanded'] = instance.isExpanded;
-  writeNotNull('itemHeight', instance.itemHeight);
-  writeNotNull('focusColor', instance.focusColor);
-  val['autofocus'] = instance.autofocus;
-  writeNotNull('dropdownColor', instance.dropdownColor);
-  writeNotNull('decoration', instance.decoration);
-  writeNotNull('validatorMessages', instance.validatorMessages);
-  writeNotNull(
-      'autovalidateMode', _$AutovalidateModeEnumMap[instance.autovalidateMode]);
-  writeNotNull('menuMaxHeight', instance.menuMaxHeight);
-  writeNotNull('enableFeedback', instance.enableFeedback);
-  val['alignment'] = instance.alignment;
-  writeNotNull('borderRadius', instance.borderRadius);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$DropdownButtonFormField instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'field': instance.field?.toJson(),
+      'items': instance.items.map((e) => e.toJson()).toList(),
+      'value': instance.value,
+      'hint': instance.hint?.toJson(),
+      'disabledHint': instance.disabledHint?.toJson(),
+      'onTap': instance.onTap?.toJson(),
+      'elevation': instance.elevation,
+      'style': instance.style?.toJson(),
+      'icon': instance.icon?.toJson(),
+      'iconDisabledColor': instance.iconDisabledColor?.toJson(),
+      'iconEnabledColor': instance.iconEnabledColor?.toJson(),
+      'iconSize': instance.iconSize,
+      'isDense': instance.isDense,
+      'isExpanded': instance.isExpanded,
+      'itemHeight': instance.itemHeight,
+      'focusColor': instance.focusColor?.toJson(),
+      'autofocus': instance.autofocus,
+      'dropdownColor': instance.dropdownColor?.toJson(),
+      'decoration': instance.decoration?.toJson(),
+      'validatorMessages': instance.validatorMessages,
+      'autovalidateMode': _$AutovalidateModeEnumMap[instance.autovalidateMode],
+      'menuMaxHeight': instance.menuMaxHeight,
+      'enableFeedback': instance.enableFeedback,
+      'alignment': instance.alignment.toJson(),
+      'borderRadius': instance.borderRadius?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$PopupMenuButton _$$PopupMenuButtonFromJson(Map<String, dynamic> json) =>
     _$PopupMenuButton(
@@ -6298,7 +4295,7 @@ _$PopupMenuButton _$$PopupMenuButtonFromJson(Map<String, dynamic> json) =>
           ? null
           : Color.fromJson(json['surfaceTintColor'] as Map<String, dynamic>),
       padding: json['padding'] == null
-          ? const EdgeInsets.all(8.0)
+          ? const EdgeInsets.all(8)
           : EdgeInsets.fromJson(json['padding'] as Map<String, dynamic>),
       child: json['child'] == null
           ? null
@@ -6330,68 +4327,33 @@ _$PopupMenuButton _$$PopupMenuButtonFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$PopupMenuButtonFieldMap = <String, String>{
-  'key': 'key',
-  'items': 'items',
-  'initialValue': 'initialValue',
-  'onOpened': 'onOpened',
-  'field': 'field',
-  'onCanceled': 'onCanceled',
-  'tooltip': 'tooltip',
-  'elevation': 'elevation',
-  'shadowColor': 'shadowColor',
-  'surfaceTintColor': 'surfaceTintColor',
-  'padding': 'padding',
-  'child': 'child',
-  'splashRadius': 'splashRadius',
-  'icon': 'icon',
-  'iconSize': 'iconSize',
-  'offset': 'offset',
-  'enabled': 'enabled',
-  'shape': 'shape',
-  'color': 'color',
-  'enableFeedback': 'enableFeedback',
-  'constraints': 'constraints',
-  'position': 'position',
-  'clipBehavior': 'clipBehavior',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$PopupMenuButtonToJson(_$PopupMenuButton instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['items'] = instance.items;
-  writeNotNull('initialValue', instance.initialValue);
-  writeNotNull('onOpened', instance.onOpened);
-  writeNotNull('field', instance.field);
-  writeNotNull('onCanceled', instance.onCanceled);
-  writeNotNull('tooltip', instance.tooltip);
-  writeNotNull('elevation', instance.elevation);
-  writeNotNull('shadowColor', instance.shadowColor);
-  writeNotNull('surfaceTintColor', instance.surfaceTintColor);
-  val['padding'] = instance.padding;
-  writeNotNull('child', instance.child);
-  writeNotNull('splashRadius', instance.splashRadius);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('iconSize', instance.iconSize);
-  val['offset'] = instance.offset;
-  val['enabled'] = instance.enabled;
-  writeNotNull('shape', instance.shape);
-  writeNotNull('color', instance.color);
-  writeNotNull('enableFeedback', instance.enableFeedback);
-  writeNotNull('constraints', instance.constraints);
-  writeNotNull('position', _$PopupMenuPositionEnumMap[instance.position]);
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$PopupMenuButtonToJson(_$PopupMenuButton instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'items': instance.items.map((e) => e.toJson()).toList(),
+      'initialValue': instance.initialValue,
+      'onOpened': instance.onOpened?.toJson(),
+      'field': instance.field?.toJson(),
+      'onCanceled': instance.onCanceled?.toJson(),
+      'tooltip': instance.tooltip,
+      'elevation': instance.elevation,
+      'shadowColor': instance.shadowColor?.toJson(),
+      'surfaceTintColor': instance.surfaceTintColor?.toJson(),
+      'padding': instance.padding.toJson(),
+      'child': instance.child?.toJson(),
+      'splashRadius': instance.splashRadius,
+      'icon': instance.icon?.toJson(),
+      'iconSize': instance.iconSize,
+      'offset': instance.offset.toJson(),
+      'enabled': instance.enabled,
+      'shape': instance.shape?.toJson(),
+      'color': instance.color?.toJson(),
+      'enableFeedback': instance.enableFeedback,
+      'constraints': instance.constraints?.toJson(),
+      'position': _$PopupMenuPositionEnumMap[instance.position],
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'runtimeType': instance.$type,
+    };
 
 const _$PopupMenuPositionEnumMap = {
   PopupMenuPosition.over: 'over',
@@ -6411,30 +4373,14 @@ _$IgnorePointer _$$IgnorePointerFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$IgnorePointerFieldMap = <String, String>{
-  'key': 'key',
-  'ignoring': 'ignoring',
-  'ignoringSemantics': 'ignoringSemantics',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$IgnorePointerToJson(_$IgnorePointer instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['ignoring'] = instance.ignoring;
-  writeNotNull('ignoringSemantics', instance.ignoringSemantics);
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$IgnorePointerToJson(_$IgnorePointer instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'ignoring': instance.ignoring,
+      'ignoringSemantics': instance.ignoringSemantics,
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$ResponsiveWidget _$$ResponsiveWidgetFromJson(Map<String, dynamic> json) =>
     _$ResponsiveWidget(
@@ -6452,29 +4398,14 @@ _$ResponsiveWidget _$$ResponsiveWidgetFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ResponsiveWidgetFieldMap = <String, String>{
-  'key': 'key',
-  'child': 'child',
-  'breakpoints': 'breakpoints',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$ResponsiveWidgetToJson(_$ResponsiveWidget instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('child', instance.child);
-  val['breakpoints'] =
-      instance.breakpoints.map((k, e) => MapEntry(k.toString(), e));
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$ResponsiveWidgetToJson(_$ResponsiveWidget instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'child': instance.child?.toJson(),
+      'breakpoints': instance.breakpoints
+          .map((k, e) => MapEntry(k.toString(), e.toJson())),
+      'runtimeType': instance.$type,
+    };
 
 _$PlatformWidget _$$PlatformWidgetFromJson(Map<String, dynamic> json) =>
     _$PlatformWidget(
@@ -6492,29 +4423,14 @@ _$PlatformWidget _$$PlatformWidgetFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$PlatformWidgetFieldMap = <String, String>{
-  'key': 'key',
-  'child': 'child',
-  'targets': 'targets',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$PlatformWidgetToJson(_$PlatformWidget instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('child', instance.child);
-  val['targets'] =
-      instance.targets.map((k, e) => MapEntry(_$TargetPlatformEnumMap[k]!, e));
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$PlatformWidgetToJson(_$PlatformWidget instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'child': instance.child?.toJson(),
+      'targets': instance.targets
+          .map((k, e) => MapEntry(_$TargetPlatformEnumMap[k]!, e.toJson())),
+      'runtimeType': instance.$type,
+    };
 
 const _$TargetPlatformEnumMap = {
   TargetPlatform.android: 'android',
@@ -6535,28 +4451,13 @@ _$CustomWidget _$$CustomWidgetFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$CustomWidgetFieldMap = <String, String>{
-  'key': 'key',
-  'type': 'type',
-  'properties': 'properties',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$CustomWidgetToJson(_$CustomWidget instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['type'] = instance.type;
-  writeNotNull('properties', instance.properties);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$CustomWidgetToJson(_$CustomWidget instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'type': instance.type,
+      'properties': instance.properties,
+      'runtimeType': instance.$type,
+    };
 
 _$NetworkWidget _$$NetworkWidgetFromJson(Map<String, dynamic> json) =>
     _$NetworkWidget(
@@ -6568,23 +4469,9 @@ _$NetworkWidget _$$NetworkWidgetFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$NetworkWidgetFieldMap = <String, String>{
-  'key': 'key',
-  'request': 'request',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$NetworkWidgetToJson(_$NetworkWidget instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['request'] = instance.request;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$NetworkWidgetToJson(_$NetworkWidget instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'request': instance.request.toJson(),
+      'runtimeType': instance.$type,
+    };

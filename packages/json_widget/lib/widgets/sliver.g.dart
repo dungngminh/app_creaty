@@ -74,84 +74,41 @@ _$SliverAppBar _$$SliverAppBarFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverAppBarFieldMap = <String, String>{
-  'key': 'key',
-  'leading': 'leading',
-  'automaticallyImplyLeading': 'automaticallyImplyLeading',
-  'title': 'title',
-  'actions': 'actions',
-  'flexibleSpace': 'flexibleSpace',
-  'bottom': 'bottom',
-  'elevation': 'elevation',
-  'scrolledUnderElevation': 'scrolledUnderElevation',
-  'shadowColor': 'shadowColor',
-  'surfaceTintColor': 'surfaceTintColor',
-  'forceElevated': 'forceElevated',
-  'backgroundColor': 'backgroundColor',
-  'foregroundColor': 'foregroundColor',
-  'primary': 'primary',
-  'centerTitle': 'centerTitle',
-  'excludeHeaderSemantics': 'excludeHeaderSemantics',
-  'titleSpacing': 'titleSpacing',
-  'collapsedHeight': 'collapsedHeight',
-  'expandedHeight': 'expandedHeight',
-  'floating': 'floating',
-  'pinned': 'pinned',
-  'snap': 'snap',
-  'stretch': 'stretch',
-  'stretchTriggerOffset': 'stretchTriggerOffset',
-  'shape': 'shape',
-  'toolbarHeight': 'toolbarHeight',
-  'leadingWidth': 'leadingWidth',
-  'toolbarTextStyle': 'toolbarTextStyle',
-  'titleTextStyle': 'titleTextStyle',
-  'forceMaterialTransparency': 'forceMaterialTransparency',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SliverAppBarToJson(_$SliverAppBar instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('leading', instance.leading);
-  val['automaticallyImplyLeading'] = instance.automaticallyImplyLeading;
-  writeNotNull('title', instance.title);
-  writeNotNull('actions', instance.actions);
-  writeNotNull('flexibleSpace', instance.flexibleSpace);
-  writeNotNull('bottom', instance.bottom);
-  writeNotNull('elevation', instance.elevation);
-  writeNotNull('scrolledUnderElevation', instance.scrolledUnderElevation);
-  writeNotNull('shadowColor', instance.shadowColor);
-  writeNotNull('surfaceTintColor', instance.surfaceTintColor);
-  val['forceElevated'] = instance.forceElevated;
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('foregroundColor', instance.foregroundColor);
-  val['primary'] = instance.primary;
-  writeNotNull('centerTitle', instance.centerTitle);
-  val['excludeHeaderSemantics'] = instance.excludeHeaderSemantics;
-  writeNotNull('titleSpacing', instance.titleSpacing);
-  writeNotNull('collapsedHeight', instance.collapsedHeight);
-  writeNotNull('expandedHeight', instance.expandedHeight);
-  val['floating'] = instance.floating;
-  val['pinned'] = instance.pinned;
-  val['snap'] = instance.snap;
-  val['stretch'] = instance.stretch;
-  val['stretchTriggerOffset'] = instance.stretchTriggerOffset;
-  writeNotNull('shape', instance.shape);
-  val['toolbarHeight'] = instance.toolbarHeight;
-  writeNotNull('leadingWidth', instance.leadingWidth);
-  writeNotNull('toolbarTextStyle', instance.toolbarTextStyle);
-  writeNotNull('titleTextStyle', instance.titleTextStyle);
-  val['forceMaterialTransparency'] = instance.forceMaterialTransparency;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SliverAppBarToJson(_$SliverAppBar instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'leading': instance.leading?.toJson(),
+      'automaticallyImplyLeading': instance.automaticallyImplyLeading,
+      'title': instance.title?.toJson(),
+      'actions': instance.actions?.map((e) => e.toJson()).toList(),
+      'flexibleSpace': instance.flexibleSpace?.toJson(),
+      'bottom': instance.bottom?.toJson(),
+      'elevation': instance.elevation,
+      'scrolledUnderElevation': instance.scrolledUnderElevation,
+      'shadowColor': instance.shadowColor?.toJson(),
+      'surfaceTintColor': instance.surfaceTintColor?.toJson(),
+      'forceElevated': instance.forceElevated,
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'foregroundColor': instance.foregroundColor?.toJson(),
+      'primary': instance.primary,
+      'centerTitle': instance.centerTitle,
+      'excludeHeaderSemantics': instance.excludeHeaderSemantics,
+      'titleSpacing': instance.titleSpacing,
+      'collapsedHeight': instance.collapsedHeight,
+      'expandedHeight': instance.expandedHeight,
+      'floating': instance.floating,
+      'pinned': instance.pinned,
+      'snap': instance.snap,
+      'stretch': instance.stretch,
+      'stretchTriggerOffset': instance.stretchTriggerOffset,
+      'shape': instance.shape?.toJson(),
+      'toolbarHeight': instance.toolbarHeight,
+      'leadingWidth': instance.leadingWidth,
+      'toolbarTextStyle': instance.toolbarTextStyle?.toJson(),
+      'titleTextStyle': instance.titleTextStyle?.toJson(),
+      'forceMaterialTransparency': instance.forceMaterialTransparency,
+      'runtimeType': instance.$type,
+    };
 
 _$SliverAppBarMedium _$$SliverAppBarMediumFromJson(Map<String, dynamic> json) =>
     _$SliverAppBarMedium(
@@ -219,83 +176,41 @@ _$SliverAppBarMedium _$$SliverAppBarMediumFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverAppBarMediumFieldMap = <String, String>{
-  'key': 'key',
-  'leading': 'leading',
-  'automaticallyImplyLeading': 'automaticallyImplyLeading',
-  'title': 'title',
-  'actions': 'actions',
-  'flexibleSpace': 'flexibleSpace',
-  'bottom': 'bottom',
-  'elevation': 'elevation',
-  'scrolledUnderElevation': 'scrolledUnderElevation',
-  'shadowColor': 'shadowColor',
-  'surfaceTintColor': 'surfaceTintColor',
-  'forceElevated': 'forceElevated',
-  'backgroundColor': 'backgroundColor',
-  'foregroundColor': 'foregroundColor',
-  'primary': 'primary',
-  'centerTitle': 'centerTitle',
-  'excludeHeaderSemantics': 'excludeHeaderSemantics',
-  'titleSpacing': 'titleSpacing',
-  'collapsedHeight': 'collapsedHeight',
-  'expandedHeight': 'expandedHeight',
-  'floating': 'floating',
-  'pinned': 'pinned',
-  'snap': 'snap',
-  'stretch': 'stretch',
-  'stretchTriggerOffset': 'stretchTriggerOffset',
-  'shape': 'shape',
-  'toolbarHeight': 'toolbarHeight',
-  'leadingWidth': 'leadingWidth',
-  'toolbarTextStyle': 'toolbarTextStyle',
-  'titleTextStyle': 'titleTextStyle',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$SliverAppBarMediumToJson(
-    _$SliverAppBarMedium instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('leading', instance.leading);
-  val['automaticallyImplyLeading'] = instance.automaticallyImplyLeading;
-  writeNotNull('title', instance.title);
-  writeNotNull('actions', instance.actions);
-  writeNotNull('flexibleSpace', instance.flexibleSpace);
-  writeNotNull('bottom', instance.bottom);
-  writeNotNull('elevation', instance.elevation);
-  writeNotNull('scrolledUnderElevation', instance.scrolledUnderElevation);
-  writeNotNull('shadowColor', instance.shadowColor);
-  writeNotNull('surfaceTintColor', instance.surfaceTintColor);
-  val['forceElevated'] = instance.forceElevated;
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('foregroundColor', instance.foregroundColor);
-  val['primary'] = instance.primary;
-  writeNotNull('centerTitle', instance.centerTitle);
-  val['excludeHeaderSemantics'] = instance.excludeHeaderSemantics;
-  writeNotNull('titleSpacing', instance.titleSpacing);
-  writeNotNull('collapsedHeight', instance.collapsedHeight);
-  writeNotNull('expandedHeight', instance.expandedHeight);
-  val['floating'] = instance.floating;
-  val['pinned'] = instance.pinned;
-  val['snap'] = instance.snap;
-  val['stretch'] = instance.stretch;
-  val['stretchTriggerOffset'] = instance.stretchTriggerOffset;
-  writeNotNull('shape', instance.shape);
-  val['toolbarHeight'] = instance.toolbarHeight;
-  writeNotNull('leadingWidth', instance.leadingWidth);
-  writeNotNull('toolbarTextStyle', instance.toolbarTextStyle);
-  writeNotNull('titleTextStyle', instance.titleTextStyle);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$SliverAppBarMedium instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'leading': instance.leading?.toJson(),
+      'automaticallyImplyLeading': instance.automaticallyImplyLeading,
+      'title': instance.title?.toJson(),
+      'actions': instance.actions?.map((e) => e.toJson()).toList(),
+      'flexibleSpace': instance.flexibleSpace?.toJson(),
+      'bottom': instance.bottom?.toJson(),
+      'elevation': instance.elevation,
+      'scrolledUnderElevation': instance.scrolledUnderElevation,
+      'shadowColor': instance.shadowColor?.toJson(),
+      'surfaceTintColor': instance.surfaceTintColor?.toJson(),
+      'forceElevated': instance.forceElevated,
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'foregroundColor': instance.foregroundColor?.toJson(),
+      'primary': instance.primary,
+      'centerTitle': instance.centerTitle,
+      'excludeHeaderSemantics': instance.excludeHeaderSemantics,
+      'titleSpacing': instance.titleSpacing,
+      'collapsedHeight': instance.collapsedHeight,
+      'expandedHeight': instance.expandedHeight,
+      'floating': instance.floating,
+      'pinned': instance.pinned,
+      'snap': instance.snap,
+      'stretch': instance.stretch,
+      'stretchTriggerOffset': instance.stretchTriggerOffset,
+      'shape': instance.shape?.toJson(),
+      'toolbarHeight': instance.toolbarHeight,
+      'leadingWidth': instance.leadingWidth,
+      'toolbarTextStyle': instance.toolbarTextStyle?.toJson(),
+      'titleTextStyle': instance.titleTextStyle?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SliverAppBarLarge _$$SliverAppBarLargeFromJson(Map<String, dynamic> json) =>
     _$SliverAppBarLarge(
@@ -363,82 +278,40 @@ _$SliverAppBarLarge _$$SliverAppBarLargeFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverAppBarLargeFieldMap = <String, String>{
-  'key': 'key',
-  'leading': 'leading',
-  'automaticallyImplyLeading': 'automaticallyImplyLeading',
-  'title': 'title',
-  'actions': 'actions',
-  'flexibleSpace': 'flexibleSpace',
-  'bottom': 'bottom',
-  'elevation': 'elevation',
-  'scrolledUnderElevation': 'scrolledUnderElevation',
-  'shadowColor': 'shadowColor',
-  'surfaceTintColor': 'surfaceTintColor',
-  'forceElevated': 'forceElevated',
-  'backgroundColor': 'backgroundColor',
-  'foregroundColor': 'foregroundColor',
-  'primary': 'primary',
-  'centerTitle': 'centerTitle',
-  'excludeHeaderSemantics': 'excludeHeaderSemantics',
-  'titleSpacing': 'titleSpacing',
-  'collapsedHeight': 'collapsedHeight',
-  'expandedHeight': 'expandedHeight',
-  'floating': 'floating',
-  'pinned': 'pinned',
-  'snap': 'snap',
-  'stretch': 'stretch',
-  'stretchTriggerOffset': 'stretchTriggerOffset',
-  'shape': 'shape',
-  'toolbarHeight': 'toolbarHeight',
-  'leadingWidth': 'leadingWidth',
-  'toolbarTextStyle': 'toolbarTextStyle',
-  'titleTextStyle': 'titleTextStyle',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SliverAppBarLargeToJson(_$SliverAppBarLarge instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('leading', instance.leading);
-  val['automaticallyImplyLeading'] = instance.automaticallyImplyLeading;
-  writeNotNull('title', instance.title);
-  writeNotNull('actions', instance.actions);
-  writeNotNull('flexibleSpace', instance.flexibleSpace);
-  writeNotNull('bottom', instance.bottom);
-  writeNotNull('elevation', instance.elevation);
-  writeNotNull('scrolledUnderElevation', instance.scrolledUnderElevation);
-  writeNotNull('shadowColor', instance.shadowColor);
-  writeNotNull('surfaceTintColor', instance.surfaceTintColor);
-  val['forceElevated'] = instance.forceElevated;
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('foregroundColor', instance.foregroundColor);
-  val['primary'] = instance.primary;
-  writeNotNull('centerTitle', instance.centerTitle);
-  val['excludeHeaderSemantics'] = instance.excludeHeaderSemantics;
-  writeNotNull('titleSpacing', instance.titleSpacing);
-  writeNotNull('collapsedHeight', instance.collapsedHeight);
-  writeNotNull('expandedHeight', instance.expandedHeight);
-  val['floating'] = instance.floating;
-  val['pinned'] = instance.pinned;
-  val['snap'] = instance.snap;
-  val['stretch'] = instance.stretch;
-  val['stretchTriggerOffset'] = instance.stretchTriggerOffset;
-  writeNotNull('shape', instance.shape);
-  val['toolbarHeight'] = instance.toolbarHeight;
-  writeNotNull('leadingWidth', instance.leadingWidth);
-  writeNotNull('toolbarTextStyle', instance.toolbarTextStyle);
-  writeNotNull('titleTextStyle', instance.titleTextStyle);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SliverAppBarLargeToJson(_$SliverAppBarLarge instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'leading': instance.leading?.toJson(),
+      'automaticallyImplyLeading': instance.automaticallyImplyLeading,
+      'title': instance.title?.toJson(),
+      'actions': instance.actions?.map((e) => e.toJson()).toList(),
+      'flexibleSpace': instance.flexibleSpace?.toJson(),
+      'bottom': instance.bottom?.toJson(),
+      'elevation': instance.elevation,
+      'scrolledUnderElevation': instance.scrolledUnderElevation,
+      'shadowColor': instance.shadowColor?.toJson(),
+      'surfaceTintColor': instance.surfaceTintColor?.toJson(),
+      'forceElevated': instance.forceElevated,
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'foregroundColor': instance.foregroundColor?.toJson(),
+      'primary': instance.primary,
+      'centerTitle': instance.centerTitle,
+      'excludeHeaderSemantics': instance.excludeHeaderSemantics,
+      'titleSpacing': instance.titleSpacing,
+      'collapsedHeight': instance.collapsedHeight,
+      'expandedHeight': instance.expandedHeight,
+      'floating': instance.floating,
+      'pinned': instance.pinned,
+      'snap': instance.snap,
+      'stretch': instance.stretch,
+      'stretchTriggerOffset': instance.stretchTriggerOffset,
+      'shape': instance.shape?.toJson(),
+      'toolbarHeight': instance.toolbarHeight,
+      'leadingWidth': instance.leadingWidth,
+      'toolbarTextStyle': instance.toolbarTextStyle?.toJson(),
+      'titleTextStyle': instance.titleTextStyle?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SliverToBoxAdapter _$$SliverToBoxAdapterFromJson(Map<String, dynamic> json) =>
     _$SliverToBoxAdapter(
@@ -451,27 +324,13 @@ _$SliverToBoxAdapter _$$SliverToBoxAdapterFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverToBoxAdapterFieldMap = <String, String>{
-  'key': 'key',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$SliverToBoxAdapterToJson(
-    _$SliverToBoxAdapter instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$SliverToBoxAdapter instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SliverFillRemaining _$$SliverFillRemainingFromJson(
         Map<String, dynamic> json) =>
@@ -487,31 +346,15 @@ _$SliverFillRemaining _$$SliverFillRemainingFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverFillRemainingFieldMap = <String, String>{
-  'key': 'key',
-  'child': 'child',
-  'hasScrollBody': 'hasScrollBody',
-  'fillOverscroll': 'fillOverscroll',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$SliverFillRemainingToJson(
-    _$SliverFillRemaining instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('child', instance.child);
-  val['hasScrollBody'] = instance.hasScrollBody;
-  val['fillOverscroll'] = instance.fillOverscroll;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$SliverFillRemaining instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'child': instance.child?.toJson(),
+      'hasScrollBody': instance.hasScrollBody,
+      'fillOverscroll': instance.fillOverscroll,
+      'runtimeType': instance.$type,
+    };
 
 _$SliverFillViewport _$$SliverFillViewportFromJson(Map<String, dynamic> json) =>
     _$SliverFillViewport(
@@ -525,31 +368,15 @@ _$SliverFillViewport _$$SliverFillViewportFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverFillViewportFieldMap = <String, String>{
-  'key': 'key',
-  'delegate': 'delegate',
-  'viewportFraction': 'viewportFraction',
-  'padEnds': 'padEnds',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$SliverFillViewportToJson(
-    _$SliverFillViewport instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['delegate'] = instance.delegate;
-  val['viewportFraction'] = instance.viewportFraction;
-  val['padEnds'] = instance.padEnds;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$SliverFillViewport instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'delegate': instance.delegate.toJson(),
+      'viewportFraction': instance.viewportFraction,
+      'padEnds': instance.padEnds,
+      'runtimeType': instance.$type,
+    };
 
 _$SliverFixedExtentList _$$SliverFixedExtentListFromJson(
         Map<String, dynamic> json) =>
@@ -563,29 +390,14 @@ _$SliverFixedExtentList _$$SliverFixedExtentListFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverFixedExtentListFieldMap = <String, String>{
-  'key': 'key',
-  'delegate': 'delegate',
-  'itemExtent': 'itemExtent',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$SliverFixedExtentListToJson(
-    _$SliverFixedExtentList instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['delegate'] = instance.delegate;
-  val['itemExtent'] = instance.itemExtent;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$SliverFixedExtentList instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'delegate': instance.delegate.toJson(),
+      'itemExtent': instance.itemExtent,
+      'runtimeType': instance.$type,
+    };
 
 _$SliverOffstage _$$SliverOffstageFromJson(Map<String, dynamic> json) =>
     _$SliverOffstage(
@@ -599,28 +411,13 @@ _$SliverOffstage _$$SliverOffstageFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverOffstageFieldMap = <String, String>{
-  'key': 'key',
-  'offstage': 'offstage',
-  'sliver': 'sliver',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SliverOffstageToJson(_$SliverOffstage instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['offstage'] = instance.offstage;
-  writeNotNull('sliver', instance.sliver);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SliverOffstageToJson(_$SliverOffstage instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'offstage': instance.offstage,
+      'sliver': instance.sliver?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SliverList _$$SliverListFromJson(Map<String, dynamic> json) => _$SliverList(
       key: json['key'] == null
@@ -631,26 +428,12 @@ _$SliverList _$$SliverListFromJson(Map<String, dynamic> json) => _$SliverList(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverListFieldMap = <String, String>{
-  'key': 'key',
-  'delegate': 'delegate',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SliverListToJson(_$SliverList instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['delegate'] = instance.delegate;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SliverListToJson(_$SliverList instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'delegate': instance.delegate.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SliverGrid _$$SliverGridFromJson(Map<String, dynamic> json) => _$SliverGrid(
       key: json['key'] == null
@@ -663,28 +446,13 @@ _$SliverGrid _$$SliverGridFromJson(Map<String, dynamic> json) => _$SliverGrid(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverGridFieldMap = <String, String>{
-  'key': 'key',
-  'delegate': 'delegate',
-  'gridDelegate': 'gridDelegate',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SliverGridToJson(_$SliverGrid instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['delegate'] = instance.delegate;
-  val['gridDelegate'] = instance.gridDelegate;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SliverGridToJson(_$SliverGrid instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'delegate': instance.delegate.toJson(),
+      'gridDelegate': instance.gridDelegate.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SliverIgnorePointer _$$SliverIgnorePointerFromJson(
         Map<String, dynamic> json) =>
@@ -700,31 +468,15 @@ _$SliverIgnorePointer _$$SliverIgnorePointerFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverIgnorePointerFieldMap = <String, String>{
-  'key': 'key',
-  'ignoring': 'ignoring',
-  'ignoringSemantics': 'ignoringSemantics',
-  'sliver': 'sliver',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$SliverIgnorePointerToJson(
-    _$SliverIgnorePointer instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['ignoring'] = instance.ignoring;
-  writeNotNull('ignoringSemantics', instance.ignoringSemantics);
-  writeNotNull('sliver', instance.sliver);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$SliverIgnorePointer instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'ignoring': instance.ignoring,
+      'ignoringSemantics': instance.ignoringSemantics,
+      'sliver': instance.sliver?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SliverOpacity _$$SliverOpacityFromJson(Map<String, dynamic> json) =>
     _$SliverOpacity(
@@ -739,30 +491,14 @@ _$SliverOpacity _$$SliverOpacityFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverOpacityFieldMap = <String, String>{
-  'key': 'key',
-  'opacity': 'opacity',
-  'alwaysIncludeSemantics': 'alwaysIncludeSemantics',
-  'sliver': 'sliver',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SliverOpacityToJson(_$SliverOpacity instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['opacity'] = instance.opacity;
-  val['alwaysIncludeSemantics'] = instance.alwaysIncludeSemantics;
-  writeNotNull('sliver', instance.sliver);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SliverOpacityToJson(_$SliverOpacity instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'opacity': instance.opacity,
+      'alwaysIncludeSemantics': instance.alwaysIncludeSemantics,
+      'sliver': instance.sliver?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SliverPadding _$$SliverPaddingFromJson(Map<String, dynamic> json) =>
     _$SliverPadding(
@@ -776,28 +512,13 @@ _$SliverPadding _$$SliverPaddingFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverPaddingFieldMap = <String, String>{
-  'key': 'key',
-  'padding': 'padding',
-  'sliver': 'sliver',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SliverPaddingToJson(_$SliverPadding instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['padding'] = instance.padding;
-  writeNotNull('sliver', instance.sliver);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SliverPaddingToJson(_$SliverPadding instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'padding': instance.padding.toJson(),
+      'sliver': instance.sliver?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SliverPrototypeExtentList _$$SliverPrototypeExtentListFromJson(
         Map<String, dynamic> json) =>
@@ -812,29 +533,14 @@ _$SliverPrototypeExtentList _$$SliverPrototypeExtentListFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverPrototypeExtentListFieldMap = <String, String>{
-  'key': 'key',
-  'delegate': 'delegate',
-  'prototypeItem': 'prototypeItem',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$SliverPrototypeExtentListToJson(
-    _$SliverPrototypeExtentList instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['delegate'] = instance.delegate;
-  val['prototypeItem'] = instance.prototypeItem;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$SliverPrototypeExtentList instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'delegate': instance.delegate.toJson(),
+      'prototypeItem': instance.prototypeItem.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SliverSafeArea _$$SliverSafeAreaFromJson(Map<String, dynamic> json) =>
     _$SliverSafeArea(
@@ -852,36 +558,17 @@ _$SliverSafeArea _$$SliverSafeAreaFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverSafeAreaFieldMap = <String, String>{
-  'key': 'key',
-  'left': 'left',
-  'top': 'top',
-  'right': 'right',
-  'bottom': 'bottom',
-  'minimum': 'minimum',
-  'sliver': 'sliver',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SliverSafeAreaToJson(_$SliverSafeArea instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['left'] = instance.left;
-  val['top'] = instance.top;
-  val['right'] = instance.right;
-  val['bottom'] = instance.bottom;
-  val['minimum'] = instance.minimum;
-  val['sliver'] = instance.sliver;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SliverSafeAreaToJson(_$SliverSafeArea instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'left': instance.left,
+      'top': instance.top,
+      'right': instance.right,
+      'bottom': instance.bottom,
+      'minimum': instance.minimum.toJson(),
+      'sliver': instance.sliver.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$SliverVisibility _$$SliverVisibilityFromJson(Map<String, dynamic> json) =>
     _$SliverVisibility(
@@ -901,40 +588,19 @@ _$SliverVisibility _$$SliverVisibilityFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverVisibilityFieldMap = <String, String>{
-  'key': 'key',
-  'sliver': 'sliver',
-  'replacementSliver': 'replacementSliver',
-  'visible': 'visible',
-  'maintainState': 'maintainState',
-  'maintainAnimation': 'maintainAnimation',
-  'maintainSize': 'maintainSize',
-  'maintainSemantics': 'maintainSemantics',
-  'maintainInteractivity': 'maintainInteractivity',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$SliverVisibilityToJson(_$SliverVisibility instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['sliver'] = instance.sliver;
-  val['replacementSliver'] = instance.replacementSliver;
-  val['visible'] = instance.visible;
-  val['maintainState'] = instance.maintainState;
-  val['maintainAnimation'] = instance.maintainAnimation;
-  val['maintainSize'] = instance.maintainSize;
-  val['maintainSemantics'] = instance.maintainSemantics;
-  val['maintainInteractivity'] = instance.maintainInteractivity;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$SliverVisibilityToJson(_$SliverVisibility instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'sliver': instance.sliver.toJson(),
+      'replacementSliver': instance.replacementSliver.toJson(),
+      'visible': instance.visible,
+      'maintainState': instance.maintainState,
+      'maintainAnimation': instance.maintainAnimation,
+      'maintainSize': instance.maintainSize,
+      'maintainSemantics': instance.maintainSemantics,
+      'maintainInteractivity': instance.maintainInteractivity,
+      'runtimeType': instance.$type,
+    };
 
 _$SliverVisibilityMaintain _$$SliverVisibilityMaintainFromJson(
         Map<String, dynamic> json) =>
@@ -950,28 +616,12 @@ _$SliverVisibilityMaintain _$$SliverVisibilityMaintainFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$SliverVisibilityMaintainFieldMap = <String, String>{
-  'key': 'key',
-  'sliver': 'sliver',
-  'replacementSliver': 'replacementSliver',
-  'visible': 'visible',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$SliverVisibilityMaintainToJson(
-    _$SliverVisibilityMaintain instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['sliver'] = instance.sliver;
-  val['replacementSliver'] = instance.replacementSliver;
-  val['visible'] = instance.visible;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$SliverVisibilityMaintain instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'sliver': instance.sliver.toJson(),
+      'replacementSliver': instance.replacementSliver.toJson(),
+      'visible': instance.visible,
+      'runtimeType': instance.$type,
+    };

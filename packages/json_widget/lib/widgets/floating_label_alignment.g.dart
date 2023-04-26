@@ -12,10 +12,6 @@ _$FloatingLabelAlignmentStart _$$FloatingLabelAlignmentStartFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FloatingLabelAlignmentStartFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$FloatingLabelAlignmentStartToJson(
         _$FloatingLabelAlignmentStart instance) =>
     <String, dynamic>{
@@ -27,10 +23,6 @@ _$FloatingLabelAlignmentCenter _$$FloatingLabelAlignmentCenterFromJson(
     _$FloatingLabelAlignmentCenter(
       $type: json['runtimeType'] as String?,
     );
-
-const _$$FloatingLabelAlignmentCenterFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$FloatingLabelAlignmentCenterToJson(
         _$FloatingLabelAlignmentCenter instance) =>

@@ -13,12 +13,6 @@ _$MemoryImage _$$MemoryImageFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$MemoryImageFieldMap = <String, String>{
-  'bytes': 'bytes',
-  'scale': 'scale',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$MemoryImageToJson(_$MemoryImage instance) =>
     <String, dynamic>{
       'bytes': instance.bytes,
@@ -32,27 +26,12 @@ _$AssetImage _$$AssetImageFromJson(Map<String, dynamic> json) => _$AssetImage(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$AssetImageFieldMap = <String, String>{
-  'path': 'path',
-  'package': 'package',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$AssetImageToJson(_$AssetImage instance) {
-  final val = <String, dynamic>{
-    'path': instance.path,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('package', instance.package);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$AssetImageToJson(_$AssetImage instance) =>
+    <String, dynamic>{
+      'path': instance.path,
+      'package': instance.package,
+      'runtimeType': instance.$type,
+    };
 
 _$NetworkImage _$$NetworkImageFromJson(Map<String, dynamic> json) =>
     _$NetworkImage(
@@ -64,26 +43,10 @@ _$NetworkImage _$$NetworkImageFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$NetworkImageFieldMap = <String, String>{
-  'url': 'url',
-  'scale': 'scale',
-  'headers': 'headers',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$NetworkImageToJson(_$NetworkImage instance) {
-  final val = <String, dynamic>{
-    'url': instance.url,
-    'scale': instance.scale,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('headers', instance.headers);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$NetworkImageToJson(_$NetworkImage instance) =>
+    <String, dynamic>{
+      'url': instance.url,
+      'scale': instance.scale,
+      'headers': instance.headers,
+      'runtimeType': instance.$type,
+    };

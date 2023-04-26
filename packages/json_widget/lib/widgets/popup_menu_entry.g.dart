@@ -32,40 +32,19 @@ _$PopupMenuItem _$$PopupMenuItemFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$PopupMenuItemFieldMap = <String, String>{
-  'key': 'key',
-  'value': 'value',
-  'onTap': 'onTap',
-  'enabled': 'enabled',
-  'height': 'height',
-  'padding': 'padding',
-  'textStyle': 'textStyle',
-  'mouseCursor': 'mouseCursor',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$PopupMenuItemToJson(_$PopupMenuItem instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('value', instance.value);
-  writeNotNull('onTap', instance.onTap);
-  val['enabled'] = instance.enabled;
-  val['height'] = instance.height;
-  writeNotNull('padding', instance.padding);
-  writeNotNull('textStyle', instance.textStyle);
-  writeNotNull('mouseCursor', instance.mouseCursor);
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$PopupMenuItemToJson(_$PopupMenuItem instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'value': instance.value,
+      'onTap': instance.onTap?.toJson(),
+      'enabled': instance.enabled,
+      'height': instance.height,
+      'padding': instance.padding?.toJson(),
+      'textStyle': instance.textStyle?.toJson(),
+      'mouseCursor': instance.mouseCursor?.toJson(),
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 _$PopupMenuDivider _$$PopupMenuDividerFromJson(Map<String, dynamic> json) =>
     _$PopupMenuDivider(
@@ -76,26 +55,12 @@ _$PopupMenuDivider _$$PopupMenuDividerFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$PopupMenuDividerFieldMap = <String, String>{
-  'key': 'key',
-  'height': 'height',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$PopupMenuDividerToJson(_$PopupMenuDivider instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['height'] = instance.height;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$PopupMenuDividerToJson(_$PopupMenuDivider instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'height': instance.height,
+      'runtimeType': instance.$type,
+    };
 
 _$CheckedPopupMenuItem _$$CheckedPopupMenuItemFromJson(
         Map<String, dynamic> json) =>
@@ -119,36 +84,16 @@ _$CheckedPopupMenuItem _$$CheckedPopupMenuItemFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$CheckedPopupMenuItemFieldMap = <String, String>{
-  'key': 'key',
-  'value': 'value',
-  'checked': 'checked',
-  'enabled': 'enabled',
-  'padding': 'padding',
-  'height': 'height',
-  'mouseCursor': 'mouseCursor',
-  'child': 'child',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$CheckedPopupMenuItemToJson(
-    _$CheckedPopupMenuItem instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('value', instance.value);
-  val['checked'] = instance.checked;
-  val['enabled'] = instance.enabled;
-  writeNotNull('padding', instance.padding);
-  val['height'] = instance.height;
-  writeNotNull('mouseCursor', instance.mouseCursor);
-  writeNotNull('child', instance.child);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$CheckedPopupMenuItem instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'value': instance.value,
+      'checked': instance.checked,
+      'enabled': instance.enabled,
+      'padding': instance.padding?.toJson(),
+      'height': instance.height,
+      'mouseCursor': instance.mouseCursor?.toJson(),
+      'child': instance.child?.toJson(),
+      'runtimeType': instance.$type,
+    };

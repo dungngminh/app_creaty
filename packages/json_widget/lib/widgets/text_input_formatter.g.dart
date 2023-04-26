@@ -15,28 +15,14 @@ _$LengthLimitingTextInputFormatter _$$LengthLimitingTextInputFormatterFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$LengthLimitingTextInputFormatterFieldMap = <String, String>{
-  'maxLength': 'maxLength',
-  'maxLengthEnforcement': 'maxLengthEnforcement',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$LengthLimitingTextInputFormatterToJson(
-    _$LengthLimitingTextInputFormatter instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('maxLength', instance.maxLength);
-  writeNotNull('maxLengthEnforcement',
-      _$MaxLengthEnforcementEnumMap[instance.maxLengthEnforcement]);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$LengthLimitingTextInputFormatter instance) =>
+    <String, dynamic>{
+      'maxLength': instance.maxLength,
+      'maxLengthEnforcement':
+          _$MaxLengthEnforcementEnumMap[instance.maxLengthEnforcement],
+      'runtimeType': instance.$type,
+    };
 
 const _$MaxLengthEnforcementEnumMap = {
   MaxLengthEnforcement.none: 'none',
@@ -53,13 +39,6 @@ _$FilteringTextInputFormatter _$$FilteringTextInputFormatterFromJson(
       replacementString: json['replacementString'] as String? ?? '',
       $type: json['runtimeType'] as String?,
     );
-
-const _$$FilteringTextInputFormatterFieldMap = <String, String>{
-  'filterPattern': 'filterPattern',
-  'allow': 'allow',
-  'replacementString': 'replacementString',
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$FilteringTextInputFormatterToJson(
         _$FilteringTextInputFormatter instance) =>
@@ -78,12 +57,6 @@ _$FilteringAllowTextInputFormatter _$$FilteringAllowTextInputFormatterFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FilteringAllowTextInputFormatterFieldMap = <String, String>{
-  'filterPattern': 'filterPattern',
-  'replacementString': 'replacementString',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$FilteringAllowTextInputFormatterToJson(
         _$FilteringAllowTextInputFormatter instance) =>
     <String, dynamic>{
@@ -99,12 +72,6 @@ _$FilteringDenyTextInputFormatter _$$FilteringDenyTextInputFormatterFromJson(
       replacementString: json['replacementString'] as String? ?? '',
       $type: json['runtimeType'] as String?,
     );
-
-const _$$FilteringDenyTextInputFormatterFieldMap = <String, String>{
-  'filterPattern': 'filterPattern',
-  'replacementString': 'replacementString',
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$FilteringDenyTextInputFormatterToJson(
         _$FilteringDenyTextInputFormatter instance) =>

@@ -12,13 +12,9 @@ _$_FormData _$$_FormDataFromJson(Map<String, dynamic> json) => _$_FormData(
           .toList(),
     );
 
-const _$$_FormDataFieldMap = <String, String>{
-  'fields': 'fields',
-};
-
 Map<String, dynamic> _$$_FormDataToJson(_$_FormData instance) =>
     <String, dynamic>{
-      'fields': instance.fields,
+      'fields': instance.fields.map((e) => e.toJson()).toList(),
     };
 
 _$FormObjectField _$$FormObjectFieldFromJson(Map<String, dynamic> json) =>
@@ -29,29 +25,13 @@ _$FormObjectField _$$FormObjectFieldFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FormObjectFieldFieldMap = <String, String>{
-  'key': 'key',
-  'description': 'description',
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FormObjectFieldToJson(_$FormObjectField instance) {
-  final val = <String, dynamic>{
-    'key': instance.key,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('value', instance.value);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FormObjectFieldToJson(_$FormObjectField instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'description': instance.description,
+      'value': instance.value,
+      'runtimeType': instance.$type,
+    };
 
 _$FormMapField _$$FormMapFieldFromJson(Map<String, dynamic> json) =>
     _$FormMapField(
@@ -61,29 +41,13 @@ _$FormMapField _$$FormMapFieldFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FormMapFieldFieldMap = <String, String>{
-  'key': 'key',
-  'description': 'description',
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FormMapFieldToJson(_$FormMapField instance) {
-  final val = <String, dynamic>{
-    'key': instance.key,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('value', instance.value);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FormMapFieldToJson(_$FormMapField instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'description': instance.description,
+      'value': instance.value,
+      'runtimeType': instance.$type,
+    };
 
 _$FormStringField _$$FormStringFieldFromJson(Map<String, dynamic> json) =>
     _$FormStringField(
@@ -93,29 +57,13 @@ _$FormStringField _$$FormStringFieldFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FormStringFieldFieldMap = <String, String>{
-  'key': 'key',
-  'description': 'description',
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FormStringFieldToJson(_$FormStringField instance) {
-  final val = <String, dynamic>{
-    'key': instance.key,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('value', instance.value);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FormStringFieldToJson(_$FormStringField instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'description': instance.description,
+      'value': instance.value,
+      'runtimeType': instance.$type,
+    };
 
 _$FormBoolField _$$FormBoolFieldFromJson(Map<String, dynamic> json) =>
     _$FormBoolField(
@@ -125,29 +73,13 @@ _$FormBoolField _$$FormBoolFieldFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FormBoolFieldFieldMap = <String, String>{
-  'key': 'key',
-  'description': 'description',
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FormBoolFieldToJson(_$FormBoolField instance) {
-  final val = <String, dynamic>{
-    'key': instance.key,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('value', instance.value);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FormBoolFieldToJson(_$FormBoolField instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'description': instance.description,
+      'value': instance.value,
+      'runtimeType': instance.$type,
+    };
 
 _$FormDoubleField _$$FormDoubleFieldFromJson(Map<String, dynamic> json) =>
     _$FormDoubleField(
@@ -157,29 +89,13 @@ _$FormDoubleField _$$FormDoubleFieldFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FormDoubleFieldFieldMap = <String, String>{
-  'key': 'key',
-  'description': 'description',
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FormDoubleFieldToJson(_$FormDoubleField instance) {
-  final val = <String, dynamic>{
-    'key': instance.key,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('value', instance.value);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FormDoubleFieldToJson(_$FormDoubleField instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'description': instance.description,
+      'value': instance.value,
+      'runtimeType': instance.$type,
+    };
 
 _$FormIntegerField _$$FormIntegerFieldFromJson(Map<String, dynamic> json) =>
     _$FormIntegerField(
@@ -189,29 +105,13 @@ _$FormIntegerField _$$FormIntegerFieldFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FormIntegerFieldFieldMap = <String, String>{
-  'key': 'key',
-  'description': 'description',
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FormIntegerFieldToJson(_$FormIntegerField instance) {
-  final val = <String, dynamic>{
-    'key': instance.key,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('value', instance.value);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FormIntegerFieldToJson(_$FormIntegerField instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'description': instance.description,
+      'value': instance.value,
+      'runtimeType': instance.$type,
+    };
 
 _$FormNumField _$$FormNumFieldFromJson(Map<String, dynamic> json) =>
     _$FormNumField(
@@ -221,29 +121,13 @@ _$FormNumField _$$FormNumFieldFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FormNumFieldFieldMap = <String, String>{
-  'key': 'key',
-  'description': 'description',
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FormNumFieldToJson(_$FormNumField instance) {
-  final val = <String, dynamic>{
-    'key': instance.key,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('value', instance.value);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FormNumFieldToJson(_$FormNumField instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'description': instance.description,
+      'value': instance.value,
+      'runtimeType': instance.$type,
+    };
 
 _$FormDateTimeField _$$FormDateTimeFieldFromJson(Map<String, dynamic> json) =>
     _$FormDateTimeField(
@@ -255,29 +139,13 @@ _$FormDateTimeField _$$FormDateTimeFieldFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FormDateTimeFieldFieldMap = <String, String>{
-  'key': 'key',
-  'description': 'description',
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FormDateTimeFieldToJson(_$FormDateTimeField instance) {
-  final val = <String, dynamic>{
-    'key': instance.key,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('value', instance.value?.toIso8601String());
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FormDateTimeFieldToJson(_$FormDateTimeField instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'description': instance.description,
+      'value': instance.value?.toIso8601String(),
+      'runtimeType': instance.$type,
+    };
 
 _$FormDurationField _$$FormDurationFieldFromJson(Map<String, dynamic> json) =>
     _$FormDurationField(
@@ -289,29 +157,13 @@ _$FormDurationField _$$FormDurationFieldFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FormDurationFieldFieldMap = <String, String>{
-  'key': 'key',
-  'description': 'description',
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FormDurationFieldToJson(_$FormDurationField instance) {
-  final val = <String, dynamic>{
-    'key': instance.key,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('value', instance.value?.inMicroseconds);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FormDurationFieldToJson(_$FormDurationField instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'description': instance.description,
+      'value': instance.value?.inMicroseconds,
+      'runtimeType': instance.$type,
+    };
 
 _$FormColorField _$$FormColorFieldFromJson(Map<String, dynamic> json) =>
     _$FormColorField(
@@ -323,26 +175,10 @@ _$FormColorField _$$FormColorFieldFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FormColorFieldFieldMap = <String, String>{
-  'key': 'key',
-  'description': 'description',
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$FormColorFieldToJson(_$FormColorField instance) {
-  final val = <String, dynamic>{
-    'key': instance.key,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('value', instance.value);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$FormColorFieldToJson(_$FormColorField instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'description': instance.description,
+      'value': instance.value?.toJson(),
+      'runtimeType': instance.$type,
+    };

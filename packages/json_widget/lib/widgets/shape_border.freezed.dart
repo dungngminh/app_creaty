@@ -2741,7 +2741,7 @@ class _$UnderlineInputBorder implements UnderlineInputBorder {
   const _$UnderlineInputBorder(
       {this.side = const BorderSide(),
       this.borderRadius = const BorderRadius.only(
-          topLeft: Radius.circular(4.0), topRight: Radius.circular(4.0)),
+          topLeft: Radius.circular(4), topRight: Radius.circular(4)),
       final String? $type})
       : $type = $type ?? 'underlineInput';
 
@@ -3049,7 +3049,7 @@ class __$$OutlineInputBorderCopyWithImpl<$Res>
 class _$OutlineInputBorder implements OutlineInputBorder {
   const _$OutlineInputBorder(
       {this.side = const BorderSide(),
-      this.borderRadius = const BorderRadius.all(Radius.circular(4.0)),
+      this.borderRadius = const BorderRadius.all(Radius.circular(4)),
       this.gapPadding = 4.0,
       final String? $type})
       : $type = $type ?? 'outlineInput';

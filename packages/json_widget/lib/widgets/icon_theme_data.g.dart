@@ -22,33 +22,14 @@ _$_IconThemeData _$$_IconThemeDataFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-const _$$_IconThemeDataFieldMap = <String, String>{
-  'size': 'size',
-  'fill': 'fill',
-  'weight': 'weight',
-  'grade': 'grade',
-  'opticalSize': 'opticalSize',
-  'color': 'color',
-  'opacity': 'opacity',
-  'shadows': 'shadows',
-};
-
-Map<String, dynamic> _$$_IconThemeDataToJson(_$_IconThemeData instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('size', instance.size);
-  writeNotNull('fill', instance.fill);
-  writeNotNull('weight', instance.weight);
-  writeNotNull('grade', instance.grade);
-  writeNotNull('opticalSize', instance.opticalSize);
-  writeNotNull('color', instance.color);
-  writeNotNull('opacity', instance.opacity);
-  writeNotNull('shadows', instance.shadows);
-  return val;
-}
+Map<String, dynamic> _$$_IconThemeDataToJson(_$_IconThemeData instance) =>
+    <String, dynamic>{
+      'size': instance.size,
+      'fill': instance.fill,
+      'weight': instance.weight,
+      'grade': instance.grade,
+      'opticalSize': instance.opticalSize,
+      'color': instance.color?.toJson(),
+      'opacity': instance.opacity,
+      'shadows': instance.shadows?.map((e) => e.toJson()).toList(),
+    };

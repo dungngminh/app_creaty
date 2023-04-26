@@ -18,31 +18,14 @@ _$WidgetSpan _$$WidgetSpanFromJson(Map<String, dynamic> json) => _$WidgetSpan(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$WidgetSpanFieldMap = <String, String>{
-  'child': 'child',
-  'alignment': 'alignment',
-  'baseline': 'baseline',
-  'style': 'style',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$WidgetSpanToJson(_$WidgetSpan instance) {
-  final val = <String, dynamic>{
-    'child': instance.child,
-    'alignment': _$PlaceholderAlignmentEnumMap[instance.alignment]!,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('baseline', _$TextBaselineEnumMap[instance.baseline]);
-  writeNotNull('style', instance.style);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$WidgetSpanToJson(_$WidgetSpan instance) =>
+    <String, dynamic>{
+      'child': instance.child.toJson(),
+      'alignment': _$PlaceholderAlignmentEnumMap[instance.alignment]!,
+      'baseline': _$TextBaselineEnumMap[instance.baseline],
+      'style': instance.style?.toJson(),
+      'runtimeType': instance.$type,
+    };
 
 const _$PlaceholderAlignmentEnumMap = {
   PlaceholderAlignment.baseline: 'baseline',
@@ -80,35 +63,15 @@ _$TextSpan _$$TextSpanFromJson(Map<String, dynamic> json) => _$TextSpan(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$TextSpanFieldMap = <String, String>{
-  'text': 'text',
-  'children': 'children',
-  'style': 'style',
-  'mouseCursor': 'mouseCursor',
-  'onTap': 'onTap',
-  'semanticsLabel': 'semanticsLabel',
-  'locale': 'locale',
-  'spellOut': 'spellOut',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$TextSpanToJson(_$TextSpan instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('text', instance.text);
-  writeNotNull('children', instance.children);
-  writeNotNull('style', instance.style);
-  writeNotNull('mouseCursor', instance.mouseCursor);
-  writeNotNull('onTap', instance.onTap);
-  writeNotNull('semanticsLabel', instance.semanticsLabel);
-  writeNotNull('locale', instance.locale);
-  writeNotNull('spellOut', instance.spellOut);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$TextSpanToJson(_$TextSpan instance) =>
+    <String, dynamic>{
+      'text': instance.text,
+      'children': instance.children?.map((e) => e.toJson()).toList(),
+      'style': instance.style?.toJson(),
+      'mouseCursor': instance.mouseCursor?.toJson(),
+      'onTap': instance.onTap?.toJson(),
+      'semanticsLabel': instance.semanticsLabel,
+      'locale': instance.locale?.toJson(),
+      'spellOut': instance.spellOut,
+      'runtimeType': instance.$type,
+    };

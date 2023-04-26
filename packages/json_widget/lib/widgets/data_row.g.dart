@@ -30,36 +30,17 @@ _$_DataRow _$$_DataRowFromJson(Map<String, dynamic> json) => _$_DataRow(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$_DataRowFieldMap = <String, String>{
-  'key': 'key',
-  'selected': 'selected',
-  'onSelect': 'onSelect',
-  'onDeselect': 'onDeselect',
-  'onLongPress': 'onLongPress',
-  'color': 'color',
-  'cells': 'cells',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$_DataRowToJson(_$_DataRow instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['selected'] = instance.selected;
-  writeNotNull('onSelect', instance.onSelect);
-  writeNotNull('onDeselect', instance.onDeselect);
-  writeNotNull('onLongPress', instance.onLongPress);
-  writeNotNull('color', instance.color);
-  val['cells'] = instance.cells;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$_DataRowToJson(_$_DataRow instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'selected': instance.selected,
+      'onSelect': instance.onSelect?.toJson(),
+      'onDeselect': instance.onDeselect?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'color': instance.color?.toJson(),
+      'cells': instance.cells.map((e) => e.toJson()).toList(),
+      'runtimeType': instance.$type,
+    };
 
 _$DataRowByIndex _$$DataRowByIndexFromJson(Map<String, dynamic> json) =>
     _$DataRowByIndex(
@@ -84,33 +65,14 @@ _$DataRowByIndex _$$DataRowByIndexFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$DataRowByIndexFieldMap = <String, String>{
-  'index': 'index',
-  'selected': 'selected',
-  'onSelect': 'onSelect',
-  'onDeselect': 'onDeselect',
-  'onLongPress': 'onLongPress',
-  'color': 'color',
-  'cells': 'cells',
-  r'$type': 'runtimeType',
-};
-
-Map<String, dynamic> _$$DataRowByIndexToJson(_$DataRowByIndex instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('index', instance.index);
-  val['selected'] = instance.selected;
-  writeNotNull('onSelect', instance.onSelect);
-  writeNotNull('onDeselect', instance.onDeselect);
-  writeNotNull('onLongPress', instance.onLongPress);
-  writeNotNull('color', instance.color);
-  val['cells'] = instance.cells;
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$$DataRowByIndexToJson(_$DataRowByIndex instance) =>
+    <String, dynamic>{
+      'index': instance.index,
+      'selected': instance.selected,
+      'onSelect': instance.onSelect?.toJson(),
+      'onDeselect': instance.onDeselect?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'color': instance.color?.toJson(),
+      'cells': instance.cells.map((e) => e.toJson()).toList(),
+      'runtimeType': instance.$type,
+    };

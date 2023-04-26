@@ -1,4 +1,5 @@
 import 'package:app_creaty/commons/extensions/context_extension.dart';
+import 'package:app_creaty/models/app_creaty_component.dart';
 import 'package:app_creaty/models/ui_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -41,9 +42,9 @@ class UIComponentCard extends StatelessWidget {
       opacity: 0.5,
       child: widget,
     );
-    final dragWidget = Draggable<Map<String, dynamic>>(
+    final dragWidget = Draggable<AppCreatyComponent>(
       feedback: feedbackWidget,
-      data: component.currentData,
+      data: component.widget,
       child: widget,
     );
 

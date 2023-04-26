@@ -791,10 +791,11 @@ class Widget with _$Widget {
         Color filmColor,
     @Default([
       BoxShadow(
-          blurRadius: 1.5,
-          offset: Offset(0, 2),
-          spreadRadius: 0.75,
-          color: Color.fromARGB(25, 0, 0, 0),)
+        blurRadius: 1.5,
+        offset: Offset(0, 2),
+        spreadRadius: 0.75,
+        color: Color.fromARGB(25, 0, 0, 0),
+      )
     ])
         List<BoxShadow> shadows,
     @Default(Size(77.37, 37.9))

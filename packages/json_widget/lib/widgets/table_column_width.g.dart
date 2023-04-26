@@ -13,36 +13,18 @@ _$IntrinsicColumnWidth _$$IntrinsicColumnWidthFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$IntrinsicColumnWidthFieldMap = <String, String>{
-  'flex': 'flex',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$IntrinsicColumnWidthToJson(
-    _$IntrinsicColumnWidth instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('flex', instance.flex);
-  val['runtimeType'] = instance.$type;
-  return val;
-}
+        _$IntrinsicColumnWidth instance) =>
+    <String, dynamic>{
+      'flex': instance.flex,
+      'runtimeType': instance.$type,
+    };
 
 _$FixedColumnWidth _$$FixedColumnWidthFromJson(Map<String, dynamic> json) =>
     _$FixedColumnWidth(
       (json['value'] as num).toDouble(),
       $type: json['runtimeType'] as String?,
     );
-
-const _$$FixedColumnWidthFieldMap = <String, String>{
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$FixedColumnWidthToJson(_$FixedColumnWidth instance) =>
     <String, dynamic>{
@@ -57,11 +39,6 @@ _$FractionColumnWidth _$$FractionColumnWidthFromJson(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$FractionColumnWidthFieldMap = <String, String>{
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$FractionColumnWidthToJson(
         _$FractionColumnWidth instance) =>
     <String, dynamic>{
@@ -74,11 +51,6 @@ _$FlexColumnWidth _$$FlexColumnWidthFromJson(Map<String, dynamic> json) =>
       (json['value'] as num?)?.toDouble() ?? 1.0,
       json['runtimeType'] as String?,
     );
-
-const _$$FlexColumnWidthFieldMap = <String, String>{
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$FlexColumnWidthToJson(_$FlexColumnWidth instance) =>
     <String, dynamic>{
@@ -93,16 +65,10 @@ _$MaxColumnWidth _$$MaxColumnWidthFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$MaxColumnWidthFieldMap = <String, String>{
-  'a': 'a',
-  'b': 'b',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$MaxColumnWidthToJson(_$MaxColumnWidth instance) =>
     <String, dynamic>{
-      'a': instance.a,
-      'b': instance.b,
+      'a': instance.a.toJson(),
+      'b': instance.b.toJson(),
       'runtimeType': instance.$type,
     };
 
@@ -113,15 +79,9 @@ _$MinColumnWidth _$$MinColumnWidthFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-const _$$MinColumnWidthFieldMap = <String, String>{
-  'a': 'a',
-  'b': 'b',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$MinColumnWidthToJson(_$MinColumnWidth instance) =>
     <String, dynamic>{
-      'a': instance.a,
-      'b': instance.b,
+      'a': instance.a.toJson(),
+      'b': instance.b.toJson(),
       'runtimeType': instance.$type,
     };

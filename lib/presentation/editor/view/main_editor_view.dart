@@ -1,10 +1,22 @@
 import 'package:app_creaty/commons/router/app_router.dart';
-import 'package:app_creaty/presentation/editor/view/editor_panel.dart';
-import 'package:app_creaty/presentation/editor/widgets/editor_navigation_rail.dart';
-import 'package:app_creaty/presentation/editor/widgets/main_editor_app_bar.dart';
+import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
+import 'package:app_creaty/presentation/editor/editor.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+class MainEditorPage extends StatelessWidget {
+  const MainEditorPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => EditorBloc(),
+      child: const MainEditorView(),
+    );
+  }
+}
 
 class MainEditorView extends StatefulWidget {
   const MainEditorView({super.key});
@@ -16,12 +28,10 @@ class MainEditorView extends StatefulWidget {
 class _MainEditorViewState extends State<MainEditorView> {
   late final ValueNotifier<int> _currentTabNotifier;
   late final ValueNotifier<bool> _isMenuExtendedNotifier;
-  late DeviceInfo _currentDevice;
 
   @override
   void initState() {
     super.initState();
-    _currentDevice = Devices.android.samsungGalaxyA50;
     _currentTabNotifier = ValueNotifier(0);
     _isMenuExtendedNotifier = ValueNotifier(false);
   }
@@ -38,7 +48,7 @@ class _MainEditorViewState extends State<MainEditorView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainEditorAppBar(
+      appBar: EditorAppBar(
         onExtendMenuPressed: _onExtendMenuPressed,
         onHomeButtonPressed: _onHomeButtonPressed,
       ),
@@ -61,7 +71,6 @@ class _MainEditorViewState extends State<MainEditorView> {
                 valueListenable: _currentTabNotifier,
                 builder: (context, currentIndex, _) {
                   return EditorPanel(
-                    currentDevice: _currentDevice,
                     currentIndex: currentIndex,
                   );
                 },

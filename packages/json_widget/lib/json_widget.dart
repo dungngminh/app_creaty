@@ -1,3 +1,4 @@
+export 'transformer/flutter_widget.dart';
 export 'widgets/alignment.dart';
 export 'widgets/border_radius.dart';
 export 'widgets/border_side.dart';

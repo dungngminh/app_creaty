@@ -31,45 +31,21 @@ _$_DecorationImage _$$_DecorationImageFromJson(Map<String, dynamic> json) =>
       isAntiAlias: json['isAntiAlias'] as bool? ?? false,
     );
 
-const _$$_DecorationImageFieldMap = <String, String>{
-  'image': 'image',
-  'colorFilter': 'colorFilter',
-  'fit': 'fit',
-  'alignment': 'alignment',
-  'centerSlice': 'centerSlice',
-  'repeat': 'repeat',
-  'matchTextDirection': 'matchTextDirection',
-  'scale': 'scale',
-  'opacity': 'opacity',
-  'filterQuality': 'filterQuality',
-  'invertColors': 'invertColors',
-  'isAntiAlias': 'isAntiAlias',
-};
-
-Map<String, dynamic> _$$_DecorationImageToJson(_$_DecorationImage instance) {
-  final val = <String, dynamic>{
-    'image': instance.image,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('colorFilter', instance.colorFilter);
-  writeNotNull('fit', _$BoxFitEnumMap[instance.fit]);
-  val['alignment'] = instance.alignment;
-  writeNotNull('centerSlice', instance.centerSlice);
-  val['repeat'] = _$ImageRepeatEnumMap[instance.repeat]!;
-  val['matchTextDirection'] = instance.matchTextDirection;
-  val['scale'] = instance.scale;
-  val['opacity'] = instance.opacity;
-  val['filterQuality'] = _$FilterQualityEnumMap[instance.filterQuality]!;
-  val['invertColors'] = instance.invertColors;
-  val['isAntiAlias'] = instance.isAntiAlias;
-  return val;
-}
+Map<String, dynamic> _$$_DecorationImageToJson(_$_DecorationImage instance) =>
+    <String, dynamic>{
+      'image': instance.image.toJson(),
+      'colorFilter': instance.colorFilter?.toJson(),
+      'fit': _$BoxFitEnumMap[instance.fit],
+      'alignment': instance.alignment.toJson(),
+      'centerSlice': instance.centerSlice?.toJson(),
+      'repeat': _$ImageRepeatEnumMap[instance.repeat]!,
+      'matchTextDirection': instance.matchTextDirection,
+      'scale': instance.scale,
+      'opacity': instance.opacity,
+      'filterQuality': _$FilterQualityEnumMap[instance.filterQuality]!,
+      'invertColors': instance.invertColors,
+      'isAntiAlias': instance.isAntiAlias,
+    };
 
 const _$BoxFitEnumMap = {
   BoxFit.fill: 'fill',

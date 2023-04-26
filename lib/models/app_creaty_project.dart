@@ -19,7 +19,16 @@ class AppCreatyProject extends Equatable {
   final DateTime updatedAt;
 
   @override
-  List<Object?> get props => [name, image, createdAt, updatedAt];
+  List<Object?> get props {
+    return [
+      id,
+      name,
+      image,
+      logoAppImage,
+      createdAt,
+      updatedAt,
+    ];
+  }
 }
 
 final mockProjects = <AppCreatyProject>[

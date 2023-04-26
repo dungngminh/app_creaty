@@ -11,11 +11,6 @@ _$ValueKey _$$ValueKeyFromJson(Map<String, dynamic> json) => _$ValueKey(
       $type: json['runtimeType'] as String?,
     );
 
-const _$$ValueKeyFieldMap = <String, String>{
-  'value': 'value',
-  r'$type': 'runtimeType',
-};
-
 Map<String, dynamic> _$$ValueKeyToJson(_$ValueKey instance) =>
     <String, dynamic>{
       'value': instance.value,
@@ -25,10 +20,6 @@ Map<String, dynamic> _$$ValueKeyToJson(_$ValueKey instance) =>
 _$UniqueKey _$$UniqueKeyFromJson(Map<String, dynamic> json) => _$UniqueKey(
       $type: json['runtimeType'] as String?,
     );
-
-const _$$UniqueKeyFieldMap = <String, String>{
-  r'$type': 'runtimeType',
-};
 
 Map<String, dynamic> _$$UniqueKeyToJson(_$UniqueKey instance) =>
     <String, dynamic>{

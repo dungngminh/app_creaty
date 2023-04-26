@@ -33,5 +33,9 @@
   "rowComponent": "Row",
   "containerComponent": "Container",
   "imageComponent": "Image",
-  "dividerComponent": "Divider"
+  "dividerComponent": "Divider",
+  "buttonComponenet": "Button",
+  "commonComponents": "Common Components",
+  "layoutComponents": "Layout Components",
+  "inputComponents":"Input Components"
 }

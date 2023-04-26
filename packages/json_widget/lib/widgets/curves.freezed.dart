@@ -16,24 +16,24 @@ final _privateConstructorUsedError = UnsupportedError(
 
 Curves _$CurvesFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
+    case 'elasticInOut':
+      return ElasticInOutCurve.fromJson(json);
+    case 'elasticOut':
+      return ElasticOutCurve.fromJson(json);
+    case 'elasticIn':
+      return ElasticInCurve.fromJson(json);
+    case 'bounceInOut':
+      return BounceInOutCurve.fromJson(json);
+    case 'bounceOut':
+      return BounceOutCurve.fromJson(json);
+    case 'bounceIn':
+      return BounceInCurve.fromJson(json);
     case 'linear':
       return LinearCurve.fromJson(json);
     case 'cubic':
       return Cubic.fromJson(json);
     case 'decelerate':
       return DecelerateCurve.fromJson(json);
-    case 'bounceIn':
-      return BounceInCurve.fromJson(json);
-    case 'bounceOut':
-      return BounceOutCurve.fromJson(json);
-    case 'bounceInOut':
-      return BounceInOutCurve.fromJson(json);
-    case 'elasticIn':
-      return ElasticInCurve.fromJson(json);
-    case 'elasticOut':
-      return ElasticOutCurve.fromJson(json);
-    case 'elasticInOut':
-      return ElasticInOutCurve.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'Curves',
@@ -45,81 +45,81 @@ Curves _$CurvesFromJson(Map<String, dynamic> json) {
 mixin _$Curves {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() elasticInOut,
+    required TResult Function() elasticOut,
+    required TResult Function() elasticIn,
+    required TResult Function() bounceInOut,
+    required TResult Function() bounceOut,
+    required TResult Function() bounceIn,
     required TResult Function() linear,
     required TResult Function(double x1, double y1, double x2, double y2) cubic,
     required TResult Function() decelerate,
-    required TResult Function() bounceIn,
-    required TResult Function() bounceOut,
-    required TResult Function() bounceInOut,
-    required TResult Function() elasticIn,
-    required TResult Function() elasticOut,
-    required TResult Function() elasticInOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? elasticInOut,
+    TResult? Function()? elasticOut,
+    TResult? Function()? elasticIn,
+    TResult? Function()? bounceInOut,
+    TResult? Function()? bounceOut,
+    TResult? Function()? bounceIn,
     TResult? Function()? linear,
     TResult? Function(double x1, double y1, double x2, double y2)? cubic,
     TResult? Function()? decelerate,
-    TResult? Function()? bounceIn,
-    TResult? Function()? bounceOut,
-    TResult? Function()? bounceInOut,
-    TResult? Function()? elasticIn,
-    TResult? Function()? elasticOut,
-    TResult? Function()? elasticInOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? elasticInOut,
+    TResult Function()? elasticOut,
+    TResult Function()? elasticIn,
+    TResult Function()? bounceInOut,
+    TResult Function()? bounceOut,
+    TResult Function()? bounceIn,
     TResult Function()? linear,
     TResult Function(double x1, double y1, double x2, double y2)? cubic,
     TResult Function()? decelerate,
-    TResult Function()? bounceIn,
-    TResult Function()? bounceOut,
-    TResult Function()? bounceInOut,
-    TResult Function()? elasticIn,
-    TResult Function()? elasticOut,
-    TResult Function()? elasticInOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(ElasticInOutCurve value) elasticInOut,
+    required TResult Function(ElasticOutCurve value) elasticOut,
+    required TResult Function(ElasticInCurve value) elasticIn,
+    required TResult Function(BounceInOutCurve value) bounceInOut,
+    required TResult Function(BounceOutCurve value) bounceOut,
+    required TResult Function(BounceInCurve value) bounceIn,
     required TResult Function(LinearCurve value) linear,
     required TResult Function(Cubic value) cubic,
     required TResult Function(DecelerateCurve value) decelerate,
-    required TResult Function(BounceInCurve value) bounceIn,
-    required TResult Function(BounceOutCurve value) bounceOut,
-    required TResult Function(BounceInOutCurve value) bounceInOut,
-    required TResult Function(ElasticInCurve value) elasticIn,
-    required TResult Function(ElasticOutCurve value) elasticOut,
-    required TResult Function(ElasticInOutCurve value) elasticInOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ElasticInOutCurve value)? elasticInOut,
+    TResult? Function(ElasticOutCurve value)? elasticOut,
+    TResult? Function(ElasticInCurve value)? elasticIn,
+    TResult? Function(BounceInOutCurve value)? bounceInOut,
+    TResult? Function(BounceOutCurve value)? bounceOut,
+    TResult? Function(BounceInCurve value)? bounceIn,
     TResult? Function(LinearCurve value)? linear,
     TResult? Function(Cubic value)? cubic,
     TResult? Function(DecelerateCurve value)? decelerate,
-    TResult? Function(BounceInCurve value)? bounceIn,
-    TResult? Function(BounceOutCurve value)? bounceOut,
-    TResult? Function(BounceInOutCurve value)? bounceInOut,
-    TResult? Function(ElasticInCurve value)? elasticIn,
-    TResult? Function(ElasticOutCurve value)? elasticOut,
-    TResult? Function(ElasticInOutCurve value)? elasticInOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(ElasticInOutCurve value)? elasticInOut,
+    TResult Function(ElasticOutCurve value)? elasticOut,
+    TResult Function(ElasticInCurve value)? elasticIn,
+    TResult Function(BounceInOutCurve value)? bounceInOut,
+    TResult Function(BounceOutCurve value)? bounceOut,
+    TResult Function(BounceInCurve value)? bounceIn,
     TResult Function(LinearCurve value)? linear,
     TResult Function(Cubic value)? cubic,
     TResult Function(DecelerateCurve value)? decelerate,
-    TResult Function(BounceInCurve value)? bounceIn,
-    TResult Function(BounceOutCurve value)? bounceOut,
-    TResult Function(BounceInOutCurve value)? bounceInOut,
-    TResult Function(ElasticInCurve value)? elasticIn,
-    TResult Function(ElasticOutCurve value)? elasticOut,
-    TResult Function(ElasticInOutCurve value)? elasticInOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,6 +141,975 @@ class _$CurvesCopyWithImpl<$Res, $Val extends Curves>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$ElasticInOutCurveCopyWith<$Res> {
+  factory _$$ElasticInOutCurveCopyWith(
+          _$ElasticInOutCurve value, $Res Function(_$ElasticInOutCurve) then) =
+      __$$ElasticInOutCurveCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ElasticInOutCurveCopyWithImpl<$Res>
+    extends _$CurvesCopyWithImpl<$Res, _$ElasticInOutCurve>
+    implements _$$ElasticInOutCurveCopyWith<$Res> {
+  __$$ElasticInOutCurveCopyWithImpl(
+      _$ElasticInOutCurve _value, $Res Function(_$ElasticInOutCurve) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ElasticInOutCurve implements ElasticInOutCurve {
+  const _$ElasticInOutCurve({final String? $type})
+      : $type = $type ?? 'elasticInOut';
+
+  factory _$ElasticInOutCurve.fromJson(Map<String, dynamic> json) =>
+      _$$ElasticInOutCurveFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Curves.elasticInOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ElasticInOutCurve);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() elasticInOut,
+    required TResult Function() elasticOut,
+    required TResult Function() elasticIn,
+    required TResult Function() bounceInOut,
+    required TResult Function() bounceOut,
+    required TResult Function() bounceIn,
+    required TResult Function() linear,
+    required TResult Function(double x1, double y1, double x2, double y2) cubic,
+    required TResult Function() decelerate,
+  }) {
+    return elasticInOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? elasticInOut,
+    TResult? Function()? elasticOut,
+    TResult? Function()? elasticIn,
+    TResult? Function()? bounceInOut,
+    TResult? Function()? bounceOut,
+    TResult? Function()? bounceIn,
+    TResult? Function()? linear,
+    TResult? Function(double x1, double y1, double x2, double y2)? cubic,
+    TResult? Function()? decelerate,
+  }) {
+    return elasticInOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? elasticInOut,
+    TResult Function()? elasticOut,
+    TResult Function()? elasticIn,
+    TResult Function()? bounceInOut,
+    TResult Function()? bounceOut,
+    TResult Function()? bounceIn,
+    TResult Function()? linear,
+    TResult Function(double x1, double y1, double x2, double y2)? cubic,
+    TResult Function()? decelerate,
+    required TResult orElse(),
+  }) {
+    if (elasticInOut != null) {
+      return elasticInOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ElasticInOutCurve value) elasticInOut,
+    required TResult Function(ElasticOutCurve value) elasticOut,
+    required TResult Function(ElasticInCurve value) elasticIn,
+    required TResult Function(BounceInOutCurve value) bounceInOut,
+    required TResult Function(BounceOutCurve value) bounceOut,
+    required TResult Function(BounceInCurve value) bounceIn,
+    required TResult Function(LinearCurve value) linear,
+    required TResult Function(Cubic value) cubic,
+    required TResult Function(DecelerateCurve value) decelerate,
+  }) {
+    return elasticInOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ElasticInOutCurve value)? elasticInOut,
+    TResult? Function(ElasticOutCurve value)? elasticOut,
+    TResult? Function(ElasticInCurve value)? elasticIn,
+    TResult? Function(BounceInOutCurve value)? bounceInOut,
+    TResult? Function(BounceOutCurve value)? bounceOut,
+    TResult? Function(BounceInCurve value)? bounceIn,
+    TResult? Function(LinearCurve value)? linear,
+    TResult? Function(Cubic value)? cubic,
+    TResult? Function(DecelerateCurve value)? decelerate,
+  }) {
+    return elasticInOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ElasticInOutCurve value)? elasticInOut,
+    TResult Function(ElasticOutCurve value)? elasticOut,
+    TResult Function(ElasticInCurve value)? elasticIn,
+    TResult Function(BounceInOutCurve value)? bounceInOut,
+    TResult Function(BounceOutCurve value)? bounceOut,
+    TResult Function(BounceInCurve value)? bounceIn,
+    TResult Function(LinearCurve value)? linear,
+    TResult Function(Cubic value)? cubic,
+    TResult Function(DecelerateCurve value)? decelerate,
+    required TResult orElse(),
+  }) {
+    if (elasticInOut != null) {
+      return elasticInOut(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ElasticInOutCurveToJson(
+      this,
+    );
+  }
+}
+
+abstract class ElasticInOutCurve implements Curves {
+  const factory ElasticInOutCurve() = _$ElasticInOutCurve;
+
+  factory ElasticInOutCurve.fromJson(Map<String, dynamic> json) =
+      _$ElasticInOutCurve.fromJson;
+}
+
+/// @nodoc
+abstract class _$$ElasticOutCurveCopyWith<$Res> {
+  factory _$$ElasticOutCurveCopyWith(
+          _$ElasticOutCurve value, $Res Function(_$ElasticOutCurve) then) =
+      __$$ElasticOutCurveCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ElasticOutCurveCopyWithImpl<$Res>
+    extends _$CurvesCopyWithImpl<$Res, _$ElasticOutCurve>
+    implements _$$ElasticOutCurveCopyWith<$Res> {
+  __$$ElasticOutCurveCopyWithImpl(
+      _$ElasticOutCurve _value, $Res Function(_$ElasticOutCurve) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ElasticOutCurve implements ElasticOutCurve {
+  const _$ElasticOutCurve({final String? $type})
+      : $type = $type ?? 'elasticOut';
+
+  factory _$ElasticOutCurve.fromJson(Map<String, dynamic> json) =>
+      _$$ElasticOutCurveFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Curves.elasticOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ElasticOutCurve);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() elasticInOut,
+    required TResult Function() elasticOut,
+    required TResult Function() elasticIn,
+    required TResult Function() bounceInOut,
+    required TResult Function() bounceOut,
+    required TResult Function() bounceIn,
+    required TResult Function() linear,
+    required TResult Function(double x1, double y1, double x2, double y2) cubic,
+    required TResult Function() decelerate,
+  }) {
+    return elasticOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? elasticInOut,
+    TResult? Function()? elasticOut,
+    TResult? Function()? elasticIn,
+    TResult? Function()? bounceInOut,
+    TResult? Function()? bounceOut,
+    TResult? Function()? bounceIn,
+    TResult? Function()? linear,
+    TResult? Function(double x1, double y1, double x2, double y2)? cubic,
+    TResult? Function()? decelerate,
+  }) {
+    return elasticOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? elasticInOut,
+    TResult Function()? elasticOut,
+    TResult Function()? elasticIn,
+    TResult Function()? bounceInOut,
+    TResult Function()? bounceOut,
+    TResult Function()? bounceIn,
+    TResult Function()? linear,
+    TResult Function(double x1, double y1, double x2, double y2)? cubic,
+    TResult Function()? decelerate,
+    required TResult orElse(),
+  }) {
+    if (elasticOut != null) {
+      return elasticOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ElasticInOutCurve value) elasticInOut,
+    required TResult Function(ElasticOutCurve value) elasticOut,
+    required TResult Function(ElasticInCurve value) elasticIn,
+    required TResult Function(BounceInOutCurve value) bounceInOut,
+    required TResult Function(BounceOutCurve value) bounceOut,
+    required TResult Function(BounceInCurve value) bounceIn,
+    required TResult Function(LinearCurve value) linear,
+    required TResult Function(Cubic value) cubic,
+    required TResult Function(DecelerateCurve value) decelerate,
+  }) {
+    return elasticOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ElasticInOutCurve value)? elasticInOut,
+    TResult? Function(ElasticOutCurve value)? elasticOut,
+    TResult? Function(ElasticInCurve value)? elasticIn,
+    TResult? Function(BounceInOutCurve value)? bounceInOut,
+    TResult? Function(BounceOutCurve value)? bounceOut,
+    TResult? Function(BounceInCurve value)? bounceIn,
+    TResult? Function(LinearCurve value)? linear,
+    TResult? Function(Cubic value)? cubic,
+    TResult? Function(DecelerateCurve value)? decelerate,
+  }) {
+    return elasticOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ElasticInOutCurve value)? elasticInOut,
+    TResult Function(ElasticOutCurve value)? elasticOut,
+    TResult Function(ElasticInCurve value)? elasticIn,
+    TResult Function(BounceInOutCurve value)? bounceInOut,
+    TResult Function(BounceOutCurve value)? bounceOut,
+    TResult Function(BounceInCurve value)? bounceIn,
+    TResult Function(LinearCurve value)? linear,
+    TResult Function(Cubic value)? cubic,
+    TResult Function(DecelerateCurve value)? decelerate,
+    required TResult orElse(),
+  }) {
+    if (elasticOut != null) {
+      return elasticOut(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ElasticOutCurveToJson(
+      this,
+    );
+  }
+}
+
+abstract class ElasticOutCurve implements Curves {
+  const factory ElasticOutCurve() = _$ElasticOutCurve;
+
+  factory ElasticOutCurve.fromJson(Map<String, dynamic> json) =
+      _$ElasticOutCurve.fromJson;
+}
+
+/// @nodoc
+abstract class _$$ElasticInCurveCopyWith<$Res> {
+  factory _$$ElasticInCurveCopyWith(
+          _$ElasticInCurve value, $Res Function(_$ElasticInCurve) then) =
+      __$$ElasticInCurveCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ElasticInCurveCopyWithImpl<$Res>
+    extends _$CurvesCopyWithImpl<$Res, _$ElasticInCurve>
+    implements _$$ElasticInCurveCopyWith<$Res> {
+  __$$ElasticInCurveCopyWithImpl(
+      _$ElasticInCurve _value, $Res Function(_$ElasticInCurve) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ElasticInCurve implements ElasticInCurve {
+  const _$ElasticInCurve({final String? $type}) : $type = $type ?? 'elasticIn';
+
+  factory _$ElasticInCurve.fromJson(Map<String, dynamic> json) =>
+      _$$ElasticInCurveFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Curves.elasticIn()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ElasticInCurve);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() elasticInOut,
+    required TResult Function() elasticOut,
+    required TResult Function() elasticIn,
+    required TResult Function() bounceInOut,
+    required TResult Function() bounceOut,
+    required TResult Function() bounceIn,
+    required TResult Function() linear,
+    required TResult Function(double x1, double y1, double x2, double y2) cubic,
+    required TResult Function() decelerate,
+  }) {
+    return elasticIn();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? elasticInOut,
+    TResult? Function()? elasticOut,
+    TResult? Function()? elasticIn,
+    TResult? Function()? bounceInOut,
+    TResult? Function()? bounceOut,
+    TResult? Function()? bounceIn,
+    TResult? Function()? linear,
+    TResult? Function(double x1, double y1, double x2, double y2)? cubic,
+    TResult? Function()? decelerate,
+  }) {
+    return elasticIn?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? elasticInOut,
+    TResult Function()? elasticOut,
+    TResult Function()? elasticIn,
+    TResult Function()? bounceInOut,
+    TResult Function()? bounceOut,
+    TResult Function()? bounceIn,
+    TResult Function()? linear,
+    TResult Function(double x1, double y1, double x2, double y2)? cubic,
+    TResult Function()? decelerate,
+    required TResult orElse(),
+  }) {
+    if (elasticIn != null) {
+      return elasticIn();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ElasticInOutCurve value) elasticInOut,
+    required TResult Function(ElasticOutCurve value) elasticOut,
+    required TResult Function(ElasticInCurve value) elasticIn,
+    required TResult Function(BounceInOutCurve value) bounceInOut,
+    required TResult Function(BounceOutCurve value) bounceOut,
+    required TResult Function(BounceInCurve value) bounceIn,
+    required TResult Function(LinearCurve value) linear,
+    required TResult Function(Cubic value) cubic,
+    required TResult Function(DecelerateCurve value) decelerate,
+  }) {
+    return elasticIn(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ElasticInOutCurve value)? elasticInOut,
+    TResult? Function(ElasticOutCurve value)? elasticOut,
+    TResult? Function(ElasticInCurve value)? elasticIn,
+    TResult? Function(BounceInOutCurve value)? bounceInOut,
+    TResult? Function(BounceOutCurve value)? bounceOut,
+    TResult? Function(BounceInCurve value)? bounceIn,
+    TResult? Function(LinearCurve value)? linear,
+    TResult? Function(Cubic value)? cubic,
+    TResult? Function(DecelerateCurve value)? decelerate,
+  }) {
+    return elasticIn?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ElasticInOutCurve value)? elasticInOut,
+    TResult Function(ElasticOutCurve value)? elasticOut,
+    TResult Function(ElasticInCurve value)? elasticIn,
+    TResult Function(BounceInOutCurve value)? bounceInOut,
+    TResult Function(BounceOutCurve value)? bounceOut,
+    TResult Function(BounceInCurve value)? bounceIn,
+    TResult Function(LinearCurve value)? linear,
+    TResult Function(Cubic value)? cubic,
+    TResult Function(DecelerateCurve value)? decelerate,
+    required TResult orElse(),
+  }) {
+    if (elasticIn != null) {
+      return elasticIn(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ElasticInCurveToJson(
+      this,
+    );
+  }
+}
+
+abstract class ElasticInCurve implements Curves {
+  const factory ElasticInCurve() = _$ElasticInCurve;
+
+  factory ElasticInCurve.fromJson(Map<String, dynamic> json) =
+      _$ElasticInCurve.fromJson;
+}
+
+/// @nodoc
+abstract class _$$BounceInOutCurveCopyWith<$Res> {
+  factory _$$BounceInOutCurveCopyWith(
+          _$BounceInOutCurve value, $Res Function(_$BounceInOutCurve) then) =
+      __$$BounceInOutCurveCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$BounceInOutCurveCopyWithImpl<$Res>
+    extends _$CurvesCopyWithImpl<$Res, _$BounceInOutCurve>
+    implements _$$BounceInOutCurveCopyWith<$Res> {
+  __$$BounceInOutCurveCopyWithImpl(
+      _$BounceInOutCurve _value, $Res Function(_$BounceInOutCurve) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$BounceInOutCurve implements BounceInOutCurve {
+  const _$BounceInOutCurve({final String? $type})
+      : $type = $type ?? 'bounceInOut';
+
+  factory _$BounceInOutCurve.fromJson(Map<String, dynamic> json) =>
+      _$$BounceInOutCurveFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Curves.bounceInOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$BounceInOutCurve);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() elasticInOut,
+    required TResult Function() elasticOut,
+    required TResult Function() elasticIn,
+    required TResult Function() bounceInOut,
+    required TResult Function() bounceOut,
+    required TResult Function() bounceIn,
+    required TResult Function() linear,
+    required TResult Function(double x1, double y1, double x2, double y2) cubic,
+    required TResult Function() decelerate,
+  }) {
+    return bounceInOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? elasticInOut,
+    TResult? Function()? elasticOut,
+    TResult? Function()? elasticIn,
+    TResult? Function()? bounceInOut,
+    TResult? Function()? bounceOut,
+    TResult? Function()? bounceIn,
+    TResult? Function()? linear,
+    TResult? Function(double x1, double y1, double x2, double y2)? cubic,
+    TResult? Function()? decelerate,
+  }) {
+    return bounceInOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? elasticInOut,
+    TResult Function()? elasticOut,
+    TResult Function()? elasticIn,
+    TResult Function()? bounceInOut,
+    TResult Function()? bounceOut,
+    TResult Function()? bounceIn,
+    TResult Function()? linear,
+    TResult Function(double x1, double y1, double x2, double y2)? cubic,
+    TResult Function()? decelerate,
+    required TResult orElse(),
+  }) {
+    if (bounceInOut != null) {
+      return bounceInOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ElasticInOutCurve value) elasticInOut,
+    required TResult Function(ElasticOutCurve value) elasticOut,
+    required TResult Function(ElasticInCurve value) elasticIn,
+    required TResult Function(BounceInOutCurve value) bounceInOut,
+    required TResult Function(BounceOutCurve value) bounceOut,
+    required TResult Function(BounceInCurve value) bounceIn,
+    required TResult Function(LinearCurve value) linear,
+    required TResult Function(Cubic value) cubic,
+    required TResult Function(DecelerateCurve value) decelerate,
+  }) {
+    return bounceInOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ElasticInOutCurve value)? elasticInOut,
+    TResult? Function(ElasticOutCurve value)? elasticOut,
+    TResult? Function(ElasticInCurve value)? elasticIn,
+    TResult? Function(BounceInOutCurve value)? bounceInOut,
+    TResult? Function(BounceOutCurve value)? bounceOut,
+    TResult? Function(BounceInCurve value)? bounceIn,
+    TResult? Function(LinearCurve value)? linear,
+    TResult? Function(Cubic value)? cubic,
+    TResult? Function(DecelerateCurve value)? decelerate,
+  }) {
+    return bounceInOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ElasticInOutCurve value)? elasticInOut,
+    TResult Function(ElasticOutCurve value)? elasticOut,
+    TResult Function(ElasticInCurve value)? elasticIn,
+    TResult Function(BounceInOutCurve value)? bounceInOut,
+    TResult Function(BounceOutCurve value)? bounceOut,
+    TResult Function(BounceInCurve value)? bounceIn,
+    TResult Function(LinearCurve value)? linear,
+    TResult Function(Cubic value)? cubic,
+    TResult Function(DecelerateCurve value)? decelerate,
+    required TResult orElse(),
+  }) {
+    if (bounceInOut != null) {
+      return bounceInOut(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$BounceInOutCurveToJson(
+      this,
+    );
+  }
+}
+
+abstract class BounceInOutCurve implements Curves {
+  const factory BounceInOutCurve() = _$BounceInOutCurve;
+
+  factory BounceInOutCurve.fromJson(Map<String, dynamic> json) =
+      _$BounceInOutCurve.fromJson;
+}
+
+/// @nodoc
+abstract class _$$BounceOutCurveCopyWith<$Res> {
+  factory _$$BounceOutCurveCopyWith(
+          _$BounceOutCurve value, $Res Function(_$BounceOutCurve) then) =
+      __$$BounceOutCurveCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$BounceOutCurveCopyWithImpl<$Res>
+    extends _$CurvesCopyWithImpl<$Res, _$BounceOutCurve>
+    implements _$$BounceOutCurveCopyWith<$Res> {
+  __$$BounceOutCurveCopyWithImpl(
+      _$BounceOutCurve _value, $Res Function(_$BounceOutCurve) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$BounceOutCurve implements BounceOutCurve {
+  const _$BounceOutCurve({final String? $type}) : $type = $type ?? 'bounceOut';
+
+  factory _$BounceOutCurve.fromJson(Map<String, dynamic> json) =>
+      _$$BounceOutCurveFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Curves.bounceOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$BounceOutCurve);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() elasticInOut,
+    required TResult Function() elasticOut,
+    required TResult Function() elasticIn,
+    required TResult Function() bounceInOut,
+    required TResult Function() bounceOut,
+    required TResult Function() bounceIn,
+    required TResult Function() linear,
+    required TResult Function(double x1, double y1, double x2, double y2) cubic,
+    required TResult Function() decelerate,
+  }) {
+    return bounceOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? elasticInOut,
+    TResult? Function()? elasticOut,
+    TResult? Function()? elasticIn,
+    TResult? Function()? bounceInOut,
+    TResult? Function()? bounceOut,
+    TResult? Function()? bounceIn,
+    TResult? Function()? linear,
+    TResult? Function(double x1, double y1, double x2, double y2)? cubic,
+    TResult? Function()? decelerate,
+  }) {
+    return bounceOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? elasticInOut,
+    TResult Function()? elasticOut,
+    TResult Function()? elasticIn,
+    TResult Function()? bounceInOut,
+    TResult Function()? bounceOut,
+    TResult Function()? bounceIn,
+    TResult Function()? linear,
+    TResult Function(double x1, double y1, double x2, double y2)? cubic,
+    TResult Function()? decelerate,
+    required TResult orElse(),
+  }) {
+    if (bounceOut != null) {
+      return bounceOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ElasticInOutCurve value) elasticInOut,
+    required TResult Function(ElasticOutCurve value) elasticOut,
+    required TResult Function(ElasticInCurve value) elasticIn,
+    required TResult Function(BounceInOutCurve value) bounceInOut,
+    required TResult Function(BounceOutCurve value) bounceOut,
+    required TResult Function(BounceInCurve value) bounceIn,
+    required TResult Function(LinearCurve value) linear,
+    required TResult Function(Cubic value) cubic,
+    required TResult Function(DecelerateCurve value) decelerate,
+  }) {
+    return bounceOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ElasticInOutCurve value)? elasticInOut,
+    TResult? Function(ElasticOutCurve value)? elasticOut,
+    TResult? Function(ElasticInCurve value)? elasticIn,
+    TResult? Function(BounceInOutCurve value)? bounceInOut,
+    TResult? Function(BounceOutCurve value)? bounceOut,
+    TResult? Function(BounceInCurve value)? bounceIn,
+    TResult? Function(LinearCurve value)? linear,
+    TResult? Function(Cubic value)? cubic,
+    TResult? Function(DecelerateCurve value)? decelerate,
+  }) {
+    return bounceOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ElasticInOutCurve value)? elasticInOut,
+    TResult Function(ElasticOutCurve value)? elasticOut,
+    TResult Function(ElasticInCurve value)? elasticIn,
+    TResult Function(BounceInOutCurve value)? bounceInOut,
+    TResult Function(BounceOutCurve value)? bounceOut,
+    TResult Function(BounceInCurve value)? bounceIn,
+    TResult Function(LinearCurve value)? linear,
+    TResult Function(Cubic value)? cubic,
+    TResult Function(DecelerateCurve value)? decelerate,
+    required TResult orElse(),
+  }) {
+    if (bounceOut != null) {
+      return bounceOut(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$BounceOutCurveToJson(
+      this,
+    );
+  }
+}
+
+abstract class BounceOutCurve implements Curves {
+  const factory BounceOutCurve() = _$BounceOutCurve;
+
+  factory BounceOutCurve.fromJson(Map<String, dynamic> json) =
+      _$BounceOutCurve.fromJson;
+}
+
+/// @nodoc
+abstract class _$$BounceInCurveCopyWith<$Res> {
+  factory _$$BounceInCurveCopyWith(
+          _$BounceInCurve value, $Res Function(_$BounceInCurve) then) =
+      __$$BounceInCurveCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$BounceInCurveCopyWithImpl<$Res>
+    extends _$CurvesCopyWithImpl<$Res, _$BounceInCurve>
+    implements _$$BounceInCurveCopyWith<$Res> {
+  __$$BounceInCurveCopyWithImpl(
+      _$BounceInCurve _value, $Res Function(_$BounceInCurve) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$BounceInCurve implements BounceInCurve {
+  const _$BounceInCurve({final String? $type}) : $type = $type ?? 'bounceIn';
+
+  factory _$BounceInCurve.fromJson(Map<String, dynamic> json) =>
+      _$$BounceInCurveFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Curves.bounceIn()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$BounceInCurve);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() elasticInOut,
+    required TResult Function() elasticOut,
+    required TResult Function() elasticIn,
+    required TResult Function() bounceInOut,
+    required TResult Function() bounceOut,
+    required TResult Function() bounceIn,
+    required TResult Function() linear,
+    required TResult Function(double x1, double y1, double x2, double y2) cubic,
+    required TResult Function() decelerate,
+  }) {
+    return bounceIn();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? elasticInOut,
+    TResult? Function()? elasticOut,
+    TResult? Function()? elasticIn,
+    TResult? Function()? bounceInOut,
+    TResult? Function()? bounceOut,
+    TResult? Function()? bounceIn,
+    TResult? Function()? linear,
+    TResult? Function(double x1, double y1, double x2, double y2)? cubic,
+    TResult? Function()? decelerate,
+  }) {
+    return bounceIn?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? elasticInOut,
+    TResult Function()? elasticOut,
+    TResult Function()? elasticIn,
+    TResult Function()? bounceInOut,
+    TResult Function()? bounceOut,
+    TResult Function()? bounceIn,
+    TResult Function()? linear,
+    TResult Function(double x1, double y1, double x2, double y2)? cubic,
+    TResult Function()? decelerate,
+    required TResult orElse(),
+  }) {
+    if (bounceIn != null) {
+      return bounceIn();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ElasticInOutCurve value) elasticInOut,
+    required TResult Function(ElasticOutCurve value) elasticOut,
+    required TResult Function(ElasticInCurve value) elasticIn,
+    required TResult Function(BounceInOutCurve value) bounceInOut,
+    required TResult Function(BounceOutCurve value) bounceOut,
+    required TResult Function(BounceInCurve value) bounceIn,
+    required TResult Function(LinearCurve value) linear,
+    required TResult Function(Cubic value) cubic,
+    required TResult Function(DecelerateCurve value) decelerate,
+  }) {
+    return bounceIn(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ElasticInOutCurve value)? elasticInOut,
+    TResult? Function(ElasticOutCurve value)? elasticOut,
+    TResult? Function(ElasticInCurve value)? elasticIn,
+    TResult? Function(BounceInOutCurve value)? bounceInOut,
+    TResult? Function(BounceOutCurve value)? bounceOut,
+    TResult? Function(BounceInCurve value)? bounceIn,
+    TResult? Function(LinearCurve value)? linear,
+    TResult? Function(Cubic value)? cubic,
+    TResult? Function(DecelerateCurve value)? decelerate,
+  }) {
+    return bounceIn?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ElasticInOutCurve value)? elasticInOut,
+    TResult Function(ElasticOutCurve value)? elasticOut,
+    TResult Function(ElasticInCurve value)? elasticIn,
+    TResult Function(BounceInOutCurve value)? bounceInOut,
+    TResult Function(BounceOutCurve value)? bounceOut,
+    TResult Function(BounceInCurve value)? bounceIn,
+    TResult Function(LinearCurve value)? linear,
+    TResult Function(Cubic value)? cubic,
+    TResult Function(DecelerateCurve value)? decelerate,
+    required TResult orElse(),
+  }) {
+    if (bounceIn != null) {
+      return bounceIn(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$BounceInCurveToJson(
+      this,
+    );
+  }
+}
+
+abstract class BounceInCurve implements Curves {
+  const factory BounceInCurve() = _$BounceInCurve;
+
+  factory BounceInCurve.fromJson(Map<String, dynamic> json) =
+      _$BounceInCurve.fromJson;
 }
 
 /// @nodoc
@@ -188,15 +1157,15 @@ class _$LinearCurve implements LinearCurve {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() elasticInOut,
+    required TResult Function() elasticOut,
+    required TResult Function() elasticIn,
+    required TResult Function() bounceInOut,
+    required TResult Function() bounceOut,
+    required TResult Function() bounceIn,
     required TResult Function() linear,
     required TResult Function(double x1, double y1, double x2, double y2) cubic,
     required TResult Function() decelerate,
-    required TResult Function() bounceIn,
-    required TResult Function() bounceOut,
-    required TResult Function() bounceInOut,
-    required TResult Function() elasticIn,
-    required TResult Function() elasticOut,
-    required TResult Function() elasticInOut,
   }) {
     return linear();
   }
@@ -204,15 +1173,15 @@ class _$LinearCurve implements LinearCurve {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? elasticInOut,
+    TResult? Function()? elasticOut,
+    TResult? Function()? elasticIn,
+    TResult? Function()? bounceInOut,
+    TResult? Function()? bounceOut,
+    TResult? Function()? bounceIn,
     TResult? Function()? linear,
     TResult? Function(double x1, double y1, double x2, double y2)? cubic,
     TResult? Function()? decelerate,
-    TResult? Function()? bounceIn,
-    TResult? Function()? bounceOut,
-    TResult? Function()? bounceInOut,
-    TResult? Function()? elasticIn,
-    TResult? Function()? elasticOut,
-    TResult? Function()? elasticInOut,
   }) {
     return linear?.call();
   }
@@ -220,15 +1189,15 @@ class _$LinearCurve implements LinearCurve {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? elasticInOut,
+    TResult Function()? elasticOut,
+    TResult Function()? elasticIn,
+    TResult Function()? bounceInOut,
+    TResult Function()? bounceOut,
+    TResult Function()? bounceIn,
     TResult Function()? linear,
     TResult Function(double x1, double y1, double x2, double y2)? cubic,
     TResult Function()? decelerate,
-    TResult Function()? bounceIn,
-    TResult Function()? bounceOut,
-    TResult Function()? bounceInOut,
-    TResult Function()? elasticIn,
-    TResult Function()? elasticOut,
-    TResult Function()? elasticInOut,
     required TResult orElse(),
   }) {
     if (linear != null) {
@@ -240,15 +1209,15 @@ class _$LinearCurve implements LinearCurve {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(ElasticInOutCurve value) elasticInOut,
+    required TResult Function(ElasticOutCurve value) elasticOut,
+    required TResult Function(ElasticInCurve value) elasticIn,
+    required TResult Function(BounceInOutCurve value) bounceInOut,
+    required TResult Function(BounceOutCurve value) bounceOut,
+    required TResult Function(BounceInCurve value) bounceIn,
     required TResult Function(LinearCurve value) linear,
     required TResult Function(Cubic value) cubic,
     required TResult Function(DecelerateCurve value) decelerate,
-    required TResult Function(BounceInCurve value) bounceIn,
-    required TResult Function(BounceOutCurve value) bounceOut,
-    required TResult Function(BounceInOutCurve value) bounceInOut,
-    required TResult Function(ElasticInCurve value) elasticIn,
-    required TResult Function(ElasticOutCurve value) elasticOut,
-    required TResult Function(ElasticInOutCurve value) elasticInOut,
   }) {
     return linear(this);
   }
@@ -256,15 +1225,15 @@ class _$LinearCurve implements LinearCurve {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ElasticInOutCurve value)? elasticInOut,
+    TResult? Function(ElasticOutCurve value)? elasticOut,
+    TResult? Function(ElasticInCurve value)? elasticIn,
+    TResult? Function(BounceInOutCurve value)? bounceInOut,
+    TResult? Function(BounceOutCurve value)? bounceOut,
+    TResult? Function(BounceInCurve value)? bounceIn,
     TResult? Function(LinearCurve value)? linear,
     TResult? Function(Cubic value)? cubic,
     TResult? Function(DecelerateCurve value)? decelerate,
-    TResult? Function(BounceInCurve value)? bounceIn,
-    TResult? Function(BounceOutCurve value)? bounceOut,
-    TResult? Function(BounceInOutCurve value)? bounceInOut,
-    TResult? Function(ElasticInCurve value)? elasticIn,
-    TResult? Function(ElasticOutCurve value)? elasticOut,
-    TResult? Function(ElasticInOutCurve value)? elasticInOut,
   }) {
     return linear?.call(this);
   }
@@ -272,15 +1241,15 @@ class _$LinearCurve implements LinearCurve {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(ElasticInOutCurve value)? elasticInOut,
+    TResult Function(ElasticOutCurve value)? elasticOut,
+    TResult Function(ElasticInCurve value)? elasticIn,
+    TResult Function(BounceInOutCurve value)? bounceInOut,
+    TResult Function(BounceOutCurve value)? bounceOut,
+    TResult Function(BounceInCurve value)? bounceIn,
     TResult Function(LinearCurve value)? linear,
     TResult Function(Cubic value)? cubic,
     TResult Function(DecelerateCurve value)? decelerate,
-    TResult Function(BounceInCurve value)? bounceIn,
-    TResult Function(BounceOutCurve value)? bounceOut,
-    TResult Function(BounceInOutCurve value)? bounceInOut,
-    TResult Function(ElasticInCurve value)? elasticIn,
-    TResult Function(ElasticOutCurve value)? elasticOut,
-    TResult Function(ElasticInOutCurve value)? elasticInOut,
     required TResult orElse(),
   }) {
     if (linear != null) {
@@ -396,15 +1365,15 @@ class _$Cubic implements Cubic {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() elasticInOut,
+    required TResult Function() elasticOut,
+    required TResult Function() elasticIn,
+    required TResult Function() bounceInOut,
+    required TResult Function() bounceOut,
+    required TResult Function() bounceIn,
     required TResult Function() linear,
     required TResult Function(double x1, double y1, double x2, double y2) cubic,
     required TResult Function() decelerate,
-    required TResult Function() bounceIn,
-    required TResult Function() bounceOut,
-    required TResult Function() bounceInOut,
-    required TResult Function() elasticIn,
-    required TResult Function() elasticOut,
-    required TResult Function() elasticInOut,
   }) {
     return cubic(x1, y1, x2, y2);
   }
@@ -412,15 +1381,15 @@ class _$Cubic implements Cubic {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? elasticInOut,
+    TResult? Function()? elasticOut,
+    TResult? Function()? elasticIn,
+    TResult? Function()? bounceInOut,
+    TResult? Function()? bounceOut,
+    TResult? Function()? bounceIn,
     TResult? Function()? linear,
     TResult? Function(double x1, double y1, double x2, double y2)? cubic,
     TResult? Function()? decelerate,
-    TResult? Function()? bounceIn,
-    TResult? Function()? bounceOut,
-    TResult? Function()? bounceInOut,
-    TResult? Function()? elasticIn,
-    TResult? Function()? elasticOut,
-    TResult? Function()? elasticInOut,
   }) {
     return cubic?.call(x1, y1, x2, y2);
   }
@@ -428,15 +1397,15 @@ class _$Cubic implements Cubic {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? elasticInOut,
+    TResult Function()? elasticOut,
+    TResult Function()? elasticIn,
+    TResult Function()? bounceInOut,
+    TResult Function()? bounceOut,
+    TResult Function()? bounceIn,
     TResult Function()? linear,
     TResult Function(double x1, double y1, double x2, double y2)? cubic,
     TResult Function()? decelerate,
-    TResult Function()? bounceIn,
-    TResult Function()? bounceOut,
-    TResult Function()? bounceInOut,
-    TResult Function()? elasticIn,
-    TResult Function()? elasticOut,
-    TResult Function()? elasticInOut,
     required TResult orElse(),
   }) {
     if (cubic != null) {
@@ -448,15 +1417,15 @@ class _$Cubic implements Cubic {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(ElasticInOutCurve value) elasticInOut,
+    required TResult Function(ElasticOutCurve value) elasticOut,
+    required TResult Function(ElasticInCurve value) elasticIn,
+    required TResult Function(BounceInOutCurve value) bounceInOut,
+    required TResult Function(BounceOutCurve value) bounceOut,
+    required TResult Function(BounceInCurve value) bounceIn,
     required TResult Function(LinearCurve value) linear,
     required TResult Function(Cubic value) cubic,
     required TResult Function(DecelerateCurve value) decelerate,
-    required TResult Function(BounceInCurve value) bounceIn,
-    required TResult Function(BounceOutCurve value) bounceOut,
-    required TResult Function(BounceInOutCurve value) bounceInOut,
-    required TResult Function(ElasticInCurve value) elasticIn,
-    required TResult Function(ElasticOutCurve value) elasticOut,
-    required TResult Function(ElasticInOutCurve value) elasticInOut,
   }) {
     return cubic(this);
   }
@@ -464,15 +1433,15 @@ class _$Cubic implements Cubic {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ElasticInOutCurve value)? elasticInOut,
+    TResult? Function(ElasticOutCurve value)? elasticOut,
+    TResult? Function(ElasticInCurve value)? elasticIn,
+    TResult? Function(BounceInOutCurve value)? bounceInOut,
+    TResult? Function(BounceOutCurve value)? bounceOut,
+    TResult? Function(BounceInCurve value)? bounceIn,
     TResult? Function(LinearCurve value)? linear,
     TResult? Function(Cubic value)? cubic,
     TResult? Function(DecelerateCurve value)? decelerate,
-    TResult? Function(BounceInCurve value)? bounceIn,
-    TResult? Function(BounceOutCurve value)? bounceOut,
-    TResult? Function(BounceInOutCurve value)? bounceInOut,
-    TResult? Function(ElasticInCurve value)? elasticIn,
-    TResult? Function(ElasticOutCurve value)? elasticOut,
-    TResult? Function(ElasticInOutCurve value)? elasticInOut,
   }) {
     return cubic?.call(this);
   }
@@ -480,15 +1449,15 @@ class _$Cubic implements Cubic {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(ElasticInOutCurve value)? elasticInOut,
+    TResult Function(ElasticOutCurve value)? elasticOut,
+    TResult Function(ElasticInCurve value)? elasticIn,
+    TResult Function(BounceInOutCurve value)? bounceInOut,
+    TResult Function(BounceOutCurve value)? bounceOut,
+    TResult Function(BounceInCurve value)? bounceIn,
     TResult Function(LinearCurve value)? linear,
     TResult Function(Cubic value)? cubic,
     TResult Function(DecelerateCurve value)? decelerate,
-    TResult Function(BounceInCurve value)? bounceIn,
-    TResult Function(BounceOutCurve value)? bounceOut,
-    TResult Function(BounceInOutCurve value)? bounceInOut,
-    TResult Function(ElasticInCurve value)? elasticIn,
-    TResult Function(ElasticOutCurve value)? elasticOut,
-    TResult Function(ElasticInOutCurve value)? elasticInOut,
     required TResult orElse(),
   }) {
     if (cubic != null) {
@@ -566,15 +1535,15 @@ class _$DecelerateCurve implements DecelerateCurve {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() elasticInOut,
+    required TResult Function() elasticOut,
+    required TResult Function() elasticIn,
+    required TResult Function() bounceInOut,
+    required TResult Function() bounceOut,
+    required TResult Function() bounceIn,
     required TResult Function() linear,
     required TResult Function(double x1, double y1, double x2, double y2) cubic,
     required TResult Function() decelerate,
-    required TResult Function() bounceIn,
-    required TResult Function() bounceOut,
-    required TResult Function() bounceInOut,
-    required TResult Function() elasticIn,
-    required TResult Function() elasticOut,
-    required TResult Function() elasticInOut,
   }) {
     return decelerate();
   }
@@ -582,15 +1551,15 @@ class _$DecelerateCurve implements DecelerateCurve {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? elasticInOut,
+    TResult? Function()? elasticOut,
+    TResult? Function()? elasticIn,
+    TResult? Function()? bounceInOut,
+    TResult? Function()? bounceOut,
+    TResult? Function()? bounceIn,
     TResult? Function()? linear,
     TResult? Function(double x1, double y1, double x2, double y2)? cubic,
     TResult? Function()? decelerate,
-    TResult? Function()? bounceIn,
-    TResult? Function()? bounceOut,
-    TResult? Function()? bounceInOut,
-    TResult? Function()? elasticIn,
-    TResult? Function()? elasticOut,
-    TResult? Function()? elasticInOut,
   }) {
     return decelerate?.call();
   }
@@ -598,15 +1567,15 @@ class _$DecelerateCurve implements DecelerateCurve {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? elasticInOut,
+    TResult Function()? elasticOut,
+    TResult Function()? elasticIn,
+    TResult Function()? bounceInOut,
+    TResult Function()? bounceOut,
+    TResult Function()? bounceIn,
     TResult Function()? linear,
     TResult Function(double x1, double y1, double x2, double y2)? cubic,
     TResult Function()? decelerate,
-    TResult Function()? bounceIn,
-    TResult Function()? bounceOut,
-    TResult Function()? bounceInOut,
-    TResult Function()? elasticIn,
-    TResult Function()? elasticOut,
-    TResult Function()? elasticInOut,
     required TResult orElse(),
   }) {
     if (decelerate != null) {
@@ -618,15 +1587,15 @@ class _$DecelerateCurve implements DecelerateCurve {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(ElasticInOutCurve value) elasticInOut,
+    required TResult Function(ElasticOutCurve value) elasticOut,
+    required TResult Function(ElasticInCurve value) elasticIn,
+    required TResult Function(BounceInOutCurve value) bounceInOut,
+    required TResult Function(BounceOutCurve value) bounceOut,
+    required TResult Function(BounceInCurve value) bounceIn,
     required TResult Function(LinearCurve value) linear,
     required TResult Function(Cubic value) cubic,
     required TResult Function(DecelerateCurve value) decelerate,
-    required TResult Function(BounceInCurve value) bounceIn,
-    required TResult Function(BounceOutCurve value) bounceOut,
-    required TResult Function(BounceInOutCurve value) bounceInOut,
-    required TResult Function(ElasticInCurve value) elasticIn,
-    required TResult Function(ElasticOutCurve value) elasticOut,
-    required TResult Function(ElasticInOutCurve value) elasticInOut,
   }) {
     return decelerate(this);
   }
@@ -634,15 +1603,15 @@ class _$DecelerateCurve implements DecelerateCurve {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ElasticInOutCurve value)? elasticInOut,
+    TResult? Function(ElasticOutCurve value)? elasticOut,
+    TResult? Function(ElasticInCurve value)? elasticIn,
+    TResult? Function(BounceInOutCurve value)? bounceInOut,
+    TResult? Function(BounceOutCurve value)? bounceOut,
+    TResult? Function(BounceInCurve value)? bounceIn,
     TResult? Function(LinearCurve value)? linear,
     TResult? Function(Cubic value)? cubic,
     TResult? Function(DecelerateCurve value)? decelerate,
-    TResult? Function(BounceInCurve value)? bounceIn,
-    TResult? Function(BounceOutCurve value)? bounceOut,
-    TResult? Function(BounceInOutCurve value)? bounceInOut,
-    TResult? Function(ElasticInCurve value)? elasticIn,
-    TResult? Function(ElasticOutCurve value)? elasticOut,
-    TResult? Function(ElasticInOutCurve value)? elasticInOut,
   }) {
     return decelerate?.call(this);
   }
@@ -650,15 +1619,15 @@ class _$DecelerateCurve implements DecelerateCurve {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(ElasticInOutCurve value)? elasticInOut,
+    TResult Function(ElasticOutCurve value)? elasticOut,
+    TResult Function(ElasticInCurve value)? elasticIn,
+    TResult Function(BounceInOutCurve value)? bounceInOut,
+    TResult Function(BounceOutCurve value)? bounceOut,
+    TResult Function(BounceInCurve value)? bounceIn,
     TResult Function(LinearCurve value)? linear,
     TResult Function(Cubic value)? cubic,
     TResult Function(DecelerateCurve value)? decelerate,
-    TResult Function(BounceInCurve value)? bounceIn,
-    TResult Function(BounceOutCurve value)? bounceOut,
-    TResult Function(BounceInOutCurve value)? bounceInOut,
-    TResult Function(ElasticInCurve value)? elasticIn,
-    TResult Function(ElasticOutCurve value)? elasticOut,
-    TResult Function(ElasticInOutCurve value)? elasticInOut,
     required TResult orElse(),
   }) {
     if (decelerate != null) {
@@ -680,973 +1649,4 @@ abstract class DecelerateCurve implements Curves {
 
   factory DecelerateCurve.fromJson(Map<String, dynamic> json) =
       _$DecelerateCurve.fromJson;
-}
-
-/// @nodoc
-abstract class _$$BounceInCurveCopyWith<$Res> {
-  factory _$$BounceInCurveCopyWith(
-          _$BounceInCurve value, $Res Function(_$BounceInCurve) then) =
-      __$$BounceInCurveCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$BounceInCurveCopyWithImpl<$Res>
-    extends _$CurvesCopyWithImpl<$Res, _$BounceInCurve>
-    implements _$$BounceInCurveCopyWith<$Res> {
-  __$$BounceInCurveCopyWithImpl(
-      _$BounceInCurve _value, $Res Function(_$BounceInCurve) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$BounceInCurve implements BounceInCurve {
-  const _$BounceInCurve({final String? $type}) : $type = $type ?? 'bounceIn';
-
-  factory _$BounceInCurve.fromJson(Map<String, dynamic> json) =>
-      _$$BounceInCurveFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'Curves.bounceIn()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$BounceInCurve);
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() linear,
-    required TResult Function(double x1, double y1, double x2, double y2) cubic,
-    required TResult Function() decelerate,
-    required TResult Function() bounceIn,
-    required TResult Function() bounceOut,
-    required TResult Function() bounceInOut,
-    required TResult Function() elasticIn,
-    required TResult Function() elasticOut,
-    required TResult Function() elasticInOut,
-  }) {
-    return bounceIn();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? linear,
-    TResult? Function(double x1, double y1, double x2, double y2)? cubic,
-    TResult? Function()? decelerate,
-    TResult? Function()? bounceIn,
-    TResult? Function()? bounceOut,
-    TResult? Function()? bounceInOut,
-    TResult? Function()? elasticIn,
-    TResult? Function()? elasticOut,
-    TResult? Function()? elasticInOut,
-  }) {
-    return bounceIn?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? linear,
-    TResult Function(double x1, double y1, double x2, double y2)? cubic,
-    TResult Function()? decelerate,
-    TResult Function()? bounceIn,
-    TResult Function()? bounceOut,
-    TResult Function()? bounceInOut,
-    TResult Function()? elasticIn,
-    TResult Function()? elasticOut,
-    TResult Function()? elasticInOut,
-    required TResult orElse(),
-  }) {
-    if (bounceIn != null) {
-      return bounceIn();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LinearCurve value) linear,
-    required TResult Function(Cubic value) cubic,
-    required TResult Function(DecelerateCurve value) decelerate,
-    required TResult Function(BounceInCurve value) bounceIn,
-    required TResult Function(BounceOutCurve value) bounceOut,
-    required TResult Function(BounceInOutCurve value) bounceInOut,
-    required TResult Function(ElasticInCurve value) elasticIn,
-    required TResult Function(ElasticOutCurve value) elasticOut,
-    required TResult Function(ElasticInOutCurve value) elasticInOut,
-  }) {
-    return bounceIn(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LinearCurve value)? linear,
-    TResult? Function(Cubic value)? cubic,
-    TResult? Function(DecelerateCurve value)? decelerate,
-    TResult? Function(BounceInCurve value)? bounceIn,
-    TResult? Function(BounceOutCurve value)? bounceOut,
-    TResult? Function(BounceInOutCurve value)? bounceInOut,
-    TResult? Function(ElasticInCurve value)? elasticIn,
-    TResult? Function(ElasticOutCurve value)? elasticOut,
-    TResult? Function(ElasticInOutCurve value)? elasticInOut,
-  }) {
-    return bounceIn?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LinearCurve value)? linear,
-    TResult Function(Cubic value)? cubic,
-    TResult Function(DecelerateCurve value)? decelerate,
-    TResult Function(BounceInCurve value)? bounceIn,
-    TResult Function(BounceOutCurve value)? bounceOut,
-    TResult Function(BounceInOutCurve value)? bounceInOut,
-    TResult Function(ElasticInCurve value)? elasticIn,
-    TResult Function(ElasticOutCurve value)? elasticOut,
-    TResult Function(ElasticInOutCurve value)? elasticInOut,
-    required TResult orElse(),
-  }) {
-    if (bounceIn != null) {
-      return bounceIn(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BounceInCurveToJson(
-      this,
-    );
-  }
-}
-
-abstract class BounceInCurve implements Curves {
-  const factory BounceInCurve() = _$BounceInCurve;
-
-  factory BounceInCurve.fromJson(Map<String, dynamic> json) =
-      _$BounceInCurve.fromJson;
-}
-
-/// @nodoc
-abstract class _$$BounceOutCurveCopyWith<$Res> {
-  factory _$$BounceOutCurveCopyWith(
-          _$BounceOutCurve value, $Res Function(_$BounceOutCurve) then) =
-      __$$BounceOutCurveCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$BounceOutCurveCopyWithImpl<$Res>
-    extends _$CurvesCopyWithImpl<$Res, _$BounceOutCurve>
-    implements _$$BounceOutCurveCopyWith<$Res> {
-  __$$BounceOutCurveCopyWithImpl(
-      _$BounceOutCurve _value, $Res Function(_$BounceOutCurve) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$BounceOutCurve implements BounceOutCurve {
-  const _$BounceOutCurve({final String? $type}) : $type = $type ?? 'bounceOut';
-
-  factory _$BounceOutCurve.fromJson(Map<String, dynamic> json) =>
-      _$$BounceOutCurveFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'Curves.bounceOut()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$BounceOutCurve);
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() linear,
-    required TResult Function(double x1, double y1, double x2, double y2) cubic,
-    required TResult Function() decelerate,
-    required TResult Function() bounceIn,
-    required TResult Function() bounceOut,
-    required TResult Function() bounceInOut,
-    required TResult Function() elasticIn,
-    required TResult Function() elasticOut,
-    required TResult Function() elasticInOut,
-  }) {
-    return bounceOut();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? linear,
-    TResult? Function(double x1, double y1, double x2, double y2)? cubic,
-    TResult? Function()? decelerate,
-    TResult? Function()? bounceIn,
-    TResult? Function()? bounceOut,
-    TResult? Function()? bounceInOut,
-    TResult? Function()? elasticIn,
-    TResult? Function()? elasticOut,
-    TResult? Function()? elasticInOut,
-  }) {
-    return bounceOut?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? linear,
-    TResult Function(double x1, double y1, double x2, double y2)? cubic,
-    TResult Function()? decelerate,
-    TResult Function()? bounceIn,
-    TResult Function()? bounceOut,
-    TResult Function()? bounceInOut,
-    TResult Function()? elasticIn,
-    TResult Function()? elasticOut,
-    TResult Function()? elasticInOut,
-    required TResult orElse(),
-  }) {
-    if (bounceOut != null) {
-      return bounceOut();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LinearCurve value) linear,
-    required TResult Function(Cubic value) cubic,
-    required TResult Function(DecelerateCurve value) decelerate,
-    required TResult Function(BounceInCurve value) bounceIn,
-    required TResult Function(BounceOutCurve value) bounceOut,
-    required TResult Function(BounceInOutCurve value) bounceInOut,
-    required TResult Function(ElasticInCurve value) elasticIn,
-    required TResult Function(ElasticOutCurve value) elasticOut,
-    required TResult Function(ElasticInOutCurve value) elasticInOut,
-  }) {
-    return bounceOut(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LinearCurve value)? linear,
-    TResult? Function(Cubic value)? cubic,
-    TResult? Function(DecelerateCurve value)? decelerate,
-    TResult? Function(BounceInCurve value)? bounceIn,
-    TResult? Function(BounceOutCurve value)? bounceOut,
-    TResult? Function(BounceInOutCurve value)? bounceInOut,
-    TResult? Function(ElasticInCurve value)? elasticIn,
-    TResult? Function(ElasticOutCurve value)? elasticOut,
-    TResult? Function(ElasticInOutCurve value)? elasticInOut,
-  }) {
-    return bounceOut?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LinearCurve value)? linear,
-    TResult Function(Cubic value)? cubic,
-    TResult Function(DecelerateCurve value)? decelerate,
-    TResult Function(BounceInCurve value)? bounceIn,
-    TResult Function(BounceOutCurve value)? bounceOut,
-    TResult Function(BounceInOutCurve value)? bounceInOut,
-    TResult Function(ElasticInCurve value)? elasticIn,
-    TResult Function(ElasticOutCurve value)? elasticOut,
-    TResult Function(ElasticInOutCurve value)? elasticInOut,
-    required TResult orElse(),
-  }) {
-    if (bounceOut != null) {
-      return bounceOut(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BounceOutCurveToJson(
-      this,
-    );
-  }
-}
-
-abstract class BounceOutCurve implements Curves {
-  const factory BounceOutCurve() = _$BounceOutCurve;
-
-  factory BounceOutCurve.fromJson(Map<String, dynamic> json) =
-      _$BounceOutCurve.fromJson;
-}
-
-/// @nodoc
-abstract class _$$BounceInOutCurveCopyWith<$Res> {
-  factory _$$BounceInOutCurveCopyWith(
-          _$BounceInOutCurve value, $Res Function(_$BounceInOutCurve) then) =
-      __$$BounceInOutCurveCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$BounceInOutCurveCopyWithImpl<$Res>
-    extends _$CurvesCopyWithImpl<$Res, _$BounceInOutCurve>
-    implements _$$BounceInOutCurveCopyWith<$Res> {
-  __$$BounceInOutCurveCopyWithImpl(
-      _$BounceInOutCurve _value, $Res Function(_$BounceInOutCurve) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$BounceInOutCurve implements BounceInOutCurve {
-  const _$BounceInOutCurve({final String? $type})
-      : $type = $type ?? 'bounceInOut';
-
-  factory _$BounceInOutCurve.fromJson(Map<String, dynamic> json) =>
-      _$$BounceInOutCurveFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'Curves.bounceInOut()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$BounceInOutCurve);
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() linear,
-    required TResult Function(double x1, double y1, double x2, double y2) cubic,
-    required TResult Function() decelerate,
-    required TResult Function() bounceIn,
-    required TResult Function() bounceOut,
-    required TResult Function() bounceInOut,
-    required TResult Function() elasticIn,
-    required TResult Function() elasticOut,
-    required TResult Function() elasticInOut,
-  }) {
-    return bounceInOut();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? linear,
-    TResult? Function(double x1, double y1, double x2, double y2)? cubic,
-    TResult? Function()? decelerate,
-    TResult? Function()? bounceIn,
-    TResult? Function()? bounceOut,
-    TResult? Function()? bounceInOut,
-    TResult? Function()? elasticIn,
-    TResult? Function()? elasticOut,
-    TResult? Function()? elasticInOut,
-  }) {
-    return bounceInOut?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? linear,
-    TResult Function(double x1, double y1, double x2, double y2)? cubic,
-    TResult Function()? decelerate,
-    TResult Function()? bounceIn,
-    TResult Function()? bounceOut,
-    TResult Function()? bounceInOut,
-    TResult Function()? elasticIn,
-    TResult Function()? elasticOut,
-    TResult Function()? elasticInOut,
-    required TResult orElse(),
-  }) {
-    if (bounceInOut != null) {
-      return bounceInOut();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LinearCurve value) linear,
-    required TResult Function(Cubic value) cubic,
-    required TResult Function(DecelerateCurve value) decelerate,
-    required TResult Function(BounceInCurve value) bounceIn,
-    required TResult Function(BounceOutCurve value) bounceOut,
-    required TResult Function(BounceInOutCurve value) bounceInOut,
-    required TResult Function(ElasticInCurve value) elasticIn,
-    required TResult Function(ElasticOutCurve value) elasticOut,
-    required TResult Function(ElasticInOutCurve value) elasticInOut,
-  }) {
-    return bounceInOut(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LinearCurve value)? linear,
-    TResult? Function(Cubic value)? cubic,
-    TResult? Function(DecelerateCurve value)? decelerate,
-    TResult? Function(BounceInCurve value)? bounceIn,
-    TResult? Function(BounceOutCurve value)? bounceOut,
-    TResult? Function(BounceInOutCurve value)? bounceInOut,
-    TResult? Function(ElasticInCurve value)? elasticIn,
-    TResult? Function(ElasticOutCurve value)? elasticOut,
-    TResult? Function(ElasticInOutCurve value)? elasticInOut,
-  }) {
-    return bounceInOut?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LinearCurve value)? linear,
-    TResult Function(Cubic value)? cubic,
-    TResult Function(DecelerateCurve value)? decelerate,
-    TResult Function(BounceInCurve value)? bounceIn,
-    TResult Function(BounceOutCurve value)? bounceOut,
-    TResult Function(BounceInOutCurve value)? bounceInOut,
-    TResult Function(ElasticInCurve value)? elasticIn,
-    TResult Function(ElasticOutCurve value)? elasticOut,
-    TResult Function(ElasticInOutCurve value)? elasticInOut,
-    required TResult orElse(),
-  }) {
-    if (bounceInOut != null) {
-      return bounceInOut(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BounceInOutCurveToJson(
-      this,
-    );
-  }
-}
-
-abstract class BounceInOutCurve implements Curves {
-  const factory BounceInOutCurve() = _$BounceInOutCurve;
-
-  factory BounceInOutCurve.fromJson(Map<String, dynamic> json) =
-      _$BounceInOutCurve.fromJson;
-}
-
-/// @nodoc
-abstract class _$$ElasticInCurveCopyWith<$Res> {
-  factory _$$ElasticInCurveCopyWith(
-          _$ElasticInCurve value, $Res Function(_$ElasticInCurve) then) =
-      __$$ElasticInCurveCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ElasticInCurveCopyWithImpl<$Res>
-    extends _$CurvesCopyWithImpl<$Res, _$ElasticInCurve>
-    implements _$$ElasticInCurveCopyWith<$Res> {
-  __$$ElasticInCurveCopyWithImpl(
-      _$ElasticInCurve _value, $Res Function(_$ElasticInCurve) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ElasticInCurve implements ElasticInCurve {
-  const _$ElasticInCurve({final String? $type}) : $type = $type ?? 'elasticIn';
-
-  factory _$ElasticInCurve.fromJson(Map<String, dynamic> json) =>
-      _$$ElasticInCurveFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'Curves.elasticIn()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ElasticInCurve);
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() linear,
-    required TResult Function(double x1, double y1, double x2, double y2) cubic,
-    required TResult Function() decelerate,
-    required TResult Function() bounceIn,
-    required TResult Function() bounceOut,
-    required TResult Function() bounceInOut,
-    required TResult Function() elasticIn,
-    required TResult Function() elasticOut,
-    required TResult Function() elasticInOut,
-  }) {
-    return elasticIn();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? linear,
-    TResult? Function(double x1, double y1, double x2, double y2)? cubic,
-    TResult? Function()? decelerate,
-    TResult? Function()? bounceIn,
-    TResult? Function()? bounceOut,
-    TResult? Function()? bounceInOut,
-    TResult? Function()? elasticIn,
-    TResult? Function()? elasticOut,
-    TResult? Function()? elasticInOut,
-  }) {
-    return elasticIn?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? linear,
-    TResult Function(double x1, double y1, double x2, double y2)? cubic,
-    TResult Function()? decelerate,
-    TResult Function()? bounceIn,
-    TResult Function()? bounceOut,
-    TResult Function()? bounceInOut,
-    TResult Function()? elasticIn,
-    TResult Function()? elasticOut,
-    TResult Function()? elasticInOut,
-    required TResult orElse(),
-  }) {
-    if (elasticIn != null) {
-      return elasticIn();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LinearCurve value) linear,
-    required TResult Function(Cubic value) cubic,
-    required TResult Function(DecelerateCurve value) decelerate,
-    required TResult Function(BounceInCurve value) bounceIn,
-    required TResult Function(BounceOutCurve value) bounceOut,
-    required TResult Function(BounceInOutCurve value) bounceInOut,
-    required TResult Function(ElasticInCurve value) elasticIn,
-    required TResult Function(ElasticOutCurve value) elasticOut,
-    required TResult Function(ElasticInOutCurve value) elasticInOut,
-  }) {
-    return elasticIn(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LinearCurve value)? linear,
-    TResult? Function(Cubic value)? cubic,
-    TResult? Function(DecelerateCurve value)? decelerate,
-    TResult? Function(BounceInCurve value)? bounceIn,
-    TResult? Function(BounceOutCurve value)? bounceOut,
-    TResult? Function(BounceInOutCurve value)? bounceInOut,
-    TResult? Function(ElasticInCurve value)? elasticIn,
-    TResult? Function(ElasticOutCurve value)? elasticOut,
-    TResult? Function(ElasticInOutCurve value)? elasticInOut,
-  }) {
-    return elasticIn?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LinearCurve value)? linear,
-    TResult Function(Cubic value)? cubic,
-    TResult Function(DecelerateCurve value)? decelerate,
-    TResult Function(BounceInCurve value)? bounceIn,
-    TResult Function(BounceOutCurve value)? bounceOut,
-    TResult Function(BounceInOutCurve value)? bounceInOut,
-    TResult Function(ElasticInCurve value)? elasticIn,
-    TResult Function(ElasticOutCurve value)? elasticOut,
-    TResult Function(ElasticInOutCurve value)? elasticInOut,
-    required TResult orElse(),
-  }) {
-    if (elasticIn != null) {
-      return elasticIn(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ElasticInCurveToJson(
-      this,
-    );
-  }
-}
-
-abstract class ElasticInCurve implements Curves {
-  const factory ElasticInCurve() = _$ElasticInCurve;
-
-  factory ElasticInCurve.fromJson(Map<String, dynamic> json) =
-      _$ElasticInCurve.fromJson;
-}
-
-/// @nodoc
-abstract class _$$ElasticOutCurveCopyWith<$Res> {
-  factory _$$ElasticOutCurveCopyWith(
-          _$ElasticOutCurve value, $Res Function(_$ElasticOutCurve) then) =
-      __$$ElasticOutCurveCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ElasticOutCurveCopyWithImpl<$Res>
-    extends _$CurvesCopyWithImpl<$Res, _$ElasticOutCurve>
-    implements _$$ElasticOutCurveCopyWith<$Res> {
-  __$$ElasticOutCurveCopyWithImpl(
-      _$ElasticOutCurve _value, $Res Function(_$ElasticOutCurve) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ElasticOutCurve implements ElasticOutCurve {
-  const _$ElasticOutCurve({final String? $type})
-      : $type = $type ?? 'elasticOut';
-
-  factory _$ElasticOutCurve.fromJson(Map<String, dynamic> json) =>
-      _$$ElasticOutCurveFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'Curves.elasticOut()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ElasticOutCurve);
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() linear,
-    required TResult Function(double x1, double y1, double x2, double y2) cubic,
-    required TResult Function() decelerate,
-    required TResult Function() bounceIn,
-    required TResult Function() bounceOut,
-    required TResult Function() bounceInOut,
-    required TResult Function() elasticIn,
-    required TResult Function() elasticOut,
-    required TResult Function() elasticInOut,
-  }) {
-    return elasticOut();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? linear,
-    TResult? Function(double x1, double y1, double x2, double y2)? cubic,
-    TResult? Function()? decelerate,
-    TResult? Function()? bounceIn,
-    TResult? Function()? bounceOut,
-    TResult? Function()? bounceInOut,
-    TResult? Function()? elasticIn,
-    TResult? Function()? elasticOut,
-    TResult? Function()? elasticInOut,
-  }) {
-    return elasticOut?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? linear,
-    TResult Function(double x1, double y1, double x2, double y2)? cubic,
-    TResult Function()? decelerate,
-    TResult Function()? bounceIn,
-    TResult Function()? bounceOut,
-    TResult Function()? bounceInOut,
-    TResult Function()? elasticIn,
-    TResult Function()? elasticOut,
-    TResult Function()? elasticInOut,
-    required TResult orElse(),
-  }) {
-    if (elasticOut != null) {
-      return elasticOut();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LinearCurve value) linear,
-    required TResult Function(Cubic value) cubic,
-    required TResult Function(DecelerateCurve value) decelerate,
-    required TResult Function(BounceInCurve value) bounceIn,
-    required TResult Function(BounceOutCurve value) bounceOut,
-    required TResult Function(BounceInOutCurve value) bounceInOut,
-    required TResult Function(ElasticInCurve value) elasticIn,
-    required TResult Function(ElasticOutCurve value) elasticOut,
-    required TResult Function(ElasticInOutCurve value) elasticInOut,
-  }) {
-    return elasticOut(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LinearCurve value)? linear,
-    TResult? Function(Cubic value)? cubic,
-    TResult? Function(DecelerateCurve value)? decelerate,
-    TResult? Function(BounceInCurve value)? bounceIn,
-    TResult? Function(BounceOutCurve value)? bounceOut,
-    TResult? Function(BounceInOutCurve value)? bounceInOut,
-    TResult? Function(ElasticInCurve value)? elasticIn,
-    TResult? Function(ElasticOutCurve value)? elasticOut,
-    TResult? Function(ElasticInOutCurve value)? elasticInOut,
-  }) {
-    return elasticOut?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LinearCurve value)? linear,
-    TResult Function(Cubic value)? cubic,
-    TResult Function(DecelerateCurve value)? decelerate,
-    TResult Function(BounceInCurve value)? bounceIn,
-    TResult Function(BounceOutCurve value)? bounceOut,
-    TResult Function(BounceInOutCurve value)? bounceInOut,
-    TResult Function(ElasticInCurve value)? elasticIn,
-    TResult Function(ElasticOutCurve value)? elasticOut,
-    TResult Function(ElasticInOutCurve value)? elasticInOut,
-    required TResult orElse(),
-  }) {
-    if (elasticOut != null) {
-      return elasticOut(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ElasticOutCurveToJson(
-      this,
-    );
-  }
-}
-
-abstract class ElasticOutCurve implements Curves {
-  const factory ElasticOutCurve() = _$ElasticOutCurve;
-
-  factory ElasticOutCurve.fromJson(Map<String, dynamic> json) =
-      _$ElasticOutCurve.fromJson;
-}
-
-/// @nodoc
-abstract class _$$ElasticInOutCurveCopyWith<$Res> {
-  factory _$$ElasticInOutCurveCopyWith(
-          _$ElasticInOutCurve value, $Res Function(_$ElasticInOutCurve) then) =
-      __$$ElasticInOutCurveCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ElasticInOutCurveCopyWithImpl<$Res>
-    extends _$CurvesCopyWithImpl<$Res, _$ElasticInOutCurve>
-    implements _$$ElasticInOutCurveCopyWith<$Res> {
-  __$$ElasticInOutCurveCopyWithImpl(
-      _$ElasticInOutCurve _value, $Res Function(_$ElasticInOutCurve) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ElasticInOutCurve implements ElasticInOutCurve {
-  const _$ElasticInOutCurve({final String? $type})
-      : $type = $type ?? 'elasticInOut';
-
-  factory _$ElasticInOutCurve.fromJson(Map<String, dynamic> json) =>
-      _$$ElasticInOutCurveFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'Curves.elasticInOut()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ElasticInOutCurve);
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() linear,
-    required TResult Function(double x1, double y1, double x2, double y2) cubic,
-    required TResult Function() decelerate,
-    required TResult Function() bounceIn,
-    required TResult Function() bounceOut,
-    required TResult Function() bounceInOut,
-    required TResult Function() elasticIn,
-    required TResult Function() elasticOut,
-    required TResult Function() elasticInOut,
-  }) {
-    return elasticInOut();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? linear,
-    TResult? Function(double x1, double y1, double x2, double y2)? cubic,
-    TResult? Function()? decelerate,
-    TResult? Function()? bounceIn,
-    TResult? Function()? bounceOut,
-    TResult? Function()? bounceInOut,
-    TResult? Function()? elasticIn,
-    TResult? Function()? elasticOut,
-    TResult? Function()? elasticInOut,
-  }) {
-    return elasticInOut?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? linear,
-    TResult Function(double x1, double y1, double x2, double y2)? cubic,
-    TResult Function()? decelerate,
-    TResult Function()? bounceIn,
-    TResult Function()? bounceOut,
-    TResult Function()? bounceInOut,
-    TResult Function()? elasticIn,
-    TResult Function()? elasticOut,
-    TResult Function()? elasticInOut,
-    required TResult orElse(),
-  }) {
-    if (elasticInOut != null) {
-      return elasticInOut();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LinearCurve value) linear,
-    required TResult Function(Cubic value) cubic,
-    required TResult Function(DecelerateCurve value) decelerate,
-    required TResult Function(BounceInCurve value) bounceIn,
-    required TResult Function(BounceOutCurve value) bounceOut,
-    required TResult Function(BounceInOutCurve value) bounceInOut,
-    required TResult Function(ElasticInCurve value) elasticIn,
-    required TResult Function(ElasticOutCurve value) elasticOut,
-    required TResult Function(ElasticInOutCurve value) elasticInOut,
-  }) {
-    return elasticInOut(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LinearCurve value)? linear,
-    TResult? Function(Cubic value)? cubic,
-    TResult? Function(DecelerateCurve value)? decelerate,
-    TResult? Function(BounceInCurve value)? bounceIn,
-    TResult? Function(BounceOutCurve value)? bounceOut,
-    TResult? Function(BounceInOutCurve value)? bounceInOut,
-    TResult? Function(ElasticInCurve value)? elasticIn,
-    TResult? Function(ElasticOutCurve value)? elasticOut,
-    TResult? Function(ElasticInOutCurve value)? elasticInOut,
-  }) {
-    return elasticInOut?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LinearCurve value)? linear,
-    TResult Function(Cubic value)? cubic,
-    TResult Function(DecelerateCurve value)? decelerate,
-    TResult Function(BounceInCurve value)? bounceIn,
-    TResult Function(BounceOutCurve value)? bounceOut,
-    TResult Function(BounceInOutCurve value)? bounceInOut,
-    TResult Function(ElasticInCurve value)? elasticIn,
-    TResult Function(ElasticOutCurve value)? elasticOut,
-    TResult Function(ElasticInOutCurve value)? elasticInOut,
-    required TResult orElse(),
-  }) {
-    if (elasticInOut != null) {
-      return elasticInOut(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ElasticInOutCurveToJson(
-      this,
-    );
-  }
-}
-
-abstract class ElasticInOutCurve implements Curves {
-  const factory ElasticInOutCurve() = _$ElasticInOutCurve;
-
-  factory ElasticInOutCurve.fromJson(Map<String, dynamic> json) =
-      _$ElasticInOutCurve.fromJson;
 }

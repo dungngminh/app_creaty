@@ -26,43 +26,21 @@ _$_StrutStyle _$$_StrutStyleFromJson(Map<String, dynamic> json) =>
       package: json['package'] as String?,
     );
 
-const _$$_StrutStyleFieldMap = <String, String>{
-  'fontFamily': 'fontFamily',
-  'fontFamilyFallback': 'fontFamilyFallback',
-  'fontSize': 'fontSize',
-  'height': 'height',
-  'leadingDistribution': 'leadingDistribution',
-  'leading': 'leading',
-  'fontWeight': 'fontWeight',
-  'fontStyle': 'fontStyle',
-  'forceStrutHeight': 'forceStrutHeight',
-  'debugLabel': 'debugLabel',
-  'package': 'package',
-};
-
-Map<String, dynamic> _$$_StrutStyleToJson(_$_StrutStyle instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('fontFamily', instance.fontFamily);
-  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
-  writeNotNull('fontSize', instance.fontSize);
-  writeNotNull('height', instance.height);
-  writeNotNull('leadingDistribution',
-      _$TextLeadingDistributionEnumMap[instance.leadingDistribution]);
-  writeNotNull('leading', instance.leading);
-  writeNotNull('fontWeight', instance.fontWeight);
-  writeNotNull('fontStyle', _$FontStyleEnumMap[instance.fontStyle]);
-  writeNotNull('forceStrutHeight', instance.forceStrutHeight);
-  writeNotNull('debugLabel', instance.debugLabel);
-  writeNotNull('package', instance.package);
-  return val;
-}
+Map<String, dynamic> _$$_StrutStyleToJson(_$_StrutStyle instance) =>
+    <String, dynamic>{
+      'fontFamily': instance.fontFamily,
+      'fontFamilyFallback': instance.fontFamilyFallback,
+      'fontSize': instance.fontSize,
+      'height': instance.height,
+      'leadingDistribution':
+          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
+      'leading': instance.leading,
+      'fontWeight': instance.fontWeight?.toJson(),
+      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
+      'forceStrutHeight': instance.forceStrutHeight,
+      'debugLabel': instance.debugLabel,
+      'package': instance.package,
+    };
 
 const _$TextLeadingDistributionEnumMap = {
   TextLeadingDistribution.proportional: 'proportional',

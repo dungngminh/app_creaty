@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:app_creaty/app_bloc_observer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -16,6 +18,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   // };
   WidgetsFlutterBinding.ensureInitialized();
   await windowManager.ensureInitialized();
+  Bloc.observer = AppBlocObserver();
 
   const windowOptions = WindowOptions(
     minimumSize: Size(540, 720),
@@ -27,7 +30,6 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     await windowManager.show();
     await windowManager.focus();
   });
-
 
   await runZonedGuarded(
     () async => runApp(await builder()),

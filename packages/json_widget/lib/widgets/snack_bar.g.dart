@@ -47,53 +47,25 @@ _$_SnackBar _$$_SnackBarFromJson(Map<String, dynamic> json) => _$_SnackBar(
           Clip.hardEdge,
     );
 
-const _$$_SnackBarFieldMap = <String, String>{
-  'key': 'key',
-  'content': 'content',
-  'backgroundColor': 'backgroundColor',
-  'elevation': 'elevation',
-  'margin': 'margin',
-  'padding': 'padding',
-  'width': 'width',
-  'shape': 'shape',
-  'behavior': 'behavior',
-  'action': 'action',
-  'showCloseIcon': 'showCloseIcon',
-  'closeIconColor': 'closeIconColor',
-  'duration': 'duration',
-  'onVisible': 'onVisible',
-  'dismissDirection': 'dismissDirection',
-  'clipBehavior': 'clipBehavior',
-};
-
-Map<String, dynamic> _$$_SnackBarToJson(_$_SnackBar instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  val['content'] = instance.content;
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('elevation', instance.elevation);
-  writeNotNull('margin', instance.margin);
-  writeNotNull('padding', instance.padding);
-  writeNotNull('width', instance.width);
-  writeNotNull('shape', instance.shape);
-  writeNotNull('behavior', _$SnackBarBehaviorEnumMap[instance.behavior]);
-  writeNotNull('action', instance.action);
-  writeNotNull('showCloseIcon', instance.showCloseIcon);
-  writeNotNull('closeIconColor', instance.closeIconColor);
-  val['duration'] = instance.duration.inMicroseconds;
-  writeNotNull('onVisible', instance.onVisible);
-  val['dismissDirection'] =
-      _$DismissDirectionEnumMap[instance.dismissDirection]!;
-  val['clipBehavior'] = _$ClipEnumMap[instance.clipBehavior]!;
-  return val;
-}
+Map<String, dynamic> _$$_SnackBarToJson(_$_SnackBar instance) =>
+    <String, dynamic>{
+      'key': instance.key?.toJson(),
+      'content': instance.content.toJson(),
+      'backgroundColor': instance.backgroundColor?.toJson(),
+      'elevation': instance.elevation,
+      'margin': instance.margin?.toJson(),
+      'padding': instance.padding?.toJson(),
+      'width': instance.width,
+      'shape': instance.shape?.toJson(),
+      'behavior': _$SnackBarBehaviorEnumMap[instance.behavior],
+      'action': instance.action?.toJson(),
+      'showCloseIcon': instance.showCloseIcon,
+      'closeIconColor': instance.closeIconColor?.toJson(),
+      'duration': instance.duration.inMicroseconds,
+      'onVisible': instance.onVisible?.toJson(),
+      'dismissDirection': _$DismissDirectionEnumMap[instance.dismissDirection]!,
+      'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+    };
 
 const _$SnackBarBehaviorEnumMap = {
   SnackBarBehavior.fixed: 'fixed',

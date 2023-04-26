@@ -93,81 +93,39 @@ _$_ThemeData _$$_ThemeDataFromJson(Map<String, dynamic> json) => _$_ThemeData(
           : TextTheme.fromJson(json['textTheme'] as Map<String, dynamic>),
     );
 
-const _$$_ThemeDataFieldMap = <String, String>{
-  'applyElevationOverlayColor': 'applyElevationOverlayColor',
-  'platform': 'platform',
-  'useMaterial3': 'useMaterial3',
-  'visualDensity': 'visualDensity',
-  'brightness': 'brightness',
-  'canvasColor': 'canvasColor',
-  'cardColor': 'cardColor',
-  'colorScheme': 'colorScheme',
-  'colorSchemeSeed': 'colorSchemeSeed',
-  'dialogBackgroundColor': 'dialogBackgroundColor',
-  'disabledColor': 'disabledColor',
-  'dividerColor': 'dividerColor',
-  'focusColor': 'focusColor',
-  'highlightColor': 'highlightColor',
-  'hintColor': 'hintColor',
-  'hoverColor': 'hoverColor',
-  'indicatorColor': 'indicatorColor',
-  'primaryColor': 'primaryColor',
-  'primaryColorDark': 'primaryColorDark',
-  'primaryColorLight': 'primaryColorLight',
-  'primarySwatch': 'primarySwatch',
-  'scaffoldBackgroundColor': 'scaffoldBackgroundColor',
-  'secondaryHeaderColor': 'secondaryHeaderColor',
-  'shadowColor': 'shadowColor',
-  'splashColor': 'splashColor',
-  'unselectedWidgetColor': 'unselectedWidgetColor',
-  'fontFamily': 'fontFamily',
-  'fontFamilyFallback': 'fontFamilyFallback',
-  'package': 'package',
-  'textTheme': 'textTheme',
-};
-
-Map<String, dynamic> _$$_ThemeDataToJson(_$_ThemeData instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'applyElevationOverlayColor', instance.applyElevationOverlayColor);
-  writeNotNull('platform', _$TargetPlatformEnumMap[instance.platform]);
-  writeNotNull('useMaterial3', instance.useMaterial3);
-  writeNotNull('visualDensity', instance.visualDensity);
-  writeNotNull('brightness', _$BrightnessEnumMap[instance.brightness]);
-  writeNotNull('canvasColor', instance.canvasColor);
-  writeNotNull('cardColor', instance.cardColor);
-  writeNotNull('colorScheme', instance.colorScheme);
-  writeNotNull('colorSchemeSeed', instance.colorSchemeSeed);
-  writeNotNull('dialogBackgroundColor', instance.dialogBackgroundColor);
-  writeNotNull('disabledColor', instance.disabledColor);
-  writeNotNull('dividerColor', instance.dividerColor);
-  writeNotNull('focusColor', instance.focusColor);
-  writeNotNull('highlightColor', instance.highlightColor);
-  writeNotNull('hintColor', instance.hintColor);
-  writeNotNull('hoverColor', instance.hoverColor);
-  writeNotNull('indicatorColor', instance.indicatorColor);
-  writeNotNull('primaryColor', instance.primaryColor);
-  writeNotNull('primaryColorDark', instance.primaryColorDark);
-  writeNotNull('primaryColorLight', instance.primaryColorLight);
-  writeNotNull('primarySwatch', instance.primarySwatch);
-  writeNotNull('scaffoldBackgroundColor', instance.scaffoldBackgroundColor);
-  writeNotNull('secondaryHeaderColor', instance.secondaryHeaderColor);
-  writeNotNull('shadowColor', instance.shadowColor);
-  writeNotNull('splashColor', instance.splashColor);
-  writeNotNull('unselectedWidgetColor', instance.unselectedWidgetColor);
-  writeNotNull('fontFamily', instance.fontFamily);
-  writeNotNull('fontFamilyFallback', instance.fontFamilyFallback);
-  writeNotNull('package', instance.package);
-  writeNotNull('textTheme', instance.textTheme);
-  return val;
-}
+Map<String, dynamic> _$$_ThemeDataToJson(_$_ThemeData instance) =>
+    <String, dynamic>{
+      'applyElevationOverlayColor': instance.applyElevationOverlayColor,
+      'platform': _$TargetPlatformEnumMap[instance.platform],
+      'useMaterial3': instance.useMaterial3,
+      'visualDensity': instance.visualDensity?.toJson(),
+      'brightness': _$BrightnessEnumMap[instance.brightness],
+      'canvasColor': instance.canvasColor?.toJson(),
+      'cardColor': instance.cardColor?.toJson(),
+      'colorScheme': instance.colorScheme?.toJson(),
+      'colorSchemeSeed': instance.colorSchemeSeed?.toJson(),
+      'dialogBackgroundColor': instance.dialogBackgroundColor?.toJson(),
+      'disabledColor': instance.disabledColor?.toJson(),
+      'dividerColor': instance.dividerColor?.toJson(),
+      'focusColor': instance.focusColor?.toJson(),
+      'highlightColor': instance.highlightColor?.toJson(),
+      'hintColor': instance.hintColor?.toJson(),
+      'hoverColor': instance.hoverColor?.toJson(),
+      'indicatorColor': instance.indicatorColor?.toJson(),
+      'primaryColor': instance.primaryColor?.toJson(),
+      'primaryColorDark': instance.primaryColorDark?.toJson(),
+      'primaryColorLight': instance.primaryColorLight?.toJson(),
+      'primarySwatch': instance.primarySwatch?.toJson(),
+      'scaffoldBackgroundColor': instance.scaffoldBackgroundColor?.toJson(),
+      'secondaryHeaderColor': instance.secondaryHeaderColor?.toJson(),
+      'shadowColor': instance.shadowColor?.toJson(),
+      'splashColor': instance.splashColor?.toJson(),
+      'unselectedWidgetColor': instance.unselectedWidgetColor?.toJson(),
+      'fontFamily': instance.fontFamily,
+      'fontFamilyFallback': instance.fontFamilyFallback,
+      'package': instance.package,
+      'textTheme': instance.textTheme?.toJson(),
+    };
 
 const _$TargetPlatformEnumMap = {
   TargetPlatform.android: 'android',

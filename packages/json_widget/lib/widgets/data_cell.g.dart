@@ -21,30 +21,12 @@ _$_DataCell _$$_DataCellFromJson(Map<String, dynamic> json) => _$_DataCell(
           : Callback.fromJson(json['onDoubleTap'] as Map<String, dynamic>),
     );
 
-const _$$_DataCellFieldMap = <String, String>{
-  'child': 'child',
-  'placeholder': 'placeholder',
-  'showEditIcon': 'showEditIcon',
-  'onTap': 'onTap',
-  'onLongPress': 'onLongPress',
-  'onDoubleTap': 'onDoubleTap',
-};
-
-Map<String, dynamic> _$$_DataCellToJson(_$_DataCell instance) {
-  final val = <String, dynamic>{
-    'child': instance.child,
-    'placeholder': instance.placeholder,
-    'showEditIcon': instance.showEditIcon,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('onTap', instance.onTap);
-  writeNotNull('onLongPress', instance.onLongPress);
-  writeNotNull('onDoubleTap', instance.onDoubleTap);
-  return val;
-}
+Map<String, dynamic> _$$_DataCellToJson(_$_DataCell instance) =>
+    <String, dynamic>{
+      'child': instance.child.toJson(),
+      'placeholder': instance.placeholder,
+      'showEditIcon': instance.showEditIcon,
+      'onTap': instance.onTap?.toJson(),
+      'onLongPress': instance.onLongPress?.toJson(),
+      'onDoubleTap': instance.onDoubleTap?.toJson(),
+    };
