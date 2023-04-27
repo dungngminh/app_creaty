@@ -24,5 +24,18 @@
   "uiComponent": "UI Component",
   "componentTree": "Component Tree",
   "extendMenu": "Extend menu",
-  "newProjectTitle":"New Project"
+  "newProjectTitle": "New Project",
+  "projectName": "Project name",
+  "projectNameSavedAsName": "Project name (saved as name)",
+  "generalCreate": "Create",
+  "textComponent": "Text",
+  "columnComponent": "Column",
+  "rowComponent": "Row",
+  "containerComponent": "Container",
+  "imageComponent": "Image",
+  "dividerComponent": "Divider",
+  "buttonComponenet": "Button",
+  "commonComponents": "Common Components",
+  "layoutComponents": "Layout Components",
+  "inputComponents":"Input Components"
 }

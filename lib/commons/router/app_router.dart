@@ -29,7 +29,7 @@ abstract class AppRouter {
       GoRoute(
         path: '$routePathEditorPage/:projectId',
         builder: (context, state) {
-          return MainEditorView(
+          return MainEditorPage(
             key: state.pageKey,
           );
         },

@@ -59,6 +59,7 @@ class $AssetsIconsGen {
   const $AssetsIconsGen();
 
   $AssetsIconsBoldGen get bold => const $AssetsIconsBoldGen();
+  $AssetsIconsComponentsGen get components => const $AssetsIconsComponentsGen();
   $AssetsIconsOtherGen get other => const $AssetsIconsOtherGen();
   $AssetsIconsOutlineGen get outline => const $AssetsIconsOutlineGen();
 }
@@ -66,6 +67,7 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  $AssetsImagesPngGen get png => const $AssetsImagesPngGen();
   $AssetsImagesSvgGen get svg => const $AssetsImagesSvgGen();
 }
 
@@ -100,6 +102,40 @@ class $AssetsIconsBoldGen {
   /// List of all assets
   List<SvgGenImage> get values =>
       [addComponent, clockRecent, components, fileNew, home, pen, setting];
+}
+
+class $AssetsIconsComponentsGen {
+  const $AssetsIconsComponentsGen();
+
+  /// File path: assets/icons/components/button.svg
+  SvgGenImage get button =>
+      const SvgGenImage('assets/icons/components/button.svg');
+
+  /// File path: assets/icons/components/column.svg
+  SvgGenImage get column =>
+      const SvgGenImage('assets/icons/components/column.svg');
+
+  /// File path: assets/icons/components/container.svg
+  SvgGenImage get container =>
+      const SvgGenImage('assets/icons/components/container.svg');
+
+  /// File path: assets/icons/components/divider.svg
+  SvgGenImage get divider =>
+      const SvgGenImage('assets/icons/components/divider.svg');
+
+  /// File path: assets/icons/components/image.svg
+  SvgGenImage get image =>
+      const SvgGenImage('assets/icons/components/image.svg');
+
+  /// File path: assets/icons/components/row.svg
+  SvgGenImage get row => const SvgGenImage('assets/icons/components/row.svg');
+
+  /// File path: assets/icons/components/text.svg
+  SvgGenImage get text => const SvgGenImage('assets/icons/components/text.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values =>
+      [button, column, container, divider, image, row, text];
 }
 
 class $AssetsIconsOtherGen {
@@ -164,6 +200,17 @@ class $AssetsIconsOutlineGen {
         pen,
         setting
       ];
+}
+
+class $AssetsImagesPngGen {
+  const $AssetsImagesPngGen();
+
+  /// File path: assets/images/png/default_image.png
+  AssetGenImage get defaultImage =>
+      const AssetGenImage('assets/images/png/default_image.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [defaultImage];
 }
 
 class $AssetsImagesSvgGen {

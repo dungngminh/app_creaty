@@ -21,11 +21,12 @@ class _HomeNavigationRailState extends State<HomeNavigationRail> {
   @override
   void initState() {
     super.initState();
-    currentIndex = 0;
+    currentIndex = 1;
   }
 
   void _onDestinationSelected(int newIndex) {
     widget.onNavRailIndexChanged.call(newIndex);
+    if (newIndex == 0) return;
     setState(() {
       currentIndex = newIndex == 2 ? null : newIndex;
     });

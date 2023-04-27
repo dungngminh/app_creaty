@@ -1,33 +1,31 @@
-import 'package:app_creaty/presentation/editor/widgets/device_showcase_view.dart';
+import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
 import 'package:app_creaty/presentation/prop_panel/prop_panel.dart';
 import 'package:app_creaty/presentation/tool_panel/tool_panel.dart';
-import 'package:device_frame/device_frame.dart';
+import 'package:app_creaty/presentation/visual_app/views/visual_app_view.dart';
+import 'package:app_creaty/presentation/visual_app/visual_app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:multi_split_view/multi_split_view.dart';
 
 class EditorPanel extends StatefulWidget {
   const EditorPanel({
-    required this.currentDevice,
     required this.currentIndex,
     super.key,
   });
 
   final int currentIndex;
-  final DeviceInfo currentDevice;
 
   @override
   State<EditorPanel> createState() => _EditorPanelState();
 }
 
 class _EditorPanelState extends State<EditorPanel> {
-  late final ValueNotifier<DeviceInfo> _currentDeviceNotifier;
   late final MultiSplitViewController _splitViewController;
   late final ValueNotifier<int> _currentToolPanelNotifier;
 
   @override
   void initState() {
     super.initState();
-    _currentDeviceNotifier = ValueNotifier(widget.currentDevice);
     _splitViewController = MultiSplitViewController(
       areas: [
         Area(minimalWeight: .25),
@@ -41,7 +39,6 @@ class _EditorPanelState extends State<EditorPanel> {
   @override
   void dispose() {
     super.dispose();
-    _currentDeviceNotifier.dispose();
     _splitViewController.dispose();
   }
 
@@ -50,9 +47,6 @@ class _EditorPanelState extends State<EditorPanel> {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.currentIndex != widget.currentIndex) {
       _currentToolPanelNotifier.value = widget.currentIndex;
-    }
-    if (oldWidget.currentDevice != widget.currentDevice) {
-      _currentDeviceNotifier.value = widget.currentDevice;
     }
   }
 
@@ -77,12 +71,17 @@ class _EditorPanelState extends State<EditorPanel> {
               );
             },
           ),
-          ValueListenableBuilder(
-            valueListenable: _currentDeviceNotifier,
-            builder: (context, currentDevice, _) {
-              return DeviceShowcaseView(currentDevice: currentDevice);
-            },
-          ),
+          BlocProvider(
+            create: (context) => VisualAppBloc(),
+            child: BlocBuilder<EditorBloc, EditorState>(
+              buildWhen: (previous, current) =>
+                  previous.currentDevice != current.currentDevice,
+              builder: (context, state) {
+                final currentDevice = state.currentDevice;
+                return VisualAppView(currentDevice: currentDevice);
+              },
+            ),
+          ),  
           const PropertiesPanelView(),
         ],
       ),

@@ -1,6 +1,6 @@
 import 'package:app_creaty/presentation/home/widgets/home_navigation_rail.dart';
 import 'package:app_creaty/presentation/new_project/new_project.dart';
-import 'package:app_creaty/presentation/recents/recents.dart';
+import 'package:app_creaty/presentation/recent_projects/widgets/recent_projects_content_view.dart';
 import 'package:app_creaty/presentation/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_lazy_indexed_stack/flutter_lazy_indexed_stack.dart';
@@ -18,10 +18,15 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    currentIndexTab = 0;
+    currentIndexTab = 1;
   }
 
   void _onCurrentIndexTab(int newIndex) {
+    if (newIndex == 0) {
+      showNewProjectViewDialog<void>(context);
+      return;
+    }
+
     setState(() {
       currentIndexTab = newIndex;
     });
@@ -41,8 +46,8 @@ class _HomeViewState extends State<HomeView> {
               child: LazyIndexedStack(
                 index: currentIndexTab,
                 children: const [
-                  NewProjectView(),
-                  RecentsView(),
+                  SizedBox(),
+                  RecentProjectsContentView(),
                   SettingsView(),
                 ],
               ),

@@ -1,1 +1,2 @@
-export 'view/new_project_view.dart';
+export 'cubit/new_project_cubit.dart';
+export 'view/new_project_dialog.dart';

@@ -3,6 +3,7 @@ include: package:very_good_analysis/analysis_options.4.0.0.yaml
 analyzer:
   exclude:
     - lib/**/*.g.dart
+    - lib/**/*.freezed.dart
   strong-mode:
     implicit-dynamic: true
 
@@ -19,3 +20,4 @@ linter:
     sort_unnamed_constructors_first: true
     unnecessary_string_interpolations: true
     omit_local_variable_types: true
+    always_put_required_named_parameters_first: false

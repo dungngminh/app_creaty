@@ -1,22 +1,21 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-  
-      {
-        "name": "Launch app",
-        "request": "launch",
-        "type": "dart",
-        "program": "lib/main.dart",
-      },
-      {
-        "name": "Dart: Run all Tests",
-        "type": "dart",
-        "request": "launch",
-        "program": "./test/",
-      },
-    ]
-  }
-  
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "name": "Launch app",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+    },
+    {
+      "name": "Dart: Run all Tests",
+      "type": "dart",
+      "request": "launch",
+      "program": "./test/",
+    },
+  ]
+}
