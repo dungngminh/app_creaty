@@ -7,4 +7,12 @@ class NewProjectState extends Equatable {
 
   @override
   List<Object?> get props => [processLoadingStatus];
+
+  NewProjectState copyWith({
+    LoadingStatus? processLoadingStatus,
+  }) {
+    return NewProjectState(
+      processLoadingStatus: processLoadingStatus ?? this.processLoadingStatus,
+    );
+  }
 }

@@ -2,6 +2,8 @@ import 'package:app_creaty/commons/extensions/context_extension.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/new_project/cubit/new_project_cubit.dart';
 import 'package:app_creaty/presentation/widgets/app_text_field.dart';
+import 'package:app_creaty/repositories/project_repository.dart';
+import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -23,7 +25,9 @@ class NewProjectDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => NewProjectCubit(),
+      create: (context) => NewProjectCubit(
+        projectRepository: context.read<ProjectRepository>(),
+      ),
       child: const _NewProjectView(),
     );
   }
@@ -51,6 +55,7 @@ class _NewProjectViewState extends State<_NewProjectView> {
   void convertProjectNameToSnackCase() {
     saveProjectAsNameTextEditingController.text =
         projectNameTextEditingController.text.snakeCase;
+    setState(() {});
   }
 
   @override
@@ -69,7 +74,7 @@ class _NewProjectViewState extends State<_NewProjectView> {
           previous.processLoadingStatus != current.processLoadingStatus,
       listener: (context, state) {
         if (state.processLoadingStatus.isDone) {
-          /// TODO: handle after create project succesfully
+          context.pop();
         }
       },
       child: Center(
@@ -117,10 +122,14 @@ class _NewProjectViewState extends State<_NewProjectView> {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         FilledButton(
+          onPressed: saveProjectAsNameTextEditingController.text.isBlank
+              ? null
+              : () {
+                  context.read<NewProjectCubit>().createProject(
+                        saveProjectAsNameTextEditingController.text,
+                      );
+                },
           child: Text(context.l10n.generalCreate),
-          onPressed: () {
-            // TODO: handle create project
-          },
         ),
         const Gap(24),
         TextButton(
