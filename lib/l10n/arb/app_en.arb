@@ -37,5 +37,7 @@
   "buttonComponenet": "Button",
   "commonComponents": "Common Components",
   "layoutComponents": "Layout Components",
-  "inputComponents":"Input Components"
+  "inputComponents": "Input Components",
+  "selectLocation": "Select location",
+  "createProjectErrorText": "Create project is not successful, please try again"
 }

@@ -21,19 +21,28 @@ class NewProjectCubit extends Cubit<NewProjectState> {
 
   final ProjectRepository _projectRepository;
 
-  Future<void> createProject(String projectNameInSnakeCase) async {
-    print('call');
-    emit(state.copyWith(processLoadingStatus: LoadingStatus.loading));
+  Future<void> selectLocation() async {
     try {
       final projectPath = await getDirectoryPath();
-      if (projectPath != null) {
-        await _projectRepository.createProject(
-          directory: Directory(projectPath),
-          projectNameInSnackCase: projectNameInSnakeCase,
-        );
-        emit(state.copyWith(processLoadingStatus: LoadingStatus.done));
-        return;
-      }
+      emit(state.copyWith(selectedLocation: projectPath));
+    } catch (e, s) {
+      addError(e, s);
+    }
+  }
+
+  Future<void> createProject({
+    required String projectPath,
+    required String projectName,
+    required String projectNameInSnakeCase,
+  }) async {
+    emit(state.copyWith(processLoadingStatus: LoadingStatus.loading));
+    try {
+      await _projectRepository.createProject(
+        projectName: projectName,
+        directory: Directory(projectPath),
+        projectNameInSnackCase: projectNameInSnakeCase,
+      );
+      emit(state.copyWith(processLoadingStatus: LoadingStatus.done));
       emit(state.copyWith(processLoadingStatus: LoadingStatus.initial));
     } catch (e, s) {
       addError(e, s);

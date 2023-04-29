@@ -29,7 +29,7 @@ dependencies:
   flutter_lazy_indexed_stack: ^0.0.5
   flutter_localizations:
     sdk: flutter
-  flutter_svg: ^2.0.0
+  flutter_svg: ^2.0.5
   freezed: ^2.3.2
   freezed_annotation: ^2.2.0
   gap: ^2.0.1

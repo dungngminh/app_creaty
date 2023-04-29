@@ -1,0 +1,15 @@
+{
+  "projectId": "",
+  "projectName": "Login App",
+  "projectNameInSnackCase": "login_app",
+  "projectPreviewImage":"",
+  "projectLogoAppImage": "",
+  "sourceCodePath":"",
+  "createdBy": {
+    "id": null,
+    "name": "Localhost",
+    "email": null
+  },
+  "createdAt": "2021-01-20T10:00:00.000000Z",
+  "updatedAt": "2021-01-20T10:00:00.000000Z"
+}

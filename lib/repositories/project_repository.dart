@@ -1,12 +1,15 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:app_creaty/local/app_creaty_local_project.dart';
+import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:logger/logger.dart';
 import 'package:path/path.dart';
 
 class ProjectRepositoryException implements Exception {
   const ProjectRepositoryException(this.message, this.stackTrace);
 
-  final String message;
+  final dynamic message;
 
   final StackTrace stackTrace;
 }
@@ -30,7 +33,8 @@ class ProjectRepository {
 
   final Logger _logger;
 
-  Future<void> createProject({
+  Future<AppCreatyProject> createProject({
+    required String projectName,
     required String projectNameInSnackCase,
     required Directory directory,
   }) async {
@@ -51,16 +55,26 @@ class ProjectRepository {
         [projectNameInSnackCase],
         workingDirectory: workingDirectory,
       );
+      _logger.i('Creating project metadata resource');
+      final metadataFile =
+          File(join(workingDirectory, projectNameInSnackCase, 'metadata.json'))
+            ..createSync();
+      final sourceCodeDirectoryPath =
+          join(workingDirectory, projectNameInSnackCase);
+      final localProject = AppCreatyLocalProject(
+        projectName: projectName,
+        projectNameInSnackCase: projectNameInSnackCase,
+        sourceCodePath: join(sourceCodeDirectoryPath, 'source_code'),
+      );
+      metadataFile.writeAsStringSync(jsonEncode(localProject.toJson()));
       _logger.i(
         'Creating Flutter source code in'
-        '${join(workingDirectory, projectNameInSnackCase)}',
+        '$sourceCodeDirectoryPath',
       );
-      final sourceCodeDirectory =
-          join(workingDirectory, projectNameInSnackCase);
       final process = await Process.run(
         'flutter',
         ['create', 'source_code'],
-        workingDirectory: sourceCodeDirectory,
+        workingDirectory: sourceCodeDirectoryPath,
       );
       _logger
         ..i(process.stdout)
@@ -68,8 +82,10 @@ class ProjectRepository {
           'Created $projectNameInSnackCase in'
           '${join(workingDirectory, projectNameInSnackCase)}',
         );
+      return AppCreatyProject.fromLocalProject(localProject);
     } catch (e, s) {
       _logger.e(e, s);
+      throw ProjectCreateFailure(e, s);
     }
   }
 }
