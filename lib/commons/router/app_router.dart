@@ -1,3 +1,4 @@
+import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:app_creaty/presentation/editor/view/main_editor_view.dart';
 import 'package:app_creaty/presentation/home/home.dart';
 import 'package:app_creaty/presentation/startup_page.dart';
@@ -29,8 +30,10 @@ abstract class AppRouter {
       GoRoute(
         path: '$routePathEditorPage/:projectId',
         builder: (context, state) {
+          final project = state.extra! as AppCreatyProject;
           return MainEditorPage(
             key: state.pageKey,
+            project: project,
           );
         },
       ),

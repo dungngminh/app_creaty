@@ -26,7 +26,10 @@ class _RecentProjectCardState extends State<RecentProjectCard> {
   Widget build(BuildContext context) {
     final recentProjectCardWidget = GestureDetector(
       onTap: () =>
-          context.go('${AppRouter.routePathEditorPage}/${widget.project.id}'),
+          context.go(
+        '${AppRouter.routePathEditorPage}/${widget.project.projectId}',
+        extra: widget.project,
+      ),
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(12),
@@ -62,7 +65,7 @@ class _RecentProjectCardState extends State<RecentProjectCard> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          widget.project.name,
+          widget.project.projectName,
           style: context.textTheme.titleMedium?.copyWith(
             color: context.colorScheme.onBackground,
           ),
@@ -76,7 +79,8 @@ class _RecentProjectCardState extends State<RecentProjectCard> {
 
   Widget _buildAvatar() {
     return CachedNetworkImage(
-      imageUrl: widget.project.logoAppImage ?? 'https://i.pravatar.cc/300',
+      imageUrl:
+          widget.project.projectLogoAppImage ?? 'https://i.pravatar.cc/300',
       imageBuilder: (context, imageProvider) {
         return CircleAvatar(
           backgroundImage: imageProvider,

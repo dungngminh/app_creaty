@@ -44,10 +44,3 @@ app.*.map.json
 /android/app/release
 
 .fvm/flutter_sdk
-
-# Flutter generated files
-*.g.dart
-*.gen.dart
-*.config.dart
-*.freezed.dart
-*.mocks.dart

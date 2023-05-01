@@ -1,10 +1,16 @@
 part of 'app_bloc.dart';
 
-abstract class AppState extends Equatable {
-  const AppState();
-  
-  @override
-  List<Object> get props => [];
+@Freezed(
+  fromJson: false,
+  toJson: false,
+)
+class AppState with _$AppState {
+  const factory AppState.initial() = Initial;
+  const factory AppState.loading() = Loading;
+  const factory AppState.loaded({
+    @Default(AppCreatyCreator.local) AppCreatyCreator user,
+  }) = Loaded;
+  const factory AppState.error({
+    String? error,
+  }) = Error;
 }
-
-class AppInitial extends AppState {}

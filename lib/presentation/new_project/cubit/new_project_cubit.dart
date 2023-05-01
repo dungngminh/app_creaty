@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:app_creaty/commons/enums/loading_status.dart';
+import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:app_creaty/repositories/project_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:file_selector/file_selector.dart';
@@ -21,23 +22,41 @@ class NewProjectCubit extends Cubit<NewProjectState> {
 
   final ProjectRepository _projectRepository;
 
-  Future<void> createProject(String projectNameInSnakeCase) async {
-    print('call');
-    emit(state.copyWith(processLoadingStatus: LoadingStatus.loading));
+  Future<void> selectLocation() async {
     try {
       final projectPath = await getDirectoryPath();
-      if (projectPath != null) {
-        await _projectRepository.createProject(
-          directory: Directory(projectPath),
-          projectNameInSnackCase: projectNameInSnakeCase,
-        );
-        emit(state.copyWith(processLoadingStatus: LoadingStatus.done));
-        return;
-      }
-      emit(state.copyWith(processLoadingStatus: LoadingStatus.initial));
+      emit(state.copyWith(selectedLocation: projectPath));
     } catch (e, s) {
       addError(e, s);
-      emit(state.copyWith(processLoadingStatus: LoadingStatus.error));
+    }
+  }
+
+  Future<void> createProject({
+    required String projectPath,
+    required String projectName,
+    required String projectNameInSnakeCase,
+  }) async {
+    emit(state.copyWith(processLoadingStatus: LoadingStatus.loading));
+    try {
+      final createdProject = await _projectRepository.createProject(
+        projectName: projectName,
+        directory: Directory(projectPath),
+        projectNameInSnackCase: projectNameInSnakeCase,
+      );
+      emit(
+        state.copyWith(
+          processLoadingStatus: LoadingStatus.done,
+          createdProject: createdProject,
+        ),
+      );
+    } catch (e, s) {
+      addError(e, s);
+      emit(
+        state.copyWith(
+          processLoadingStatus: LoadingStatus.error,
+          error: (e as ProjectCreateFailure).message,
+        ),
+      );
     }
   }
 }

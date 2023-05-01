@@ -15,3 +15,16 @@ extension MediaQueryViaContextX on BuildContext {
 
   EdgeInsets get viewPadidng => MediaQuery.of(this).viewPadding;
 }
+
+extension SnackBarViaContextX on BuildContext {
+  void showSnackBar(String content) {
+    final snackbar = SnackBar(
+      content: Text(content),      
+      key: ValueKey<String>(content),
+    );
+
+    ScaffoldMessenger.of(this)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(snackbar);
+  }
+}
