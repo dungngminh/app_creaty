@@ -19,8 +19,7 @@ extension MediaQueryViaContextX on BuildContext {
 extension SnackBarViaContextX on BuildContext {
   void showSnackBar(String content) {
     final snackbar = SnackBar(
-      content: Text(content),
-      margin: const EdgeInsets.all(16),
+      content: Text(content),      
       key: ValueKey<String>(content),
     );
 

@@ -166,6 +166,7 @@ abstract class _Started implements EditorEvent {
 /// @nodoc
 mixin _$EditorState {
   DeviceInfo get currentDevice => throw _privateConstructorUsedError;
+  AppCreatyProject get currentProject => throw _privateConstructorUsedError;
   bool get isFrameVisibe => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -179,7 +180,10 @@ abstract class $EditorStateCopyWith<$Res> {
           EditorState value, $Res Function(EditorState) then) =
       _$EditorStateCopyWithImpl<$Res, EditorState>;
   @useResult
-  $Res call({DeviceInfo currentDevice, bool isFrameVisibe});
+  $Res call(
+      {DeviceInfo currentDevice,
+      AppCreatyProject currentProject,
+      bool isFrameVisibe});
 
   $DeviceInfoCopyWith<$Res> get currentDevice;
 }
@@ -198,6 +202,7 @@ class _$EditorStateCopyWithImpl<$Res, $Val extends EditorState>
   @override
   $Res call({
     Object? currentDevice = null,
+    Object? currentProject = null,
     Object? isFrameVisibe = null,
   }) {
     return _then(_value.copyWith(
@@ -205,6 +210,10 @@ class _$EditorStateCopyWithImpl<$Res, $Val extends EditorState>
           ? _value.currentDevice
           : currentDevice // ignore: cast_nullable_to_non_nullable
               as DeviceInfo,
+      currentProject: null == currentProject
+          ? _value.currentProject
+          : currentProject // ignore: cast_nullable_to_non_nullable
+              as AppCreatyProject,
       isFrameVisibe: null == isFrameVisibe
           ? _value.isFrameVisibe
           : isFrameVisibe // ignore: cast_nullable_to_non_nullable
@@ -229,7 +238,10 @@ abstract class _$$_EditorStateCopyWith<$Res>
       __$$_EditorStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DeviceInfo currentDevice, bool isFrameVisibe});
+  $Res call(
+      {DeviceInfo currentDevice,
+      AppCreatyProject currentProject,
+      bool isFrameVisibe});
 
   @override
   $DeviceInfoCopyWith<$Res> get currentDevice;
@@ -247,6 +259,7 @@ class __$$_EditorStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? currentDevice = null,
+    Object? currentProject = null,
     Object? isFrameVisibe = null,
   }) {
     return _then(_$_EditorState(
@@ -254,6 +267,10 @@ class __$$_EditorStateCopyWithImpl<$Res>
           ? _value.currentDevice
           : currentDevice // ignore: cast_nullable_to_non_nullable
               as DeviceInfo,
+      currentProject: null == currentProject
+          ? _value.currentProject
+          : currentProject // ignore: cast_nullable_to_non_nullable
+              as AppCreatyProject,
       isFrameVisibe: null == isFrameVisibe
           ? _value.isFrameVisibe
           : isFrameVisibe // ignore: cast_nullable_to_non_nullable
@@ -266,17 +283,21 @@ class __$$_EditorStateCopyWithImpl<$Res>
 
 class _$_EditorState implements _EditorState {
   const _$_EditorState(
-      {required this.currentDevice, this.isFrameVisibe = true});
+      {required this.currentDevice,
+      required this.currentProject,
+      this.isFrameVisibe = true});
 
   @override
   final DeviceInfo currentDevice;
+  @override
+  final AppCreatyProject currentProject;
   @override
   @JsonKey()
   final bool isFrameVisibe;
 
   @override
   String toString() {
-    return 'EditorState(currentDevice: $currentDevice, isFrameVisibe: $isFrameVisibe)';
+    return 'EditorState(currentDevice: $currentDevice, currentProject: $currentProject, isFrameVisibe: $isFrameVisibe)';
   }
 
   @override
@@ -286,12 +307,15 @@ class _$_EditorState implements _EditorState {
             other is _$_EditorState &&
             (identical(other.currentDevice, currentDevice) ||
                 other.currentDevice == currentDevice) &&
+            (identical(other.currentProject, currentProject) ||
+                other.currentProject == currentProject) &&
             (identical(other.isFrameVisibe, isFrameVisibe) ||
                 other.isFrameVisibe == isFrameVisibe));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentDevice, isFrameVisibe);
+  int get hashCode =>
+      Object.hash(runtimeType, currentDevice, currentProject, isFrameVisibe);
 
   @JsonKey(ignore: true)
   @override
@@ -303,10 +327,13 @@ class _$_EditorState implements _EditorState {
 abstract class _EditorState implements EditorState {
   const factory _EditorState(
       {required final DeviceInfo currentDevice,
+      required final AppCreatyProject currentProject,
       final bool isFrameVisibe}) = _$_EditorState;
 
   @override
   DeviceInfo get currentDevice;
+  @override
+  AppCreatyProject get currentProject;
   @override
   bool get isFrameVisibe;
   @override

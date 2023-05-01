@@ -1,52 +1,59 @@
-import 'package:app_creaty/local/app_creaty_local_project.dart';
 import 'package:app_creaty/models/app_creaty_creator.dart';
 import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'app_creaty_project.g.dart';
+
+@JsonSerializable()
+@HiveType(typeId: 0)
 class AppCreatyProject extends Equatable {
-  const AppCreatyProject({
-    required this.id,
-    required this.name,
-    required this.createdAt,
-    required this.creator,
-    required this.updatedAt,
-    this.image,
-    this.logoAppImage,
-  });
+  AppCreatyProject({
+    required this.projectId,
+    required this.projectName,
+    this.projectLogoAppImage,
+    this.projectPreviewImage,
+    required this.sourceCodePath,
+    AppCreatyCreator? createdBy,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  })  : createdAt = createdAt ?? DateTime.now(),
+        updatedAt = updatedAt ?? DateTime.now(),
+        createdBy = createdBy ?? AppCreatyCreator.local();
 
-  factory AppCreatyProject.fromLocalProject(
-    AppCreatyLocalProject localProject,
-  ) {
-    return AppCreatyProject(
-      id: localProject.projectId,
-      name: localProject.projectName,
-      createdAt: localProject.createdAt,
-      creator: localProject.createdBy,
-      updatedAt: localProject.updatedAt,
-      image: localProject.projectPreviewImage,
-      logoAppImage: localProject.projectLogoAppImage,
-    );
-  }
+  factory AppCreatyProject.fromJson(Map<String, dynamic> json) =>
+      _$AppCreatyProjectFromJson(json);
 
-  final String id;
-  final String name;
-  final String? image;
-  final String? logoAppImage;
-  final AppCreatyCreator creator;
+  @HiveField(0)
+  final String projectId;
+  @HiveField(1)
+  final String projectName;
+  @HiveField(2)
+  final String? projectPreviewImage;
+  @HiveField(3)
+  final String? projectLogoAppImage;
+  @HiveField(4)
+  final String sourceCodePath;
+  @HiveField(5)
+  final AppCreatyCreator createdBy;
+  @HiveField(6)
   final DateTime createdAt;
+  @HiveField(7)
   final DateTime updatedAt;
+
+  Map<String, dynamic> toJson() => _$AppCreatyProjectToJson(this);
 
   @override
   List<Object?> get props {
     return [
-      id,
-      name,
-      image,
-      logoAppImage,
-      creator,
+      projectId,
+      projectName,
+      projectPreviewImage,
+      projectLogoAppImage,
+      sourceCodePath,
+      createdBy,
       createdAt,
       updatedAt,
     ];
   }
 }
-
-final mockProjects = <AppCreatyProject>[];

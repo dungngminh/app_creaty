@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:app_creaty/commons/enums/loading_status.dart';
+import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:app_creaty/repositories/project_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:file_selector/file_selector.dart';
@@ -37,16 +38,25 @@ class NewProjectCubit extends Cubit<NewProjectState> {
   }) async {
     emit(state.copyWith(processLoadingStatus: LoadingStatus.loading));
     try {
-      await _projectRepository.createProject(
+      final createdProject = await _projectRepository.createProject(
         projectName: projectName,
         directory: Directory(projectPath),
         projectNameInSnackCase: projectNameInSnakeCase,
       );
-      emit(state.copyWith(processLoadingStatus: LoadingStatus.done));
-      emit(state.copyWith(processLoadingStatus: LoadingStatus.initial));
+      emit(
+        state.copyWith(
+          processLoadingStatus: LoadingStatus.done,
+          createdProject: createdProject,
+        ),
+      );
     } catch (e, s) {
       addError(e, s);
-      emit(state.copyWith(processLoadingStatus: LoadingStatus.error));
+      emit(
+        state.copyWith(
+          processLoadingStatus: LoadingStatus.error,
+          error: (e as ProjectCreateFailure).message,
+        ),
+      );
     }
   }
 }

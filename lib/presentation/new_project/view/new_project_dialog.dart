@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:app_creaty/commons/enums/loading_status.dart';
 import 'package:app_creaty/commons/extensions/context_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
+import 'package:app_creaty/commons/router/app_router.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/new_project/cubit/new_project_cubit.dart';
 import 'package:app_creaty/presentation/widgets/app_text_field.dart';
+import 'package:app_creaty/presentation/widgets/loading_view.dart';
 import 'package:app_creaty/repositories/project_repository.dart';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
@@ -77,15 +79,28 @@ class _NewProjectViewState extends State<_NewProjectView> {
     NewProjectState state,
   ) {
     final processLoadingStatus = state.processLoadingStatus;
+    final createdProject = state.createdProject;
+    final error = state.error;
     switch (processLoadingStatus) {
       case LoadingStatus.initial:
         break;
       case LoadingStatus.loading:
+        showLoadingViewDialog<void>(context);
         break;
       case LoadingStatus.done:
-        return context.pop();
+        context.go(
+          '${AppRouter.routePathEditorPage}/${createdProject?.projectId}',
+          extra: createdProject,
+        );
+        break;
       case LoadingStatus.error:
-        return context.showSnackBar(context.l10n.createProjectErrorText);
+        context
+          ..pop()
+          ..pop()
+          ..showSnackBar(
+            error.toString(),
+          );
+        break;
     }
   }
 

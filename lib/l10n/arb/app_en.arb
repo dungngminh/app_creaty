@@ -39,5 +39,7 @@
   "layoutComponents": "Layout Components",
   "inputComponents": "Input Components",
   "selectLocation": "Select location",
-  "createProjectErrorText": "Create project is not successful, please try again"
+  "createProjectErrorText": "Create project is not successful, please try again",
+  "noRecentProjectsDescriptionLabel": "No recent projects, let's create a new one",
+  "createProjectLabel": "Create Project"
 }

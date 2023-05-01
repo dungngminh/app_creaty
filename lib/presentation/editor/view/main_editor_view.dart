@@ -1,4 +1,5 @@
 import 'package:app_creaty/commons/router/app_router.dart';
+import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
 import 'package:app_creaty/presentation/editor/editor.dart';
 import 'package:flutter/material.dart';
@@ -6,12 +7,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class MainEditorPage extends StatelessWidget {
-  const MainEditorPage({super.key});
+  const MainEditorPage({super.key, required this.project});
+
+  final AppCreatyProject project;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => EditorBloc(),
+      create: (context) => EditorBloc(project: project),
       child: const MainEditorView(),
     );
   }

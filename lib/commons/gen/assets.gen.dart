@@ -229,8 +229,12 @@ class $AssetsImagesSvgGen {
   SvgGenImage get appLogoWithBackground =>
       const SvgGenImage('assets/images/svg/app_logo_with_background.svg');
 
+  /// File path: assets/images/svg/no_data.svg
+  SvgGenImage get noData => const SvgGenImage('assets/images/svg/no_data.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [appLogoNoBackground, appLogoWithBackground];
+  List<SvgGenImage> get values =>
+      [appLogoNoBackground, appLogoWithBackground, noData];
 }
 
 class Assets {

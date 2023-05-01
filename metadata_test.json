@@ -1,10 +1,9 @@
 {
-  "projectId": "",
+  "projectId": "login_app",
   "projectName": "Login App",
-  "projectNameInSnackCase": "login_app",
-  "projectPreviewImage":"",
+  "projectPreviewImage": "",
   "projectLogoAppImage": "",
-  "sourceCodePath":"",
+  "sourceCodePath": "",
   "createdBy": {
     "id": null,
     "name": "Localhost",
