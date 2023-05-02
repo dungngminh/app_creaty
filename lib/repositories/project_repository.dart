@@ -20,7 +20,7 @@ class ProjectCreateFailure extends ProjectRepositoryException {
   const ProjectCreateFailure(super.message, super.stackTrace);
 
   @override
-  String toString() => 'ProjectLoadFailure: $message';
+  String toString() => 'ProjectCreateFailure: $message';
 }
 
 class ProjectLoadFailure extends ProjectRepositoryException {

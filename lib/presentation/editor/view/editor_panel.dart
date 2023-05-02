@@ -1,4 +1,3 @@
-import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
 import 'package:app_creaty/presentation/prop_panel/prop_panel.dart';
 import 'package:app_creaty/presentation/tool_panel/tool_panel.dart';
 import 'package:app_creaty/presentation/visual_app/views/visual_app_view.dart';
@@ -73,14 +72,7 @@ class _EditorPanelState extends State<EditorPanel> {
           ),
           BlocProvider(
             create: (context) => VisualAppBloc(),
-            child: BlocBuilder<EditorBloc, EditorState>(
-              buildWhen: (previous, current) =>
-                  previous.currentDevice != current.currentDevice,
-              builder: (context, state) {
-                final currentDevice = state.currentDevice;
-                return VisualAppView(currentDevice: currentDevice);
-              },
-            ),
+            child: const VisualAppView(),
           ),  
           const PropertiesPanelView(),
         ],

@@ -1,4 +1,4 @@
-import 'package:app_creaty/commons/extensions/context_extension.dart';
+import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:flutter/widgets.dart';
 
 class PropertiesPanelView extends StatelessWidget {

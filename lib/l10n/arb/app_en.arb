@@ -41,5 +41,24 @@
   "selectLocation": "Select location",
   "createProjectErrorText": "Create project is not successful, please try again",
   "noRecentProjectsDescriptionLabel": "No recent projects, let's create a new one",
-  "createProjectLabel": "Create Project"
+  "createProjectLabel": "Create Project",
+  "projectVersionLabel": "Version: {version}",
+  "@projectVersionLabel": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "description": "Project version"
+      }
+    }
+  },
+  "dartVersionLabel": "Dart Version: {version}",
+  "@dartVersionLabel": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "description": "Project version"
+      }
+    }
+  },
+  "previewDeviceDropdownMenuLabel": "Preview device"
 }

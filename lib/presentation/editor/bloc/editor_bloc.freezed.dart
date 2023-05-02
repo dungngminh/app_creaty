@@ -15,159 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$EditorEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $EditorEventCopyWith<$Res> {
-  factory $EditorEventCopyWith(
-          EditorEvent value, $Res Function(EditorEvent) then) =
-      _$EditorEventCopyWithImpl<$Res, EditorEvent>;
-}
-
-/// @nodoc
-class _$EditorEventCopyWithImpl<$Res, $Val extends EditorEvent>
-    implements $EditorEventCopyWith<$Res> {
-  _$EditorEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$EditorEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_Started implements _Started {
-  const _$_Started();
-
-  @override
-  String toString() {
-    return 'EditorEvent.started()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-  }) {
-    return started();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-  }) {
-    return started?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Started implements EditorEvent {
-  const factory _Started() = _$_Started;
-}
-
-/// @nodoc
 mixin _$EditorState {
+  LoadingStatus get editorLoadingStatus => throw _privateConstructorUsedError;
   DeviceInfo get currentDevice => throw _privateConstructorUsedError;
   AppCreatyProject get currentProject => throw _privateConstructorUsedError;
   bool get isFrameVisibe => throw _privateConstructorUsedError;
+  ProjectInfo? get projectInfo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EditorStateCopyWith<EditorState> get copyWith =>
@@ -181,9 +34,11 @@ abstract class $EditorStateCopyWith<$Res> {
       _$EditorStateCopyWithImpl<$Res, EditorState>;
   @useResult
   $Res call(
-      {DeviceInfo currentDevice,
+      {LoadingStatus editorLoadingStatus,
+      DeviceInfo currentDevice,
       AppCreatyProject currentProject,
-      bool isFrameVisibe});
+      bool isFrameVisibe,
+      ProjectInfo? projectInfo});
 
   $DeviceInfoCopyWith<$Res> get currentDevice;
 }
@@ -201,11 +56,17 @@ class _$EditorStateCopyWithImpl<$Res, $Val extends EditorState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? editorLoadingStatus = null,
     Object? currentDevice = null,
     Object? currentProject = null,
     Object? isFrameVisibe = null,
+    Object? projectInfo = freezed,
   }) {
     return _then(_value.copyWith(
+      editorLoadingStatus: null == editorLoadingStatus
+          ? _value.editorLoadingStatus
+          : editorLoadingStatus // ignore: cast_nullable_to_non_nullable
+              as LoadingStatus,
       currentDevice: null == currentDevice
           ? _value.currentDevice
           : currentDevice // ignore: cast_nullable_to_non_nullable
@@ -218,6 +79,10 @@ class _$EditorStateCopyWithImpl<$Res, $Val extends EditorState>
           ? _value.isFrameVisibe
           : isFrameVisibe // ignore: cast_nullable_to_non_nullable
               as bool,
+      projectInfo: freezed == projectInfo
+          ? _value.projectInfo
+          : projectInfo // ignore: cast_nullable_to_non_nullable
+              as ProjectInfo?,
     ) as $Val);
   }
 
@@ -239,9 +104,11 @@ abstract class _$$_EditorStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {DeviceInfo currentDevice,
+      {LoadingStatus editorLoadingStatus,
+      DeviceInfo currentDevice,
       AppCreatyProject currentProject,
-      bool isFrameVisibe});
+      bool isFrameVisibe,
+      ProjectInfo? projectInfo});
 
   @override
   $DeviceInfoCopyWith<$Res> get currentDevice;
@@ -258,11 +125,17 @@ class __$$_EditorStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? editorLoadingStatus = null,
     Object? currentDevice = null,
     Object? currentProject = null,
     Object? isFrameVisibe = null,
+    Object? projectInfo = freezed,
   }) {
     return _then(_$_EditorState(
+      editorLoadingStatus: null == editorLoadingStatus
+          ? _value.editorLoadingStatus
+          : editorLoadingStatus // ignore: cast_nullable_to_non_nullable
+              as LoadingStatus,
       currentDevice: null == currentDevice
           ? _value.currentDevice
           : currentDevice // ignore: cast_nullable_to_non_nullable
@@ -275,6 +148,10 @@ class __$$_EditorStateCopyWithImpl<$Res>
           ? _value.isFrameVisibe
           : isFrameVisibe // ignore: cast_nullable_to_non_nullable
               as bool,
+      projectInfo: freezed == projectInfo
+          ? _value.projectInfo
+          : projectInfo // ignore: cast_nullable_to_non_nullable
+              as ProjectInfo?,
     ));
   }
 }
@@ -283,10 +160,15 @@ class __$$_EditorStateCopyWithImpl<$Res>
 
 class _$_EditorState implements _EditorState {
   const _$_EditorState(
-      {required this.currentDevice,
+      {this.editorLoadingStatus = LoadingStatus.initial,
+      required this.currentDevice,
       required this.currentProject,
-      this.isFrameVisibe = true});
+      this.isFrameVisibe = true,
+      this.projectInfo});
 
+  @override
+  @JsonKey()
+  final LoadingStatus editorLoadingStatus;
   @override
   final DeviceInfo currentDevice;
   @override
@@ -294,10 +176,12 @@ class _$_EditorState implements _EditorState {
   @override
   @JsonKey()
   final bool isFrameVisibe;
+  @override
+  final ProjectInfo? projectInfo;
 
   @override
   String toString() {
-    return 'EditorState(currentDevice: $currentDevice, currentProject: $currentProject, isFrameVisibe: $isFrameVisibe)';
+    return 'EditorState(editorLoadingStatus: $editorLoadingStatus, currentDevice: $currentDevice, currentProject: $currentProject, isFrameVisibe: $isFrameVisibe, projectInfo: $projectInfo)';
   }
 
   @override
@@ -305,17 +189,21 @@ class _$_EditorState implements _EditorState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EditorState &&
+            (identical(other.editorLoadingStatus, editorLoadingStatus) ||
+                other.editorLoadingStatus == editorLoadingStatus) &&
             (identical(other.currentDevice, currentDevice) ||
                 other.currentDevice == currentDevice) &&
             (identical(other.currentProject, currentProject) ||
                 other.currentProject == currentProject) &&
             (identical(other.isFrameVisibe, isFrameVisibe) ||
-                other.isFrameVisibe == isFrameVisibe));
+                other.isFrameVisibe == isFrameVisibe) &&
+            (identical(other.projectInfo, projectInfo) ||
+                other.projectInfo == projectInfo));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, currentDevice, currentProject, isFrameVisibe);
+  int get hashCode => Object.hash(runtimeType, editorLoadingStatus,
+      currentDevice, currentProject, isFrameVisibe, projectInfo);
 
   @JsonKey(ignore: true)
   @override
@@ -326,16 +214,22 @@ class _$_EditorState implements _EditorState {
 
 abstract class _EditorState implements EditorState {
   const factory _EditorState(
-      {required final DeviceInfo currentDevice,
+      {final LoadingStatus editorLoadingStatus,
+      required final DeviceInfo currentDevice,
       required final AppCreatyProject currentProject,
-      final bool isFrameVisibe}) = _$_EditorState;
+      final bool isFrameVisibe,
+      final ProjectInfo? projectInfo}) = _$_EditorState;
 
+  @override
+  LoadingStatus get editorLoadingStatus;
   @override
   DeviceInfo get currentDevice;
   @override
   AppCreatyProject get currentProject;
   @override
   bool get isFrameVisibe;
+  @override
+  ProjectInfo? get projectInfo;
   @override
   @JsonKey(ignore: true)
   _$$_EditorStateCopyWith<_$_EditorState> get copyWith =>

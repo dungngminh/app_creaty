@@ -1,6 +1,8 @@
 include: package:very_good_analysis/analysis_options.4.0.0.yaml
 
 analyzer:
+  plugins:
+    - dart_code_metrics
   exclude:
     - lib/**/*.g.dart
     - lib/**/*.freezed.dart
@@ -21,3 +23,10 @@ linter:
     unnecessary_string_interpolations: true
     omit_local_variable_types: true
     always_put_required_named_parameters_first: false
+
+dart_code_metrics:
+  metrics:
+    cyclomatic-complexity: 20
+    number-of-parameters: 4
+    maximum-nesting-level: 5
+    weight-of-class: 0.33

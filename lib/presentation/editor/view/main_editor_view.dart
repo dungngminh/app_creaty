@@ -2,7 +2,9 @@ import 'package:app_creaty/commons/router/app_router.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
 import 'package:app_creaty/presentation/editor/editor.dart';
+import 'package:app_creaty/presentation/widgets/loading_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -49,7 +51,21 @@ class _MainEditorViewState extends State<MainEditorView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final editorLoadingStatus =
+        context.select((EditorBloc bloc) => bloc.state.editorLoadingStatus);
+    if (editorLoadingStatus.isLoading) {
+      final loadingView = const LoadingView()
+          .animate()
+          .fadeIn(duration: 500.ms)
+          .then(delay: 1.5.seconds)
+          .fadeOut(duration: 500.ms);
+      return Scaffold(
+        body: Center(
+          child: loadingView,
+        ),
+      );
+    }
+    final mainEditorView = Scaffold(
       appBar: EditorAppBar(
         onExtendMenuPressed: _onExtendMenuPressed,
         onHomeButtonPressed: _onHomeButtonPressed,
@@ -80,7 +96,8 @@ class _MainEditorViewState extends State<MainEditorView> {
             ),
           ],
         ),
-      ),
+      ).animate().fadeIn(duration: 200.ms),
     );
+    return mainEditorView;
   }
 }
