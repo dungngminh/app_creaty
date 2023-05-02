@@ -1,4 +1,4 @@
-import 'package:app_creaty/commons/extensions/context_extension.dart';
+import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/models/app_creaty_component.dart';
 import 'package:app_creaty/models/ui_component.dart';
 import 'package:app_creaty/presentation/tool_panel/widgets/ui_component_card.dart';

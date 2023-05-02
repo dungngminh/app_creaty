@@ -1,4 +1,4 @@
-import 'package:app_creaty/commons/extensions/context_extension.dart';
+import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/commons/router/app_router.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';

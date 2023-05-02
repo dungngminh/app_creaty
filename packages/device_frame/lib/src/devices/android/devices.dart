@@ -1,19 +1,17 @@
-import 'dart:ui';
 
-import 'package:device_frame/src/info/info.dart';
-
-import 'package:device_frame/src/devices/android/samsung_galaxy_s20/device.dart'
-    as i_samsung_galaxy_s20;
+import 'package:device_frame/src/devices/android/oneplus_8_pro/device.dart'
+    as i_oneplus_8_pro;
+import 'package:device_frame/src/devices/android/samsung_galaxy_a50/device.dart'
+    as samsung_galaxy_a50;
 import 'package:device_frame/src/devices/android/samsung_galaxy_note20/device.dart'
     as i_samsung_galaxy_note20;
 import 'package:device_frame/src/devices/android/samsung_galaxy_note20_ultra/device.dart'
     as i_samsung_galaxy_note20_ultra;
-import 'package:device_frame/src/devices/android/samsung_galaxy_a50/device.dart'
-    as samsung_galaxy_a50;
-import 'package:device_frame/src/devices/android/oneplus_8_pro/device.dart'
-    as i_oneplus_8_pro;
+import 'package:device_frame/src/devices/android/samsung_galaxy_s20/device.dart'
+    as i_samsung_galaxy_s20;
 import 'package:device_frame/src/devices/android/sony_xperia_1_ii/device.dart'
     as i_sony_xperia_1_ii;
+import 'package:device_frame/src/info/info.dart';
 import 'package:flutter/material.dart';
 
 /// A set of iOS devices.
@@ -165,6 +163,24 @@ class AndroidDevices {
         mediumPhone,
         bigPhone,
         // Tablets
+        smallTablet,
+        mediumTablet,
+        largeTablet,
+      ];
+
+  List<DeviceInfo> get phones => [
+        samsungGalaxyA50,
+        samsungGalaxyS20,
+        samsungGalaxyNote20,
+        samsungGalaxyNote20Ultra,
+        onePlus8Pro,
+        sonyXperia1II,
+        smallPhone,
+        mediumPhone,
+        bigPhone,
+      ];
+
+  List<DeviceInfo> get tablets => [
         smallTablet,
         mediumTablet,
         largeTablet,

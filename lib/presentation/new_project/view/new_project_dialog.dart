@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:app_creaty/commons/enums/loading_status.dart';
-import 'package:app_creaty/commons/extensions/context_extension.dart';
+import 'package:app_creaty/commons/extensions/media_query_extension.dart';
+import 'package:app_creaty/commons/extensions/snack_bar_extension.dart';
+import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/commons/router/app_router.dart';
 import 'package:app_creaty/l10n/l10n.dart';

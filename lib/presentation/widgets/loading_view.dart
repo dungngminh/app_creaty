@@ -1,4 +1,4 @@
-import 'package:app_creaty/commons/extensions/context_extension.dart';
+import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -19,7 +19,7 @@ class LoadingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SpinKitCubeGrid(
-        color: context.colorScheme.primary,
+        color: context.colorScheme.primaryContainer,
       ),
     );
   }
