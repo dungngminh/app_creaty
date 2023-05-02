@@ -6,22 +6,15 @@ import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-
-typedef OnChangeDeviceInfo = void Function(DeviceInfo?);
+  
 
 class EditorAppBar extends StatefulWidget with PreferredSizeWidget {
   const EditorAppBar({
     super.key,
-    this.onExtendMenuPressed,
     this.onHomeButtonPressed,
-    this.onChangeDeviceInfo,
-    this.onToggleToShowDeviceFrame,
   });
 
-  final VoidCallback? onExtendMenuPressed;
   final VoidCallback? onHomeButtonPressed;
-  final OnChangeDeviceInfo? onChangeDeviceInfo;
-  final VoidCallback? onToggleToShowDeviceFrame;
 
   @override
   State<EditorAppBar> createState() => _EditorAppBarState();

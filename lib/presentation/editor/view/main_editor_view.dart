@@ -31,17 +31,12 @@ class MainEditorView extends StatefulWidget {
 
 class _MainEditorViewState extends State<MainEditorView> {
   late final ValueNotifier<int> _currentTabNotifier;
-  late final ValueNotifier<bool> _isMenuExtendedNotifier;
 
   @override
   void initState() {
     super.initState();
     _currentTabNotifier = ValueNotifier(0);
-    _isMenuExtendedNotifier = ValueNotifier(false);
   }
-
-  void _onExtendMenuPressed() =>
-      _isMenuExtendedNotifier.value = !_isMenuExtendedNotifier.value;
 
   void _onHomeButtonPressed() {
     /// TODO: show Dialog to save to local maybe
@@ -67,22 +62,15 @@ class _MainEditorViewState extends State<MainEditorView> {
     }
     final mainEditorView = Scaffold(
       appBar: EditorAppBar(
-        onExtendMenuPressed: _onExtendMenuPressed,
         onHomeButtonPressed: _onHomeButtonPressed,
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 16, bottom: 16),
         child: Row(
           children: [
-            ValueListenableBuilder(
-              valueListenable: _isMenuExtendedNotifier,
-              builder: (context, isMenuExtended, _) {
-                return AppEditorNavigationRail(
+            AppEditorNavigationRail(
                   onIndexChanged: (onIndexChanged) =>
-                      _currentTabNotifier.value = onIndexChanged,
-                  isMenuExtended: isMenuExtended,
-                );
-              },
+                  _currentTabNotifier.value = onIndexChanged,
             ),
             Expanded(
               child: ValueListenableBuilder(
