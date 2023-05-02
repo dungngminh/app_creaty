@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -5,24 +6,23 @@ part 'app_creaty_creator.g.dart';
 
 @JsonSerializable()
 @HiveType(typeId: 1)
-class AppCreatyCreator {
-  AppCreatyCreator({
+class AppCreatyCreator extends Equatable {
+  const AppCreatyCreator({
     required this.id,
     required this.name,
     required this.email,
   });
-
-  factory AppCreatyCreator.fromJson(Map<String, dynamic> json) =>
-      _$AppCreatyCreatorFromJson(json);
-
   factory AppCreatyCreator.local() {
-    return AppCreatyCreator(
+    return const AppCreatyCreator(
       id: null,
       name: 'Localhost',
       email: null,
     );
   }
-  
+
+  factory AppCreatyCreator.fromJson(Map<String, dynamic> json) =>
+      _$AppCreatyCreatorFromJson(json);
+
   @HiveField(0)
   final String? id;
   @HiveField(1)
@@ -31,4 +31,7 @@ class AppCreatyCreator {
   final String? email;
 
   Map<String, dynamic> toJson() => _$AppCreatyCreatorToJson(this);
+
+  @override
+  List<Object?> get props => [id, name, email];
 }

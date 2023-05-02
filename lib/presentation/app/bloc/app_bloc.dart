@@ -12,6 +12,7 @@ part 'app_state.dart';
 class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc() : super(const AppState.initial()) {
     on<AppStarted>(_onAppStarted);
+    add(AppStarted());
   }
 
   Future<void> _onAppStarted(AppStarted event, Emitter<AppState> emit) async {
