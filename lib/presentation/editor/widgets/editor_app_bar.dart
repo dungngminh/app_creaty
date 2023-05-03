@@ -1,3 +1,4 @@
+import 'package:app_creaty/commons/extensions/media_query_extension.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
@@ -24,21 +25,7 @@ class EditorAppBar extends StatefulWidget with PreferredSizeWidget {
 }
 
 class _EditorAppBarState extends State<EditorAppBar> {
-  late List<DeviceInfo> deviceInfos;
-
-  @override
-  void initState() {
-    super.initState();
-    _bindDeviceInfosDataToDropdown();
-  }
-
-  void _bindDeviceInfosDataToDropdown() {
-    deviceInfos = [
-      ...Devices.ios.phones,
-      ...Devices.android.phones,
-    ];
-  }
-
+ 
   @override
   Widget build(BuildContext context) {
     
@@ -57,7 +44,7 @@ class _EditorAppBarState extends State<EditorAppBar> {
           const Gap(24),
           _buildProjectInfo(),
           const Gap(32),
-          _buildDeviceFrameSelectMenu()
+          const SelectDeviceDropDownMenu(),
         ],
       ),
     );
@@ -88,29 +75,54 @@ class _EditorAppBarState extends State<EditorAppBar> {
       ],
     );
   }
+}
 
-  Widget _buildDeviceFrameSelectMenu() {
+class SelectDeviceDropDownMenu extends StatefulWidget {
+  const SelectDeviceDropDownMenu({super.key});
+
+  @override
+  State<SelectDeviceDropDownMenu> createState() =>
+      _SelectDeviceDropDownMenuState();
+}
+
+class _SelectDeviceDropDownMenuState extends State<SelectDeviceDropDownMenu> {
+  late List<DeviceInfo> deviceInfos;
+
+  @override
+  void initState() {
+    super.initState();
+    _bindDeviceInfosDataToDropdown();
+  }
+
+  void _bindDeviceInfosDataToDropdown() {
+    deviceInfos = [
+      ...Devices.ios.phones,
+      ...Devices.android.phones,
+    ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final currentDevice =
         context.select((EditorBloc bloc) => bloc.state.currentDevice);
-    return Align(
-      child: DropdownMenu<DeviceInfo>(
-        initialSelection: currentDevice,
-        label: Text(context.l10n.previewDeviceDropdownMenuLabel),
-        dropdownMenuEntries: deviceInfos
-            .map<DropdownMenuEntry<DeviceInfo>>(
-              (deviceInfo) => DropdownMenuEntry<DeviceInfo>(
-                value: deviceInfo,
-                label: deviceInfo.name,
-              ),
-            )
-            .toList(),
-        onSelected: (selectedDevice) {
-          if (selectedDevice == null) return;
-          context
-              .read<EditorBloc>()
-              .add(ChangeDeviceFrame(deviceInfo: selectedDevice));
-        },
-      ),
+    return DropdownMenu<DeviceInfo>(
+      width: context.mediaQuerySize.width * .15,
+      initialSelection: currentDevice,
+      label: Text(context.l10n.previewDeviceDropdownMenuLabel),
+      dropdownMenuEntries: deviceInfos
+          .map<DropdownMenuEntry<DeviceInfo>>(
+            (deviceInfo) => DropdownMenuEntry<DeviceInfo>(
+              value: deviceInfo,
+              label: deviceInfo.name,
+            ),
+          )
+          .toList(),
+      onSelected: (selectedDevice) {
+        if (selectedDevice == null) return;
+        context
+            .read<EditorBloc>()
+            .add(ChangeDeviceFrame(deviceInfo: selectedDevice));
+      },
     );
   }
 }

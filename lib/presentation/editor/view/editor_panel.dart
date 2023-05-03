@@ -1,7 +1,6 @@
 import 'package:app_creaty/presentation/prop_panel/prop_panel.dart';
 import 'package:app_creaty/presentation/tool_panel/tool_panel.dart';
-import 'package:app_creaty/presentation/visual_app/views/visual_app_view.dart';
-import 'package:app_creaty/presentation/visual_app/visual_app.dart';
+import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:multi_split_view/multi_split_view.dart';
@@ -70,9 +69,9 @@ class _EditorPanelState extends State<EditorPanel> {
               );
             },
           ),
-          BlocProvider(
-            create: (context) => VisualAppBloc(),
-            child: const VisualAppView(),
+          BlocProvider<VirtualAppBloc>(
+            create: (context) => VirtualAppBloc(),
+            child: const VirtualAppView(),
           ),  
           const PropertiesPanelView(),
         ],

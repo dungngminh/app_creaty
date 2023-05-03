@@ -1,4 +1,5 @@
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
+import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/models/app_creaty_component.dart';
 import 'package:app_creaty/models/ui_component.dart';
 import 'package:app_creaty/presentation/tool_panel/widgets/ui_component_card.dart';
@@ -24,13 +25,17 @@ class _ComponentsPanelState extends State<ComponentsPanel> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Gap(4),
             Container(
               height: 56,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 color: context.colorScheme.primaryContainer,
               ),
-              child: const AppTextField(),
+              alignment: Alignment.center,
+              child: AppTextField(
+                labelText: context.l10n.search,
+              ),
             ),
             const Gap(24),
             ColumnWithSpacing(
