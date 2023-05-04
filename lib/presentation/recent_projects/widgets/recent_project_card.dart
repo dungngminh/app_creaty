@@ -25,8 +25,7 @@ class _RecentProjectCardState extends State<RecentProjectCard> {
   @override
   Widget build(BuildContext context) {
     final recentProjectCardWidget = GestureDetector(
-      onTap: () =>
-          context.go(
+      onTap: () => context.go(
         '${AppRouter.routePathEditorPage}/${widget.project.projectId}',
         extra: widget.project,
       ),
@@ -78,6 +77,18 @@ class _RecentProjectCardState extends State<RecentProjectCard> {
   }
 
   Widget _buildAvatar() {
+    final logoProject = widget.project.projectLogoAppImage;
+    if (logoProject == null) {
+      final firstLetterOfProjectName =
+          widget.project.projectName.characters.first;
+      return CircleAvatar(
+        child: Text(
+          firstLetterOfProjectName.toUpperCase(),
+          style: context.textTheme.titleLarge
+              ?.copyWith(color: context.colorScheme.onPrimary),
+        ),
+      );
+    }
     return CachedNetworkImage(
       imageUrl:
           widget.project.projectLogoAppImage ?? 'https://i.pravatar.cc/300',

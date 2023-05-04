@@ -1,7 +1,9 @@
 import 'package:app_creaty/commons/router/app_router.dart';
+import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
 import 'package:app_creaty/presentation/editor/editor.dart';
+import 'package:app_creaty/presentation/widgets/app_confirmation_alert_dialog.dart';
 import 'package:app_creaty/presentation/widgets/loading_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -31,22 +33,21 @@ class MainEditorView extends StatefulWidget {
 
 class _MainEditorViewState extends State<MainEditorView> {
   late final ValueNotifier<int> _currentTabNotifier;
-  late final ValueNotifier<bool> _isMenuExtendedNotifier;
 
   @override
   void initState() {
     super.initState();
     _currentTabNotifier = ValueNotifier(0);
-    _isMenuExtendedNotifier = ValueNotifier(false);
   }
 
-  void _onExtendMenuPressed() =>
-      _isMenuExtendedNotifier.value = !_isMenuExtendedNotifier.value;
-
   void _onHomeButtonPressed() {
-    /// TODO: show Dialog to save to local maybe
-    ///
-    context.go(AppRouter.routePathHomePage);
+    showConfirmationDialog<void>(
+      context,
+      title: context.l10n.returnHomeQuestion,
+      description: context.l10n.returnHomeQuestionDescription,
+      onConfirmPressed: () => context.go(AppRouter.routePathHomePage),
+      onCancelPressed: () => context.pop(),
+    );
   }
 
   @override
@@ -67,22 +68,15 @@ class _MainEditorViewState extends State<MainEditorView> {
     }
     final mainEditorView = Scaffold(
       appBar: EditorAppBar(
-        onExtendMenuPressed: _onExtendMenuPressed,
         onHomeButtonPressed: _onHomeButtonPressed,
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 16, bottom: 16),
         child: Row(
           children: [
-            ValueListenableBuilder(
-              valueListenable: _isMenuExtendedNotifier,
-              builder: (context, isMenuExtended, _) {
-                return AppEditorNavigationRail(
-                  onIndexChanged: (onIndexChanged) =>
-                      _currentTabNotifier.value = onIndexChanged,
-                  isMenuExtended: isMenuExtended,
-                );
-              },
+            AppEditorNavigationRail(
+              onIndexChanged: (onIndexChanged) =>
+                  _currentTabNotifier.value = onIndexChanged,
             ),
             Expanded(
               child: ValueListenableBuilder(

@@ -341,10 +341,9 @@ class __$$LoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Loaded implements Loaded {
-  const _$Loaded({this.user = AppCreatyCreator.local});
+  const _$Loaded({required this.user});
 
   @override
-  @JsonKey()
   final AppCreatyCreator user;
 
   @override
@@ -445,7 +444,7 @@ class _$Loaded implements Loaded {
 }
 
 abstract class Loaded implements AppState {
-  const factory Loaded({final AppCreatyCreator user}) = _$Loaded;
+  const factory Loaded({required final AppCreatyCreator user}) = _$Loaded;
 
   AppCreatyCreator get user;
   @JsonKey(ignore: true)

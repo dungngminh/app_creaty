@@ -7,15 +7,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 
-part 'visual_app_bloc.freezed.dart';
-part 'visual_app_event.dart';
-part 'visual_app_state.dart';
+part 'virtual_app_bloc.freezed.dart';
+part 'virtual_app_event.dart';
+part 'virtual_app_state.dart';
 
-class VisualAppBloc extends Bloc<VisualAppEvent, VisualAppState> {
-  VisualAppBloc()
+class VirtualAppBloc extends Bloc<VirtualAppEvent, VirtualAppState> {
+  VirtualAppBloc()
       : super(
-          VisualAppState(
-            visualAppWidgetData: const json_widget.Widget.scaffold().toJson(),
+          VirtualAppState(
+            virtualAppWidgetData: const json_widget.Widget.scaffold().toJson(),
+            selectedWidgetData: const json_widget.Widget.scaffold().toJson(),
           ),
         ) {
     on<AddWidgetToTree>(_onAddWidgetToTree);
@@ -23,11 +24,11 @@ class VisualAppBloc extends Bloc<VisualAppEvent, VisualAppState> {
 
   void _onAddWidgetToTree(
     AddWidgetToTree event,
-    Emitter<VisualAppState> emit,
+    Emitter<VirtualAppState> emit,
   ) {
     final receviedWidgetData = event.widgetData;
     final currentWidgetData =
-        Map<String, dynamic>.from(state.visualAppWidgetData);
+        Map<String, dynamic>.from(state.virtualAppWidgetData);
     // final intoWidgetData = event.intoWidget;
 
     final widgetRuntimeType = receviedWidgetData['runtimeType'] as String;
@@ -38,7 +39,7 @@ class VisualAppBloc extends Bloc<VisualAppEvent, VisualAppState> {
     if (isScaffoldBodyHasWidget) {
       currentWidgetData.update('body', (_) => receviedWidgetData);
       log(currentWidgetData.toString());
-      emit(state.copyWith(visualAppWidgetData: currentWidgetData));
+      emit(state.copyWith(virtualAppWidgetData: currentWidgetData));
       return;
     }
 
@@ -46,6 +47,11 @@ class VisualAppBloc extends Bloc<VisualAppEvent, VisualAppState> {
     // if(isScaffold){
     //   into
     // }
-    emit(state.copyWith(visualAppWidgetData: currentWidgetData));
+    emit(
+      state.copyWith(
+        virtualAppWidgetData: currentWidgetData,
+        selectedWidgetData: receviedWidgetData,
+      ),
+    );
   }
 }

@@ -1,8 +1,8 @@
-part of 'visual_app_bloc.dart';
+part of 'virtual_app_bloc.dart';
 
-abstract class VisualAppEvent extends Equatable {}
+abstract class VirtualAppEvent extends Equatable {}
 
-class AddWidgetToTree extends VisualAppEvent {
+class AddWidgetToTree extends VirtualAppEvent {
   AddWidgetToTree({
     required this.widgetData,
   });
@@ -13,12 +13,12 @@ class AddWidgetToTree extends VisualAppEvent {
   List<Object?> get props => [widgetData];
 }
 
-class AddPageToTree extends VisualAppEvent {
+class AddPageToTree extends VirtualAppEvent {
   @override
   List<Object?> get props => throw UnimplementedError();
 }
 
-class ChangePage extends VisualAppEvent {
+class ChangePage extends VirtualAppEvent {
   ChangePage({required this.page});
   final AppCreatyPage page;
 

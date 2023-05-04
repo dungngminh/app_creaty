@@ -19,7 +19,7 @@ class EditorBloc extends Bloc<EditorEvent, EditorState> {
   EditorBloc({required AppCreatyProject project})
       : super(
           EditorState(
-            currentDevice: Devices.android.samsungGalaxyA50,
+            currentDevice: Devices.ios.iPhone13,
             currentProject: project,
           ),
         ) {

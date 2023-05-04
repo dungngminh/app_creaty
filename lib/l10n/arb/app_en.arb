@@ -60,5 +60,9 @@
       }
     }
   },
-  "previewDeviceDropdownMenuLabel": "Preview device"
+  "previewDeviceDropdownMenuLabel": "Preview device",
+  "confirm": "Confirm",
+  "returnHomeQuestion": "Return Home?",
+  "returnHomeQuestionDescription": "Are you sure you want to return to the home page? All unsaved changes will be lost.",
+  "backgroundColorLabel": "Background Color"
 }

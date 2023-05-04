@@ -5,12 +5,10 @@ import 'package:flutter/material.dart';
 class AppEditorNavigationRail extends StatefulWidget {
   const AppEditorNavigationRail({
     required this.onIndexChanged,
-    required this.isMenuExtended,
     super.key,
   });
 
   final ValueChanged<int> onIndexChanged;
-  final bool isMenuExtended;
 
   @override
   State<AppEditorNavigationRail> createState() =>
@@ -27,7 +25,6 @@ class _AppEditorNavigationRailState extends State<AppEditorNavigationRail> {
   @override
   Widget build(BuildContext context) {
     return NavigationRail(
-      extended: widget.isMenuExtended,
       selectedIndex: currentIndex,
       onDestinationSelected: (index) {
         _onChangeIndex(index);

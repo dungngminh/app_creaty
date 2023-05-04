@@ -8,7 +8,7 @@ class AppState with _$AppState {
   const factory AppState.initial() = Initial;
   const factory AppState.loading() = Loading;
   const factory AppState.loaded({
-    @Default(AppCreatyCreator.local) AppCreatyCreator user,
+   required AppCreatyCreator user,
   }) = Loaded;
   const factory AppState.error({
     String? error,

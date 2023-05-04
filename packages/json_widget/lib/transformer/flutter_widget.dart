@@ -174,7 +174,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
             }
             if (widget.assetPath != null) {
               return FlutterWidget.asset(
-                assetPath: widget.assetPath!,
+                assetPath: widget.assetPath,
                 customWidgets: widget.customWidgets,
               );
             }

@@ -22,13 +22,17 @@ class AppTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      readOnly: readOnly,
-      controller: controller,
-      decoration: InputDecoration(
-        border: haveBorder ? const OutlineInputBorder() : null,
-        labelText: labelText,
-        enabled: enabled,
+    final border = haveBorder ? const OutlineInputBorder() : null;
+    return ColoredBox(
+      color: Colors.white,
+      child: TextField(
+        readOnly: readOnly,
+        controller: controller,
+        decoration: InputDecoration(
+          border: border,
+          labelText: labelText,
+          enabled: enabled,
+        ),
       ),
     );
   }

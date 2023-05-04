@@ -165,6 +165,7 @@ class _NewProjectViewState extends State<_NewProjectView> {
                     labelText: context.l10n.projectNameSavedAsName,
                     enabled: false,
                   ),
+                  /// TODO(dungngminh): Add field project avatar
                   gap16,
                   _buildSelectLocationButton(),
                   gap32,
@@ -190,17 +191,21 @@ class _NewProjectViewState extends State<_NewProjectView> {
           ),
         ),
         const Gap(16),
-        IconButton(
-          tooltip: context.l10n.selectLocation,
-          icon: Assets.icons.other.saveAtPath.svg(
-            colorFilter: ColorFilter.mode(
-              context.colorScheme.primary,
-              BlendMode.srcIn,
+        CircleAvatar(
+          backgroundColor:
+              context.colorScheme.primaryContainer.withOpacity(0.2),
+          child: IconButton(
+            tooltip: context.l10n.selectLocation,
+            icon: Assets.icons.other.saveAtPath.svg(
+              colorFilter: ColorFilter.mode(
+                context.colorScheme.primary,
+                BlendMode.srcIn,
+              ),
             ),
+            onPressed: () {
+              context.read<NewProjectCubit>().selectLocation();
+            },
           ),
-          onPressed: () {
-            context.read<NewProjectCubit>().selectLocation();
-          },
         ),
       ],
     );

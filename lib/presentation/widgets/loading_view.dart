@@ -12,8 +12,14 @@ Future<T?> showLoadingViewDialog<T>(BuildContext context) {
   );
 }
 
-class LoadingView extends StatelessWidget {
+class LoadingView extends StatefulWidget {
   const LoadingView({super.key});
+
+  @override
+  State<LoadingView> createState() => _LoadingViewState();
+}
+
+class _LoadingViewState extends State<LoadingView> {
 
   @override
   Widget build(BuildContext context) {

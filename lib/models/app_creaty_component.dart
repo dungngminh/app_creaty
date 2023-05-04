@@ -44,7 +44,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
   row,
   container,
   image,
-  button;
+  elevatedButton;
 
   @override
   String getTitle(BuildContext context) {
@@ -59,7 +59,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
         return context.l10n.containerComponent;
       case AppCreatyComponent.image:
         return context.l10n.imageComponent;
-      case AppCreatyComponent.button:
+      case AppCreatyComponent.elevatedButton:
         return context.l10n.buttonComponenet;
     }
   }
@@ -77,7 +77,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
         return Assets.icons.components.container;
       case AppCreatyComponent.image:
         return Assets.icons.components.image;
-      case AppCreatyComponent.button:
+      case AppCreatyComponent.elevatedButton:
         return Assets.icons.components.button;
     }
   }
@@ -105,7 +105,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
           Assets.images.png.defaultImage.path,
         );
         return json_widget.Widget.image(image: defaultImageProvider).toJson();
-      case AppCreatyComponent.button:
+      case AppCreatyComponent.elevatedButton:
         const elevatedButtonChild = json_widget.Widget.text('Button');
         const callback = json_widget.Callback.empty();
         return const json_widget.Widget.elevatedButton(
@@ -137,7 +137,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
         ];
       case AppCreatyComponent.image:
         return [AppCreatyComponentGroup.common];
-      case AppCreatyComponent.button:
+      case AppCreatyComponent.elevatedButton:
         return [AppCreatyComponentGroup.common];
     }
   }
@@ -155,7 +155,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
         return AppCreatyWidgetRenderType.single;
       case AppCreatyComponent.image:
         return AppCreatyWidgetRenderType.single;
-      case AppCreatyComponent.button:
+      case AppCreatyComponent.elevatedButton:
         return AppCreatyWidgetRenderType.single;
     }
   }
