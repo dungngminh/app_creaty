@@ -9,7 +9,10 @@ import 'package:json_widget/json_widget.dart' as json_widget;
 class VirtualAppView extends StatefulWidget {
   const VirtualAppView({
     super.key,
+    required this.interactiveViewController,
   });
+
+  final TransformationController interactiveViewController;
 
   @override
   State<VirtualAppView> createState() => _VirtualAppViewState();
@@ -18,33 +21,36 @@ class VirtualAppView extends StatefulWidget {
 class _VirtualAppViewState extends State<VirtualAppView> {
   @override
   Widget build(BuildContext context) {
-    return DragTarget<AppCreatyComponent>(
-      builder: (context, candidateData, rejectedData) {
-        final currentDevice =
-            context.select((EditorBloc bloc) => bloc.state.currentDevice);
-        final isVirtualKeyboardEnable = context.select(
-          (EditorBloc bloc) => bloc.state.isVirtualKeyboardEnable,
-        );
-        final isFrameVisible =
-            context.select((EditorBloc bloc) => bloc.state.isFrameVisibe);
-        final virtualAppWidgetData = context
-            .select((VirtualAppBloc bloc) => bloc.state.virtualAppWidgetData);
-        return DeviceFrame(
-          device: currentDevice,
-          isFrameVisible: isFrameVisible,
-          screen: VirtualKeyboard(
-            isEnabled: isVirtualKeyboardEnable,
-            child: json_widget.FlutterWidget.json(
-              json: virtualAppWidgetData,
+    return InteractiveViewer(
+      transformationController: widget.interactiveViewController,
+      child: DragTarget<AppCreatyComponent>(
+        builder: (context, candidateData, rejectedData) {
+          final currentDevice =
+              context.select((EditorBloc bloc) => bloc.state.currentDevice);
+          final isVirtualKeyboardEnable = context.select(
+            (EditorBloc bloc) => bloc.state.isVirtualKeyboardEnable,
+          );
+          final isFrameVisible =
+              context.select((EditorBloc bloc) => bloc.state.isFrameVisibe);
+          final virtualAppWidgetData = context
+              .select((VirtualAppBloc bloc) => bloc.state.virtualAppWidgetData);
+          return DeviceFrame(
+            device: currentDevice,
+            isFrameVisible: isFrameVisible,
+            screen: VirtualKeyboard(
+              isEnabled: isVirtualKeyboardEnable,
+              child: json_widget.FlutterWidget.json(
+                json: virtualAppWidgetData,
+              ),
             ),
-          ),
-        );
-      },
-      onAccept: (component) {
-        context
-            .read<VirtualAppBloc>()
-            .add(AddWidgetToTree(widgetData: component.data));
-      },
+          );
+        },
+        onAccept: (component) {
+          context
+              .read<VirtualAppBloc>()
+              .add(AddWidgetToTree(widgetData: component.data));
+        },
+      ),
     );
   }
 }

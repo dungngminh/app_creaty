@@ -87,28 +87,26 @@ class _ComponentGroupPanelState extends State<ComponentGroupPanel> {
   @override
   Widget build(BuildContext context) {
     if (_components.isEmpty) return const SizedBox();
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            widget.group.getGroupName(context),
-            style: context.textTheme.titleLarge,
-          ),
-          const Gap(16),
-          Wrap(
-            runSpacing: 24,
-            spacing: 24,
-            children: _components.mapIndexed((index, widget) {
-              final widget = _components[index];
-              final uiComponent = UIComponent(widget: widget);
-              return UIComponentCard(
-                component: uiComponent,
-              );
-            }).toList(),
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.group.getGroupName(context),
+          style: context.textTheme.titleLarge,
+        ),
+        const Gap(16),
+        Wrap(
+          runSpacing: 24,
+          spacing: 24,
+          children: _components.mapIndexed((index, widget) {
+            final widget = _components[index];
+            final uiComponent = UIComponent(widget: widget);
+            return UIComponentCard(
+              component: uiComponent,
+            );
+          }).toList(),
+        ),
+      ],
     );
   }
 }

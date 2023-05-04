@@ -42,10 +42,13 @@ class UIComponentCard extends StatelessWidget {
       opacity: 0.5,
       child: widget,
     );
-    final dragWidget = Draggable<AppCreatyComponent>(
-      feedback: feedbackWidget,
-      data: component.widget,
-      child: widget,
+    final dragWidget = MouseRegion(
+      cursor: SystemMouseCursors.grab,
+      child: Draggable<AppCreatyComponent>(
+        feedback: feedbackWidget,
+        data: component.widget,
+        child: widget,
+      ),
     );
 
     return dragWidget

@@ -20,24 +20,20 @@ class EditorPanel extends StatefulWidget {
 class _EditorPanelState extends State<EditorPanel> {
   late final MultiSplitViewController _splitViewController;
   late final ValueNotifier<int> _currentToolPanelNotifier;
+  late final TransformationController _interactiveViewController;
 
   @override
   void initState() {
     super.initState();
+    _interactiveViewController = TransformationController();
     _splitViewController = MultiSplitViewController(
       areas: [
         Area(minimalWeight: .25),
         Area(minimalWeight: .35),
-        Area(minimalWeight: .3)
+        Area(minimalWeight: .25)
       ],
     );
     _currentToolPanelNotifier = ValueNotifier(widget.currentIndex);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _splitViewController.dispose();
   }
 
   @override
@@ -49,32 +45,41 @@ class _EditorPanelState extends State<EditorPanel> {
   }
 
   @override
+  void dispose() {
+    _splitViewController.dispose();
+    _interactiveViewController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return MultiSplitViewTheme(
-      data: MultiSplitViewThemeData(
-        dividerPainter: DividerPainters.grooved1(
-          color: Colors.indigo.shade100,
-          highlightedColor: Colors.indigo.shade900,
-          size: 30,
-        ),
-      ),
-      child: MultiSplitView(
-        controller: _splitViewController,
-        children: [
-          ValueListenableBuilder(
-            valueListenable: _currentToolPanelNotifier,
-            builder: (context, currentToolPanelIndex, _) {
-              return ToolPanelView(
-                currentIndex: currentToolPanelIndex,
-              );
-            },
+    return BlocProvider<VirtualAppBloc>(
+      create: (context) => VirtualAppBloc(),
+      child: MultiSplitViewTheme(
+        data: MultiSplitViewThemeData(
+          dividerPainter: DividerPainters.grooved1(
+            color: Colors.indigo.shade100,
+            highlightedColor: Colors.indigo.shade900,
+            size: 30,
           ),
-          BlocProvider<VirtualAppBloc>(
-            create: (context) => VirtualAppBloc(),
-            child: const VirtualAppView(),
-          ),  
-          const PropertiesPanelView(),
-        ],
+        ),
+        child: MultiSplitView(
+          controller: _splitViewController,
+          children: [
+            ValueListenableBuilder(
+              valueListenable: _currentToolPanelNotifier,
+              builder: (context, currentToolPanelIndex, _) {
+                return ToolPanelView(
+                  currentIndex: currentToolPanelIndex,
+                );
+              },
+            ),
+            VirtualAppView(
+              interactiveViewController: _interactiveViewController,
+            ),
+            const PropertiesPanelView(),
+          ],
+        ),
       ),
     );
   }
