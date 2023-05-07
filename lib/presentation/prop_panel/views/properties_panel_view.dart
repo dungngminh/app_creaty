@@ -14,7 +14,7 @@ class _PropertiesPanelViewState extends State<PropertiesPanelView> {
   @override
   Widget build(BuildContext context) {
     final selectedWidget =
-        context.select((VirtualAppBloc bloc) => bloc.state.selectedWidgetData);
+        context.watch<VirtualAppBloc>().state.selectedWidgetData;
     final widgetRuntimeType = selectedWidget['runtimeType'] as String;
     switch (widgetRuntimeType) {
       case 'scaffold':

@@ -1,4 +1,5 @@
 import 'package:app_creaty/models/app_creaty_creator.dart';
+import 'package:dartx/dartx.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -40,6 +41,8 @@ class AppCreatyProject extends Equatable {
   final DateTime createdAt;
   @HiveField(7)
   final DateTime updatedAt;
+
+  String get projectFullPath => sourceCodePath.removeSuffix('/source_code');
 
   Map<String, dynamic> toJson() => _$AppCreatyProjectToJson(this);
 

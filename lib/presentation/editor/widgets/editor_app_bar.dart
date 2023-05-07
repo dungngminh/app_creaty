@@ -3,11 +3,11 @@ import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
+import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-  
 
 class EditorAppBar extends StatefulWidget with PreferredSizeWidget {
   const EditorAppBar({
@@ -25,10 +25,8 @@ class EditorAppBar extends StatefulWidget with PreferredSizeWidget {
 }
 
 class _EditorAppBarState extends State<EditorAppBar> {
- 
   @override
   Widget build(BuildContext context) {
-    
     return Padding(
       padding: const EdgeInsets.only(
         top: 16,
@@ -45,6 +43,38 @@ class _EditorAppBarState extends State<EditorAppBar> {
           _buildProjectInfo(),
           const Gap(32),
           const SelectDeviceDropDownMenu(),
+          const Gap(32),
+          Builder(
+            builder: (context) {
+              final canUndo = context.watch<VirtualAppBloc>().canUndo;
+              return IconButton(
+                icon: Opacity(
+                  opacity: canUndo ? 1 : 0.4,
+                  child: Assets.icons.other.undo.svg(),
+                ),
+                onPressed: !canUndo
+                    ? null
+                    : () => context.read<VirtualAppBloc>().undo(),
+                tooltip: context.l10n.undo,
+              );
+            },
+          ),
+          const Gap(32),
+          Builder(
+            builder: (context) {
+              final canRedo = context.watch<VirtualAppBloc>().canRedo;
+              return IconButton(
+                icon: Opacity(
+                  opacity: canRedo ? 1 : 0.4,
+                  child: Assets.icons.other.redo.svg(),
+                ),
+                onPressed: !canRedo
+                    ? null
+                    : () => context.read<VirtualAppBloc>().redo(),
+                tooltip: context.l10n.redo,
+              );
+            },
+          ),
         ],
       ),
     );
@@ -71,7 +101,6 @@ class _EditorAppBarState extends State<EditorAppBar> {
             style: context.textTheme.titleSmall,
           )
         ]
-          
       ],
     );
   }

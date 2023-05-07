@@ -963,6 +963,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.0"
+  replay_bloc:
+    dependency: "direct main"
+    description:
+      name: replay_bloc
+      sha256: "803581ed2adcf1890e328ab6a8b3774a0dd136a85cd229e8be10f48a6424062d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.3"
   rxdart:
     dependency: transitive
     description:
