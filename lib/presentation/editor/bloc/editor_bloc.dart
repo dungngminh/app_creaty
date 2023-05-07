@@ -45,7 +45,6 @@ class EditorBloc extends Bloc<EditorEvent, EditorState> {
     ImportProjectData event,
     Emitter<EditorState> emit,
   ) async {
-    emit(state.copyWith(editorLoadingStatus: LoadingStatus.loading));
     final projectSpec = _getProjectPubspecData();
     final projectVersion = projectSpec['version'] as String;
     final dartVersion =
@@ -57,10 +56,8 @@ class EditorBloc extends Bloc<EditorEvent, EditorState> {
       flutterVersion: flutterVersion,
       projectVersion: projectVersion,
     );
-    await Future<void>.delayed(const Duration(seconds: 2));
     emit(
       state.copyWith(
-        editorLoadingStatus: LoadingStatus.done,
         projectInfo: projectInfo,
       ),
     );

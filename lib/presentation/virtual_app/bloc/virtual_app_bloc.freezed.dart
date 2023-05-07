@@ -20,6 +20,8 @@ mixin _$VirtualAppState {
       throw _privateConstructorUsedError;
   Map<String, dynamic> get selectedWidgetData =>
       throw _privateConstructorUsedError;
+  List<AppCreatyPage> get pages => throw _privateConstructorUsedError;
+  LoadingStatus get loadingStatus => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $VirtualAppStateCopyWith<VirtualAppState> get copyWith =>
@@ -34,7 +36,9 @@ abstract class $VirtualAppStateCopyWith<$Res> {
   @useResult
   $Res call(
       {Map<String, dynamic> virtualAppWidgetData,
-      Map<String, dynamic> selectedWidgetData});
+      Map<String, dynamic> selectedWidgetData,
+      List<AppCreatyPage> pages,
+      LoadingStatus loadingStatus});
 }
 
 /// @nodoc
@@ -52,6 +56,8 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
   $Res call({
     Object? virtualAppWidgetData = null,
     Object? selectedWidgetData = null,
+    Object? pages = null,
+    Object? loadingStatus = null,
   }) {
     return _then(_value.copyWith(
       virtualAppWidgetData: null == virtualAppWidgetData
@@ -62,6 +68,14 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
           ? _value.selectedWidgetData
           : selectedWidgetData // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      pages: null == pages
+          ? _value.pages
+          : pages // ignore: cast_nullable_to_non_nullable
+              as List<AppCreatyPage>,
+      loadingStatus: null == loadingStatus
+          ? _value.loadingStatus
+          : loadingStatus // ignore: cast_nullable_to_non_nullable
+              as LoadingStatus,
     ) as $Val);
   }
 }
@@ -76,7 +90,9 @@ abstract class _$$_VirtualAppStateCopyWith<$Res>
   @useResult
   $Res call(
       {Map<String, dynamic> virtualAppWidgetData,
-      Map<String, dynamic> selectedWidgetData});
+      Map<String, dynamic> selectedWidgetData,
+      List<AppCreatyPage> pages,
+      LoadingStatus loadingStatus});
 }
 
 /// @nodoc
@@ -92,6 +108,8 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
   $Res call({
     Object? virtualAppWidgetData = null,
     Object? selectedWidgetData = null,
+    Object? pages = null,
+    Object? loadingStatus = null,
   }) {
     return _then(_$_VirtualAppState(
       virtualAppWidgetData: null == virtualAppWidgetData
@@ -102,6 +120,14 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
           ? _value._selectedWidgetData
           : selectedWidgetData // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      pages: null == pages
+          ? _value._pages
+          : pages // ignore: cast_nullable_to_non_nullable
+              as List<AppCreatyPage>,
+      loadingStatus: null == loadingStatus
+          ? _value.loadingStatus
+          : loadingStatus // ignore: cast_nullable_to_non_nullable
+              as LoadingStatus,
     ));
   }
 }
@@ -111,9 +137,12 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
 class _$_VirtualAppState implements _VirtualAppState {
   const _$_VirtualAppState(
       {required final Map<String, dynamic> virtualAppWidgetData,
-      required final Map<String, dynamic> selectedWidgetData})
+      required final Map<String, dynamic> selectedWidgetData,
+      final List<AppCreatyPage> pages = const [],
+      this.loadingStatus = LoadingStatus.initial})
       : _virtualAppWidgetData = virtualAppWidgetData,
-        _selectedWidgetData = selectedWidgetData;
+        _selectedWidgetData = selectedWidgetData,
+        _pages = pages;
 
   final Map<String, dynamic> _virtualAppWidgetData;
   @override
@@ -133,9 +162,22 @@ class _$_VirtualAppState implements _VirtualAppState {
     return EqualUnmodifiableMapView(_selectedWidgetData);
   }
 
+  final List<AppCreatyPage> _pages;
+  @override
+  @JsonKey()
+  List<AppCreatyPage> get pages {
+    if (_pages is EqualUnmodifiableListView) return _pages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_pages);
+  }
+
+  @override
+  @JsonKey()
+  final LoadingStatus loadingStatus;
+
   @override
   String toString() {
-    return 'VirtualAppState(virtualAppWidgetData: $virtualAppWidgetData, selectedWidgetData: $selectedWidgetData)';
+    return 'VirtualAppState(virtualAppWidgetData: $virtualAppWidgetData, selectedWidgetData: $selectedWidgetData, pages: $pages, loadingStatus: $loadingStatus)';
   }
 
   @override
@@ -146,14 +188,19 @@ class _$_VirtualAppState implements _VirtualAppState {
             const DeepCollectionEquality()
                 .equals(other._virtualAppWidgetData, _virtualAppWidgetData) &&
             const DeepCollectionEquality()
-                .equals(other._selectedWidgetData, _selectedWidgetData));
+                .equals(other._selectedWidgetData, _selectedWidgetData) &&
+            const DeepCollectionEquality().equals(other._pages, _pages) &&
+            (identical(other.loadingStatus, loadingStatus) ||
+                other.loadingStatus == loadingStatus));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_virtualAppWidgetData),
-      const DeepCollectionEquality().hash(_selectedWidgetData));
+      const DeepCollectionEquality().hash(_selectedWidgetData),
+      const DeepCollectionEquality().hash(_pages),
+      loadingStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -164,14 +211,19 @@ class _$_VirtualAppState implements _VirtualAppState {
 
 abstract class _VirtualAppState implements VirtualAppState {
   const factory _VirtualAppState(
-          {required final Map<String, dynamic> virtualAppWidgetData,
-          required final Map<String, dynamic> selectedWidgetData}) =
-      _$_VirtualAppState;
+      {required final Map<String, dynamic> virtualAppWidgetData,
+      required final Map<String, dynamic> selectedWidgetData,
+      final List<AppCreatyPage> pages,
+      final LoadingStatus loadingStatus}) = _$_VirtualAppState;
 
   @override
   Map<String, dynamic> get virtualAppWidgetData;
   @override
   Map<String, dynamic> get selectedWidgetData;
+  @override
+  List<AppCreatyPage> get pages;
+  @override
+  LoadingStatus get loadingStatus;
   @override
   @JsonKey(ignore: true)
   _$$_VirtualAppStateCopyWith<_$_VirtualAppState> get copyWith =>

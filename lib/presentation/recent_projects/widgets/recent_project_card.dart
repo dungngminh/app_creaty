@@ -4,6 +4,7 @@ import 'package:app_creaty/commons/router/app_router.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dart_date/dart_date.dart';
+import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gap/gap.dart';
@@ -13,9 +14,11 @@ class RecentProjectCard extends StatefulWidget {
   const RecentProjectCard({
     required this.project,
     super.key,
+    this.isInListView = true,
   });
 
   final AppCreatyProject project;
+  final bool isInListView;
 
   @override
   State<RecentProjectCard> createState() => _RecentProjectCardState();
@@ -31,7 +34,12 @@ class _RecentProjectCardState extends State<RecentProjectCard> {
       ),
       child: Card(
         child: Padding(
-          padding: const EdgeInsets.all(12),
+          padding: EdgeInsets.only(
+            top: 12,
+            left: 12,
+            right: 12,
+            bottom: widget.isInListView ? 12 : 0,
+          ),
           child: Column(
             children: [
               Row(
@@ -48,7 +56,10 @@ class _RecentProjectCardState extends State<RecentProjectCard> {
                   )
                 ],
               ),
-              const Gap(16),
+              if (!widget.isInListView) ...[
+                const Spacer(),
+                _buildPreviewDevice()
+              ]
             ],
           ),
         ),
@@ -57,6 +68,31 @@ class _RecentProjectCardState extends State<RecentProjectCard> {
     return recentProjectCardWidget
         .animate()
         .fadeIn(duration: const Duration(milliseconds: 400));
+  }
+
+  Widget _buildPreviewDevice() {
+    return ClipRect(
+      child: Align(
+        alignment: Alignment.topCenter,
+        heightFactor: 0.2,
+        child: DeviceFrame(
+          device: Devices.ios.iPhone13,
+          screen: Scaffold(
+            body: SafeArea(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    widget.project.projectName,
+                    style: context.textTheme.titleLarge,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _buildProjectNameAndCreatedTime(BuildContext context) {

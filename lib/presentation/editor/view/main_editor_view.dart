@@ -3,6 +3,7 @@ import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
 import 'package:app_creaty/presentation/editor/editor.dart';
+import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/app_confirmation_alert_dialog.dart';
 import 'package:app_creaty/presentation/widgets/loading_view.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +18,17 @@ class MainEditorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => EditorBloc(project: project),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => EditorBloc(project: project),
+        ),
+        BlocProvider<VirtualAppBloc>(
+          create: (context) => VirtualAppBloc(
+            editorBloc: context.read<EditorBloc>(),
+          ),
+        ),
+      ],
       child: const MainEditorView(),
     );
   }
@@ -52,18 +62,26 @@ class _MainEditorViewState extends State<MainEditorView> {
 
   @override
   Widget build(BuildContext context) {
-    final editorLoadingStatus =
-        context.select((EditorBloc bloc) => bloc.state.editorLoadingStatus);
-    if (editorLoadingStatus.isLoading) {
+    final loadingStatus =
+        context.select((VirtualAppBloc bloc) => bloc.state.loadingStatus);
+    if (loadingStatus.isLoading) {
       final loadingView = const LoadingView()
           .animate()
           .fadeIn(duration: 500.ms)
-          .then(delay: 1.5.seconds)
+          .then(delay: 3.5.seconds)
           .fadeOut(duration: 500.ms);
       return Scaffold(
         body: Center(
           child: loadingView,
         ),
+      );
+    }
+    if (loadingStatus.isInitial) {
+      return Container();
+    }
+    if (loadingStatus.isError) {
+      return const Center(
+        child: Text('Editor Error'),
       );
     }
     final mainEditorView = Scaffold(

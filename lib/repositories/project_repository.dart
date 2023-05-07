@@ -72,19 +72,21 @@ class ProjectRepositoryImpl extends ProjectRepository {
     try {
       final workingDirectory = directory.path;
       _logger.i('Creating $projectNameInSnackCase folder');
-      Process.runSync(
+      await Process.run(
         'mkdir',
         [projectNameInSnackCase],
         workingDirectory: workingDirectory,
+        runInShell: true,
       );
       _logger.i(
         'Changing directory to '
-        '${join(directory.path, projectNameInSnackCase)} folder',
+        '${join(workingDirectory, projectNameInSnackCase)} folder',
       );
-      Process.runSync(
+      await Process.run(
         'cd',
         [projectNameInSnackCase],
         workingDirectory: workingDirectory,
+        runInShell: true,
       );
       _logger.i('Creating project metadata resource');
       final metadataFile =

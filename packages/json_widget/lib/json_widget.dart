@@ -1,3 +1,4 @@
+export 'mapper/mapper.dart';
 export 'transformer/flutter_widget.dart';
 export 'widgets/alignment.dart';
 export 'widgets/border_radius.dart';
@@ -33,6 +34,7 @@ export 'widgets/inline_span.dart';
 export 'widgets/input_decoration.dart';
 export 'widgets/key.dart';
 export 'widgets/locale.dart';
+export 'widgets/material/scaffold_2.dart';
 export 'widgets/material_banner.dart';
 export 'widgets/material_state_property.dart';
 export 'widgets/matrix_4.dart';

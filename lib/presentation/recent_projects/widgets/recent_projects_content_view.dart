@@ -5,6 +5,7 @@ import 'package:app_creaty/presentation/recent_projects/cubit/recent_projects_cu
 import 'package:app_creaty/presentation/recent_projects/widgets/recent_project_card.dart';
 import 'package:app_creaty/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:layout/layout.dart';
@@ -30,7 +31,7 @@ class RecentProjectsContentView extends StatelessWidget {
                 showNewProjectViewDialog<void>(context);
               },
             ),
-          );
+          ).animate().fadeIn(duration: const Duration(milliseconds: 400));
         }
         if (context.breakpoint > LayoutBreakpoint.sm) {
           return _RecentProjectsGridView(
@@ -57,13 +58,16 @@ class _RecentProjectsGridView extends StatelessWidget {
       itemCount: projects.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        childAspectRatio: 1.4,
+        childAspectRatio: 1.6,
         crossAxisSpacing: 8,
         mainAxisSpacing: 8,
       ),
       itemBuilder: (context, index) {
         final project = projects[index];
-        return RecentProjectCard(project: project);
+        return RecentProjectCard(
+          project: project,
+          isInListView: false,
+        );
       },
     );
   }

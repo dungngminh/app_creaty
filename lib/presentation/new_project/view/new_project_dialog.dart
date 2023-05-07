@@ -222,10 +222,12 @@ class _NewProjectViewState extends State<_NewProjectView> {
           onPressed: hasProjectNameAndLocation
               ? () {
                   context.read<NewProjectCubit>().createProject(
-                        projectName: projectNameTextEditingController.text,
-                        projectPath: selectLocationTextEditingController.text,
+                        projectName:
+                            projectNameTextEditingController.text.trim(),
+                        projectPath:
+                            selectLocationTextEditingController.text.trim(),
                         projectNameInSnakeCase:
-                            saveProjectAsNameTextEditingController.text,
+                            saveProjectAsNameTextEditingController.text.trim(),
                       );
                 }
               : null,

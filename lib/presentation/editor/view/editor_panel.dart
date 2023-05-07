@@ -2,7 +2,6 @@ import 'package:app_creaty/presentation/prop_panel/prop_panel.dart';
 import 'package:app_creaty/presentation/tool_panel/tool_panel.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:multi_split_view/multi_split_view.dart';
 
 class EditorPanel extends StatefulWidget {
@@ -53,9 +52,7 @@ class _EditorPanelState extends State<EditorPanel> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<VirtualAppBloc>(
-      create: (context) => VirtualAppBloc(),
-      child: MultiSplitViewTheme(
+    return MultiSplitViewTheme(
         data: MultiSplitViewThemeData(
           dividerPainter: DividerPainters.grooved1(
             color: Colors.indigo.shade100,
@@ -79,7 +76,6 @@ class _EditorPanelState extends State<EditorPanel> {
             ),
             const PropertiesPanelView(),
           ],
-        ),
       ),
     );
   }
