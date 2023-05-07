@@ -39,7 +39,7 @@ abstract class ProjectRepository {
 
   ValueListenable<Box<AppCreatyProject>> get projects;
 
-  Future<void> removeProject(String projectId);
+  Future<void> removeProject(AppCreatyProject project);
 
   Future<void> removeAll();
 }
@@ -130,6 +130,27 @@ class ProjectRepositoryImpl extends ProjectRepository {
   Future<void> removeAll() => _appCreatyBoxHelper.removeAll();
 
   @override
-  Future<void> removeProject(String projectId) =>
-      _appCreatyBoxHelper.removeProject(projectId);
+  Future<void> removeProject(AppCreatyProject project) async {
+    final projectFullPath = project.projectFullPath;
+    _logger.i(
+      'Remove Flutter project in'
+      '$projectFullPath',
+    );
+    if (Platform.isMacOS || Platform.isLinux) {
+      await Process.run(
+        'rm',
+        <String>[
+          '-rf',
+          projectFullPath,
+        ],
+        runInShell: true,
+      );
+    } else {
+      await Process.run('rmdir', <String>[
+        '/s',
+        projectFullPath,
+      ]);
+    }
+    await _appCreatyBoxHelper.removeProject(project.projectId);
+  }
 }

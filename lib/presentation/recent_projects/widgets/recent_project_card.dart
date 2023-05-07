@@ -1,7 +1,7 @@
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
-import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/commons/router/app_router.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
+import 'package:app_creaty/presentation/recent_projects/widgets/recent_project_card_action_botton.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dart_date/dart_date.dart';
 import 'package:device_frame/device_frame.dart';
@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+
+
 
 class RecentProjectCard extends StatefulWidget {
   const RecentProjectCard({
@@ -48,11 +50,8 @@ class _RecentProjectCardState extends State<RecentProjectCard> {
                   const Gap(16),
                   _buildProjectNameAndCreatedTime(context),
                   const Spacer(),
-                  IconButton(
-                    icon: Assets.icons.other.boldMenuKebab.svg(),
-                    onPressed: () {
-                      // TODO: Handle project menu onPressed
-                    },
+                  RecentProjectCardActionButton(
+                    project: widget.project,
                   )
                 ],
               ),
@@ -146,3 +145,4 @@ class _RecentProjectCardState extends State<RecentProjectCard> {
     );
   }
 }
+

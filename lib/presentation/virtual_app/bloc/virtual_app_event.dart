@@ -1,8 +1,11 @@
 part of 'virtual_app_bloc.dart';
 
-abstract class VirtualAppEvent extends Equatable {
+class VirtualAppEvent implements Equatable, ReplayEvent {
   @override
   List<Object?> get props => [];
+  
+  @override
+  bool? get stringify => true;
 }
 
 class VirtualAppLoaded extends VirtualAppEvent {}
@@ -13,14 +16,12 @@ class AddWidgetToTree extends VirtualAppEvent {
   });
 
   final Map<String, dynamic> widgetData;
-
-  @override
-  List<Object?> get props => [widgetData];
 }
 
 class AddPageToTree extends VirtualAppEvent {
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [];
+
 }
 
 class ChangePage extends VirtualAppEvent {

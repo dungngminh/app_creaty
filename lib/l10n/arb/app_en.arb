@@ -64,5 +64,11 @@
   "confirm": "Confirm",
   "returnHomeQuestion": "Return Home?",
   "returnHomeQuestionDescription": "Are you sure you want to return to the home page? All unsaved changes will be lost.",
-  "backgroundColorLabel": "Background Color"
+  "backgroundColorLabel": "Background Color",
+  "editProject": "Edit project",
+  "deleteProject": "Delete project",
+  "deleteProjectQuestion": "Delete project?",
+  "deleteProjectQuestionDescription": "Are you sure you want to delete this project?",
+  "deleteProjectSuccess": "Delete project successfully",
+  "deleteProjectError": "Delete project is not successful, please try again"
 }

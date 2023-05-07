@@ -2,10 +2,19 @@ part of 'recent_projects_cubit.dart';
 
 class RecentProjectsState extends Equatable {
   const RecentProjectsState({
-    this.recentProjectStatus = LoadingStatus.initial,
+    this.deleteProjectStatus = LoadingStatus.initial,
   });
-  final LoadingStatus recentProjectStatus;
+
+  final LoadingStatus deleteProjectStatus;
 
   @override
-  List<Object?> get props => [recentProjectStatus];
+  List<Object?> get props => [deleteProjectStatus];
+
+  RecentProjectsState copyWith({
+    LoadingStatus? deleteProjectStatus,
+  }) {
+    return RecentProjectsState(
+      deleteProjectStatus: deleteProjectStatus ?? this.deleteProjectStatus,
+    );
+  }
 }

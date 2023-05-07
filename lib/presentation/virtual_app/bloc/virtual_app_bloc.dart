@@ -7,16 +7,17 @@ import 'package:app_creaty/models/app_creaty_page.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 import 'package:recase/recase.dart';
+import 'package:replay_bloc/replay_bloc.dart';
 
 part 'virtual_app_bloc.freezed.dart';
 part 'virtual_app_event.dart';
 part 'virtual_app_state.dart';
 
-class VirtualAppBloc extends Bloc<VirtualAppEvent, VirtualAppState> {
+class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
+  
   VirtualAppBloc({required this.editorBloc})
       : super(
           VirtualAppState(
@@ -103,7 +104,7 @@ class VirtualAppBloc extends Bloc<VirtualAppEvent, VirtualAppState> {
       data: state.virtualAppWidgetData,
     );
     await Future<void>.delayed(4.seconds);
-
     emit(state.copyWith(pages: [page], loadingStatus: LoadingStatus.done));
+    clearHistory();
   }
 }

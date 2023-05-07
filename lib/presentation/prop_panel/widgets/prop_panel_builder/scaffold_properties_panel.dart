@@ -41,6 +41,15 @@ class _ScaffoldPropertiesPanelState extends State<ScaffoldPropertiesPanel>
     bindPropsToPropWidget();
   }
 
+  @override
+  void didUpdateWidget(covariant ScaffoldPropertiesPanel oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    scaffoldJsonWidget = json_widget.Scaffold.fromJson(widget.widgetData);
+    scaffoldMaterialWidget = json_widget.ScaffoldMapper()
+        .toMaterialWidget(context, scaffoldJsonWidget);
+    bindPropsToPropWidget();
+  }
+
   void bindPropsToPropWidget() {
     backgroundColor = scaffoldMaterialWidget.backgroundColor;
     appBar = scaffoldMaterialWidget.appBar;

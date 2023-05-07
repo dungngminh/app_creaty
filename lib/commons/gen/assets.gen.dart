@@ -152,13 +152,19 @@ class $AssetsIconsOtherGen {
   /// File path: assets/icons/other/plus.svg
   SvgGenImage get plus => const SvgGenImage('assets/icons/other/plus.svg');
 
+  /// File path: assets/icons/other/redo.svg
+  SvgGenImage get redo => const SvgGenImage('assets/icons/other/redo.svg');
+
   /// File path: assets/icons/other/save_at_path.svg
   SvgGenImage get saveAtPath =>
       const SvgGenImage('assets/icons/other/save_at_path.svg');
 
+  /// File path: assets/icons/other/undo.svg
+  SvgGenImage get undo => const SvgGenImage('assets/icons/other/undo.svg');
+
   /// List of all assets
   List<SvgGenImage> get values =>
-      [boldMenuKebab, menuHamburger, plus, saveAtPath];
+      [boldMenuKebab, menuHamburger, plus, redo, saveAtPath, undo];
 }
 
 class $AssetsIconsOutlineGen {
