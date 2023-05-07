@@ -107,7 +107,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
   @override
   material.Widget build(material.BuildContext context) {
     if (widget.widget != null) {
-      return $widget(context, widget.widget!)!;
+      return $widget(context, widget.widget)!;
     }
     if (widget.json != null) {
       try {

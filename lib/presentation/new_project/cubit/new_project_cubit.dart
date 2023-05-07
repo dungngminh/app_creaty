@@ -49,12 +49,12 @@ class NewProjectCubit extends Cubit<NewProjectState> {
           createdProject: createdProject,
         ),
       );
-    } catch (e, s) {
+    } on ProjectCreateFailure catch (e, s) {
       addError(e, s);
       emit(
         state.copyWith(
           processLoadingStatus: LoadingStatus.error,
-          error: (e as ProjectCreateFailure).message,
+          error: e.message,
         ),
       );
     }
