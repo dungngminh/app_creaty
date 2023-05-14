@@ -1,0 +1,105 @@
+name: Deploy AppCreaty
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+      - name: Install os dependencies
+        run: sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
+      - name: Install project dependencies
+        run: flutter pub get
+      - name: Generate intermediates
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+      - name: Enable linux build
+        run: flutter config --enable-linux-desktop
+      - name: Build artifacts
+        run: flutter build linux --release
+      - name: Package Release files
+        uses: thedoctor0/zip-release@master
+        with:
+          type: "zip"
+          filename: app_creaty-${{github.ref_name}}-linux.zip
+          directory: build/linux/x64/release/bundle
+      - name: Release to github
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{github.ref_name}}
+          files: build/linux/x64/release/bundle/app_creaty-${{github.ref_name}}-linux.zip
+
+  windows:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+      - name: Install project dependencies
+        run: flutter pub get
+      - name: Generate intermediates
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+      - name: Enable windows build
+        run: flutter config --enable-windows-desktop
+      - name: Build artifacts
+        run: flutter build windows --release
+      - name: Package Release
+        uses: thedoctor0/zip-release@master
+        with:
+          type: "zip"
+          filename: app_creaty-${{github.ref_name}}-windows.zip
+          directory: build/windows/runner/Release
+      - name: Release to github
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{github.ref_name}}
+          files: build/windows/runner/Release/app_creaty-${{github.ref_name}}-windows.zip
+
+  macos:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+      - name: Install project dependencies
+        run: flutter pub get
+      - name: Generate intermediates
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+      - name: Change directory to macos
+        run: cd macos
+      - name: Run pod install
+        run: pod install
+      - name: Change directory back to root
+        run: cd ..
+      - name: Enable macOS build
+        run: flutter config --enable-macos-desktop
+      - name: Build artifacts
+        run: flutter build macos --release
+      - name: Package Release
+        uses: thedoctor0/zip-release@master
+        with:
+          type: "zip"
+          filename: app_creaty-${{github.ref_name}}-macos.zip
+          directory: build/macos/Build/Products/Release
+      - name: Release to github
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{github.ref_name}}
+          files: build/macos/Build/Products/Release/app_creaty-${{github.ref_name}}-macos.zip
