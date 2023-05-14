@@ -86,7 +86,7 @@ jobs:
       - name: Enable macOS build
         run: flutter config --enable-macos-desktop
       - name: Build artifacts
-        run: flutter build macos --release
+        run: flutter build macos --release --no-tree-shake-icons
       - name: Package Release
         uses: thedoctor0/zip-release@master
         with:
