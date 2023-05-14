@@ -20,9 +20,9 @@ An app can create app created by dungngminh.
 
 ## Platform 📦
 
-- [ ] Linux
+- [X] Linux
+- [X] macOS
 - [ ] Windows
-- [ ] macOS
 
 ## Contributors 🌟
 
