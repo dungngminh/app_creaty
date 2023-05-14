@@ -83,12 +83,6 @@ jobs:
         run: flutter pub get
       - name: Generate intermediates
         run: flutter pub run build_runner build --delete-conflicting-outputs
-      - name: Change directory to macos
-        run: cd macos
-      - name: Run pod install
-        run: pod install
-      - name: Change directory back to root
-        run: cd ..
       - name: Enable macOS build
         run: flutter config --enable-macos-desktop
       - name: Build artifacts
