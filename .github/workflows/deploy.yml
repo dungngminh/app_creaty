@@ -3,7 +3,7 @@ name: Deploy AppCreaty
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   linux:
