@@ -21,6 +21,11 @@ class ScaffoldMapper
     return material.Scaffold(
       appBar: $preferredSizeWidget(context, jsonWidget.appBar),
       backgroundColor: $color(context, jsonWidget.backgroundColor),
+      body: $widget(context, jsonWidget.body),
+      bottomNavigationBar: $widget(context, jsonWidget.bottomNavigationBar),
+      drawer: $widget(context, jsonWidget.drawer),
+      bottomSheet: $widget(context, jsonWidget.bottomSheet),
+      endDrawer: $widget(context, jsonWidget.endDrawer),
     );
   }
 }
