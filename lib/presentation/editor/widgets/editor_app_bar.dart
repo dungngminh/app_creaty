@@ -132,10 +132,12 @@ class _SelectDeviceDropDownMenuState extends State<SelectDeviceDropDownMenu> {
 
   @override
   Widget build(BuildContext context) {
+    final width = context.mediaQuerySize.width * .15;
     final currentDevice =
         context.select((EditorBloc bloc) => bloc.state.currentDevice);
+    
     return DropdownMenu<DeviceInfo>(
-      width: context.mediaQuerySize.width * .15,
+      width: width,
       initialSelection: currentDevice,
       label: Text(context.l10n.previewDeviceDropdownMenuLabel),
       dropdownMenuEntries: deviceInfos

@@ -1,3 +1,4 @@
+import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/models/app_creaty_component.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
@@ -34,6 +35,8 @@ class _VirtualAppViewState extends State<VirtualAppView> {
               context.select((EditorBloc bloc) => bloc.state.isFrameVisibe);
           final virtualAppWidgetData = context
               .select((VirtualAppBloc bloc) => bloc.state.virtualAppWidgetData);
+          final selectedWidget = context
+              .select((VirtualAppBloc bloc) => bloc.state.selectedWidgetData);
           return DeviceFrame(
             device: currentDevice,
             isFrameVisible: isFrameVisible,
@@ -41,6 +44,62 @@ class _VirtualAppViewState extends State<VirtualAppView> {
               isEnabled: isVirtualKeyboardEnable,
               child: json_widget.FlutterWidget.json(
                 json: virtualAppWidgetData,
+                wrappingBuilder: (context, item, child) {
+                  return Builder(
+                    key: ValueKey(item.hashCode),
+                    builder: (context) {
+                      var isHover = false;
+                      return StatefulBuilder(
+                        builder: (_, StateSetter setState) {
+                          return GestureDetector(
+                            onTap: () => context.read<VirtualAppBloc>().add(
+                                  ChangeWidget(
+                                    selectedWidget:
+                                        (item as json_widget.Widget).toJson(),
+                                  ),
+                                ),
+                            child: MouseRegion(
+                              onEnter: (_) {
+                                setState(() {
+                                  isHover = true;
+                                });
+                              },
+                              onExit: (_) {
+                                setState(() {
+                                  isHover = false;
+                                });
+                              },
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  border: isHover
+                                      ? Border.all(
+                                          color: context.colorScheme.primary,
+                                        )
+                                      : null,
+                                ),
+                                child: Stack(
+                                  alignment: Alignment.bottomRight,
+                                  children: [
+                                    child,
+                                    if (isHover)
+                                      Text(
+                                        (item as json_widget.Widget)
+                                            .runtimeType
+                                            .toString(),
+                                      )
+                                    else
+                                      const SizedBox(),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  );
+                },
+                // wrappingBuilder: ,
               ),
             ),
           );

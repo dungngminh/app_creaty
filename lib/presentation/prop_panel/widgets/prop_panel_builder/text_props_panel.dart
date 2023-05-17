@@ -2,16 +2,14 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:after_layout/after_layout.dart';
+import 'package:app_creaty/commons/extensions/media_query_extension.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/prop_panel/prop_panel.dart';
-import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
+import 'package:app_creaty/presentation/widgets/app_text_field.dart';
 import 'package:app_creaty/presentation/widgets/column_with_spacing.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 
 class TextPropsPanel extends StatefulWidget {
@@ -65,6 +63,8 @@ class _TextPropsPanelState extends State<TextPropsPanel> with AfterLayoutMixin {
     bindPropsToPropWidget();
   }
 
+  void _onTextFieldChanged(String value) {}
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -88,6 +88,19 @@ class _TextPropsPanelState extends State<TextPropsPanel> with AfterLayoutMixin {
           title: context.l10n.textColorLabel,
           child: _buildBackgroundColorPicker(),
         ),
+        FieldPropTile(
+          title: context.l10n.textValueLabel,
+          child: SizedBox(
+            width: context.mediaQuerySize.width * 0.2,
+            child: AppTextField(
+              controller: dataTextEditingController,
+              labelText: context.l10n.textValueLabel,
+              onChanged: (value) {
+                // context.
+              },
+            ),
+          ),
+        )
       ],
     );
   }
@@ -109,45 +122,7 @@ class _TextPropsPanelState extends State<TextPropsPanel> with AfterLayoutMixin {
           )
         ],
       ),
-      onPressed: () {
-        showDialog<void>(
-          context: context,
-          builder: (_) {
-            return AlertDialog(
-              title: const Text('Pick a color!'),
-              content: SingleChildScrollView(
-                child: ColorPicker(
-                  pickerColor:
-                      textColor ?? Theme.of(context).scaffoldBackgroundColor,
-                  onColorChanged: changeColor,
-                ),
-              ),
-              actions: <Widget>[
-                ElevatedButton(
-                  child: const Text('Pick'),
-                  onPressed: () {
-                    setState(
-                      () => textColor = pickedColor,
-                    );
-                    context
-                      ..pop()
-                      ..read<VirtualAppBloc>().add(
-                        ChangeProp(
-                          widgetData: widget.widgetData,
-                          changeField: <String, dynamic>{
-                            'style': json_widget.TextStyle(
-                              color: json_widget.Color(pickedColor.value),
-                            ).toJson()
-                          },
-                        ),
-                      );
-                  },
-                ),
-              ],
-            );
-          },
-        );
-      },
+      onPressed: () {},
     );
   }
 }

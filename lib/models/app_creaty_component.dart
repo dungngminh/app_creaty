@@ -2,6 +2,7 @@ import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:flutter/material.dart' hide ImageProvider;
 import 'package:json_widget/json_widget.dart' as json_widget;
+import 'package:uuid/uuid.dart';
 
 const _defaultTextValue =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit,'
@@ -84,18 +85,20 @@ enum AppCreatyComponent implements IAppCreatyComponent {
 
   @override
   Map<String, dynamic> get data {
+    final key = json_widget.ValueKey(const Uuid().v4());
     switch (this) {
       case AppCreatyComponent.text:
-        return const json_widget.Widget.text(_defaultTextValue).toJson();
+        return json_widget.Widget.text(_defaultTextValue, key: key).toJson();
       case AppCreatyComponent.column:
-        return const json_widget.Widget.column().toJson();
+        return json_widget.Widget.column(key: key).toJson();
       case AppCreatyComponent.row:
-        return const json_widget.Widget.row().toJson();
+        return json_widget.Widget.row(key: key).toJson();
       case AppCreatyComponent.container:
         const color = json_widget.Colors.blue;
         const boxDecoration = json_widget.BoxDecoration(color: color);
         const defaultWidthHeight = 200.0;
-        return const json_widget.Widget.container(
+        return json_widget.Widget.container(
+          key: key,
           width: defaultWidthHeight,
           height: defaultWidthHeight,
           decoration: boxDecoration,
@@ -104,11 +107,15 @@ enum AppCreatyComponent implements IAppCreatyComponent {
         final defaultImageProvider = json_widget.ImageProvider.asset(
           Assets.images.png.defaultImage.path,
         );
-        return json_widget.Widget.image(image: defaultImageProvider).toJson();
+        return json_widget.Widget.image(
+          image: defaultImageProvider,
+          key: key,
+        ).toJson();
       case AppCreatyComponent.elevatedButton:
         const elevatedButtonChild = json_widget.Widget.text('Button');
         const callback = json_widget.Callback.empty();
-        return const json_widget.Widget.elevatedButton(
+        return json_widget.Widget.elevatedButton(
+          key: key, 
           child: elevatedButtonChild,
           onPressed: callback,
         ).toJson();

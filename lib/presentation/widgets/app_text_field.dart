@@ -8,6 +8,7 @@ class AppTextField extends StatelessWidget {
     this.readOnly = false,
     this.enabled = true,
     this.haveBorder = true,
+    this.onChanged,
   });
 
   final TextEditingController? controller;
@@ -19,6 +20,8 @@ class AppTextField extends StatelessWidget {
   final bool enabled;
 
   final bool haveBorder;
+
+  final ValueChanged<String>? onChanged;
 
   @override
   Widget build(BuildContext context) {

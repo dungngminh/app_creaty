@@ -3,7 +3,7 @@ part of 'virtual_app_bloc.dart';
 class VirtualAppEvent implements Equatable, ReplayEvent {
   @override
   List<Object?> get props => [];
-  
+
   @override
   bool? get stringify => true;
 }
@@ -21,7 +21,6 @@ class AddWidgetToTree extends VirtualAppEvent {
 class AddPageToTree extends VirtualAppEvent {
   @override
   List<Object?> get props => [];
-
 }
 
 class ChangePage extends VirtualAppEvent {
@@ -42,4 +41,13 @@ class ChangeProp extends VirtualAppEvent {
 
   @override
   List<Object?> get props => [widgetData, changeField];
+}
+
+class ChangeWidget extends VirtualAppEvent {
+  ChangeWidget({required this.selectedWidget});
+
+  final Map<String, dynamic> selectedWidget;
+
+  @override
+  List<Object?> get props => [selectedWidget];
 }
