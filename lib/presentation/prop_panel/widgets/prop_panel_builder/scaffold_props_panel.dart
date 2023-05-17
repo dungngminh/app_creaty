@@ -40,14 +40,15 @@ class _ScaffoldPropsPanelState extends State<ScaffoldPropsPanel>
   @override
   void didUpdateWidget(covariant ScaffoldPropsPanel oldWidget) {
     super.didUpdateWidget(oldWidget);
+    scaffoldJsonWidget = json_widget.Scaffold.fromJson(widget.widgetData);
+    
     bindPropsToPropWidget();
   }
 
   void bindPropsToPropWidget() {
-    scaffoldMaterialWidget = json_widget.ScaffoldMapper()
-        .toMaterialWidget(context, scaffoldJsonWidget);
-    backgroundColor = scaffoldMaterialWidget?.backgroundColor;
-    appBar = scaffoldMaterialWidget?.appBar;
+    
+    backgroundColor = scaffoldMaterialWidget.backgroundColor;
+    appBar = scaffoldMaterialWidget.appBar;
   }
 
   void changeColor(Color color) {
@@ -56,6 +57,7 @@ class _ScaffoldPropsPanelState extends State<ScaffoldPropsPanel>
 
   @override
   FutureOr<void> afterFirstLayout(BuildContext context) {
+
     bindPropsToPropWidget();
   }
 
@@ -103,7 +105,6 @@ class _ScaffoldPropsPanelState extends State<ScaffoldPropsPanel>
       title: json_widget.Text('Title'),
     );
     appBar = json_widget.$preferredSizeWidget(context, jsonAppBar);
-    setState(() {});
     context.read<VirtualAppBloc>().add(
           ChangeProp(
             changeField: <String, dynamic>{'appBar': jsonAppBar.toJson()},
@@ -114,7 +115,6 @@ class _ScaffoldPropsPanelState extends State<ScaffoldPropsPanel>
 
   void _onRemoveAppBar() {
     appBar = null;
-    setState(() {});
     context.read<VirtualAppBloc>().add(
           ChangeProp(
             changeField: const <String, dynamic>{'appBar': null},

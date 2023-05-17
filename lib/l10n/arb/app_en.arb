@@ -71,5 +71,6 @@
   "deleteProjectQuestionDescription": "Are you sure you want to delete this project?",
   "deleteProjectSuccess": "Delete project successfully",
   "deleteProjectError": "Delete project is not successful, please try again",
-  "textColorLabel": "Text Color"
+  "textColorLabel": "Text Color",
+  "textValueLabel": "Text Value" 
 }
