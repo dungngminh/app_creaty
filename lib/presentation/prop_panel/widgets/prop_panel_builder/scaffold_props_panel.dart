@@ -13,22 +13,21 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 
-class ScaffoldPropertiesPanel extends StatefulWidget {
-  const ScaffoldPropertiesPanel({super.key, required this.widgetData});
+class ScaffoldPropsPanel extends StatefulWidget {
+  const ScaffoldPropsPanel({super.key, required this.widgetData});
 
   final Map<String, dynamic> widgetData;
 
   @override
-  State<ScaffoldPropertiesPanel> createState() =>
-      _ScaffoldPropertiesPanelState();
+  State<ScaffoldPropsPanel> createState() => _ScaffoldPropsPanelState();
 }
 
-class _ScaffoldPropertiesPanelState extends State<ScaffoldPropertiesPanel>
+class _ScaffoldPropsPanelState extends State<ScaffoldPropsPanel>
     with AfterLayoutMixin {
   late json_widget.Scaffold scaffoldJsonWidget;
-  late Scaffold scaffoldMaterialWidget;
-  late Color? backgroundColor;
-  late PreferredSizeWidget? appBar;
+  Scaffold? scaffoldMaterialWidget;
+  Color? backgroundColor;
+  PreferredSizeWidget? appBar;
 
   Color pickedColor = Colors.red;
 
@@ -36,23 +35,19 @@ class _ScaffoldPropertiesPanelState extends State<ScaffoldPropertiesPanel>
   void initState() {
     super.initState();
     scaffoldJsonWidget = json_widget.Scaffold.fromJson(widget.widgetData);
-    scaffoldMaterialWidget = json_widget.ScaffoldMapper()
-        .toMaterialWidget(context, scaffoldJsonWidget);
-    bindPropsToPropWidget();
   }
 
   @override
-  void didUpdateWidget(covariant ScaffoldPropertiesPanel oldWidget) {
+  void didUpdateWidget(covariant ScaffoldPropsPanel oldWidget) {
     super.didUpdateWidget(oldWidget);
-    scaffoldJsonWidget = json_widget.Scaffold.fromJson(widget.widgetData);
-    scaffoldMaterialWidget = json_widget.ScaffoldMapper()
-        .toMaterialWidget(context, scaffoldJsonWidget);
     bindPropsToPropWidget();
   }
 
   void bindPropsToPropWidget() {
-    backgroundColor = scaffoldMaterialWidget.backgroundColor;
-    appBar = scaffoldMaterialWidget.appBar;
+    scaffoldMaterialWidget = json_widget.ScaffoldMapper()
+        .toMaterialWidget(context, scaffoldJsonWidget);
+    backgroundColor = scaffoldMaterialWidget?.backgroundColor;
+    appBar = scaffoldMaterialWidget?.appBar;
   }
 
   void changeColor(Color color) {
@@ -61,7 +56,7 @@ class _ScaffoldPropertiesPanelState extends State<ScaffoldPropertiesPanel>
 
   @override
   FutureOr<void> afterFirstLayout(BuildContext context) {
-    pickedColor = backgroundColor ?? Theme.of(context).scaffoldBackgroundColor;
+    bindPropsToPropWidget();
   }
 
   @override
@@ -163,7 +158,9 @@ class _ScaffoldPropertiesPanelState extends State<ScaffoldPropertiesPanel>
                 ElevatedButton(
                   child: const Text('Pick'),
                   onPressed: () {
-                    setState(() => backgroundColor = pickedColor);
+                    setState(
+                      () => backgroundColor = pickedColor,
+                    );
                     context
                       ..pop()
                       ..read<VirtualAppBloc>().add(

@@ -70,5 +70,6 @@
   "deleteProjectQuestion": "Delete project?",
   "deleteProjectQuestionDescription": "Are you sure you want to delete this project?",
   "deleteProjectSuccess": "Delete project successfully",
-  "deleteProjectError": "Delete project is not successful, please try again"
+  "deleteProjectError": "Delete project is not successful, please try again",
+  "textColorLabel": "Text Color"
 }
