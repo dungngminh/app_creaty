@@ -49,7 +49,7 @@ dependencies:
   multi_split_view: ^2.4.0
   package_info_plus: ^3.0.3
   path: ^1.8.2
-  path_provider: ^2.0.14
+  path_provider: ^2.0.15
   recase: ^4.1.0
   uuid: ^3.0.7
   vector_math: ^2.1.4
