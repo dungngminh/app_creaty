@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$EditorState {
   DeviceInfo get currentDevice => throw _privateConstructorUsedError;
   AppCreatyProject get currentProject => throw _privateConstructorUsedError;
-  bool get isFrameVisibe => throw _privateConstructorUsedError;
+  bool get isFrameVisible => throw _privateConstructorUsedError;
   bool get isVirtualKeyboardEnable => throw _privateConstructorUsedError;
   ProjectInfo? get projectInfo => throw _privateConstructorUsedError;
 
@@ -36,7 +36,7 @@ abstract class $EditorStateCopyWith<$Res> {
   $Res call(
       {DeviceInfo currentDevice,
       AppCreatyProject currentProject,
-      bool isFrameVisibe,
+      bool isFrameVisible,
       bool isVirtualKeyboardEnable,
       ProjectInfo? projectInfo});
 
@@ -58,7 +58,7 @@ class _$EditorStateCopyWithImpl<$Res, $Val extends EditorState>
   $Res call({
     Object? currentDevice = null,
     Object? currentProject = null,
-    Object? isFrameVisibe = null,
+    Object? isFrameVisible = null,
     Object? isVirtualKeyboardEnable = null,
     Object? projectInfo = freezed,
   }) {
@@ -71,9 +71,9 @@ class _$EditorStateCopyWithImpl<$Res, $Val extends EditorState>
           ? _value.currentProject
           : currentProject // ignore: cast_nullable_to_non_nullable
               as AppCreatyProject,
-      isFrameVisibe: null == isFrameVisibe
-          ? _value.isFrameVisibe
-          : isFrameVisibe // ignore: cast_nullable_to_non_nullable
+      isFrameVisible: null == isFrameVisible
+          ? _value.isFrameVisible
+          : isFrameVisible // ignore: cast_nullable_to_non_nullable
               as bool,
       isVirtualKeyboardEnable: null == isVirtualKeyboardEnable
           ? _value.isVirtualKeyboardEnable
@@ -106,7 +106,7 @@ abstract class _$$_EditorStateCopyWith<$Res>
   $Res call(
       {DeviceInfo currentDevice,
       AppCreatyProject currentProject,
-      bool isFrameVisibe,
+      bool isFrameVisible,
       bool isVirtualKeyboardEnable,
       ProjectInfo? projectInfo});
 
@@ -127,7 +127,7 @@ class __$$_EditorStateCopyWithImpl<$Res>
   $Res call({
     Object? currentDevice = null,
     Object? currentProject = null,
-    Object? isFrameVisibe = null,
+    Object? isFrameVisible = null,
     Object? isVirtualKeyboardEnable = null,
     Object? projectInfo = freezed,
   }) {
@@ -140,9 +140,9 @@ class __$$_EditorStateCopyWithImpl<$Res>
           ? _value.currentProject
           : currentProject // ignore: cast_nullable_to_non_nullable
               as AppCreatyProject,
-      isFrameVisibe: null == isFrameVisibe
-          ? _value.isFrameVisibe
-          : isFrameVisibe // ignore: cast_nullable_to_non_nullable
+      isFrameVisible: null == isFrameVisible
+          ? _value.isFrameVisible
+          : isFrameVisible // ignore: cast_nullable_to_non_nullable
               as bool,
       isVirtualKeyboardEnable: null == isVirtualKeyboardEnable
           ? _value.isVirtualKeyboardEnable
@@ -162,7 +162,7 @@ class _$_EditorState implements _EditorState {
   const _$_EditorState(
       {required this.currentDevice,
       required this.currentProject,
-      this.isFrameVisibe = true,
+      this.isFrameVisible = true,
       this.isVirtualKeyboardEnable = false,
       this.projectInfo});
 
@@ -172,7 +172,7 @@ class _$_EditorState implements _EditorState {
   final AppCreatyProject currentProject;
   @override
   @JsonKey()
-  final bool isFrameVisibe;
+  final bool isFrameVisible;
   @override
   @JsonKey()
   final bool isVirtualKeyboardEnable;
@@ -181,7 +181,7 @@ class _$_EditorState implements _EditorState {
 
   @override
   String toString() {
-    return 'EditorState(currentDevice: $currentDevice, currentProject: $currentProject, isFrameVisibe: $isFrameVisibe, isVirtualKeyboardEnable: $isVirtualKeyboardEnable, projectInfo: $projectInfo)';
+    return 'EditorState(currentDevice: $currentDevice, currentProject: $currentProject, isFrameVisible: $isFrameVisible, isVirtualKeyboardEnable: $isVirtualKeyboardEnable, projectInfo: $projectInfo)';
   }
 
   @override
@@ -193,8 +193,8 @@ class _$_EditorState implements _EditorState {
                 other.currentDevice == currentDevice) &&
             (identical(other.currentProject, currentProject) ||
                 other.currentProject == currentProject) &&
-            (identical(other.isFrameVisibe, isFrameVisibe) ||
-                other.isFrameVisibe == isFrameVisibe) &&
+            (identical(other.isFrameVisible, isFrameVisible) ||
+                other.isFrameVisible == isFrameVisible) &&
             (identical(
                     other.isVirtualKeyboardEnable, isVirtualKeyboardEnable) ||
                 other.isVirtualKeyboardEnable == isVirtualKeyboardEnable) &&
@@ -204,7 +204,7 @@ class _$_EditorState implements _EditorState {
 
   @override
   int get hashCode => Object.hash(runtimeType, currentDevice, currentProject,
-      isFrameVisibe, isVirtualKeyboardEnable, projectInfo);
+      isFrameVisible, isVirtualKeyboardEnable, projectInfo);
 
   @JsonKey(ignore: true)
   @override
@@ -217,7 +217,7 @@ abstract class _EditorState implements EditorState {
   const factory _EditorState(
       {required final DeviceInfo currentDevice,
       required final AppCreatyProject currentProject,
-      final bool isFrameVisibe,
+      final bool isFrameVisible,
       final bool isVirtualKeyboardEnable,
       final ProjectInfo? projectInfo}) = _$_EditorState;
 
@@ -226,7 +226,7 @@ abstract class _EditorState implements EditorState {
   @override
   AppCreatyProject get currentProject;
   @override
-  bool get isFrameVisibe;
+  bool get isFrameVisible;
   @override
   bool get isVirtualKeyboardEnable;
   @override

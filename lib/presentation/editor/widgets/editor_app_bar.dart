@@ -44,39 +44,70 @@ class _EditorAppBarState extends State<EditorAppBar> {
           const Gap(32),
           const SelectDeviceDropDownMenu(),
           const Gap(32),
-          Builder(
-            builder: (context) {
-              final canUndo = context.watch<VirtualAppBloc>().canUndo;
-              return IconButton(
-                icon: Opacity(
-                  opacity: canUndo ? 1 : 0.4,
-                  child: Assets.icons.other.undo.svg(),
-                ),
-                onPressed: !canUndo
-                    ? null
-                    : () => context.read<VirtualAppBloc>().undo(),
-                tooltip: context.l10n.undo,
-              );
-            },
-          ),
+          _buildUndoButton(),
           const Gap(32),
-          Builder(
-            builder: (context) {
-              final canRedo = context.watch<VirtualAppBloc>().canRedo;
-              return IconButton(
-                icon: Opacity(
-                  opacity: canRedo ? 1 : 0.4,
-                  child: Assets.icons.other.redo.svg(),
-                ),
-                onPressed: !canRedo
-                    ? null
-                    : () => context.read<VirtualAppBloc>().redo(),
-                tooltip: context.l10n.redo,
-              );
-            },
-          ),
+          _buildRedoButton(),
+          const Gap(32),
+          Row(
+            children: [
+              Text(
+                context.l10n.showDeviceFrameLabel,
+                style: context.textTheme.labelMedium,
+              ),
+              const Gap(4),
+              _buildShowDeviceFrameCheckBox(),
+            ],
+          )
         ],
       ),
+    );
+  }
+
+  Builder _buildShowDeviceFrameCheckBox() {
+    return Builder(
+      builder: (context) {
+        final isFrameVisible =
+            context.select((EditorBloc bloc) => bloc.state.isFrameVisible);
+        return Checkbox(
+          value: isFrameVisible,
+          onChanged: (_) =>
+              context.read<EditorBloc>().add(ToggleShowDeviceFrame()),
+        );
+      },
+    );
+  }
+
+  Builder _buildRedoButton() {
+    return Builder(
+      builder: (context) {
+        final canRedo = context.watch<VirtualAppBloc>().canRedo;
+        return IconButton(
+          icon: Opacity(
+            opacity: canRedo ? 1 : 0.4,
+            child: Assets.icons.other.redo.svg(),
+          ),
+          onPressed:
+              !canRedo ? null : () => context.read<VirtualAppBloc>().redo(),
+          tooltip: context.l10n.redo,
+        );
+      },
+    );
+  }
+
+  Builder _buildUndoButton() {
+    return Builder(
+      builder: (context) {
+        final canUndo = context.watch<VirtualAppBloc>().canUndo;
+        return IconButton(
+          icon: Opacity(
+            opacity: canUndo ? 1 : 0.4,
+            child: Assets.icons.other.undo.svg(),
+          ),
+          onPressed:
+              !canUndo ? null : () => context.read<VirtualAppBloc>().undo(),
+          tooltip: context.l10n.undo,
+        );
+      },
     );
   }
 
@@ -135,7 +166,7 @@ class _SelectDeviceDropDownMenuState extends State<SelectDeviceDropDownMenu> {
     final width = context.mediaQuerySize.width * .15;
     final currentDevice =
         context.select((EditorBloc bloc) => bloc.state.currentDevice);
-    
+
     return DropdownMenu<DeviceInfo>(
       width: width,
       initialSelection: currentDevice,

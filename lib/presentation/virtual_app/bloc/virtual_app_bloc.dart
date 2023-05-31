@@ -2,16 +2,20 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:app_creaty/commons/enums/loading_status.dart';
+import 'package:app_creaty/commons/extensions/json_widget_extension.dart';
 import 'package:app_creaty/commons/utils/string_gen.dart';
 import 'package:app_creaty/models/app_creaty_page.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
+import 'package:json_widget/widgets/widget.dart';
 import 'package:recase/recase.dart';
 import 'package:replay_bloc/replay_bloc.dart';
 import 'package:uuid/uuid.dart';
 
+part 'virtual_app_bloc.freezed.dart';
 part 'virtual_app_event.dart';
 part 'virtual_app_state.dart';
 
@@ -24,6 +28,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     on<ChangeProp>(_onChangeProp);
     on<VirtualAppLoaded>(_onVirtualAppLoaded);
     on<ChangeWidget>(_onChangeWidget);
+    on<HoverWidget>(_onHoverWidget);
     add(VirtualAppLoaded());
   }
 
@@ -33,66 +38,99 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     AddWidgetToTree event,
     Emitter<VirtualAppState> emit,
   ) {
-    final receviedWidgetData = Map<String, dynamic>.from(event.widgetData);
-    final currentWidgetData =
-        Map<String, dynamic>.from(state.virtualAppWidgetData);
+    final receviedWidget = event.widget;
+    final currentWidget = state.virtualAppWidget as Scaffold;
     // final intoWidgetData = event.intoWidget;
 
     final canInsertKeys = <String>[];
 
-    if (receviedWidgetData.containsKey('child')) {
-      canInsertKeys.add('child');
-    }
-    if (receviedWidgetData.containsKey('children')) {
-      canInsertKeys.add('children');
-    }
+    final currentWidgetWillBeUpdatedIn = state.widgetWillBeUpdatedIn;
 
-    final isScaffoldBodyHasWidget =
-        (currentWidgetData['body'] as Map<String, dynamic>?) == null;
-    if (isScaffoldBodyHasWidget) {
-      currentWidgetData.update('body', (_) => receviedWidgetData);
-      log(currentWidgetData.toString());
+    final canUpdate = currentWidgetWillBeUpdatedIn.hasKey('children') ||
+        currentWidgetWillBeUpdatedIn.hasKey('child') ||
+        currentWidgetWillBeUpdatedIn.hasKey('body');
+
+    /// If widget doesn't have child and children prop
+    if (!canUpdate) return;
+
+    final currentVirtualAppWidget = state.virtualAppWidget as Scaffold;
+
+    if (currentWidgetWillBeUpdatedIn is Column) {
+      final currentChildren = List.of(currentWidgetWillBeUpdatedIn.children)
+        ..add(receviedWidget);
+      final updatedColumn =
+          currentWidgetWillBeUpdatedIn.copyWith(children: currentChildren);
+
+      /// Check Column widget to in body of Scaffold
+
+      final updatedColumnKey = updatedColumn.key;
+
+      final currentWidgetInScaffold = currentVirtualAppWidget.body;
+      final currentWidgetInScaffoldKey = currentWidgetInScaffold?.key;
+
+      final isSameKey = updatedColumnKey == currentWidgetInScaffoldKey;
+      if (!isSameKey) return;
+
+      final newScaffoldWithNewBody =
+          currentVirtualAppWidget.copyWith(body: updatedColumn);
+
       emit(
         state.copyWith(
-          virtualAppWidgetData: currentWidgetData,
-          selectedWidgetData: receviedWidgetData,
-          widgetWillBeUpdatedInData: receviedWidgetData,
+          virtualAppWidget: newScaffoldWithNewBody,
+          selectedWidget: receviedWidget,
+          widgetWillBeUpdatedIn: updatedColumn,
           canInsertKeys: canInsertKeys,
         ),
       );
       return;
     }
 
-    // final isScaffold = intoWidgetData.values.contains('scaffold');
-    // if(isScaffold){
-    //   into
-    // }
-    log(receviedWidgetData.toString(), name: 'RECEVICE_DATA');
+    if (currentWidgetWillBeUpdatedIn is Row) {
+      final currentChildren = currentWidgetWillBeUpdatedIn.children
+        ..add(receviedWidget);
+      final updatedRow =
+          currentWidgetWillBeUpdatedIn.copyWith(children: currentChildren);
+
+      /// Check Row widget to in body of Scaffold
+
+      final updatedRowKey = updatedRow.key;
+
+      final currentWidgetInScaffold = currentVirtualAppWidget.body;
+      final currentWidgetInScaffoldKey = currentWidgetInScaffold?.key;
+
+      final isSameKey = updatedRowKey == currentWidgetInScaffoldKey;
+      if (!isSameKey) return;
+
+      final newScaffoldWithNewBody =
+          currentVirtualAppWidget.copyWith(body: updatedRow);
+
+      emit(
+        state.copyWith(
+          virtualAppWidget: newScaffoldWithNewBody,
+          selectedWidget: receviedWidget,
+          widgetWillBeUpdatedIn: updatedRow,
+          canInsertKeys: canInsertKeys,
+        ),
+      );
+      return;
+    }
+
+    final updatedCurrentWidget = currentWidget.copyWith(body: receviedWidget);
+
     emit(
       state.copyWith(
-        virtualAppWidgetData: currentWidgetData,
-        widgetWillBeUpdatedInData: receviedWidgetData,
-        selectedWidgetData: receviedWidgetData,
+        virtualAppWidget: updatedCurrentWidget,
+        selectedWidget: receviedWidget,
+        widgetWillBeUpdatedIn: receviedWidget,
         canInsertKeys: canInsertKeys,
       ),
     );
   }
 
   void _onChangeProp(ChangeProp event, Emitter<VirtualAppState> emit) {
-    final requestedField = event.changeField;
-    log(requestedField.toString());
-    final requestedWidgetData = Map.of(event.widgetData)
-      ..update(
-        requestedField.keys.first,
-        (_) => requestedField[requestedField.keys.first],
-      );
-    log(requestedWidgetData.toString());
-    emit(
-      state.copyWith(
-        selectedWidgetData: requestedWidgetData,
-        virtualAppWidgetData: requestedWidgetData,
-      ),
-    );
+    final currentVirtualAppWidget =
+        state.virtualAppWidget as json_widget.Scaffold;
+    currentVirtualAppWidget.toJson();
   }
 
   Future<void> _onVirtualAppLoaded(
@@ -109,7 +147,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     final page = AppCreatyPage(
       pageName: pageName,
       routeName: routeName,
-      data: state.virtualAppWidgetData,
+      data: state.virtualAppWidget,
     );
     final initialKey = json_widget.ValueKey(const Uuid().v4());
     final initialWidget = json_widget.Scaffold(key: initialKey);
@@ -120,9 +158,9 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
         pages: [page],
         loadingStatus: LoadingStatus.done,
         canInsertKeys: intialCanInsertKeys,
-        selectedWidgetData: initialWidget.toJson(),
-        virtualAppWidgetData: initialWidget.toJson(),
-        widgetWillBeUpdatedInData: initialWidget.toJson(),
+        selectedWidget: initialWidget,
+        virtualAppWidget: initialWidget,
+        widgetWillBeUpdatedIn: initialWidget,
       ),
     );
     clearHistory();
@@ -132,9 +170,13 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     final selectedWidget = event.selectedWidget;
     emit(
       state.copyWith(
-        widgetWillBeUpdatedInData: selectedWidget,
-        selectedWidgetData: selectedWidget,
+        widgetWillBeUpdatedIn: selectedWidget,
+        selectedWidget: selectedWidget,
       ),
     );
+  }
+
+  void _onHoverWidget(HoverWidget event, Emitter<VirtualAppState> emit) {
+    emit(state.copyWith(hoveredWidget: event.hoverWidget));
   }
 }

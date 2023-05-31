@@ -32,7 +32,7 @@ abstract class IAppCreatyComponent {
 
   SvgGenImage get illustration;
 
-  Map<String, dynamic> get data;
+  json_widget.Widget get data;
 
   AppCreatyWidgetRenderType get renderType;
 
@@ -84,15 +84,18 @@ enum AppCreatyComponent implements IAppCreatyComponent {
   }
 
   @override
-  Map<String, dynamic> get data {
+  json_widget.Widget get data {
     final key = json_widget.ValueKey(const Uuid().v4());
     switch (this) {
       case AppCreatyComponent.text:
-        return json_widget.Widget.text(_defaultTextValue, key: key).toJson();
+        return json_widget.Widget.text(
+          _defaultTextValue,
+          key: key,
+        );
       case AppCreatyComponent.column:
-        return json_widget.Widget.column(key: key).toJson();
+        return json_widget.Widget.column(key: key);
       case AppCreatyComponent.row:
-        return json_widget.Widget.row(key: key).toJson();
+        return json_widget.Widget.row(key: key);
       case AppCreatyComponent.container:
         const color = json_widget.Colors.blue;
         const boxDecoration = json_widget.BoxDecoration(color: color);
@@ -102,7 +105,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
           width: defaultWidthHeight,
           height: defaultWidthHeight,
           decoration: boxDecoration,
-        ).toJson();
+        );
       case AppCreatyComponent.image:
         final defaultImageProvider = json_widget.ImageProvider.asset(
           Assets.images.png.defaultImage.path,
@@ -110,7 +113,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
         return json_widget.Widget.image(
           image: defaultImageProvider,
           key: key,
-        ).toJson();
+        );
       case AppCreatyComponent.elevatedButton:
         const elevatedButtonChild = json_widget.Widget.text('Button');
         const callback = json_widget.Callback.empty();
@@ -118,7 +121,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
           key: key, 
           child: elevatedButtonChild,
           onPressed: callback,
-        ).toJson();
+        );
     }
   }
 

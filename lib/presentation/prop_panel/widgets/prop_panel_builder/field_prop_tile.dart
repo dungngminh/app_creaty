@@ -7,22 +7,36 @@ class FieldPropTile extends StatelessWidget {
     super.key,
     required this.title,
     required this.child,
+    this.usingRow = true,
   });
 
   final String title;
   final Widget child;
+  final bool usingRow;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          '$title :',
-          style: context.textTheme.titleSmall,
-        ),
-        const Gap(16),
-        child,
-      ],
-    );
+    return usingRow
+        ? Row(
+            children: [
+              Text(
+                '$title :',
+                style: context.textTheme.titleSmall,
+              ),
+              const Gap(16),
+              child,
+            ],
+          )
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '$title :',
+                style: context.textTheme.titleSmall,
+              ),
+              const Gap(16),
+              child,
+            ],
+          );
   }
 }
