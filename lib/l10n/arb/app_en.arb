@@ -72,5 +72,8 @@
   "deleteProjectSuccess": "Delete project successfully",
   "deleteProjectError": "Delete project is not successful, please try again",
   "textColorLabel": "Text Color",
-  "textValueLabel": "Text Value" 
+  "textValueLabel": "Text Value",
+  "showDeviceFrameLabel": "Show Device Frame",
+  "jsonViewLabel": "JSON Viewer",
+  "codeViewLabel": "Code Viewer"
 }

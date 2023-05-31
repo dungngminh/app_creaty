@@ -4,19 +4,16 @@ import 'package:after_layout/after_layout.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/prop_panel/prop_panel.dart';
-import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/column_with_spacing.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 
 class ScaffoldPropsPanel extends StatefulWidget {
-  const ScaffoldPropsPanel({super.key, required this.widgetData});
+  const ScaffoldPropsPanel({super.key, required this.jsonWidget});
 
-  final Map<String, dynamic> widgetData;
+  final json_widget.Scaffold jsonWidget;
 
   @override
   State<ScaffoldPropsPanel> createState() => _ScaffoldPropsPanelState();
@@ -24,7 +21,6 @@ class ScaffoldPropsPanel extends StatefulWidget {
 
 class _ScaffoldPropsPanelState extends State<ScaffoldPropsPanel>
     with AfterLayoutMixin {
-  late json_widget.Scaffold scaffoldJsonWidget;
   Scaffold? scaffoldMaterialWidget;
   Color? backgroundColor;
   PreferredSizeWidget? appBar;
@@ -32,23 +28,15 @@ class _ScaffoldPropsPanelState extends State<ScaffoldPropsPanel>
   Color pickedColor = Colors.red;
 
   @override
-  void initState() {
-    super.initState();
-    scaffoldJsonWidget = json_widget.Scaffold.fromJson(widget.widgetData);
-  }
-
-  @override
   void didUpdateWidget(covariant ScaffoldPropsPanel oldWidget) {
     super.didUpdateWidget(oldWidget);
-    scaffoldJsonWidget = json_widget.Scaffold.fromJson(widget.widgetData);
-    
     bindPropsToPropWidget();
   }
 
   void bindPropsToPropWidget() {
     
-    backgroundColor = scaffoldMaterialWidget.backgroundColor;
-    appBar = scaffoldMaterialWidget.appBar;
+    backgroundColor = scaffoldMaterialWidget?.backgroundColor;
+    appBar = scaffoldMaterialWidget?.appBar;
   }
 
   void changeColor(Color color) {
@@ -105,22 +93,22 @@ class _ScaffoldPropsPanelState extends State<ScaffoldPropsPanel>
       title: json_widget.Text('Title'),
     );
     appBar = json_widget.$preferredSizeWidget(context, jsonAppBar);
-    context.read<VirtualAppBloc>().add(
-          ChangeProp(
-            changeField: <String, dynamic>{'appBar': jsonAppBar.toJson()},
-            widgetData: widget.widgetData,
-          ),
-        );
+    // context.read<VirtualAppBloc>().add(
+    //       ChangeProp(
+    //         changeField: <String, dynamic>{'appBar': jsonAppBar.toJson()},
+    //         widgetData: widget.jsonWidget,
+    //       ),
+    //     );
   }
 
   void _onRemoveAppBar() {
     appBar = null;
-    context.read<VirtualAppBloc>().add(
-          ChangeProp(
-            changeField: const <String, dynamic>{'appBar': null},
-            widgetData: widget.widgetData,
-          ),
-        );
+    // context.read<VirtualAppBloc>().add(
+    //       ChangeProp(
+    //         changeField: const <String, dynamic>{'appBar': null},
+    //         widgetData: widget.widgetData,
+    //       ),
+    //     );
   }
 
   Widget _buildBackgroundColorPicker() {
@@ -161,17 +149,17 @@ class _ScaffoldPropsPanelState extends State<ScaffoldPropsPanel>
                     setState(
                       () => backgroundColor = pickedColor,
                     );
-                    context
-                      ..pop()
-                      ..read<VirtualAppBloc>().add(
-                        ChangeProp(
-                          widgetData: widget.widgetData,
-                          changeField: <String, dynamic>{
-                            'backgroundColor':
-                                json_widget.Color(pickedColor.value).toJson()
-                          },
-                        ),
-                      );
+                    // context
+                    //   ..pop()
+                    //   ..read<VirtualAppBloc>().add(
+                    //     ChangeProp(
+                    //       widgetData: widget.json,
+                    //       changeField: <String, dynamic>{
+                    //         'backgroundColor':
+                    //             json_widget.Color(pickedColor.value).toJson()
+                    //       },
+                    //     ),
+                    //   );
                   },
                 ),
               ],

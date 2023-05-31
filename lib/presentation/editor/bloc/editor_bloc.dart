@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:app_creaty/commons/enums/loading_status.dart';
 import 'package:app_creaty/commons/utils/yaml_to_map.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:app_creaty/presentation/editor/models/project_info.dart';
@@ -39,7 +38,7 @@ class EditorBloc extends Bloc<EditorEvent, EditorState> {
     ToggleShowDeviceFrame event,
     Emitter<EditorState> emit,
   ) =>
-      emit(state.copyWith(isFrameVisibe: !state.isFrameVisibe));
+      emit(state.copyWith(isFrameVisible: !state.isFrameVisible));
 
   Future<void> _onImportProjectData(
     ImportProjectData event,

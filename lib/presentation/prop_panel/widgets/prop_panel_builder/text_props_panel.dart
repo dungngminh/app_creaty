@@ -13,9 +13,9 @@ import 'package:gap/gap.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 
 class TextPropsPanel extends StatefulWidget {
-  const TextPropsPanel({super.key, required this.widgetData});
+  const TextPropsPanel({super.key, required this.jsonWidget});
 
-  final Map<String, dynamic> widgetData;
+  final json_widget.Text jsonWidget;
 
   @override
   State<TextPropsPanel> createState() => _TextPropsPanelState();
@@ -32,7 +32,6 @@ class _TextPropsPanelState extends State<TextPropsPanel> with AfterLayoutMixin {
   @override
   void initState() {
     super.initState();
-    textJsonWidget = json_widget.Text.fromJson(widget.widgetData);
     dataTextEditingController = TextEditingController();
   }
 

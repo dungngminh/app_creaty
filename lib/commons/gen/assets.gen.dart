@@ -145,9 +145,24 @@ class $AssetsIconsOtherGen {
   SvgGenImage get boldMenuKebab =>
       const SvgGenImage('assets/icons/other/bold_menu_kebab.svg');
 
+  /// File path: assets/icons/other/code.svg
+  SvgGenImage get code => const SvgGenImage('assets/icons/other/code.svg');
+
+  /// File path: assets/icons/other/json_braces.svg
+  SvgGenImage get jsonBraces =>
+      const SvgGenImage('assets/icons/other/json_braces.svg');
+
+  /// File path: assets/icons/other/maximize.svg
+  SvgGenImage get maximize =>
+      const SvgGenImage('assets/icons/other/maximize.svg');
+
   /// File path: assets/icons/other/menu_hamburger.svg
   SvgGenImage get menuHamburger =>
       const SvgGenImage('assets/icons/other/menu_hamburger.svg');
+
+  /// File path: assets/icons/other/minimize.svg
+  SvgGenImage get minimize =>
+      const SvgGenImage('assets/icons/other/minimize.svg');
 
   /// File path: assets/icons/other/plus.svg
   SvgGenImage get plus => const SvgGenImage('assets/icons/other/plus.svg');
@@ -163,8 +178,18 @@ class $AssetsIconsOtherGen {
   SvgGenImage get undo => const SvgGenImage('assets/icons/other/undo.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values =>
-      [boldMenuKebab, menuHamburger, plus, redo, saveAtPath, undo];
+  List<SvgGenImage> get values => [
+        boldMenuKebab,
+        code,
+        jsonBraces,
+        maximize,
+        menuHamburger,
+        minimize,
+        plus,
+        redo,
+        saveAtPath,
+        undo
+      ];
 }
 
 class $AssetsIconsOutlineGen {

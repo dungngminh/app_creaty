@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:json_widget/json_widget.dart' as json_widget;
 import 'package:uuid/uuid.dart';
 
 class AppCreatyPage extends Equatable {
@@ -12,8 +13,13 @@ class AppCreatyPage extends Equatable {
   final String id;
   final String pageName;
   final String routeName;
-  final Map<String, dynamic> data;
+  final json_widget.Widget data;
 
   @override
-  List<Object> get props => [pageName, routeName, data];
+  List<Object?> get props => [
+        id,
+        pageName,
+        routeName,
+        data,
+      ];
 }
