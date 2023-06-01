@@ -148,6 +148,10 @@ class $AssetsIconsOtherGen {
   /// File path: assets/icons/other/code.svg
   SvgGenImage get code => const SvgGenImage('assets/icons/other/code.svg');
 
+  /// File path: assets/icons/other/horizontal_stretch.svg
+  SvgGenImage get horizontalStretch =>
+      const SvgGenImage('assets/icons/other/horizontal_stretch.svg');
+
   /// File path: assets/icons/other/json_braces.svg
   SvgGenImage get jsonBraces =>
       const SvgGenImage('assets/icons/other/json_braces.svg');
@@ -177,10 +181,27 @@ class $AssetsIconsOtherGen {
   /// File path: assets/icons/other/undo.svg
   SvgGenImage get undo => const SvgGenImage('assets/icons/other/undo.svg');
 
+  /// File path: assets/icons/other/vertical_center.svg
+  SvgGenImage get verticalCenter =>
+      const SvgGenImage('assets/icons/other/vertical_center.svg');
+
+  /// File path: assets/icons/other/vertical_end.svg
+  SvgGenImage get verticalEnd =>
+      const SvgGenImage('assets/icons/other/vertical_end.svg');
+
+  /// File path: assets/icons/other/vertical_start.svg
+  SvgGenImage get verticalStart =>
+      const SvgGenImage('assets/icons/other/vertical_start.svg');
+
+  /// File path: assets/icons/other/vertical_stretch.svg
+  SvgGenImage get verticalStretch =>
+      const SvgGenImage('assets/icons/other/vertical_stretch.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
         boldMenuKebab,
         code,
+        horizontalStretch,
         jsonBraces,
         maximize,
         menuHamburger,
@@ -188,7 +209,11 @@ class $AssetsIconsOtherGen {
         plus,
         redo,
         saveAtPath,
-        undo
+        undo,
+        verticalCenter,
+        verticalEnd,
+        verticalStart,
+        verticalStretch
       ];
 }
 
