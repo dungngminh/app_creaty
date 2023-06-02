@@ -75,5 +75,21 @@
   "textValueLabel": "Text Value",
   "showDeviceFrameLabel": "Show Device Frame",
   "jsonViewLabel": "JSON Viewer",
-  "codeViewLabel": "Code Viewer"
+  "codeViewLabel": "Code Viewer",
+  "startLabel": "Start",
+  "endLabel": "End",
+  "centerLabel": "Center",
+  "spaceBetweenLabel": "Space Between",
+  "spaceEvenlyLabel": "Space Evenly",
+  "spaceAroundLabel": "Space Around",
+  "stretchLabel": "Stretch",
+  "mainAxisAligmentLabel": "Main Axis Alignment",
+  "crossAxisAlignmentLabel": "Cross Axis Alignment",
+  "mainAxisSizeLabel": "Main Axis Size",
+  "maxLabel": "Max",
+  "minLabel": "Min",
+  "fontWeightLabel": "Font Weight",
+  "textAlignLabel": "Text Align",
+  "fontSizeLabel":"Font Size",
+  "maxLinesLabel": "Max Lines"
 }

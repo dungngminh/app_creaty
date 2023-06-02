@@ -8,7 +8,9 @@ class AppTextField extends StatelessWidget {
     this.readOnly = false,
     this.enabled = true,
     this.haveBorder = true,
+    this.height,
     this.onChanged,
+    this.width,
   });
 
   final TextEditingController? controller;
@@ -23,12 +25,18 @@ class AppTextField extends StatelessWidget {
 
   final ValueChanged<String>? onChanged;
 
+  final double? height;
+
+  final double? width;
+  
   @override
   Widget build(BuildContext context) {
     final border = haveBorder ? const OutlineInputBorder() : null;
-    return ColoredBox(
+    return Container(
+      height: height,
+      width: width,
       color: Colors.white,
-      child: TextField(
+      child: TextFormField(
         readOnly: readOnly,
         controller: controller,
         decoration: InputDecoration(
