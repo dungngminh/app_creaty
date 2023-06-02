@@ -148,13 +148,89 @@ class $AssetsIconsOtherGen {
   /// File path: assets/icons/other/code.svg
   SvgGenImage get code => const SvgGenImage('assets/icons/other/code.svg');
 
-  /// File path: assets/icons/other/horizontal_stretch.svg
-  SvgGenImage get horizontalStretch =>
-      const SvgGenImage('assets/icons/other/horizontal_stretch.svg');
+  /// File path: assets/icons/other/cross_horizontal_center.svg
+  SvgGenImage get crossHorizontalCenter =>
+      const SvgGenImage('assets/icons/other/cross_horizontal_center.svg');
+
+  /// File path: assets/icons/other/cross_horizontal_end.svg
+  SvgGenImage get crossHorizontalEnd =>
+      const SvgGenImage('assets/icons/other/cross_horizontal_end.svg');
+
+  /// File path: assets/icons/other/cross_horizontal_start.svg
+  SvgGenImage get crossHorizontalStart =>
+      const SvgGenImage('assets/icons/other/cross_horizontal_start.svg');
+
+  /// File path: assets/icons/other/cross_horizontal_stretch.svg
+  SvgGenImage get crossHorizontalStretch =>
+      const SvgGenImage('assets/icons/other/cross_horizontal_stretch.svg');
+
+  /// File path: assets/icons/other/cross_vertical_center.svg
+  SvgGenImage get crossVerticalCenter =>
+      const SvgGenImage('assets/icons/other/cross_vertical_center.svg');
+
+  /// File path: assets/icons/other/cross_vertical_end.svg
+  SvgGenImage get crossVerticalEnd =>
+      const SvgGenImage('assets/icons/other/cross_vertical_end.svg');
+
+  /// File path: assets/icons/other/cross_vertical_start.svg
+  SvgGenImage get crossVerticalStart =>
+      const SvgGenImage('assets/icons/other/cross_vertical_start.svg');
+
+  /// File path: assets/icons/other/cross_vertical_stretch.svg
+  SvgGenImage get crossVerticalStretch =>
+      const SvgGenImage('assets/icons/other/cross_vertical_stretch.svg');
 
   /// File path: assets/icons/other/json_braces.svg
   SvgGenImage get jsonBraces =>
       const SvgGenImage('assets/icons/other/json_braces.svg');
+
+  /// File path: assets/icons/other/main_horizontal_center.svg
+  SvgGenImage get mainHorizontalCenter =>
+      const SvgGenImage('assets/icons/other/main_horizontal_center.svg');
+
+  /// File path: assets/icons/other/main_horizontal_end.svg
+  SvgGenImage get mainHorizontalEnd =>
+      const SvgGenImage('assets/icons/other/main_horizontal_end.svg');
+
+  /// File path: assets/icons/other/main_horizontal_space_around.svg
+  SvgGenImage get mainHorizontalSpaceAround =>
+      const SvgGenImage('assets/icons/other/main_horizontal_space_around.svg');
+
+  /// File path: assets/icons/other/main_horizontal_space_between.svg
+  SvgGenImage get mainHorizontalSpaceBetween =>
+      const SvgGenImage('assets/icons/other/main_horizontal_space_between.svg');
+
+  /// File path: assets/icons/other/main_horizontal_space_evenly.svg
+  SvgGenImage get mainHorizontalSpaceEvenly =>
+      const SvgGenImage('assets/icons/other/main_horizontal_space_evenly.svg');
+
+  /// File path: assets/icons/other/main_horizontal_start.svg
+  SvgGenImage get mainHorizontalStart =>
+      const SvgGenImage('assets/icons/other/main_horizontal_start.svg');
+
+  /// File path: assets/icons/other/main_vertical_center.svg
+  SvgGenImage get mainVerticalCenter =>
+      const SvgGenImage('assets/icons/other/main_vertical_center.svg');
+
+  /// File path: assets/icons/other/main_vertical_end.svg
+  SvgGenImage get mainVerticalEnd =>
+      const SvgGenImage('assets/icons/other/main_vertical_end.svg');
+
+  /// File path: assets/icons/other/main_vertical_space_around.svg
+  SvgGenImage get mainVerticalSpaceAround =>
+      const SvgGenImage('assets/icons/other/main_vertical_space_around.svg');
+
+  /// File path: assets/icons/other/main_vertical_space_between.svg
+  SvgGenImage get mainVerticalSpaceBetween =>
+      const SvgGenImage('assets/icons/other/main_vertical_space_between.svg');
+
+  /// File path: assets/icons/other/main_vertical_space_evenly.svg
+  SvgGenImage get mainVerticalSpaceEvenly =>
+      const SvgGenImage('assets/icons/other/main_vertical_space_evenly.svg');
+
+  /// File path: assets/icons/other/main_vertical_start.svg
+  SvgGenImage get mainVerticalStart =>
+      const SvgGenImage('assets/icons/other/main_vertical_start.svg');
 
   /// File path: assets/icons/other/maximize.svg
   SvgGenImage get maximize =>
@@ -181,39 +257,38 @@ class $AssetsIconsOtherGen {
   /// File path: assets/icons/other/undo.svg
   SvgGenImage get undo => const SvgGenImage('assets/icons/other/undo.svg');
 
-  /// File path: assets/icons/other/vertical_center.svg
-  SvgGenImage get verticalCenter =>
-      const SvgGenImage('assets/icons/other/vertical_center.svg');
-
-  /// File path: assets/icons/other/vertical_end.svg
-  SvgGenImage get verticalEnd =>
-      const SvgGenImage('assets/icons/other/vertical_end.svg');
-
-  /// File path: assets/icons/other/vertical_start.svg
-  SvgGenImage get verticalStart =>
-      const SvgGenImage('assets/icons/other/vertical_start.svg');
-
-  /// File path: assets/icons/other/vertical_stretch.svg
-  SvgGenImage get verticalStretch =>
-      const SvgGenImage('assets/icons/other/vertical_stretch.svg');
-
   /// List of all assets
   List<SvgGenImage> get values => [
         boldMenuKebab,
         code,
-        horizontalStretch,
+        crossHorizontalCenter,
+        crossHorizontalEnd,
+        crossHorizontalStart,
+        crossHorizontalStretch,
+        crossVerticalCenter,
+        crossVerticalEnd,
+        crossVerticalStart,
+        crossVerticalStretch,
         jsonBraces,
+        mainHorizontalCenter,
+        mainHorizontalEnd,
+        mainHorizontalSpaceAround,
+        mainHorizontalSpaceBetween,
+        mainHorizontalSpaceEvenly,
+        mainHorizontalStart,
+        mainVerticalCenter,
+        mainVerticalEnd,
+        mainVerticalSpaceAround,
+        mainVerticalSpaceBetween,
+        mainVerticalSpaceEvenly,
+        mainVerticalStart,
         maximize,
         menuHamburger,
         minimize,
         plus,
         redo,
         saveAtPath,
-        undo,
-        verticalCenter,
-        verticalEnd,
-        verticalStart,
-        verticalStretch
+        undo
       ];
 }
 

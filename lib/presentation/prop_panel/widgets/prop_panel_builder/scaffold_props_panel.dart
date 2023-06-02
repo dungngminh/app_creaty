@@ -4,10 +4,13 @@ import 'package:after_layout/after_layout.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/prop_panel/prop_panel.dart';
+import 'package:app_creaty/presentation/prop_panel/widgets/field_builder/prop_color_picker.dart';
+import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/column_with_spacing.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 
 class ScaffoldPropsPanel extends StatefulWidget {
@@ -21,11 +24,7 @@ class ScaffoldPropsPanel extends StatefulWidget {
 
 class _ScaffoldPropsPanelState extends State<ScaffoldPropsPanel>
     with AfterLayoutMixin {
-  Scaffold? scaffoldMaterialWidget;
-  Color? backgroundColor;
-  PreferredSizeWidget? appBar;
-
-  Color pickedColor = Colors.red;
+  Color pickedColor = Colors.white;
 
   @override
   void didUpdateWidget(covariant ScaffoldPropsPanel oldWidget) {
@@ -34,18 +33,38 @@ class _ScaffoldPropsPanelState extends State<ScaffoldPropsPanel>
   }
 
   void bindPropsToPropWidget() {
-    
-    backgroundColor = scaffoldMaterialWidget?.backgroundColor;
-    appBar = scaffoldMaterialWidget?.appBar;
+    pickedColor = json_widget.$color(
+          context,
+          widget.jsonWidget.backgroundColor,
+        ) ??
+        Colors.white;
   }
 
   void changeColor(Color color) {
     setState(() => pickedColor = color);
   }
 
+  void _onAddAppBar() {
+    const appBar = json_widget.AppBar(title: json_widget.Text('App Bar'));
+    final updatedScaffold = widget.jsonWidget.copyWith(appBar: appBar);
+    context.read<VirtualAppBloc>().add(
+          ChangeProp(
+            widget: updatedScaffold,
+          ),
+        );
+  }
+
+  void _onRemoveAppBar() {
+    final updatedScaffold = widget.jsonWidget.copyWith(appBar: null);
+    context.read<VirtualAppBloc>().add(
+          ChangeProp(
+            widget: updatedScaffold,
+          ),
+        );
+  }
+
   @override
   FutureOr<void> afterFirstLayout(BuildContext context) {
-
     bindPropsToPropWidget();
   }
 
@@ -70,11 +89,29 @@ class _ScaffoldPropsPanelState extends State<ScaffoldPropsPanel>
       children: [
         FieldPropTile(
           title: context.l10n.backgroundColorLabel,
-          child: _buildBackgroundColorPicker(),
+          child: PropColorPicker(
+            currentColor: json_widget.$color(
+                  context,
+                  widget.jsonWidget.backgroundColor,
+                ) ??
+                Colors.white,
+            onColorConfirmed: (color) {
+              final updatedScaffold = widget.jsonWidget.copyWith(
+                backgroundColor: json_widget.Color(color.value),
+              );
+              context
+                ..pop()
+                ..read<VirtualAppBloc>().add(
+                  ChangeProp(
+                    widget: updatedScaffold,
+                  ),
+                );
+            },
+          ),
         ),
         FieldPropTile(
           title: 'App Bar',
-          child: appBar == null
+          child: widget.jsonWidget.appBar == null
               ? ElevatedButton(
                   onPressed: _onAddAppBar,
                   child: const Text('Add AppBar'),
@@ -84,89 +121,12 @@ class _ScaffoldPropsPanelState extends State<ScaffoldPropsPanel>
                   child: const Text('Remove AppBar'),
                 ),
         ),
+        if (widget.jsonWidget.appBar != null) _buildAppBar(),
       ],
     );
   }
 
-  void _onAddAppBar() {
-    const jsonAppBar = json_widget.PreferredSizeWidget.appBar(
-      title: json_widget.Text('Title'),
-    );
-    appBar = json_widget.$preferredSizeWidget(context, jsonAppBar);
-    // context.read<VirtualAppBloc>().add(
-    //       ChangeProp(
-    //         changeField: <String, dynamic>{'appBar': jsonAppBar.toJson()},
-    //         widgetData: widget.jsonWidget,
-    //       ),
-    //     );
-  }
-
-  void _onRemoveAppBar() {
-    appBar = null;
-    // context.read<VirtualAppBloc>().add(
-    //       ChangeProp(
-    //         changeField: const <String, dynamic>{'appBar': null},
-    //         widgetData: widget.widgetData,
-    //       ),
-    //     );
-  }
-
-  Widget _buildBackgroundColorPicker() {
-    return ElevatedButton(
-      child: Row(
-        children: [
-          const Text('Color Picker'),
-          const Gap(12),
-          Container(
-            height: 20,
-            width: 30,
-            decoration: BoxDecoration(
-              color:
-                  backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(),
-            ),
-          )
-        ],
-      ),
-      onPressed: () {
-        showDialog<void>(
-          context: context,
-          builder: (_) {
-            return AlertDialog(
-              title: const Text('Pick a color!'),
-              content: SingleChildScrollView(
-                child: ColorPicker(
-                  pickerColor: backgroundColor ??
-                      Theme.of(context).scaffoldBackgroundColor,
-                  onColorChanged: changeColor,
-                ),
-              ),
-              actions: <Widget>[
-                ElevatedButton(
-                  child: const Text('Pick'),
-                  onPressed: () {
-                    setState(
-                      () => backgroundColor = pickedColor,
-                    );
-                    // context
-                    //   ..pop()
-                    //   ..read<VirtualAppBloc>().add(
-                    //     ChangeProp(
-                    //       widgetData: widget.json,
-                    //       changeField: <String, dynamic>{
-                    //         'backgroundColor':
-                    //             json_widget.Color(pickedColor.value).toJson()
-                    //       },
-                    //     ),
-                    //   );
-                  },
-                ),
-              ],
-            );
-          },
-        );
-      },
-    );
+  Widget _buildAppBar() {
+    return const SizedBox();
   }
 }

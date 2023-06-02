@@ -54,9 +54,7 @@ class _VirtualAppViewState extends State<VirtualAppView> {
                     key: ValueKey(item.hashCode),
                     builder: (context) {
                       var isHover = false;
-                      return StatefulBuilder(
-                        builder: (_, StateSetter setState) {
-                          return GestureDetector(
+                      return GestureDetector(
                             onTap: () => context.read<VirtualAppBloc>().add(
                                   ChangeWidget(
                                     selectedWidget: item as json_widget.Widget,
@@ -107,9 +105,7 @@ class _VirtualAppViewState extends State<VirtualAppView> {
                                   ],
                                 ),
                               ),
-                            ),
-                          );
-                        },
+                        ),
                       );
                     },
                   );

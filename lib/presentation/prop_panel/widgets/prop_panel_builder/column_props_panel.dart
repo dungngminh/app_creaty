@@ -1,5 +1,8 @@
+import 'package:app_creaty/commons/extensions/json_widget/cross_axis_alignment_extension.dart';
+import 'package:app_creaty/commons/extensions/json_widget/main_axis_alignment_extension.dart';
+import 'package:app_creaty/commons/extensions/json_widget/main_axis_size_extension.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
-import 'package:app_creaty/commons/gen/assets.gen.dart';
+import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/prop_panel/widgets/widgets.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/widgets.dart';
@@ -42,238 +45,68 @@ class _ColumnPropsPanelState extends State<ColumnPropsPanel> {
 
   Widget _buildMainAxisSizeProp() {
     return FieldPropTile(
-      title: 'Main Axis Size',
+      title: context.l10n.mainAxisSizeLabel,
       child: Row(
-        children: [
-          IconButton(
-            icon: Assets.icons.other.minimize.svg(
-              colorFilter:
-                  widget.jsonWidget.mainAxisSize == json_widget.MainAxisSize.min
-                      ? ColorFilter.mode(
-                          context.colorScheme.primary,
-                          BlendMode.srcIn,
-                        )
-                      : null,
-            ),
+        children: json_widget.MainAxisSize.values.map((value) {
+          return PropIconButton(
+            icon: value.getSvgImage(),
+            tooltip: value.getTooltip(context),
+            isSelected: value == widget.jsonWidget.mainAxisSize,
             onPressed: () {
-              if (widget.jsonWidget.mainAxisSize ==
-                  json_widget.MainAxisSize.min) return;
-              final updatedColumn = widget.jsonWidget
-                  .copyWith(mainAxisSize: json_widget.MainAxisSize.min);
+              final updatedColumn =
+                  widget.jsonWidget.copyWith(mainAxisSize: value);
               context
                   .read<VirtualAppBloc>()
                   .add(ChangeProp(widget: updatedColumn));
             },
-          ),
-          IconButton(
-            icon: Assets.icons.other.maximize.svg(
-              colorFilter:
-                  widget.jsonWidget.mainAxisSize == json_widget.MainAxisSize.max
-                      ? ColorFilter.mode(
-                          context.colorScheme.primary,
-                          BlendMode.srcIn,
-                        )
-                      : null,
-            ),
-            onPressed: () {
-              if (widget.jsonWidget.mainAxisSize ==
-                  json_widget.MainAxisSize.min) return;
-              final updatedColumn = widget.jsonWidget
-                  .copyWith(mainAxisSize: json_widget.MainAxisSize.min);
-              context
-                  .read<VirtualAppBloc>()
-                  .add(ChangeProp(widget: updatedColumn));
-            },
-          ),
-        ],
+          );
+        }).toList(),
       ),
     );
   }
 
   Widget _buildCrossAxisAlignmentProp() {
+    final crossProps = List.of(json_widget.CrossAxisAlignment.values)
+      ..remove(json_widget.CrossAxisAlignment.baseline);
     return FieldPropTile(
-      title: 'Cross Axis Alignment',
+      title: context.l10n.crossAxisAlignmentLabel,
       child: Row(
-        children: [
-          IconButton(
-            icon: Assets.icons.other.verticalStart.svg(
-              colorFilter: widget.jsonWidget.crossAxisAlignment ==
-                      json_widget.CrossAxisAlignment.start
-                  ? ColorFilter.mode(
-                      context.colorScheme.primary,
-                      BlendMode.srcIn,
-                    )
-                  : null,
-            ),
+        children: crossProps.map((value) {
+          return PropIconButton(
+            icon: value.getSvgImage(isColumn: true),
+            tooltip: value.getTooltip(context),
+            isSelected: value == widget.jsonWidget.crossAxisAlignment,
             onPressed: () {
-              if (widget.jsonWidget.crossAxisAlignment ==
-                  json_widget.CrossAxisAlignment.start) return;
-              final updatedColumn = widget.jsonWidget.copyWith(
-                crossAxisAlignment: json_widget.CrossAxisAlignment.start,
-              );
+              final updatedColumn =
+                  widget.jsonWidget.copyWith(crossAxisAlignment: value);
               context
                   .read<VirtualAppBloc>()
                   .add(ChangeProp(widget: updatedColumn));
             },
-          ),
-          IconButton(
-            icon: Assets.icons.other.verticalCenter.svg(
-              colorFilter: widget.jsonWidget.crossAxisAlignment ==
-                      json_widget.CrossAxisAlignment.center
-                  ? ColorFilter.mode(
-                      context.colorScheme.primary,
-                      BlendMode.srcIn,
-                    )
-                  : null,
-            ),
-            onPressed: () {
-              if (widget.jsonWidget.crossAxisAlignment ==
-                  json_widget.CrossAxisAlignment.center) return;
-              final updatedColumn = widget.jsonWidget.copyWith(
-                crossAxisAlignment: json_widget.CrossAxisAlignment.center,
-              );
-              context
-                  .read<VirtualAppBloc>()
-                  .add(ChangeProp(widget: updatedColumn));
-            },
-          ),
-          IconButton(
-            icon: Assets.icons.other.verticalEnd.svg(
-              colorFilter: widget.jsonWidget.crossAxisAlignment ==
-                      json_widget.CrossAxisAlignment.end
-                  ? ColorFilter.mode(
-                      context.colorScheme.primary,
-                      BlendMode.srcIn,
-                    )
-                  : null,
-            ),
-            onPressed: () {
-              if (widget.jsonWidget.crossAxisAlignment ==
-                  json_widget.CrossAxisAlignment.end) return;
-              final updatedColumn = widget.jsonWidget.copyWith(
-                crossAxisAlignment: json_widget.CrossAxisAlignment.end,
-              );
-              context
-                  .read<VirtualAppBloc>()
-                  .add(ChangeProp(widget: updatedColumn));
-            },
-          ),
-          IconButton(
-            icon: Assets.icons.other.verticalStretch.svg(
-              colorFilter: widget.jsonWidget.crossAxisAlignment ==
-                      json_widget.CrossAxisAlignment.stretch
-                  ? ColorFilter.mode(
-                      context.colorScheme.primary,
-                      BlendMode.srcIn,
-                    )
-                  : null,
-            ),
-            onPressed: () {
-              if (widget.jsonWidget.crossAxisAlignment ==
-                  json_widget.CrossAxisAlignment.stretch) return;
-              final updatedColumn = widget.jsonWidget.copyWith(
-                crossAxisAlignment: json_widget.CrossAxisAlignment.stretch,
-              );
-              context
-                  .read<VirtualAppBloc>()
-                  .add(ChangeProp(widget: updatedColumn));
-            },
-          ),
-        ],
+          );
+        }).toList(),
       ),
     );
   }
 
   Widget _buildMainAxisAlignmentProp() {
     return FieldPropTile(
-      title: 'Main Axis Alignment',
+      title: context.l10n.mainAxisAligmentLabel,
       child: Row(
-        children: [
-          IconButton(
-            icon: Assets.icons.other.verticalStart.svg(
-              colorFilter: widget.jsonWidget.crossAxisAlignment ==
-                      json_widget.CrossAxisAlignment.start
-                  ? ColorFilter.mode(
-                      context.colorScheme.primary,
-                      BlendMode.srcIn,
-                    )
-                  : null,
-            ),
+        children: json_widget.MainAxisAlignment.values.map((value) {
+          return PropIconButton(
+            icon: value.getSvgImage(isColumn: true),
+            tooltip: value.getTooltip(context),
+            isSelected: value == widget.jsonWidget.mainAxisAlignment,
             onPressed: () {
-              if (widget.jsonWidget.crossAxisAlignment ==
-                  json_widget.CrossAxisAlignment.start) return;
-              final updatedColumn = widget.jsonWidget.copyWith(
-                crossAxisAlignment: json_widget.CrossAxisAlignment.start,
-              );
+              final updatedColumn =
+                  widget.jsonWidget.copyWith(mainAxisAlignment: value);
               context
                   .read<VirtualAppBloc>()
                   .add(ChangeProp(widget: updatedColumn));
             },
-          ),
-          IconButton(
-            icon: Assets.icons.other.verticalCenter.svg(
-              colorFilter: widget.jsonWidget.crossAxisAlignment ==
-                      json_widget.CrossAxisAlignment.center
-                  ? ColorFilter.mode(
-                      context.colorScheme.primary,
-                      BlendMode.srcIn,
-                    )
-                  : null,
-            ),
-            onPressed: () {
-              if (widget.jsonWidget.crossAxisAlignment ==
-                  json_widget.CrossAxisAlignment.center) return;
-              final updatedColumn = widget.jsonWidget.copyWith(
-                crossAxisAlignment: json_widget.CrossAxisAlignment.center,
-              );
-              context
-                  .read<VirtualAppBloc>()
-                  .add(ChangeProp(widget: updatedColumn));
-            },
-          ),
-          IconButton(
-            icon: Assets.icons.other.verticalEnd.svg(
-              colorFilter: widget.jsonWidget.crossAxisAlignment ==
-                      json_widget.CrossAxisAlignment.end
-                  ? ColorFilter.mode(
-                      context.colorScheme.primary,
-                      BlendMode.srcIn,
-                    )
-                  : null,
-            ),
-            onPressed: () {
-              if (widget.jsonWidget.crossAxisAlignment ==
-                  json_widget.CrossAxisAlignment.end) return;
-              final updatedColumn = widget.jsonWidget.copyWith(
-                crossAxisAlignment: json_widget.CrossAxisAlignment.end,
-              );
-              context
-                  .read<VirtualAppBloc>()
-                  .add(ChangeProp(widget: updatedColumn));
-            },
-          ),
-          IconButton(
-            icon: Assets.icons.other.verticalStretch.svg(
-              colorFilter: widget.jsonWidget.crossAxisAlignment ==
-                      json_widget.CrossAxisAlignment.stretch
-                  ? ColorFilter.mode(
-                      context.colorScheme.primary,
-                      BlendMode.srcIn,
-                    )
-                  : null,
-            ),
-            onPressed: () {
-              if (widget.jsonWidget.crossAxisAlignment ==
-                  json_widget.CrossAxisAlignment.stretch) return;
-              final updatedColumn = widget.jsonWidget.copyWith(
-                crossAxisAlignment: json_widget.CrossAxisAlignment.stretch,
-              );
-              context
-                  .read<VirtualAppBloc>()
-                  .add(ChangeProp(widget: updatedColumn));
-            },
-          ),
-        ],
+          );
+        }).toList(),
       ),
     );
   }

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:app_creaty/commons/enums/loading_status.dart';
-import 'package:app_creaty/commons/extensions/json_widget_extension.dart';
+import 'package:app_creaty/commons/extensions/json_widget/json_widget_extension.dart';
 import 'package:app_creaty/commons/utils/string_gen.dart';
 import 'package:app_creaty/models/app_creaty_page.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
@@ -86,7 +86,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     }
 
     if (currentWidgetWillBeUpdatedIn is Row) {
-      final currentChildren = currentWidgetWillBeUpdatedIn.children
+      final currentChildren = List.of(currentWidgetWillBeUpdatedIn.children)
         ..add(receviedWidget);
       final updatedRow =
           currentWidgetWillBeUpdatedIn.copyWith(children: currentChildren);
@@ -128,9 +128,94 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
   }
 
   void _onChangeProp(ChangeProp event, Emitter<VirtualAppState> emit) {
-    final currentVirtualAppWidget =
-        state.virtualAppWidget as json_widget.Scaffold;
-    currentVirtualAppWidget.toJson();
+    final currentWidget = state.virtualAppWidget as Scaffold;
+    final updatedWidget = findAndUpdateWidgetWithKey(
+      key: event.widget.key,
+      oldWidget: currentWidget,
+      updatedWidget: event.widget,
+    );
+    log(updatedWidget.toString(), name: 'Updated Widget');
+    log(event.widget.toString(), name: 'Widget');
+    log(event.widget.key.toString(), name: 'Key');
+    emit(
+      state.copyWith(
+        virtualAppWidget: updatedWidget,
+        selectedWidget: event.widget,
+      ),
+    );
+  }
+
+  Widget findAndUpdateWidgetWithKey({
+    required json_widget.Key? key,
+    required json_widget.Widget oldWidget,
+    required json_widget.Widget updatedWidget,
+  }) {
+    log(key.toString(), name: 'De quy key');
+    log(oldWidget.toString(), name: 'De quy old widget');
+    log(updatedWidget.toString(), name: 'De quy updated widget');
+
+    if (key == null) return const json_widget.SizedBox();
+    log((oldWidget.key == key).toString(), name: 'Check de quy');
+    if (oldWidget.key == key) {
+      return updatedWidget;
+    }
+    if (oldWidget is json_widget.Scaffold) {
+      if (oldWidget.body == null) {
+        return const json_widget.SizedBox();
+      }
+      findAndUpdateWidgetWithKey(
+        key: oldWidget.body?.key,
+        oldWidget: oldWidget.body!,
+        updatedWidget: updatedWidget,
+      );
+    }
+    if (oldWidget is json_widget.Column) {
+      for (final widget in oldWidget.children) {
+        findAndUpdateWidgetWithKey(
+          key: widget.key,
+          oldWidget: widget,
+          updatedWidget: updatedWidget,
+        );
+      }
+    }
+    return updatedWidget;
+    // if (oldWidget is json_widget.Scaffold) {
+    //   if (oldWidget.body == null) return;
+    //   findAndUpdateWidgetWithKey(
+    //     key: oldWidget.body?.key ?? const json_widget.ValueKey(''),
+    //     oldWidget: oldWidget.body ?? const SizedBox(),
+    //     updatedWidget: updatedWidget,
+    //   );
+    // }
+
+    // if (oldWidget is json_widget.Column) {
+    //   for (final widget in oldWidget.children) {
+    //     findAndUpdateWidgetWithKey(
+    //       key: widget.key ?? const json_widget.ValueKey(''),
+    //       oldWidget: widget,
+    //       updatedWidget: updatedWidget,
+    //     );
+    //   }
+    // }
+
+    // if (oldWidget is json_widget.Row) {
+    //   for (final widget in oldWidget.children) {
+    //     findAndUpdateWidgetWithKey(
+    //       key: widget.key ?? const json_widget.ValueKey(''),
+    //       oldWidget: widget,
+    //       updatedWidget: updatedWidget,
+    //     );
+    //   }
+    // }
+
+    // if (oldWidget is json_widget.Container) {
+    //   if (oldWidget.child == null) return;
+    //   findAndUpdateWidgetWithKey(
+    //     key: oldWidget.child?.key ?? const json_widget.ValueKey(''),
+    //     oldWidget: oldWidget.child ?? const SizedBox(),
+    //     updatedWidget: updatedWidget,
+    //   );
+    // }
   }
 
   Future<void> _onVirtualAppLoaded(

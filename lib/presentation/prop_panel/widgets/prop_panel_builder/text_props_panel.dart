@@ -1,14 +1,11 @@
-import 'dart:async';
-import 'dart:developer';
-
-import 'package:after_layout/after_layout.dart';
-import 'package:app_creaty/commons/extensions/media_query_extension.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/prop_panel/prop_panel.dart';
-import 'package:app_creaty/presentation/widgets/app_text_field.dart';
-import 'package:app_creaty/presentation/widgets/column_with_spacing.dart';
+import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
+import 'package:app_creaty/presentation/widgets/app_drop_down_field.dart';
+import 'package:app_creaty/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 
@@ -21,48 +18,22 @@ class TextPropsPanel extends StatefulWidget {
   State<TextPropsPanel> createState() => _TextPropsPanelState();
 }
 
-class _TextPropsPanelState extends State<TextPropsPanel> with AfterLayoutMixin {
-  late json_widget.Text textJsonWidget;
-  Text? textMaterialWidget;
-  late TextEditingController dataTextEditingController;
-  FontWeight selectedFontWeight = FontWeight.w400;
-  Color pickedColor = Colors.red;
-  Color? textColor;
+class _TextPropsPanelState extends State<TextPropsPanel> {
+  late TextEditingController editingController;
 
   @override
   void initState() {
     super.initState();
-    dataTextEditingController = TextEditingController();
-  }
-
-  @override
-  void didUpdateWidget(covariant TextPropsPanel oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    bindPropsToPropWidget();
-  }
-
-  void bindPropsToPropWidget() {
-    textMaterialWidget = json_widget.TextMapper().toMaterialWidget(
-      context,
-      textJsonWidget,
+    editingController = TextEditingController(
+      text: widget.jsonWidget.data,
     );
-    dataTextEditingController.text = textMaterialWidget?.data ?? '';
-    selectedFontWeight =
-        textMaterialWidget?.style?.fontWeight ?? FontWeight.w400;
-    textColor = textMaterialWidget?.style?.color;
-    log(textMaterialWidget?.style?.toString() ?? '');
-  }
-
-  void changeColor(Color color) {
-    setState(() => pickedColor = color);
   }
 
   @override
-  FutureOr<void> afterFirstLayout(BuildContext context) {
-    bindPropsToPropWidget();
+  void dispose() {
+    editingController.dispose();
+    super.dispose();
   }
-
-  void _onTextFieldChanged(String value) {}
 
   @override
   Widget build(BuildContext context) {
@@ -71,57 +42,67 @@ class _TextPropsPanelState extends State<TextPropsPanel> with AfterLayoutMixin {
       children: [
         Text(
           'Text',
-          style: context.textTheme.displaySmall,
+          style: context.textTheme.displayMedium,
         ),
-        const Gap(16),
-        _buildPropsForm(),
+        const Gap(32),
+        FieldPropTile(
+          rowCrossAxisAlignment: CrossAxisAlignment.start,
+          title: context.l10n.textValueLabel,
+          child: AppTextField(
+            width: 300,
+            controller: editingController,
+            labelText: context.l10n.textValueLabel,
+          ),
+        ),
+        _buildTextProps(),
       ],
     );
   }
 
-  Widget _buildPropsForm() {
+  Widget _buildTextProps() {
     return ColumnWithSpacing(
       spacing: 24,
+      hasLeadingSpace: true,
       children: [
         FieldPropTile(
+          rowCrossAxisAlignment: CrossAxisAlignment.start,
           title: context.l10n.textColorLabel,
-          child: _buildBackgroundColorPicker(),
+          child: AppTextField(
+            width: 300,
+            controller: editingController,
+            labelText: context.l10n.textValueLabel,
+          ),
         ),
         FieldPropTile(
-          title: context.l10n.textValueLabel,
+          rowCrossAxisAlignment: CrossAxisAlignment.start,
+          title: context.l10n.fontWeightLabel,
           child: SizedBox(
-            width: context.mediaQuerySize.width * 0.2,
-            child: AppTextField(
-              controller: dataTextEditingController,
-              labelText: context.l10n.textValueLabel,
-              onChanged: (value) {
-                // context.
+            width: 300,
+            child: AppDropDownField<json_widget.FontWeight>(
+              labelText: context.l10n.fontWeightLabel,
+              value: widget.jsonWidget.style?.fontWeight ??
+                  json_widget.FontWeight.normal,
+              items: json_widget.FontWeight.values.map((value) {
+                return DropdownMenuItem(
+                  value: value,
+                  child: Text(value.toString()),
+                );
+              }).toList(),
+              onChanged: (selected) {
+                final currentTextStyle = widget.jsonWidget.style;
+                final updatedTextStyle = currentTextStyle?.copyWith(
+                  fontWeight: selected,
+                );
+                final updatedText =
+                    widget.jsonWidget.copyWith(style: updatedTextStyle);
+                context
+                    .read<VirtualAppBloc>()
+                    .add(ChangeProp(widget: updatedText));
               },
             ),
           ),
-        )
+        ),
       ],
-    );
-  }
-
-  Widget _buildBackgroundColorPicker() {
-    return ElevatedButton(
-      child: Row(
-        children: [
-          const Text('Color Picker'),
-          const Gap(12),
-          Container(
-            height: 20,
-            width: 30,
-            decoration: BoxDecoration(
-              color: textColor ?? Theme.of(context).colorScheme.onBackground,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(),
-            ),
-          )
-        ],
-      ),
-      onPressed: () {},
     );
   }
 }

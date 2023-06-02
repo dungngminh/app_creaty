@@ -110,9 +110,11 @@ enum AppCreatyComponent implements IAppCreatyComponent {
         final defaultImageProvider = json_widget.ImageProvider.asset(
           Assets.images.png.defaultImage.path,
         );
+        const defaultWidthHeight = 200.0;
         return json_widget.Widget.image(
           image: defaultImageProvider,
           key: key,
+          height: defaultWidthHeight,
         );
       case AppCreatyComponent.elevatedButton:
         const elevatedButtonChild = json_widget.Widget.text('Button');
