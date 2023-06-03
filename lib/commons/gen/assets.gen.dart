@@ -145,6 +145,34 @@ class $AssetsIconsOtherGen {
   SvgGenImage get boldMenuKebab =>
       const SvgGenImage('assets/icons/other/bold_menu_kebab.svg');
 
+  /// File path: assets/icons/other/box_fit_contain.svg
+  SvgGenImage get boxFitContain =>
+      const SvgGenImage('assets/icons/other/box_fit_contain.svg');
+
+  /// File path: assets/icons/other/box_fit_cover.svg
+  SvgGenImage get boxFitCover =>
+      const SvgGenImage('assets/icons/other/box_fit_cover.svg');
+
+  /// File path: assets/icons/other/box_fit_fill.svg
+  SvgGenImage get boxFitFill =>
+      const SvgGenImage('assets/icons/other/box_fit_fill.svg');
+
+  /// File path: assets/icons/other/box_fit_fit_height.svg
+  SvgGenImage get boxFitFitHeight =>
+      const SvgGenImage('assets/icons/other/box_fit_fit_height.svg');
+
+  /// File path: assets/icons/other/box_fit_fit_width.svg
+  SvgGenImage get boxFitFitWidth =>
+      const SvgGenImage('assets/icons/other/box_fit_fit_width.svg');
+
+  /// File path: assets/icons/other/box_fit_none.svg
+  SvgGenImage get boxFitNone =>
+      const SvgGenImage('assets/icons/other/box_fit_none.svg');
+
+  /// File path: assets/icons/other/box_fit_scale_down.svg
+  SvgGenImage get boxFitScaleDown =>
+      const SvgGenImage('assets/icons/other/box_fit_scale_down.svg');
+
   /// File path: assets/icons/other/code.svg
   SvgGenImage get code => const SvgGenImage('assets/icons/other/code.svg');
 
@@ -260,6 +288,13 @@ class $AssetsIconsOtherGen {
   /// List of all assets
   List<SvgGenImage> get values => [
         boldMenuKebab,
+        boxFitContain,
+        boxFitCover,
+        boxFitFill,
+        boxFitFitHeight,
+        boxFitFitWidth,
+        boxFitNone,
+        boxFitScaleDown,
         code,
         crossHorizontalCenter,
         crossHorizontalEnd,
@@ -341,12 +376,28 @@ class $AssetsIconsOutlineGen {
 class $AssetsImagesPngGen {
   const $AssetsImagesPngGen();
 
+  /// File path: assets/images/png/AppLogo.jpeg
+  AssetGenImage get appLogo =>
+      const AssetGenImage('assets/images/png/AppLogo.jpeg');
+
   /// File path: assets/images/png/default_image.png
   AssetGenImage get defaultImage =>
       const AssetGenImage('assets/images/png/default_image.png');
 
+  /// File path: assets/images/png/dungminh.jpeg
+  AssetGenImage get dungminh =>
+      const AssetGenImage('assets/images/png/dungminh.jpeg');
+
+  /// File path: assets/images/png/gdscdut.jpg
+  AssetGenImage get gdscdut =>
+      const AssetGenImage('assets/images/png/gdscdut.jpg');
+
+  /// File path: assets/images/png/test2.jpg
+  AssetGenImage get test2 => const AssetGenImage('assets/images/png/test2.jpg');
+
   /// List of all assets
-  List<AssetGenImage> get values => [defaultImage];
+  List<AssetGenImage> get values =>
+      [appLogo, defaultImage, dungminh, gdscdut, test2];
 }
 
 class $AssetsImagesSvgGen {

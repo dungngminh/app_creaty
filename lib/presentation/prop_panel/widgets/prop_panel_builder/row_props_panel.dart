@@ -45,11 +45,11 @@ class _RowPropsPanelState extends State<RowPropsPanel> {
 
   Widget _buildMainAxisSizeProp() {
     return FieldPropTile(
-      title: context.l10n.mainAxisSizeLabel,
+      titleText: context.l10n.mainAxisSizeLabel,
       child: Row(
         children: json_widget.MainAxisSize.values.map((value) {
           return PropIconButton(
-            icon: value.getSvgImage(),
+            icon: value.image,
             tooltip: value.getTooltip(context),
             isSelected: value == widget.jsonWidget.mainAxisSize,
             onPressed: () {
@@ -69,7 +69,7 @@ class _RowPropsPanelState extends State<RowPropsPanel> {
     final crossProps = List.of(json_widget.CrossAxisAlignment.values)
       ..remove(json_widget.CrossAxisAlignment.baseline);
     return FieldPropTile(
-      title: context.l10n.crossAxisAlignmentLabel,
+      titleText: context.l10n.crossAxisAlignmentLabel,
       child: Row(
         children: crossProps.map((value) {
           return PropIconButton(
@@ -91,7 +91,7 @@ class _RowPropsPanelState extends State<RowPropsPanel> {
 
   Widget _buildMainAxisAlignmentProp() {
     return FieldPropTile(
-      title: context.l10n.mainAxisAligmentLabel,
+      titleText: context.l10n.mainAxisAligmentLabel,
       child: Row(
         children: json_widget.MainAxisAlignment.values.map((value) {
           return PropIconButton(

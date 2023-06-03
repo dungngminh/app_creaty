@@ -66,7 +66,7 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel>
       spacing: 24,
       children: [
         FieldPropTile(
-          title: context.l10n.backgroundColorLabel,
+          titleText: context.l10n.backgroundColorLabel,
           child: _buildBackgroundColorPicker(),
         ),
       ],

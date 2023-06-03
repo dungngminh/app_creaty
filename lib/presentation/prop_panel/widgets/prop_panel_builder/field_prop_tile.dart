@@ -5,21 +5,22 @@ import 'package:gap/gap.dart';
 class FieldPropTile extends StatelessWidget {
   const FieldPropTile({
     super.key,
-    required this.title,
+    required this.titleText,
+    this.titleWidth = 100,
     required this.child,
     this.usingRow = true,
     this.rowCrossAxisAlignment = CrossAxisAlignment.center,
   });
 
-  final String title;
+  final String titleText;
+  final double titleWidth;
   final Widget child;
   final bool usingRow;
   final CrossAxisAlignment rowCrossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
-    return usingRow
-        ? _buildRow(context) : _buildColumn(context);
+    return usingRow ? _buildRow(context) : _buildColumn(context);
   }
 
   Widget _buildColumn(BuildContext context) {
@@ -27,7 +28,7 @@ class FieldPropTile extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '$title :',
+          '$titleText :',
           style: context.textTheme.titleSmall,
         ),
         const Gap(16),
@@ -41,9 +42,9 @@ class FieldPropTile extends StatelessWidget {
       crossAxisAlignment: rowCrossAxisAlignment,
       children: [
         SizedBox(
-          width: 100,
+          width: titleWidth,
           child: Text(
-            '$title:',
+            '$titleText:',
             style: context.textTheme.titleMedium,
           ),
         ),
