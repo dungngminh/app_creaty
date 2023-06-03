@@ -90,6 +90,15 @@
   "minLabel": "Min",
   "fontWeightLabel": "Font Weight",
   "textAlignLabel": "Text Align",
-  "fontSizeLabel":"Font Size",
-  "maxLinesLabel": "Max Lines"
+  "fontSizeLabel": "Font Size",
+  "maxLinesLabel": "Max Lines",
+  "imageHeightLabel": "Image Height",
+  "imageWidthLabel": "Image Width",
+  "imageTypeLabel": "Image Type",
+  "selectImageLabel": "Select Image",
+  "imageUrlLabel": "Image Url",
+  "genericHeight": "Height",
+  "genericWidth": "Width",
+  "genericAssetImage": "Asset Image",
+  "boxFitLabel": "Box Fit"
 }

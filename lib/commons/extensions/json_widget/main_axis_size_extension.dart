@@ -13,7 +13,7 @@ extension JsonWidgetMainAxisSize on json_widget.MainAxisSize {
     }
   }
 
-  SvgGenImage getSvgImage() {
+  SvgGenImage get image {
     switch (this) {
       case json_widget.MainAxisSize.min:
         return Assets.icons.other.minimize;

@@ -47,7 +47,7 @@ class _TextPropsPanelState extends State<TextPropsPanel> {
         const Gap(32),
         FieldPropTile(
           rowCrossAxisAlignment: CrossAxisAlignment.start,
-          title: context.l10n.textValueLabel,
+          titleText: context.l10n.textValueLabel,
           child: AppTextField(
             width: 300,
             controller: editingController,
@@ -66,7 +66,7 @@ class _TextPropsPanelState extends State<TextPropsPanel> {
       children: [
         FieldPropTile(
           rowCrossAxisAlignment: CrossAxisAlignment.start,
-          title: context.l10n.textColorLabel,
+          titleText: context.l10n.textColorLabel,
           child: AppTextField(
             width: 300,
             controller: editingController,
@@ -75,7 +75,7 @@ class _TextPropsPanelState extends State<TextPropsPanel> {
         ),
         FieldPropTile(
           rowCrossAxisAlignment: CrossAxisAlignment.start,
-          title: context.l10n.fontWeightLabel,
+          titleText: context.l10n.fontWeightLabel,
           child: SizedBox(
             width: 300,
             child: AppDropDownField<json_widget.FontWeight>(

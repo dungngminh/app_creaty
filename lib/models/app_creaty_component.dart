@@ -1,12 +1,11 @@
+import 'package:app_creaty/commons/constants/constants.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:flutter/material.dart' hide ImageProvider;
 import 'package:json_widget/json_widget.dart' as json_widget;
 import 'package:uuid/uuid.dart';
 
-const _defaultTextValue =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit,'
-    ' sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+
 
 enum AppCreatyComponentGroup {
   common,
@@ -89,7 +88,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
     switch (this) {
       case AppCreatyComponent.text:
         return json_widget.Widget.text(
-          _defaultTextValue,
+          Constants.kDefaultTextValue,
           key: key,
         );
       case AppCreatyComponent.column:
@@ -99,25 +98,28 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       case AppCreatyComponent.container:
         const color = json_widget.Colors.blue;
         const boxDecoration = json_widget.BoxDecoration(color: color);
-        const defaultWidthHeight = 200.0;
         return json_widget.Widget.container(
           key: key,
-          width: defaultWidthHeight,
-          height: defaultWidthHeight,
+          width: Constants.kDefaultWidthHeight,
+          height: Constants.kDefaultHeightWidget,
           decoration: boxDecoration,
         );
       case AppCreatyComponent.image:
         final defaultImageProvider = json_widget.ImageProvider.asset(
           Assets.images.png.defaultImage.path,
         );
-        const defaultWidthHeight = 200.0;
+        const defaultBoxFit = json_widget.BoxFit.cover;
         return json_widget.Widget.image(
           image: defaultImageProvider,
           key: key,
-          height: defaultWidthHeight,
+          height: Constants.kDefaultHeightWidget,
+          width: Constants.kDefaultWidthHeight,
+          fit: defaultBoxFit,
         );
       case AppCreatyComponent.elevatedButton:
-        const elevatedButtonChild = json_widget.Widget.text('Button');
+        final elevatedButtonChildKey = json_widget.ValueKey(const Uuid().v4());
+        final elevatedButtonChild =
+            json_widget.Widget.text('Button', key: elevatedButtonChildKey);
         const callback = json_widget.Callback.empty();
         return json_widget.Widget.elevatedButton(
           key: key, 
