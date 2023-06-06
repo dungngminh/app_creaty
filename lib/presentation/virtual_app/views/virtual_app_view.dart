@@ -1,4 +1,3 @@
-
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/models/app_creaty_component.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
@@ -48,19 +47,21 @@ class _VirtualAppViewState extends State<VirtualAppView> {
             screen: VirtualKeyboard(
               isEnabled: isVirtualKeyboardEnable,
               child: json_widget.FlutterWidget(
-                widget: virtualAppWidgetData,
+                widget: json_widget.SafeArea(child: virtualAppWidgetData),
                 wrappingBuilder: (context, item, child) {
                   return Builder(
                     key: ValueKey(item.hashCode),
                     builder: (context) {
                       var isHover = false;
                       return GestureDetector(
-                            onTap: () => context.read<VirtualAppBloc>().add(
-                                  ChangeWidget(
-                                    selectedWidget: item as json_widget.Widget,
-                                  ),
-                                ),
-                            child: MouseRegion(
+                        onTap: () => context.read<VirtualAppBloc>().add(
+                              ChangeWidget(
+                                selectedWidget: item as json_widget.Widget,
+                              ),
+                            ),
+                        child: StatefulBuilder(
+                          builder: (context, setState) {
+                            return MouseRegion(
                               onHover: (_) {
                                 final widget = item as json_widget.Widget;
                                 // log((hoveredWidget == widget).toString(), name: widget.);
@@ -105,6 +106,8 @@ class _VirtualAppViewState extends State<VirtualAppView> {
                                   ],
                                 ),
                               ),
+                            );
+                          },
                         ),
                       );
                     },

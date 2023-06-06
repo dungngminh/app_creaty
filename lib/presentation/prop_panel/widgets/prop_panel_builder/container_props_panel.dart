@@ -4,8 +4,10 @@ import 'package:after_layout/after_layout.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/prop_panel/widgets/widgets.dart';
+import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 
@@ -91,7 +93,11 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel>
           )
         ],
       ),
-      onPressed: () {},
+      onPressed: () {
+        context
+            .read<VirtualAppBloc>()
+            .add(ChangeProp(widget: widget.jsonWidget));
+      },
     );
   }
 }

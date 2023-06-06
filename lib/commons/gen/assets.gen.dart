@@ -392,12 +392,16 @@ class $AssetsImagesPngGen {
   AssetGenImage get gdscdut =>
       const AssetGenImage('assets/images/png/gdscdut.jpg');
 
+  /// File path: assets/images/png/pleple.jpg
+  AssetGenImage get pleple =>
+      const AssetGenImage('assets/images/png/pleple.jpg');
+
   /// File path: assets/images/png/test2.jpg
   AssetGenImage get test2 => const AssetGenImage('assets/images/png/test2.jpg');
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [appLogo, defaultImage, dungminh, gdscdut, test2];
+      [appLogo, defaultImage, dungminh, gdscdut, pleple, test2];
 }
 
 class $AssetsImagesSvgGen {
