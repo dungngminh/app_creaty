@@ -22,7 +22,6 @@ mixin _$VirtualAppState {
       throw _privateConstructorUsedError;
   json_widget.Widget get hoveredWidget => throw _privateConstructorUsedError;
   List<AppCreatyPage> get pages => throw _privateConstructorUsedError;
-  List<String> get canInsertKeys => throw _privateConstructorUsedError;
   LoadingStatus get loadingStatus => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -42,7 +41,6 @@ abstract class $VirtualAppStateCopyWith<$Res> {
       json_widget.Widget widgetWillBeUpdatedIn,
       json_widget.Widget hoveredWidget,
       List<AppCreatyPage> pages,
-      List<String> canInsertKeys,
       LoadingStatus loadingStatus});
 
   $WidgetCopyWith<$Res> get virtualAppWidget;
@@ -69,7 +67,6 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
     Object? widgetWillBeUpdatedIn = null,
     Object? hoveredWidget = null,
     Object? pages = null,
-    Object? canInsertKeys = null,
     Object? loadingStatus = null,
   }) {
     return _then(_value.copyWith(
@@ -93,10 +90,6 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
           ? _value.pages
           : pages // ignore: cast_nullable_to_non_nullable
               as List<AppCreatyPage>,
-      canInsertKeys: null == canInsertKeys
-          ? _value.canInsertKeys
-          : canInsertKeys // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       loadingStatus: null == loadingStatus
           ? _value.loadingStatus
           : loadingStatus // ignore: cast_nullable_to_non_nullable
@@ -151,7 +144,6 @@ abstract class _$$_VirtualAppStateCopyWith<$Res>
       json_widget.Widget widgetWillBeUpdatedIn,
       json_widget.Widget hoveredWidget,
       List<AppCreatyPage> pages,
-      List<String> canInsertKeys,
       LoadingStatus loadingStatus});
 
   @override
@@ -180,7 +172,6 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
     Object? widgetWillBeUpdatedIn = null,
     Object? hoveredWidget = null,
     Object? pages = null,
-    Object? canInsertKeys = null,
     Object? loadingStatus = null,
   }) {
     return _then(_$_VirtualAppState(
@@ -204,10 +195,6 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
           ? _value._pages
           : pages // ignore: cast_nullable_to_non_nullable
               as List<AppCreatyPage>,
-      canInsertKeys: null == canInsertKeys
-          ? _value._canInsertKeys
-          : canInsertKeys // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       loadingStatus: null == loadingStatus
           ? _value.loadingStatus
           : loadingStatus // ignore: cast_nullable_to_non_nullable
@@ -225,10 +212,8 @@ class _$_VirtualAppState implements _VirtualAppState {
       this.widgetWillBeUpdatedIn = const json_widget.Scaffold(),
       this.hoveredWidget = const json_widget.Scaffold(),
       final List<AppCreatyPage> pages = const <AppCreatyPage>[],
-      final List<String> canInsertKeys = const <String>[],
       this.loadingStatus = LoadingStatus.initial})
-      : _pages = pages,
-        _canInsertKeys = canInsertKeys;
+      : _pages = pages;
 
   @override
   @JsonKey()
@@ -251,22 +236,13 @@ class _$_VirtualAppState implements _VirtualAppState {
     return EqualUnmodifiableListView(_pages);
   }
 
-  final List<String> _canInsertKeys;
-  @override
-  @JsonKey()
-  List<String> get canInsertKeys {
-    if (_canInsertKeys is EqualUnmodifiableListView) return _canInsertKeys;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_canInsertKeys);
-  }
-
   @override
   @JsonKey()
   final LoadingStatus loadingStatus;
 
   @override
   String toString() {
-    return 'VirtualAppState(virtualAppWidget: $virtualAppWidget, selectedWidget: $selectedWidget, widgetWillBeUpdatedIn: $widgetWillBeUpdatedIn, hoveredWidget: $hoveredWidget, pages: $pages, canInsertKeys: $canInsertKeys, loadingStatus: $loadingStatus)';
+    return 'VirtualAppState(virtualAppWidget: $virtualAppWidget, selectedWidget: $selectedWidget, widgetWillBeUpdatedIn: $widgetWillBeUpdatedIn, hoveredWidget: $hoveredWidget, pages: $pages, loadingStatus: $loadingStatus)';
   }
 
   @override
@@ -283,8 +259,6 @@ class _$_VirtualAppState implements _VirtualAppState {
             (identical(other.hoveredWidget, hoveredWidget) ||
                 other.hoveredWidget == hoveredWidget) &&
             const DeepCollectionEquality().equals(other._pages, _pages) &&
-            const DeepCollectionEquality()
-                .equals(other._canInsertKeys, _canInsertKeys) &&
             (identical(other.loadingStatus, loadingStatus) ||
                 other.loadingStatus == loadingStatus));
   }
@@ -297,7 +271,6 @@ class _$_VirtualAppState implements _VirtualAppState {
       widgetWillBeUpdatedIn,
       hoveredWidget,
       const DeepCollectionEquality().hash(_pages),
-      const DeepCollectionEquality().hash(_canInsertKeys),
       loadingStatus);
 
   @JsonKey(ignore: true)
@@ -314,7 +287,6 @@ abstract class _VirtualAppState implements VirtualAppState {
       final json_widget.Widget widgetWillBeUpdatedIn,
       final json_widget.Widget hoveredWidget,
       final List<AppCreatyPage> pages,
-      final List<String> canInsertKeys,
       final LoadingStatus loadingStatus}) = _$_VirtualAppState;
 
   @override
@@ -327,8 +299,6 @@ abstract class _VirtualAppState implements VirtualAppState {
   json_widget.Widget get hoveredWidget;
   @override
   List<AppCreatyPage> get pages;
-  @override
-  List<String> get canInsertKeys;
   @override
   LoadingStatus get loadingStatus;
   @override

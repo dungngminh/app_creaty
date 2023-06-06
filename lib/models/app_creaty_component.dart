@@ -97,16 +97,21 @@ enum AppCreatyComponent implements IAppCreatyComponent {
         return json_widget.Widget.row(key: key);
       case AppCreatyComponent.container:
         const color = json_widget.Colors.blue;
+        // final containerChildKey = json_widget.ValueKey(const Uuid().v4());
+        // final containerChild =
+        //     json_widget.Widget.sizedBox(key: containerChildKey);
         const boxDecoration = json_widget.BoxDecoration(color: color);
         return json_widget.Widget.container(
           key: key,
           width: Constants.kDefaultWidthHeight,
           height: Constants.kDefaultHeightWidget,
           decoration: boxDecoration,
+          alignment: json_widget.Alignment.topLeft,
+          // child: containerChild,
         );
       case AppCreatyComponent.image:
         final defaultImageProvider = json_widget.ImageProvider.asset(
-          Assets.images.png.defaultImage.path,
+          Assets.images.png.pleple.path,
         );
         const defaultBoxFit = json_widget.BoxFit.cover;
         return json_widget.Widget.image(

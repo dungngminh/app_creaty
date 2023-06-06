@@ -34,98 +34,280 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
 
   final EditorBloc editorBloc;
 
+  // void _onAddWidgetToTree(
+  //   AddWidgetToTree event,
+  //   Emitter<VirtualAppState> emit,
+  // ) {
+  //   final receviedWidget = event.widget;
+  //   final currentWidget = state.virtualAppWidget as Scaffold;
+  //   // final intoWidgetData = event.intoWidget;
+
+  //   final currentWidgetWillBeUpdatedIn = state.widgetWillBeUpdatedIn;
+
+  //   final canUpdate = currentWidgetWillBeUpdatedIn.hasKey('children') ||
+  //       currentWidgetWillBeUpdatedIn.hasKey('child') ||
+  //       currentWidgetWillBeUpdatedIn.hasKey('body');
+
+  //   /// If widget doesn't have child and children prop
+  //   if (!canUpdate) return;
+
+  //   final currentVirtualAppWidget = state.virtualAppWidget as Scaffold;
+  //   log(currentVirtualAppWidget.toJson().toString());
+  //   if (currentWidgetWillBeUpdatedIn is Column) {
+  //     final currentChildren = List.of(currentWidgetWillBeUpdatedIn.children)
+  //       ..add(receviedWidget);
+  //     final updatedColumn =
+  //         currentWidgetWillBeUpdatedIn.copyWith(children: currentChildren);
+
+  //     /// Check Column widget to in body of Scaffold
+
+  //     final updatedColumnKey = updatedColumn.key;
+
+  //     final currentWidgetInScaffold = currentVirtualAppWidget.body;
+  //     final currentWidgetInScaffoldKey = currentWidgetInScaffold?.key;
+
+  //     final isSameKey = updatedColumnKey == currentWidgetInScaffoldKey;
+  //     if (!isSameKey) return;
+
+  //     final newScaffoldWithNewBody =
+  //         currentVirtualAppWidget.copyWith(body: updatedColumn);
+
+  //     emit(
+  //       state.copyWith(
+  //         virtualAppWidget: newScaffoldWithNewBody,
+  //         selectedWidget: receviedWidget,
+  //         widgetWillBeUpdatedIn: updatedColumn,
+  //       ),
+  //     );
+  //     return;
+  //   }
+
+  //   if (currentWidgetWillBeUpdatedIn is Row) {
+  //     final currentChildren = List.of(currentWidgetWillBeUpdatedIn.children)
+  //       ..add(receviedWidget);
+  //     final updatedRow =
+  //         currentWidgetWillBeUpdatedIn.copyWith(children: currentChildren);
+
+  //     /// Check Row widget to in body of Scaffold
+
+  //     final updatedRowKey = updatedRow.key;
+
+  //     final currentWidgetInScaffold = currentVirtualAppWidget.body;
+  //     final currentWidgetInScaffoldKey = currentWidgetInScaffold?.key;
+
+  //     final isSameKey = updatedRowKey == currentWidgetInScaffoldKey;
+  //     if (!isSameKey) return;
+
+  //     final newScaffoldWithNewBody =
+  //         currentVirtualAppWidget.copyWith(body: updatedRow);
+
+  //     emit(
+  //       state.copyWith(
+  //         virtualAppWidget: newScaffoldWithNewBody,
+  //         selectedWidget: receviedWidget,
+  //         widgetWillBeUpdatedIn: updatedRow,
+  //       ),
+  //     );
+  //     return;
+  //   }
+
+  //   final updatedCurrentWidget = currentWidget.copyWith(body: receviedWidget);
+
+  //   emit(
+  //     state.copyWith(
+  //       virtualAppWidget: updatedCurrentWidget,
+  //       selectedWidget: receviedWidget,
+  //       widgetWillBeUpdatedIn: receviedWidget,
+  //     ),
+  //   );
+  // }
+
   void _onAddWidgetToTree(
     AddWidgetToTree event,
     Emitter<VirtualAppState> emit,
   ) {
+    // Recurisve function to add widget to tree
     final receviedWidget = event.widget;
-    final currentWidget = state.virtualAppWidget as Scaffold;
-    // final intoWidgetData = event.intoWidget;
-
-    final canInsertKeys = <String>[];
-
+    final currentVirtualApp = state.virtualAppWidget as Scaffold;
     final currentWidgetWillBeUpdatedIn = state.widgetWillBeUpdatedIn;
 
-    final canUpdate = currentWidgetWillBeUpdatedIn.hasKey('children') ||
-        currentWidgetWillBeUpdatedIn.hasKey('child') ||
-        currentWidgetWillBeUpdatedIn.hasKey('body');
-
-    /// If widget doesn't have child and children prop
-    if (!canUpdate) return;
-
-    final currentVirtualAppWidget = state.virtualAppWidget as Scaffold;
-
-    if (currentWidgetWillBeUpdatedIn is Column) {
-      final currentChildren = List.of(currentWidgetWillBeUpdatedIn.children)
-        ..add(receviedWidget);
-      final updatedColumn =
-          currentWidgetWillBeUpdatedIn.copyWith(children: currentChildren);
-
-      /// Check Column widget to in body of Scaffold
-
-      final updatedColumnKey = updatedColumn.key;
-
-      final currentWidgetInScaffold = currentVirtualAppWidget.body;
-      final currentWidgetInScaffoldKey = currentWidgetInScaffold?.key;
-
-      final isSameKey = updatedColumnKey == currentWidgetInScaffoldKey;
-      if (!isSameKey) return;
-
-      final newScaffoldWithNewBody =
-          currentVirtualAppWidget.copyWith(body: updatedColumn);
-
+    final body = currentVirtualApp.body;
+    if (body == null) {
+      final updatedVirtualApp =
+          currentVirtualApp.copyWith(body: receviedWidget);
       emit(
         state.copyWith(
-          virtualAppWidget: newScaffoldWithNewBody,
+          virtualAppWidget: updatedVirtualApp,
           selectedWidget: receviedWidget,
-          widgetWillBeUpdatedIn: updatedColumn,
-          canInsertKeys: canInsertKeys,
+          widgetWillBeUpdatedIn: receviedWidget.canUpdateIn
+              ? receviedWidget
+              : state.widgetWillBeUpdatedIn,
         ),
       );
-      return;
-    }
-
-    if (currentWidgetWillBeUpdatedIn is Row) {
-      final currentChildren = List.of(currentWidgetWillBeUpdatedIn.children)
-        ..add(receviedWidget);
-      final updatedRow =
-          currentWidgetWillBeUpdatedIn.copyWith(children: currentChildren);
-
-      /// Check Row widget to in body of Scaffold
-
-      final updatedRowKey = updatedRow.key;
-
-      final currentWidgetInScaffold = currentVirtualAppWidget.body;
-      final currentWidgetInScaffoldKey = currentWidgetInScaffold?.key;
-
-      final isSameKey = updatedRowKey == currentWidgetInScaffoldKey;
-      if (!isSameKey) return;
-
-      final newScaffoldWithNewBody =
-          currentVirtualAppWidget.copyWith(body: updatedRow);
-
+    } else {
+      if (!currentWidgetWillBeUpdatedIn.canUpdateIn) return;
+      final widget = findAndAdd(
+        addedWidget: receviedWidget.toJson(),
+        tree: body.toJson(),
+        willUpdatedIn: currentWidgetWillBeUpdatedIn.toJson(),
+      );
+      log(widget.toString());
+      final updatedVirtualApp =
+          currentVirtualApp.copyWith(body: Widget.fromJson(widget));
       emit(
         state.copyWith(
-          virtualAppWidget: newScaffoldWithNewBody,
+          virtualAppWidget: updatedVirtualApp,
           selectedWidget: receviedWidget,
-          widgetWillBeUpdatedIn: updatedRow,
-          canInsertKeys: canInsertKeys,
+          widgetWillBeUpdatedIn: receviedWidget.canUpdateIn
+              ? receviedWidget
+              : state.widgetWillBeUpdatedIn,
         ),
       );
-      return;
     }
-
-    final updatedCurrentWidget = currentWidget.copyWith(body: receviedWidget);
-
-    emit(
-      state.copyWith(
-        virtualAppWidget: updatedCurrentWidget,
-        selectedWidget: receviedWidget,
-        widgetWillBeUpdatedIn: receviedWidget,
-        canInsertKeys: canInsertKeys,
-      ),
-    );
   }
+
+  Map<String, dynamic> findAndAdd({
+    required Map<String, dynamic> addedWidget,
+    required Map<String, dynamic> willUpdatedIn,
+    required Map<String, dynamic> tree,
+  }) {
+    if (tree['key'].toString() == willUpdatedIn['key'].toString()) {
+      if (tree.containsKey('children')) {
+        tree.update(
+          'children',
+          (values) => [
+            ...values as List,
+            addedWidget,
+          ],
+        );
+      } else {
+        tree.update(
+          'child',
+          (values) => addedWidget,
+        );
+      }
+      return tree;
+    } else {
+      if (tree['runtimeType'] == 'column' || tree['runtimeType'] == 'row') {
+        if ((tree['children'] as List<Map<String, dynamic>>).isEmpty) {
+          return findAndAdd(
+            addedWidget: addedWidget,
+            willUpdatedIn: willUpdatedIn,
+            tree: tree,
+          );
+        } else {
+          final newTree =
+              (tree['children'] as List<Map<String, dynamic>>).map((child) {
+            return findAndAdd(
+              addedWidget: addedWidget,
+              willUpdatedIn: willUpdatedIn,
+              tree: child,
+            );
+          }).toList();
+          tree.update('children', (_) => newTree);
+          return tree;
+        }
+      } else if (tree['runtimeType'] == 'elevatedButton' ||
+          tree['runtimeType'] == 'container') {
+        final child = tree['child'] as Map<String, dynamic>?;
+        if (child == null) {
+          return tree;
+        }
+        final newChild = findAndAdd(
+          addedWidget: addedWidget,
+          willUpdatedIn: willUpdatedIn,
+          tree: child,
+        );
+        tree.update('child', (_) => newChild);
+        return tree;
+      }
+      return tree;
+    }
+  }
+
+  // Widget findAndAdd({
+  //   required json_widget.Widget addedWidget,
+  //   required json_widget.Widget willUpdatedIn,
+  //   required json_widget.Widget app,
+  // }) {
+  //   log(addedWidget.toString(), name: 'Added Widget');
+  //   log(willUpdatedIn.toString(), name: 'willUpdatedIn Widget');
+  //   log(app.toString(), name: 'app Widget');
+  //   Widget updatedApp = const SizedBox();
+  //   if (app.key == willUpdatedIn.key) {
+  //     if (app is json_widget.Column) {
+  //       updatedApp = app.copyWith(children: [...app.children, addedWidget]);
+  //     } else if (app is json_widget.Row) {
+  //       log(app.toString(), name: 'find Row Widget');
+  //       updatedApp = app.copyWith(children: [...app.children, addedWidget]);
+  //     } else if (app is json_widget.Container) {
+  //       updatedApp = app.copyWith(child: addedWidget);
+  //     } else if (app is json_widget.ElevatedButton) {
+  //       updatedApp = app.copyWith(child: addedWidget);
+  //     } else {
+  //       updatedApp = const json_widget.SizedBox();
+  //     }
+  //     log(updatedApp.toString(), name: 'Updated Widget');
+  //     return updatedApp;
+  //   } else {
+  //     if (app is json_widget.Column) {
+  //       if (app.children.isEmpty) {
+  //         updatedApp = app.copyWith(
+  //           children: [
+  //             findAndAdd(
+  //               addedWidget: addedWidget,
+  //               willUpdatedIn: willUpdatedIn,
+  //               app: app,
+  //             )
+  //           ],
+  //         );
+  //         log(updatedApp.toString());
+  //       } else {
+  //         for (final child in app.children) {
+  //           updatedApp = findAndAdd(
+  //             addedWidget: addedWidget,
+  //             willUpdatedIn: willUpdatedIn,
+  //             app: child,
+  //           );
+  //         }
+  //       }
+  //     } else if (app is json_widget.Row) {
+  //       if (app.children.isEmpty) {
+  //         updatedApp = findAndAdd(
+  //           addedWidget: addedWidget,
+  //           willUpdatedIn: willUpdatedIn,
+  //           app: app,
+  //         );
+  //         log(updatedApp.toString(), name: 'Updated');
+  //       } else {
+  //         final updatedWidget = app.children.map(
+  //           (child) => findAndAdd(
+  //             addedWidget: addedWidget,
+  //             willUpdatedIn: willUpdatedIn,
+  //             app: child,
+  //           ),
+  //         );
+  //         log(updatedWidget.toString(), name: 'Updated');
+  //         updatedApp = app.copyWith(children: updatedWidget.toList());
+  //       }
+  //     } else if (app is json_widget.Container) {
+  //       updatedApp = findAndAdd(
+  //         addedWidget: addedWidget,
+  //         willUpdatedIn: willUpdatedIn,
+  //         app: app.child!,
+  //       );
+  //     } else if (app is json_widget.ElevatedButton) {
+  //       updatedApp = findAndAdd(
+  //         addedWidget: addedWidget,
+  //         willUpdatedIn: willUpdatedIn,
+  //         app: app.child,
+  //       );
+  //     } else {
+  //       updatedApp = app;
+  //     }
+  //     return updatedApp;
+  //   }
+  // }
 
   void _onChangeProp(ChangeProp event, Emitter<VirtualAppState> emit) {
     final currentWidget = state.virtualAppWidget as Scaffold;
@@ -236,13 +418,11 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     );
     final initialKey = json_widget.ValueKey(const Uuid().v4());
     final initialWidget = json_widget.Scaffold(key: initialKey);
-    final intialCanInsertKeys = ['body'];
     await Future<void>.delayed(4.seconds);
     emit(
       state.copyWith(
         pages: [page],
         loadingStatus: LoadingStatus.done,
-        canInsertKeys: intialCanInsertKeys,
         selectedWidget: initialWidget,
         virtualAppWidget: initialWidget,
         widgetWillBeUpdatedIn: initialWidget,
@@ -255,7 +435,9 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     final selectedWidget = event.selectedWidget;
     emit(
       state.copyWith(
-        widgetWillBeUpdatedIn: selectedWidget,
+        widgetWillBeUpdatedIn: selectedWidget.canUpdateIn
+            ? selectedWidget
+            : state.widgetWillBeUpdatedIn,
         selectedWidget: selectedWidget,
       ),
     );

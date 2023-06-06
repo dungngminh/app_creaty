@@ -10,4 +10,14 @@ extension JsonWidgetExtension on json_widget.Widget {
   bool hasKey(Object key) {
     return toJson().containsKey(key);
   }
+
+  bool get canUpdateIn {
+    return hasKey('child') || hasKey('body') || hasKey('children');
+  }
+}
+
+extension WidgetInJsonExtension on Map<String, dynamic>{
+
+
+  
 }
