@@ -32,33 +32,47 @@ class _VirtualAppViewState extends State<VirtualAppView> {
             (EditorBloc bloc) => bloc.state.isVirtualKeyboardEnable,
           );
           final isFrameVisible =
-              context.select((EditorBloc bloc) => bloc.state.isFrameVisibe);
-          final virtualAppWidgetData = context
-              .select((VirtualAppBloc bloc) => bloc.state.virtualAppWidgetData);
-          final selectedWidget = context
-              .select((VirtualAppBloc bloc) => bloc.state.selectedWidgetData);
+              context.select((EditorBloc bloc) => bloc.state.isFrameVisible);
+          final virtualAppWidgetData = context.select(
+            (VirtualAppBloc bloc) => bloc.state.virtualAppWidget,
+          );
+          final selectedWidget = context.select(
+            (VirtualAppBloc bloc) => bloc.state.selectedWidget,
+          );
+          final hoveredWidget =
+              context.select((VirtualAppBloc bloc) => bloc.state.hoveredWidget);
           return DeviceFrame(
             device: currentDevice,
             isFrameVisible: isFrameVisible,
             screen: VirtualKeyboard(
               isEnabled: isVirtualKeyboardEnable,
-              child: json_widget.FlutterWidget.json(
-                json: virtualAppWidgetData,
+              child: json_widget.FlutterWidget(
+                widget: virtualAppWidgetData,
                 wrappingBuilder: (context, item, child) {
                   return Builder(
                     key: ValueKey(item.hashCode),
                     builder: (context) {
                       var isHover = false;
-                      return StatefulBuilder(
-                        builder: (_, StateSetter setState) {
-                          return GestureDetector(
-                            onTap: () => context.read<VirtualAppBloc>().add(
-                                  ChangeWidget(
-                                    selectedWidget:
-                                        (item as json_widget.Widget).toJson(),
-                                  ),
-                                ),
-                            child: MouseRegion(
+                      return GestureDetector(
+                        onTap: () => context.read<VirtualAppBloc>().add(
+                              ChangeWidget(
+                                selectedWidget: item as json_widget.Widget,
+                              ),
+                            ),
+                        child: StatefulBuilder(
+                          builder: (context, setState) {
+                            return MouseRegion(
+                              onHover: (_) {
+                                final widget = item as json_widget.Widget;
+                                // log((hoveredWidget == widget).toString(), name: widget.);
+                                if (hoveredWidget.key != widget.key) {
+                                  // context.read<VirtualAppBloc>().add(
+                                  //       HoverWidget(
+                                  //         hoverWidget: item,
+                                  //       ),
+                                  //     );
+                                }
+                              },
                               onEnter: (_) {
                                 setState(() {
                                   isHover = true;
@@ -92,9 +106,9 @@ class _VirtualAppViewState extends State<VirtualAppView> {
                                   ],
                                 ),
                               ),
-                            ),
-                          );
-                        },
+                            );
+                          },
+                        ),
                       );
                     },
                   );
@@ -107,7 +121,7 @@ class _VirtualAppViewState extends State<VirtualAppView> {
         onAccept: (component) {
           context
               .read<VirtualAppBloc>()
-              .add(AddWidgetToTree(widgetData: component.data));
+              .add(AddWidgetToTree(widget: component.data));
         },
       ),
     );

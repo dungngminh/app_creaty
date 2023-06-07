@@ -1,12 +1,11 @@
+import 'package:app_creaty/commons/constants/constants.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:flutter/material.dart' hide ImageProvider;
 import 'package:json_widget/json_widget.dart' as json_widget;
 import 'package:uuid/uuid.dart';
 
-const _defaultTextValue =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit,'
-    ' sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+
 
 enum AppCreatyComponentGroup {
   common,
@@ -32,7 +31,7 @@ abstract class IAppCreatyComponent {
 
   SvgGenImage get illustration;
 
-  Map<String, dynamic> get data;
+  json_widget.Widget get data;
 
   AppCreatyWidgetRenderType get renderType;
 
@@ -84,41 +83,54 @@ enum AppCreatyComponent implements IAppCreatyComponent {
   }
 
   @override
-  Map<String, dynamic> get data {
+  json_widget.Widget get data {
     final key = json_widget.ValueKey(const Uuid().v4());
     switch (this) {
       case AppCreatyComponent.text:
-        return json_widget.Widget.text(_defaultTextValue, key: key).toJson();
+        return json_widget.Widget.text(
+          Constants.kDefaultTextValue,
+          key: key,
+        );
       case AppCreatyComponent.column:
-        return json_widget.Widget.column(key: key).toJson();
+        return json_widget.Widget.column(key: key);
       case AppCreatyComponent.row:
-        return json_widget.Widget.row(key: key).toJson();
+        return json_widget.Widget.row(key: key);
       case AppCreatyComponent.container:
         const color = json_widget.Colors.blue;
+        // final containerChildKey = json_widget.ValueKey(const Uuid().v4());
+        // final containerChild =
+        //     json_widget.Widget.sizedBox(key: containerChildKey);
         const boxDecoration = json_widget.BoxDecoration(color: color);
-        const defaultWidthHeight = 200.0;
         return json_widget.Widget.container(
           key: key,
-          width: defaultWidthHeight,
-          height: defaultWidthHeight,
+          width: Constants.kDefaultWidthHeight,
+          height: Constants.kDefaultHeightWidget,
           decoration: boxDecoration,
-        ).toJson();
+          alignment: json_widget.Alignment.topLeft,
+          // child: containerChild,
+        );
       case AppCreatyComponent.image:
         final defaultImageProvider = json_widget.ImageProvider.asset(
-          Assets.images.png.defaultImage.path,
+          Assets.images.png.pleple.path,
         );
+        const defaultBoxFit = json_widget.BoxFit.cover;
         return json_widget.Widget.image(
           image: defaultImageProvider,
           key: key,
-        ).toJson();
+          height: Constants.kDefaultHeightWidget,
+          width: Constants.kDefaultWidthHeight,
+          fit: defaultBoxFit,
+        );
       case AppCreatyComponent.elevatedButton:
-        const elevatedButtonChild = json_widget.Widget.text('Button');
+        final elevatedButtonChildKey = json_widget.ValueKey(const Uuid().v4());
+        final elevatedButtonChild =
+            json_widget.Widget.text('Button', key: elevatedButtonChildKey);
         const callback = json_widget.Callback.empty();
         return json_widget.Widget.elevatedButton(
           key: key, 
           child: elevatedButtonChild,
           onPressed: callback,
-        ).toJson();
+        );
     }
   }
 

@@ -5,7 +5,7 @@ class EditorState with _$EditorState {
   const factory EditorState({
     required DeviceInfo currentDevice,
     required AppCreatyProject currentProject,
-    @Default(true) bool isFrameVisibe,
+    @Default(true) bool isFrameVisible,
     @Default(false) bool isVirtualKeyboardEnable,
     ProjectInfo? projectInfo,
   }) = _EditorState;

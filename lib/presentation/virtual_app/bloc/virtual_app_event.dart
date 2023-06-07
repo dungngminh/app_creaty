@@ -8,14 +8,20 @@ class VirtualAppEvent implements Equatable, ReplayEvent {
   bool? get stringify => true;
 }
 
-class VirtualAppLoaded extends VirtualAppEvent {}
+class VirtualAppLoaded extends VirtualAppEvent {
+  @override
+  List<Object?> get props => [];
+}
 
 class AddWidgetToTree extends VirtualAppEvent {
   AddWidgetToTree({
-    required this.widgetData,
+    required this.widget,
   });
 
-  final Map<String, dynamic> widgetData;
+  final json_widget.Widget widget;
+
+  @override
+  List<Object?> get props => [widget];
 }
 
 class AddPageToTree extends VirtualAppEvent {
@@ -33,21 +39,28 @@ class ChangePage extends VirtualAppEvent {
 
 class ChangeProp extends VirtualAppEvent {
   ChangeProp({
-    required this.changeField,
-    required this.widgetData,
+    required this.widget,
   });
-  final Map<String, dynamic> changeField;
-  final Map<String, dynamic> widgetData;
+  final json_widget.Widget widget;
 
   @override
-  List<Object?> get props => [widgetData, changeField];
+  List<Object?> get props => [widget];
 }
 
 class ChangeWidget extends VirtualAppEvent {
   ChangeWidget({required this.selectedWidget});
 
-  final Map<String, dynamic> selectedWidget;
+  final json_widget.Widget selectedWidget;
 
   @override
   List<Object?> get props => [selectedWidget];
+}
+
+class HoverWidget extends VirtualAppEvent {
+  HoverWidget({required this.hoverWidget});
+
+  final json_widget.Widget hoverWidget;
+
+  @override
+  List<Object?> get props => [hoverWidget];
 }

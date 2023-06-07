@@ -52,13 +52,14 @@ dependencies:
   path: ^1.8.2
   path_provider: ^2.0.14
   recase: ^4.1.0
-  shortid: ^0.1.2
   replay_bloc: ^0.2.3
+  shortid: ^0.1.2
   uuid: ^3.0.7
   vector_math: ^2.1.4
   window_manager: ^0.3.2
   yaml: ^3.1.1
   ms_map_utils: ^1.1.0
+  flutter_json_viewer: ^1.0.1
 
 dev_dependencies:
   build_runner: ^2.3.3

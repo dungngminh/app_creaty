@@ -53,29 +53,29 @@ class _EditorPanelState extends State<EditorPanel> {
   @override
   Widget build(BuildContext context) {
     return MultiSplitViewTheme(
-        data: MultiSplitViewThemeData(
-          dividerPainter: DividerPainters.grooved1(
-            color: Colors.indigo.shade100,
-            highlightedColor: Colors.indigo.shade900,
-            size: 30,
-          ),
+      data: MultiSplitViewThemeData(
+        dividerPainter: DividerPainters.grooved1(
+          color: Colors.indigo.shade100,
+          highlightedColor: Colors.indigo.shade900,
+          size: 30,
         ),
-        child: MultiSplitView(
-          controller: _splitViewController,
-          children: [
-            ValueListenableBuilder(
-              valueListenable: _currentToolPanelNotifier,
-              builder: (context, currentToolPanelIndex, _) {
-                return ToolPanelView(
-                  currentIndex: currentToolPanelIndex,
-                );
-              },
-            ),
-            VirtualAppView(
-              interactiveViewController: _interactiveViewController,
-            ),
-            const PropertiesPanelView(),
-          ],
+      ),
+      child: MultiSplitView(
+        controller: _splitViewController,
+        children: [
+          ValueListenableBuilder(
+            valueListenable: _currentToolPanelNotifier,
+            builder: (context, currentToolPanelIndex, _) {
+              return ToolPanelView(
+                currentTab: ToolPanelTab.values[currentToolPanelIndex],
+              );
+            },
+          ),
+          VirtualAppView(
+            interactiveViewController: _interactiveViewController,
+          ),
+          const PropertiesPanelView(),
+        ],
       ),
     );
   }

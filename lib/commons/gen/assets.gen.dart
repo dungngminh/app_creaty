@@ -145,9 +145,132 @@ class $AssetsIconsOtherGen {
   SvgGenImage get boldMenuKebab =>
       const SvgGenImage('assets/icons/other/bold_menu_kebab.svg');
 
+  /// File path: assets/icons/other/box_fit_contain.svg
+  SvgGenImage get boxFitContain =>
+      const SvgGenImage('assets/icons/other/box_fit_contain.svg');
+
+  /// File path: assets/icons/other/box_fit_cover.svg
+  SvgGenImage get boxFitCover =>
+      const SvgGenImage('assets/icons/other/box_fit_cover.svg');
+
+  /// File path: assets/icons/other/box_fit_fill.svg
+  SvgGenImage get boxFitFill =>
+      const SvgGenImage('assets/icons/other/box_fit_fill.svg');
+
+  /// File path: assets/icons/other/box_fit_fit_height.svg
+  SvgGenImage get boxFitFitHeight =>
+      const SvgGenImage('assets/icons/other/box_fit_fit_height.svg');
+
+  /// File path: assets/icons/other/box_fit_fit_width.svg
+  SvgGenImage get boxFitFitWidth =>
+      const SvgGenImage('assets/icons/other/box_fit_fit_width.svg');
+
+  /// File path: assets/icons/other/box_fit_none.svg
+  SvgGenImage get boxFitNone =>
+      const SvgGenImage('assets/icons/other/box_fit_none.svg');
+
+  /// File path: assets/icons/other/box_fit_scale_down.svg
+  SvgGenImage get boxFitScaleDown =>
+      const SvgGenImage('assets/icons/other/box_fit_scale_down.svg');
+
+  /// File path: assets/icons/other/code.svg
+  SvgGenImage get code => const SvgGenImage('assets/icons/other/code.svg');
+
+  /// File path: assets/icons/other/cross_horizontal_center.svg
+  SvgGenImage get crossHorizontalCenter =>
+      const SvgGenImage('assets/icons/other/cross_horizontal_center.svg');
+
+  /// File path: assets/icons/other/cross_horizontal_end.svg
+  SvgGenImage get crossHorizontalEnd =>
+      const SvgGenImage('assets/icons/other/cross_horizontal_end.svg');
+
+  /// File path: assets/icons/other/cross_horizontal_start.svg
+  SvgGenImage get crossHorizontalStart =>
+      const SvgGenImage('assets/icons/other/cross_horizontal_start.svg');
+
+  /// File path: assets/icons/other/cross_horizontal_stretch.svg
+  SvgGenImage get crossHorizontalStretch =>
+      const SvgGenImage('assets/icons/other/cross_horizontal_stretch.svg');
+
+  /// File path: assets/icons/other/cross_vertical_center.svg
+  SvgGenImage get crossVerticalCenter =>
+      const SvgGenImage('assets/icons/other/cross_vertical_center.svg');
+
+  /// File path: assets/icons/other/cross_vertical_end.svg
+  SvgGenImage get crossVerticalEnd =>
+      const SvgGenImage('assets/icons/other/cross_vertical_end.svg');
+
+  /// File path: assets/icons/other/cross_vertical_start.svg
+  SvgGenImage get crossVerticalStart =>
+      const SvgGenImage('assets/icons/other/cross_vertical_start.svg');
+
+  /// File path: assets/icons/other/cross_vertical_stretch.svg
+  SvgGenImage get crossVerticalStretch =>
+      const SvgGenImage('assets/icons/other/cross_vertical_stretch.svg');
+
+  /// File path: assets/icons/other/json_braces.svg
+  SvgGenImage get jsonBraces =>
+      const SvgGenImage('assets/icons/other/json_braces.svg');
+
+  /// File path: assets/icons/other/main_horizontal_center.svg
+  SvgGenImage get mainHorizontalCenter =>
+      const SvgGenImage('assets/icons/other/main_horizontal_center.svg');
+
+  /// File path: assets/icons/other/main_horizontal_end.svg
+  SvgGenImage get mainHorizontalEnd =>
+      const SvgGenImage('assets/icons/other/main_horizontal_end.svg');
+
+  /// File path: assets/icons/other/main_horizontal_space_around.svg
+  SvgGenImage get mainHorizontalSpaceAround =>
+      const SvgGenImage('assets/icons/other/main_horizontal_space_around.svg');
+
+  /// File path: assets/icons/other/main_horizontal_space_between.svg
+  SvgGenImage get mainHorizontalSpaceBetween =>
+      const SvgGenImage('assets/icons/other/main_horizontal_space_between.svg');
+
+  /// File path: assets/icons/other/main_horizontal_space_evenly.svg
+  SvgGenImage get mainHorizontalSpaceEvenly =>
+      const SvgGenImage('assets/icons/other/main_horizontal_space_evenly.svg');
+
+  /// File path: assets/icons/other/main_horizontal_start.svg
+  SvgGenImage get mainHorizontalStart =>
+      const SvgGenImage('assets/icons/other/main_horizontal_start.svg');
+
+  /// File path: assets/icons/other/main_vertical_center.svg
+  SvgGenImage get mainVerticalCenter =>
+      const SvgGenImage('assets/icons/other/main_vertical_center.svg');
+
+  /// File path: assets/icons/other/main_vertical_end.svg
+  SvgGenImage get mainVerticalEnd =>
+      const SvgGenImage('assets/icons/other/main_vertical_end.svg');
+
+  /// File path: assets/icons/other/main_vertical_space_around.svg
+  SvgGenImage get mainVerticalSpaceAround =>
+      const SvgGenImage('assets/icons/other/main_vertical_space_around.svg');
+
+  /// File path: assets/icons/other/main_vertical_space_between.svg
+  SvgGenImage get mainVerticalSpaceBetween =>
+      const SvgGenImage('assets/icons/other/main_vertical_space_between.svg');
+
+  /// File path: assets/icons/other/main_vertical_space_evenly.svg
+  SvgGenImage get mainVerticalSpaceEvenly =>
+      const SvgGenImage('assets/icons/other/main_vertical_space_evenly.svg');
+
+  /// File path: assets/icons/other/main_vertical_start.svg
+  SvgGenImage get mainVerticalStart =>
+      const SvgGenImage('assets/icons/other/main_vertical_start.svg');
+
+  /// File path: assets/icons/other/maximize.svg
+  SvgGenImage get maximize =>
+      const SvgGenImage('assets/icons/other/maximize.svg');
+
   /// File path: assets/icons/other/menu_hamburger.svg
   SvgGenImage get menuHamburger =>
       const SvgGenImage('assets/icons/other/menu_hamburger.svg');
+
+  /// File path: assets/icons/other/minimize.svg
+  SvgGenImage get minimize =>
+      const SvgGenImage('assets/icons/other/minimize.svg');
 
   /// File path: assets/icons/other/plus.svg
   SvgGenImage get plus => const SvgGenImage('assets/icons/other/plus.svg');
@@ -163,8 +286,45 @@ class $AssetsIconsOtherGen {
   SvgGenImage get undo => const SvgGenImage('assets/icons/other/undo.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values =>
-      [boldMenuKebab, menuHamburger, plus, redo, saveAtPath, undo];
+  List<SvgGenImage> get values => [
+        boldMenuKebab,
+        boxFitContain,
+        boxFitCover,
+        boxFitFill,
+        boxFitFitHeight,
+        boxFitFitWidth,
+        boxFitNone,
+        boxFitScaleDown,
+        code,
+        crossHorizontalCenter,
+        crossHorizontalEnd,
+        crossHorizontalStart,
+        crossHorizontalStretch,
+        crossVerticalCenter,
+        crossVerticalEnd,
+        crossVerticalStart,
+        crossVerticalStretch,
+        jsonBraces,
+        mainHorizontalCenter,
+        mainHorizontalEnd,
+        mainHorizontalSpaceAround,
+        mainHorizontalSpaceBetween,
+        mainHorizontalSpaceEvenly,
+        mainHorizontalStart,
+        mainVerticalCenter,
+        mainVerticalEnd,
+        mainVerticalSpaceAround,
+        mainVerticalSpaceBetween,
+        mainVerticalSpaceEvenly,
+        mainVerticalStart,
+        maximize,
+        menuHamburger,
+        minimize,
+        plus,
+        redo,
+        saveAtPath,
+        undo
+      ];
 }
 
 class $AssetsIconsOutlineGen {
@@ -216,12 +376,32 @@ class $AssetsIconsOutlineGen {
 class $AssetsImagesPngGen {
   const $AssetsImagesPngGen();
 
+  /// File path: assets/images/png/AppLogo.jpeg
+  AssetGenImage get appLogo =>
+      const AssetGenImage('assets/images/png/AppLogo.jpeg');
+
   /// File path: assets/images/png/default_image.png
   AssetGenImage get defaultImage =>
       const AssetGenImage('assets/images/png/default_image.png');
 
+  /// File path: assets/images/png/dungminh.jpeg
+  AssetGenImage get dungminh =>
+      const AssetGenImage('assets/images/png/dungminh.jpeg');
+
+  /// File path: assets/images/png/gdscdut.jpg
+  AssetGenImage get gdscdut =>
+      const AssetGenImage('assets/images/png/gdscdut.jpg');
+
+  /// File path: assets/images/png/pleple.jpg
+  AssetGenImage get pleple =>
+      const AssetGenImage('assets/images/png/pleple.jpg');
+
+  /// File path: assets/images/png/test2.jpg
+  AssetGenImage get test2 => const AssetGenImage('assets/images/png/test2.jpg');
+
   /// List of all assets
-  List<AssetGenImage> get values => [defaultImage];
+  List<AssetGenImage> get values =>
+      [appLogo, defaultImage, dungminh, gdscdut, pleple, test2];
 }
 
 class $AssetsImagesSvgGen {
