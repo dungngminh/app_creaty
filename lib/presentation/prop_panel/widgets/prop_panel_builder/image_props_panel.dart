@@ -1,3 +1,4 @@
+
 import 'package:app_creaty/commons/constants/constants.dart';
 import 'package:app_creaty/commons/extensions/json_widget/box_fit_extension.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
@@ -36,10 +37,24 @@ class _ImagePropsPanelState extends State<ImagePropsPanel> {
 
     heightTextEditingController = TextEditingController(
       text: imageHeight?.floor().toString(),
-    );
+    )..addListener(() {
+        final heightText = heightTextEditingController.text;
+        if (heightText.isEmpty) return;
+        final newHeight = double.tryParse(heightText);
+
+        final updatedImage = widget.jsonWidget.copyWith(height: newHeight);
+        context.read<VirtualAppBloc>().add(ChangeProp(widget: updatedImage));
+      });
     widthTextEditingController = TextEditingController(
       text: imageWidth?.floor().toString(),
-    );
+    )..addListener(() {
+        final widthText = widthTextEditingController.text;
+        if (widthText.isEmpty) return;
+        final newWidth = double.tryParse(widthText);
+
+        final updatedImage = widget.jsonWidget.copyWith(width: newWidth);
+        context.read<VirtualAppBloc>().add(ChangeProp(widget: updatedImage));
+      });
   }
 
   @override
@@ -222,15 +237,6 @@ class _ImagePropsPanelState extends State<ImagePropsPanel> {
               FilteringTextInputFormatter.digitsOnly,
             ],
             labelText: context.l10n.imageHeightLabel,
-            onChanged: (value) {
-              if (value.isEmpty) return;
-              final newHeight = double.tryParse(value);
-              final updatedImage =
-                  widget.jsonWidget.copyWith(height: newHeight);
-              context
-                  .read<VirtualAppBloc>()
-                  .add(ChangeProp(widget: updatedImage));
-            },
           ),
         ),
         FieldPropTile(

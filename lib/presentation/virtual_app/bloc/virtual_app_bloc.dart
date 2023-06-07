@@ -171,8 +171,8 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     required Map<String, dynamic> willUpdatedIn,
     required Map<String, dynamic> tree,
   }) {
-    if (tree['key'].toString() == willUpdatedIn['key'].toString()) {
-      if (tree.containsKey('children')) {
+    if (tree.widgetKey == willUpdatedIn.widgetKey) {
+      if (tree.isMultiChildWidget()) {
         tree.update(
           'children',
           (values) => [
@@ -188,8 +188,8 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
       }
       return tree;
     } else {
-      if (tree['runtimeType'] == 'column' || tree['runtimeType'] == 'row') {
-        if ((tree['children'] as List<Map<String, dynamic>>).isEmpty) {
+      if (tree.isMultiChildWidget()) {
+        if (tree.isChildrenEmpty()) {
           return findAndAdd(
             addedWidget: addedWidget,
             willUpdatedIn: willUpdatedIn,
@@ -207,8 +207,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
           tree.update('children', (_) => newTree);
           return tree;
         }
-      } else if (tree['runtimeType'] == 'elevatedButton' ||
-          tree['runtimeType'] == 'container') {
+      } else if (tree.isSingleChildWidget()) {
         final child = tree['child'] as Map<String, dynamic>?;
         if (child == null) {
           return tree;
@@ -310,94 +309,71 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
   // }
 
   void _onChangeProp(ChangeProp event, Emitter<VirtualAppState> emit) {
-    final currentWidget = state.virtualAppWidget as Scaffold;
-    final updatedWidget = findAndUpdateWidgetWithKey(
-      key: event.widget.key,
-      oldWidget: currentWidget,
-      updatedWidget: event.widget,
+    final changedWidget = event.widget;
+    if (changedWidget is Scaffold) {
+      emit(
+        state.copyWith(
+          virtualAppWidget: changedWidget,
+          selectedWidget: changedWidget,
+        ),
+      );
+      return;
+    }
+    final currentWidgetApp = state.virtualAppWidget as Scaffold;
+
+    final currentAppBody = currentWidgetApp.body;
+    if (currentAppBody == null) return;
+    final updatedAppBodyData = findAndUpdateWidget(
+      changedWidget: changedWidget.toJson(),
+      tree: currentAppBody.toJson(),
     );
-    log(updatedWidget.toString(), name: 'Updated Widget');
-    log(event.widget.toString(), name: 'Widget');
-    log(event.widget.key.toString(), name: 'Key');
+    log(updatedAppBodyData.toString());
+
+    final updatedAppBody = json_widget.Widget.fromJson(updatedAppBodyData);
+    final updatedWidgetApp = currentWidgetApp.copyWith(body: updatedAppBody);
     emit(
       state.copyWith(
-        virtualAppWidget: updatedWidget,
-        selectedWidget: event.widget,
+        selectedWidget: changedWidget,
+        virtualAppWidget: updatedWidgetApp,
       ),
     );
   }
 
-  Widget findAndUpdateWidgetWithKey({
-    required json_widget.Key? key,
-    required json_widget.Widget oldWidget,
-    required json_widget.Widget updatedWidget,
+  Map<String, dynamic> findAndUpdateWidget({
+    required Map<String, dynamic> changedWidget,
+    required Map<String, dynamic> tree,
   }) {
-    log(key.toString(), name: 'De quy key');
-    log(oldWidget.toString(), name: 'De quy old widget');
-    log(updatedWidget.toString(), name: 'De quy updated widget');
-
-    if (key == null) return const json_widget.SizedBox();
-    log((oldWidget.key == key).toString(), name: 'Check de quy');
-    if (oldWidget.key == key) {
-      return updatedWidget;
-    }
-    if (oldWidget is json_widget.Scaffold) {
-      if (oldWidget.body == null) {
-        return const json_widget.SizedBox();
-      }
-      findAndUpdateWidgetWithKey(
-        key: oldWidget.body?.key,
-        oldWidget: oldWidget.body!,
-        updatedWidget: updatedWidget,
-      );
-    }
-    if (oldWidget is json_widget.Column) {
-      for (final widget in oldWidget.children) {
-        findAndUpdateWidgetWithKey(
-          key: widget.key,
-          oldWidget: widget,
-          updatedWidget: updatedWidget,
+    if (tree.widgetKey == changedWidget.widgetKey) {
+      return changedWidget;
+    } else {
+      if (tree.isMultiChildWidget()) {
+        if (tree.isChildrenEmpty()) {
+          return tree;
+        } else {
+          final newTree =
+              (tree['children'] as List<Map<String, dynamic>>).map((child) {
+            return findAndUpdateWidget(
+              changedWidget: changedWidget,
+              tree: child,
+            );
+          }).toList();
+          tree.update('children', (_) => newTree);
+          return tree;
+        }
+      } else if (tree.isSingleChildWidget()) {
+        final child = tree['child'] as Map<String, dynamic>?;
+        if (child == null) {
+          return tree;
+        }
+        final newChild = findAndUpdateWidget(
+          changedWidget: changedWidget,
+          tree: child,
         );
+        tree.update('child', (_) => newChild);
+        return tree;
       }
+      return tree;
     }
-    return updatedWidget;
-    // if (oldWidget is json_widget.Scaffold) {
-    //   if (oldWidget.body == null) return;
-    //   findAndUpdateWidgetWithKey(
-    //     key: oldWidget.body?.key ?? const json_widget.ValueKey(''),
-    //     oldWidget: oldWidget.body ?? const SizedBox(),
-    //     updatedWidget: updatedWidget,
-    //   );
-    // }
-
-    // if (oldWidget is json_widget.Column) {
-    //   for (final widget in oldWidget.children) {
-    //     findAndUpdateWidgetWithKey(
-    //       key: widget.key ?? const json_widget.ValueKey(''),
-    //       oldWidget: widget,
-    //       updatedWidget: updatedWidget,
-    //     );
-    //   }
-    // }
-
-    // if (oldWidget is json_widget.Row) {
-    //   for (final widget in oldWidget.children) {
-    //     findAndUpdateWidgetWithKey(
-    //       key: widget.key ?? const json_widget.ValueKey(''),
-    //       oldWidget: widget,
-    //       updatedWidget: updatedWidget,
-    //     );
-    //   }
-    // }
-
-    // if (oldWidget is json_widget.Container) {
-    //   if (oldWidget.child == null) return;
-    //   findAndUpdateWidgetWithKey(
-    //     key: oldWidget.child?.key ?? const json_widget.ValueKey(''),
-    //     oldWidget: oldWidget.child ?? const SizedBox(),
-    //     updatedWidget: updatedWidget,
-    //   );
-    // }
   }
 
   Future<void> _onVirtualAppLoaded(
