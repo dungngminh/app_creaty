@@ -42,6 +42,10 @@ abstract class ProjectRepository {
   Future<void> removeProject(AppCreatyProject project);
 
   Future<void> removeAll();
+
+  // Future<void> updateProject(){
+
+  // }
 }
 
 class ProjectRepositoryImpl extends ProjectRepository {

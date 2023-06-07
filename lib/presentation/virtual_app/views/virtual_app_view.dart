@@ -47,7 +47,7 @@ class _VirtualAppViewState extends State<VirtualAppView> {
             screen: VirtualKeyboard(
               isEnabled: isVirtualKeyboardEnable,
               child: json_widget.FlutterWidget(
-                widget: json_widget.SafeArea(child: virtualAppWidgetData),
+                widget: virtualAppWidgetData,
                 wrappingBuilder: (context, item, child) {
                   return Builder(
                     key: ValueKey(item.hashCode),
