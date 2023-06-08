@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 
-class EditorAppBar extends StatefulWidget with PreferredSizeWidget {
+class EditorAppBar extends StatefulWidget implements PreferredSizeWidget {
   const EditorAppBar({
     super.key,
     this.onHomeButtonPressed,

@@ -64,13 +64,7 @@ class _VirtualAppViewState extends State<VirtualAppView> {
                             return MouseRegion(
                               onHover: (_) {
                                 final widget = item as json_widget.Widget;
-                                // log((hoveredWidget == widget).toString(), name: widget.);
                                 if (hoveredWidget.key != widget.key) {
-                                  // context.read<VirtualAppBloc>().add(
-                                  //       HoverWidget(
-                                  //         hoverWidget: item,
-                                  //       ),
-                                  //     );
                                 }
                               },
                               onEnter: (_) {

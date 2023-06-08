@@ -1695,8 +1695,8 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     widgets.ShapeBorder? outlinedBorder,
   ) {
     if (outlinedBorder is widgets.OutlinedBorder) {
-      final border = outlinedBorder as widgets.ShapeBorder;
-      return $shapeBorder(context, border) as material.OutlinedBorder;
+      final border = outlinedBorder;
+      return $shapeBorder(context, border) as material.OutlinedBorder?;
     }
     return null;
   }
@@ -1722,7 +1722,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
   ) {
     if (border == null) return null;
     if (border is widgets.BoxBorder) {
-      return $shapeBorder(context, border) as material.Border;
+      return $shapeBorder(context, border) as material.Border?;
     }
     return null;
   }
@@ -1781,7 +1781,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     );
   }
 
-  material.Rect? $rect(final widgets.Rect? rect) {
+  material.Rect? $rect(widgets.Rect? rect) {
     if (rect == null) return null;
     return material.Rect.fromLTWH(
       rect.left,
@@ -1900,12 +1900,12 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     );
   }
 
-  material.Matrix4? $matrix4(final Matrix4? matrix4) {
+  material.Matrix4? $matrix4(Matrix4? matrix4) {
     if (matrix4 == null) return null;
     return material.Matrix4.fromList(matrix4.storage.toList());
   }
 
-  material.Size? $size(final widgets.Size? size) {
+  material.Size? $size(widgets.Size? size) {
     if (size == null) return null;
     return material.Size(size.width, size.height);
   }
@@ -2450,7 +2450,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         key: $key(value.key as widgets.Key) as material.LocalKey?,
         selected: value.selected,
         onSelectChanged: (active) {
-          if (active == true) {
+          if (active ?? false) {
             $callback(context, value.onSelect);
           } else {
             $callback(context, value.onDeselect);
@@ -2464,7 +2464,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         index: value.index,
         selected: value.selected,
         onSelectChanged: (active) {
-          if (active == true) {
+          if (active ?? false) {
             $callback(context, value.onSelect);
           } else {
             $callback(context, value.onDeselect);
@@ -2684,8 +2684,8 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
   ) {
     if (tableRow == null) return null;
     return material.TableRow(
-      key: $key(tableRow.key as widgets.Key) as material.LocalKey?,
-      children: $widgets(context, tableRow.children),
+      key: $key(tableRow.key) as material.LocalKey?,
+      children: $widgets(context, tableRow.children) ?? [],
       decoration: $decoration(context, tableRow.decoration),
     );
   }
@@ -2706,8 +2706,8 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
       text: (value) {
         gestures.TapGestureRecognizer? recognizer;
         if (value.onTap != null) {
-          recognizer = gestures.TapGestureRecognizer();
-          recognizer.onTap = $callback(context, value.onTap);
+          recognizer = gestures.TapGestureRecognizer()
+            ..onTap = $callback(context, value.onTap);
         }
         return material.TextSpan(
           text: value.text,
@@ -2757,7 +2757,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     );
   }
 
-  material.DropdownMenuItem? $dropdownMenuItem(
+  material.DropdownMenuItem<dynamic>? $dropdownMenuItem(
     material.BuildContext context,
     widgets.DropdownMenuItem? value,
   ) {
@@ -2815,7 +2815,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         maxLengthEnforcement: $enum(
           value.maxLengthEnforcement,
           services.MaxLengthEnforcement.values,
-        )!,
+        ),
       ),
       filtering: (value) => services.FilteringTextInputFormatter(
         RegExp(value.filterPattern),
@@ -2848,7 +2848,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         padding: $edgeInsets(value.padding),
         textStyle: $textStyle(context, value.textStyle),
         mouseCursor: $mouseCursor(value.mouseCursor),
-        child: $widget(context, value.child)!,
+        child: $widget(context, value.child),
       ),
       divider: (value) => material.PopupMenuDivider(
         key: $key(value.key),
@@ -2862,7 +2862,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         padding: $edgeInsets(value.padding),
         height: value.height,
         mouseCursor: $mouseCursor(value.mouseCursor),
-        child: $widget(context, value.child)!,
+        child: $widget(context, value.child),
       ),
     );
   }
@@ -3853,7 +3853,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         sortColumnIndex: value.sortColumnIndex,
         sortAscending: value.sortAscending,
         onSelectAll: (all) {
-          if (all == true) {
+          if (all ?? false) {
             $callback(context, value.onSelectAll);
           } else {
             $callback(context, value.onDeselectAll);
@@ -4029,7 +4029,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
       form: (value) => material.Form(
         key: $key(value.key),
         autovalidateMode:
-            $enum(value.autovalidateMode, material.AutovalidateMode.values)!,
+            $enum(value.autovalidateMode, material.AutovalidateMode.values),
         onChanged: $callback(context, value.onChanged),
         child: $widget(context, value.child)!,
       ),
@@ -4138,7 +4138,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         key: $key(value.key),
         ignoring: value.ignoring,
         ignoringSemantics: value.ignoringSemantics,
-        child: $widget(context, value.child)!,
+        child: $widget(context, value.child),
       ),
       textRich: (value) => material.Text.rich(
         $inlineSpan(context, value.textSpan)!,
@@ -4192,6 +4192,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
             $enum(value.textWidthBasis, material.TextWidthBasis.values),
       ),
       selectableTextRich: (value) => material.SelectableText.rich(
+        // ignore: cast_nullable_to_non_nullable
         $inlineSpan(context, value.textSpan) as material.TextSpan,
         key: $key(value.key),
         style: $textStyle(context, value.style),
@@ -4286,8 +4287,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
       responsive: (value) => material.LayoutBuilder(
         builder: (context, constraints) {
           final width = constraints.maxWidth;
-          final breakpoints = value.breakpoints.keys.toList();
-          breakpoints.sort();
+          final breakpoints = value.breakpoints.keys.toList()..sort();
           for (final breakpoint in breakpoints.reversed.toList()) {
             if (width >= breakpoint) {
               final target = value.breakpoints[breakpoint];

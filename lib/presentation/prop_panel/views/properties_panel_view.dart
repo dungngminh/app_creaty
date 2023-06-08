@@ -17,44 +17,36 @@ class _PropertiesPanelViewState extends State<PropertiesPanelView> {
   Widget build(BuildContext context) {
     final selectedWidget = context.watch<VirtualAppBloc>().state.selectedWidget;
     final key = ValueKey(selectedWidget.key.toString());
-    switch (selectedWidget.runtimeTypeValue) {
-      case 'scaffold':
-        return ScaffoldPropsPanel(
+    return switch (selectedWidget.runtimeTypeValue) {
+      'scaffold' => ScaffoldPropsPanel(
           key: key,
           jsonWidget: selectedWidget as json_widget.Scaffold,
-        );
-      case 'text':
-        return TextPropsPanel(
+        ),
+      'text' => TextPropsPanel(
           key: key,
           jsonWidget: selectedWidget as json_widget.Text,
-        );
-      case 'image':
-        return ImagePropsPanel(
+        ),
+      'image' => ImagePropsPanel(
           key: key,
           jsonWidget: selectedWidget as json_widget.Image,
-        );
-      case 'elevatedButton':
-        return ButtonPropsPanel(
+        ),
+      'elevatedButton' => ButtonPropsPanel(
           key: key,
           jsonWidget: selectedWidget as json_widget.ElevatedButton,
-        );
-      case 'column':
-        return ColumnPropsPanel(
+        ),
+      'column' => ColumnPropsPanel(
           key: key,
           jsonWidget: selectedWidget as json_widget.Column,
-        );
-      case 'row':
-        return RowPropsPanel(
+        ),
+      'row' => RowPropsPanel(
           key: key,
           jsonWidget: selectedWidget as json_widget.Row,
-        );
-      case 'container':
-        return ContainerPropsPanel(
+        ),
+      'container' => ContainerPropsPanel(
           key: key,
           jsonWidget: selectedWidget as json_widget.Container,
-        );
-      default:
-        return Container();
-    }
+        ),
+      _ => Container(),
+    };
   }
 }

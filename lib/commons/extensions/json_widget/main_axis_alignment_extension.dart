@@ -5,53 +5,49 @@ import 'package:json_widget/json_widget.dart' as json_widget;
 
 extension JsonWidgetMainAxisAlignment on json_widget.MainAxisAlignment {
   String getTooltip(BuildContext context) {
-    switch (this) {
-      case json_widget.MainAxisAlignment.start:
-        return context.l10n.startLabel;
-      case json_widget.MainAxisAlignment.end:
-        return context.l10n.endLabel;
-      case json_widget.MainAxisAlignment.center:
-        return context.l10n.centerLabel;
-      case json_widget.MainAxisAlignment.spaceBetween:
-        return context.l10n.spaceBetweenLabel;
-      case json_widget.MainAxisAlignment.spaceAround:
-        return context.l10n.spaceAroundLabel;
-      case json_widget.MainAxisAlignment.spaceEvenly:
-        return context.l10n.spaceEvenlyLabel;
-    }
+    return switch (this) {
+      json_widget.MainAxisAlignment.start => context.l10n.startLabel,
+      json_widget.MainAxisAlignment.end => context.l10n.endLabel,
+      json_widget.MainAxisAlignment.center => context.l10n.centerLabel,
+      json_widget.MainAxisAlignment.spaceBetween =>
+        context.l10n.spaceBetweenLabel,
+      json_widget.MainAxisAlignment.spaceAround =>
+        context.l10n.spaceAroundLabel,
+      json_widget.MainAxisAlignment.spaceEvenly =>
+        context.l10n.spaceEvenlyLabel,
+    };
   }
 
   SvgGenImage getSvgImage({required bool isColumn}) {
     if (isColumn) {
-      switch (this) {
-        case json_widget.MainAxisAlignment.start:
-          return Assets.icons.other.mainVerticalStart;
-        case json_widget.MainAxisAlignment.end:
-          return Assets.icons.other.mainVerticalEnd;
-        case json_widget.MainAxisAlignment.center:
-          return Assets.icons.other.mainVerticalCenter;
-        case json_widget.MainAxisAlignment.spaceBetween:
-          return Assets.icons.other.mainVerticalSpaceBetween;
-        case json_widget.MainAxisAlignment.spaceAround:
-          return Assets.icons.other.mainVerticalSpaceAround;
-        case json_widget.MainAxisAlignment.spaceEvenly:
-          return Assets.icons.other.mainVerticalSpaceEvenly;
-      }
+      return switch (this) {
+        json_widget.MainAxisAlignment.start =>
+          Assets.icons.other.mainVerticalStart,
+        json_widget.MainAxisAlignment.end => Assets.icons.other.mainVerticalEnd,
+        json_widget.MainAxisAlignment.center =>
+          Assets.icons.other.mainVerticalCenter,
+        json_widget.MainAxisAlignment.spaceBetween =>
+          Assets.icons.other.mainVerticalSpaceBetween,
+        json_widget.MainAxisAlignment.spaceAround =>
+          Assets.icons.other.mainVerticalSpaceAround,
+        json_widget.MainAxisAlignment.spaceEvenly =>
+          Assets.icons.other.mainVerticalSpaceEvenly,
+      };
     } else {
-      switch (this) {
-        case json_widget.MainAxisAlignment.start:
-          return Assets.icons.other.mainHorizontalStart;
-        case json_widget.MainAxisAlignment.end:
-          return Assets.icons.other.mainHorizontalEnd;
-        case json_widget.MainAxisAlignment.center:
-          return Assets.icons.other.mainHorizontalCenter;
-        case json_widget.MainAxisAlignment.spaceBetween:
-          return Assets.icons.other.mainHorizontalSpaceBetween;
-        case json_widget.MainAxisAlignment.spaceAround:
-          return Assets.icons.other.mainHorizontalSpaceAround;
-        case json_widget.MainAxisAlignment.spaceEvenly:
-          return Assets.icons.other.mainHorizontalSpaceEvenly;
-      }
+      return switch (this) {
+        json_widget.MainAxisAlignment.start =>
+          Assets.icons.other.mainHorizontalStart,
+        json_widget.MainAxisAlignment.end =>
+          Assets.icons.other.mainHorizontalEnd,
+        json_widget.MainAxisAlignment.center =>
+          Assets.icons.other.mainHorizontalCenter,
+        json_widget.MainAxisAlignment.spaceBetween =>
+          Assets.icons.other.mainHorizontalSpaceBetween,
+        json_widget.MainAxisAlignment.spaceAround =>
+          Assets.icons.other.mainHorizontalSpaceAround,
+        json_widget.MainAxisAlignment.spaceEvenly =>
+          Assets.icons.other.mainHorizontalSpaceEvenly,
+      };
     }
   }
 }

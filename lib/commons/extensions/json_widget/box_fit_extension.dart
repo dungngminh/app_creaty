@@ -3,21 +3,14 @@ import 'package:json_widget/json_widget.dart' as json_widget;
 
 extension JsonWidgetBoxFitExtension on json_widget.BoxFit {
   SvgGenImage get image {
-    switch (this) {
-      case json_widget.BoxFit.fill:
-        return Assets.icons.other.boxFitFill;
-      case json_widget.BoxFit.contain:
-        return Assets.icons.other.boxFitContain;
-      case json_widget.BoxFit.cover:
-        return Assets.icons.other.boxFitCover;
-      case json_widget.BoxFit.fitWidth:
-        return Assets.icons.other.boxFitFitWidth;
-      case json_widget.BoxFit.fitHeight:
-        return Assets.icons.other.boxFitFitHeight;
-      case json_widget.BoxFit.none:
-        return Assets.icons.other.boxFitNone;
-      case json_widget.BoxFit.scaleDown:
-        return Assets.icons.other.boxFitScaleDown;
-    }
+    return switch (this) {
+      json_widget.BoxFit.fill => Assets.icons.other.boxFitFill,
+      json_widget.BoxFit.contain => Assets.icons.other.boxFitContain,
+      json_widget.BoxFit.cover => Assets.icons.other.boxFitCover,
+      json_widget.BoxFit.fitWidth => Assets.icons.other.boxFitFitWidth,
+      json_widget.BoxFit.fitHeight => Assets.icons.other.boxFitFitHeight,
+      json_widget.BoxFit.none => Assets.icons.other.boxFitNone,
+      json_widget.BoxFit.scaleDown => Assets.icons.other.boxFitScaleDown,
+    };
   }
 }

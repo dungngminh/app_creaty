@@ -14,7 +14,7 @@ part 'editor_bloc.freezed.dart';
 part 'editor_event.dart';
 part 'editor_state.dart';
 
-class EditorBloc extends Bloc<EditorEvent, EditorState> {
+final class EditorBloc extends Bloc<EditorEvent, EditorState> {
   EditorBloc({required AppCreatyProject project})
       : super(
           EditorState(

@@ -100,5 +100,11 @@
   "genericHeight": "Height",
   "genericWidth": "Width",
   "genericAssetImage": "Asset Image",
-  "boxFitLabel": "Box Fit"
+  "boxFitLabel": "Box Fit",
+  "pleaseInputTextErrorLabel": "Please input text",
+  "leftLabel": "Left",
+  "rightLabel": "Right",
+  "topLabel": "Top",
+  "bottomLabel": "Bottom",
+  "justifyLabel": "Justify"
 }

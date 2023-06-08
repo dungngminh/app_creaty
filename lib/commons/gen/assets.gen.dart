@@ -141,6 +141,22 @@ class $AssetsIconsComponentsGen {
 class $AssetsIconsOtherGen {
   const $AssetsIconsOtherGen();
 
+  /// File path: assets/icons/other/align_center.svg
+  SvgGenImage get alignCenter =>
+      const SvgGenImage('assets/icons/other/align_center.svg');
+
+  /// File path: assets/icons/other/align_justify.svg
+  SvgGenImage get alignJustify =>
+      const SvgGenImage('assets/icons/other/align_justify.svg');
+
+  /// File path: assets/icons/other/align_left.svg
+  SvgGenImage get alignLeft =>
+      const SvgGenImage('assets/icons/other/align_left.svg');
+
+  /// File path: assets/icons/other/align_right.svg
+  SvgGenImage get alignRight =>
+      const SvgGenImage('assets/icons/other/align_right.svg');
+
   /// File path: assets/icons/other/bold_menu_kebab.svg
   SvgGenImage get boldMenuKebab =>
       const SvgGenImage('assets/icons/other/bold_menu_kebab.svg');
@@ -287,6 +303,10 @@ class $AssetsIconsOtherGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
+        alignCenter,
+        alignJustify,
+        alignLeft,
+        alignRight,
         boldMenuKebab,
         boxFitContain,
         boxFitCover,

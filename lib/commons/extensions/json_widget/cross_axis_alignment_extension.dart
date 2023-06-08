@@ -5,47 +5,42 @@ import 'package:json_widget/json_widget.dart' as json_widget;
 
 extension JsonWidgetCrossAxisAlignment on json_widget.CrossAxisAlignment {
   String getTooltip(BuildContext context) {
-    switch (this) {
-      case json_widget.CrossAxisAlignment.start:
-        return context.l10n.startLabel;
-      case json_widget.CrossAxisAlignment.end:
-        return context.l10n.endLabel;
-      case json_widget.CrossAxisAlignment.center:
-        return context.l10n.centerLabel;
-      case json_widget.CrossAxisAlignment.stretch:
-        return context.l10n.stretchLabel;
-      case json_widget.CrossAxisAlignment.baseline:
-        return '';
-    }
+    return switch (this) {
+      json_widget.CrossAxisAlignment.start => context.l10n.startLabel,
+      json_widget.CrossAxisAlignment.end => context.l10n.endLabel,
+      json_widget.CrossAxisAlignment.center => context.l10n.centerLabel,
+      json_widget.CrossAxisAlignment.stretch => context.l10n.stretchLabel,
+      json_widget.CrossAxisAlignment.baseline => '',
+    };
   }
 
   SvgGenImage getSvgImage({required bool isColumn}) {
     if (isColumn) {
-      switch (this) {
-        case json_widget.CrossAxisAlignment.start:
-          return Assets.icons.other.crossVerticalStart;
-        case json_widget.CrossAxisAlignment.end:
-          return Assets.icons.other.crossVerticalEnd;
-        case json_widget.CrossAxisAlignment.center:
-          return Assets.icons.other.crossVerticalCenter;
-        case json_widget.CrossAxisAlignment.stretch:
-          return Assets.icons.other.crossVerticalStretch;
-        case json_widget.CrossAxisAlignment.baseline:
-          return Assets.icons.other.crossVerticalCenter;
-      }
+      return switch (this) {
+        json_widget.CrossAxisAlignment.start =>
+          Assets.icons.other.crossVerticalStart,
+        json_widget.CrossAxisAlignment.end =>
+          Assets.icons.other.crossVerticalEnd,
+        json_widget.CrossAxisAlignment.center =>
+          Assets.icons.other.crossVerticalCenter,
+        json_widget.CrossAxisAlignment.stretch =>
+          Assets.icons.other.crossVerticalStretch,
+        json_widget.CrossAxisAlignment.baseline =>
+          Assets.icons.other.crossVerticalCenter,
+      };
     } else {
-      switch (this) {
-        case json_widget.CrossAxisAlignment.start:
-          return Assets.icons.other.crossHorizontalStart;
-        case json_widget.CrossAxisAlignment.end:
-          return Assets.icons.other.crossHorizontalEnd;
-        case json_widget.CrossAxisAlignment.center:
-          return Assets.icons.other.crossHorizontalCenter;
-        case json_widget.CrossAxisAlignment.stretch:
-          return Assets.icons.other.crossHorizontalStretch;
-        case json_widget.CrossAxisAlignment.baseline:
-          return Assets.icons.other.crossHorizontalCenter;
-      }
+      return switch (this) {
+        json_widget.CrossAxisAlignment.start =>
+          Assets.icons.other.crossHorizontalStart,
+        json_widget.CrossAxisAlignment.end =>
+          Assets.icons.other.crossHorizontalEnd,
+        json_widget.CrossAxisAlignment.center =>
+          Assets.icons.other.crossHorizontalCenter,
+        json_widget.CrossAxisAlignment.stretch =>
+          Assets.icons.other.crossHorizontalStretch,
+        json_widget.CrossAxisAlignment.baseline =>
+          Assets.icons.other.crossHorizontalCenter,
+      };
     }
   }
 }

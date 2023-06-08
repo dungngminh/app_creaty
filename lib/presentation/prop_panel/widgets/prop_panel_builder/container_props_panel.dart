@@ -1,10 +1,14 @@
 
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/l10n/l10n.dart';
+import 'package:app_creaty/presentation/prop_panel/widgets/field_builder/prop_color_picker.dart';
 import 'package:app_creaty/presentation/prop_panel/widgets/widgets.dart';
+import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 
 class ContainerPropsPanel extends StatefulWidget {
@@ -39,7 +43,23 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
       children: [
         FieldPropTile(
           titleText: context.l10n.backgroundColorLabel,
-          child: const SizedBox(),
+          child: PropColorPicker(
+            currentColor: json_widget.$color(
+                  context,
+                  widget.jsonWidget.decoration?.color,
+                ) ??
+                Colors.white,
+            onColorConfirmed: (color) {
+              final updatedBoxDecoration = widget.jsonWidget.decoration
+                  ?.copyWith(color: json_widget.Color(color.value));
+              final updatedContainer =
+                  widget.jsonWidget.copyWith(decoration: updatedBoxDecoration);
+              context
+                ..pop()
+                ..read<VirtualAppBloc>()
+                    .add(ChangeProp(widget: updatedContainer));
+            },
+          ),
         ),
       ],
     );

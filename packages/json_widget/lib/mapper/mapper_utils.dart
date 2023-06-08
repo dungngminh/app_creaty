@@ -1567,12 +1567,12 @@ material.Decoration? $decoration(
   );
 }
 
-material.Matrix4? $matrix4(final Matrix4? matrix4) {
+material.Matrix4? $matrix4(Matrix4? matrix4) {
   if (matrix4 == null) return null;
   return material.Matrix4.fromList(matrix4.storage.toList());
 }
 
-material.Size? $size(final widgets.Size? size) {
+material.Size? $size(widgets.Size? size) {
   if (size == null) return null;
   return material.Size(size.width, size.height);
 }
@@ -2108,10 +2108,10 @@ material.DataRow? $dataRow(
   if (dataRow == null) return null;
   return dataRow.map(
     (value) => material.DataRow(
-      key: $key(value.key as widgets.Key) as material.LocalKey?,
+      key: $key(value.key) as material.LocalKey?,
       selected: value.selected,
       onSelectChanged: (active) {
-        if (active == true) {
+        if (active ?? false) {
           $callback(context, value.onSelect);
         } else {
           $callback(context, value.onDeselect);
@@ -2125,7 +2125,7 @@ material.DataRow? $dataRow(
       index: value.index,
       selected: value.selected,
       onSelectChanged: (active) {
-        if (active == true) {
+        if (active ?? false) {
           $callback(context, value.onSelect);
         } else {
           $callback(context, value.onDeselect);
@@ -2341,8 +2341,8 @@ material.TableRow? $tableRow(
 ) {
   if (tableRow == null) return null;
   return material.TableRow(
-    key: $key(tableRow.key as widgets.Key) as material.LocalKey?,
-    children: $widgets(context, tableRow.children),
+    key: $key(tableRow.key) as material.LocalKey?,
+    children: $widgets(context, tableRow.children) ?? [],
     decoration: $decoration(context, tableRow.decoration),
   );
 }
@@ -2362,8 +2362,8 @@ material.InlineSpan? $inlineSpan(
     text: (value) {
       gestures.TapGestureRecognizer? recognizer;
       if (value.onTap != null) {
-        recognizer = gestures.TapGestureRecognizer();
-        recognizer.onTap = $callback(context, value.onTap);
+        recognizer = gestures.TapGestureRecognizer()
+          ..onTap = $callback(context, value.onTap);
       }
       return material.TextSpan(
         text: value.text,
@@ -2413,7 +2413,7 @@ material.NavigationRailDestination? $navigationRailDestination(
   );
 }
 
-material.DropdownMenuItem? $dropdownMenuItem(
+material.DropdownMenuItem<dynamic>? $dropdownMenuItem(
   material.BuildContext context,
   widgets.DropdownMenuItem? value,
 ) {
@@ -2471,7 +2471,7 @@ services.TextInputFormatter? $textInputFormatter(
       maxLengthEnforcement: $enum(
         value.maxLengthEnforcement,
         services.MaxLengthEnforcement.values,
-      )!,
+      ),
     ),
     filtering: (value) => services.FilteringTextInputFormatter(
       RegExp(value.filterPattern),
@@ -2504,7 +2504,7 @@ material.PopupMenuEntry<String>? $popupMenuEntry(
       padding: $edgeInsets(value.padding),
       textStyle: $textStyle(context, value.textStyle),
       mouseCursor: $mouseCursor(value.mouseCursor),
-      child: $widget(context, value.child)!,
+      child: $widget(context, value.child),
     ),
     divider: (value) => material.PopupMenuDivider(
       key: $key(value.key),
@@ -2518,7 +2518,7 @@ material.PopupMenuEntry<String>? $popupMenuEntry(
       padding: $edgeInsets(value.padding),
       height: value.height,
       mouseCursor: $mouseCursor(value.mouseCursor),
-      child: $widget(context, value.child)!,
+      child: $widget(context, value.child),
     ),
   );
 }
@@ -3499,7 +3499,7 @@ material.Widget? $widget(
       sortColumnIndex: value.sortColumnIndex,
       sortAscending: value.sortAscending,
       onSelectAll: (all) {
-        if (all == true) {
+        if (all ?? false) {
           $callback(context, value.onSelectAll);
         } else {
           $callback(context, value.onDeselectAll);
@@ -3640,7 +3640,7 @@ material.Widget? $widget(
     form: (value) => material.Form(
       key: $key(value.key),
       autovalidateMode:
-          $enum(value.autovalidateMode, material.AutovalidateMode.values)!,
+          $enum(value.autovalidateMode, material.AutovalidateMode.values),
       onChanged: $callback(context, value.onChanged),
       child: $widget(context, value.child)!,
     ),
@@ -3746,7 +3746,7 @@ material.Widget? $widget(
       key: $key(value.key),
       ignoring: value.ignoring,
       ignoringSemantics: value.ignoringSemantics,
-      child: $widget(context, value.child)!,
+      child: $widget(context, value.child),
     ),
     textRich: (value) => material.Text.rich(
       $inlineSpan(context, value.textSpan)!,
@@ -3891,8 +3891,7 @@ material.Widget? $widget(
     responsive: (value) => material.LayoutBuilder(
       builder: (context, constraints) {
         final width = constraints.maxWidth;
-        final breakpoints = value.breakpoints.keys.toList();
-        breakpoints.sort();
+        final breakpoints = value.breakpoints.keys.toList()..sort();
         for (final breakpoint in breakpoints.reversed.toList()) {
           if (width >= breakpoint) {
             final target = value.breakpoints[breakpoint];
