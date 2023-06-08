@@ -91,19 +91,9 @@ class _VirtualAppViewState extends State<VirtualAppView> {
                                         )
                                       : null,
                                 ),
-                                child: Stack(
-                                  alignment: Alignment.bottomRight,
-                                  children: [
-                                    child,
-                                    if (isHover)
-                                      Text(
-                                        (item as json_widget.Widget)
-                                            .runtimeType
-                                            .toString(),
-                                      )
-                                    else
-                                      const SizedBox(),
-                                  ],
+                                child: Tooltip(
+                                  message: child.runtimeType.toString(),
+                                  child: child,
                                 ),
                               ),
                             );
