@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AppTextField extends StatelessWidget {
   const AppTextField({
@@ -8,6 +9,11 @@ class AppTextField extends StatelessWidget {
     this.readOnly = false,
     this.enabled = true,
     this.haveBorder = true,
+    this.height,
+    this.onChanged,
+    this.width,
+    this.inputFormatters,
+    this.errorText,
   });
 
   final TextEditingController? controller;
@@ -20,15 +26,29 @@ class AppTextField extends StatelessWidget {
 
   final bool haveBorder;
 
+  final ValueChanged<String>? onChanged;
+
+  final double? height;
+
+  final double? width;
+
+  final List<TextInputFormatter>? inputFormatters;
+  
+  final String? errorText;
+
   @override
   Widget build(BuildContext context) {
     final border = haveBorder ? const OutlineInputBorder() : null;
-    return ColoredBox(
+    return Container(
+      height: height,
+      width: width,
       color: Colors.white,
-      child: TextField(
+      child: TextFormField(
+        inputFormatters: inputFormatters,
         readOnly: readOnly,
         controller: controller,
         decoration: InputDecoration(
+          errorText: errorText,
           border: border,
           labelText: labelText,
           enabled: enabled,

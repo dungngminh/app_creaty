@@ -165,7 +165,7 @@ class _NewProjectViewState extends State<_NewProjectView> {
                     labelText: context.l10n.projectNameSavedAsName,
                     enabled: false,
                   ),
-                  /// TODO(dungngminh): Add field project avatar
+                  /// TODO (dungngminh): Add field project avatar
                   gap16,
                   _buildSelectLocationButton(),
                   gap32,
@@ -222,10 +222,12 @@ class _NewProjectViewState extends State<_NewProjectView> {
           onPressed: hasProjectNameAndLocation
               ? () {
                   context.read<NewProjectCubit>().createProject(
-                        projectName: projectNameTextEditingController.text,
-                        projectPath: selectLocationTextEditingController.text,
+                        projectName:
+                            projectNameTextEditingController.text.trim(),
+                        projectPath:
+                            selectLocationTextEditingController.text.trim(),
                         projectNameInSnakeCase:
-                            saveProjectAsNameTextEditingController.text,
+                            saveProjectAsNameTextEditingController.text.trim(),
                       );
                 }
               : null,

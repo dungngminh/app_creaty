@@ -39,9 +39,13 @@ abstract class ProjectRepository {
 
   ValueListenable<Box<AppCreatyProject>> get projects;
 
-  Future<void> removeProject(String projectId);
+  Future<void> removeProject(AppCreatyProject project);
 
   Future<void> removeAll();
+
+  // Future<void> updateProject(){
+
+  // }
 }
 
 class ProjectRepositoryImpl extends ProjectRepository {
@@ -72,19 +76,21 @@ class ProjectRepositoryImpl extends ProjectRepository {
     try {
       final workingDirectory = directory.path;
       _logger.i('Creating $projectNameInSnackCase folder');
-      Process.runSync(
+      await Process.run(
         'mkdir',
         [projectNameInSnackCase],
         workingDirectory: workingDirectory,
+        runInShell: true,
       );
       _logger.i(
         'Changing directory to '
-        '${join(directory.path, projectNameInSnackCase)} folder',
+        '${join(workingDirectory, projectNameInSnackCase)} folder',
       );
-      Process.runSync(
+      await Process.run(
         'cd',
         [projectNameInSnackCase],
         workingDirectory: workingDirectory,
+        runInShell: true,
       );
       _logger.i('Creating project metadata resource');
       final metadataFile =
@@ -128,6 +134,27 @@ class ProjectRepositoryImpl extends ProjectRepository {
   Future<void> removeAll() => _appCreatyBoxHelper.removeAll();
 
   @override
-  Future<void> removeProject(String projectId) =>
-      _appCreatyBoxHelper.removeProject(projectId);
+  Future<void> removeProject(AppCreatyProject project) async {
+    final projectFullPath = project.projectFullPath;
+    _logger.i(
+      'Remove Flutter project in'
+      '$projectFullPath',
+    );
+    if (Platform.isMacOS || Platform.isLinux) {
+      await Process.run(
+        'rm',
+        <String>[
+          '-rf',
+          projectFullPath,
+        ],
+        runInShell: true,
+      );
+    } else {
+      await Process.run('rmdir', <String>[
+        '/s',
+        projectFullPath,
+      ]);
+    }
+    await _appCreatyBoxHelper.removeProject(project.projectId);
+  }
 }

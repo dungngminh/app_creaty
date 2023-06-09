@@ -17,4 +17,15 @@ class RecentProjectsCubit extends Cubit<RecentProjectsState> {
   late ValueListenable<Box<AppCreatyProject>> projects;
 
   final ProjectRepository _projectRepository;
+
+  Future<void> deleteProject(AppCreatyProject project) async {
+    try {
+      emit(state.copyWith(deleteProjectStatus: LoadingStatus.loading));
+      await _projectRepository.removeProject(project);
+      emit(state.copyWith(deleteProjectStatus: LoadingStatus.done));
+    } catch (e, st) {
+      addError(e, st);
+      emit(state.copyWith(deleteProjectStatus: LoadingStatus.error));
+    }
+  }
 }

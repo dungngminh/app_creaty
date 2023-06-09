@@ -16,10 +16,13 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$VirtualAppState {
-  Map<String, dynamic> get virtualAppWidgetData =>
+  json_widget.Widget get virtualAppWidget => throw _privateConstructorUsedError;
+  json_widget.Widget? get selectedWidget => throw _privateConstructorUsedError;
+  json_widget.Widget get widgetWillBeUpdatedIn =>
       throw _privateConstructorUsedError;
-  Map<String, dynamic> get selectedWidgetData =>
-      throw _privateConstructorUsedError;
+  json_widget.Widget get hoveredWidget => throw _privateConstructorUsedError;
+  List<AppCreatyPage> get pages => throw _privateConstructorUsedError;
+  LoadingStatus get loadingStatus => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $VirtualAppStateCopyWith<VirtualAppState> get copyWith =>
@@ -33,8 +36,17 @@ abstract class $VirtualAppStateCopyWith<$Res> {
       _$VirtualAppStateCopyWithImpl<$Res, VirtualAppState>;
   @useResult
   $Res call(
-      {Map<String, dynamic> virtualAppWidgetData,
-      Map<String, dynamic> selectedWidgetData});
+      {json_widget.Widget virtualAppWidget,
+      json_widget.Widget? selectedWidget,
+      json_widget.Widget widgetWillBeUpdatedIn,
+      json_widget.Widget hoveredWidget,
+      List<AppCreatyPage> pages,
+      LoadingStatus loadingStatus});
+
+  $WidgetCopyWith<$Res> get virtualAppWidget;
+  $WidgetCopyWith<$Res>? get selectedWidget;
+  $WidgetCopyWith<$Res> get widgetWillBeUpdatedIn;
+  $WidgetCopyWith<$Res> get hoveredWidget;
 }
 
 /// @nodoc
@@ -50,19 +62,75 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? virtualAppWidgetData = null,
-    Object? selectedWidgetData = null,
+    Object? virtualAppWidget = null,
+    Object? selectedWidget = freezed,
+    Object? widgetWillBeUpdatedIn = null,
+    Object? hoveredWidget = null,
+    Object? pages = null,
+    Object? loadingStatus = null,
   }) {
     return _then(_value.copyWith(
-      virtualAppWidgetData: null == virtualAppWidgetData
-          ? _value.virtualAppWidgetData
-          : virtualAppWidgetData // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      selectedWidgetData: null == selectedWidgetData
-          ? _value.selectedWidgetData
-          : selectedWidgetData // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+      virtualAppWidget: null == virtualAppWidget
+          ? _value.virtualAppWidget
+          : virtualAppWidget // ignore: cast_nullable_to_non_nullable
+              as json_widget.Widget,
+      selectedWidget: freezed == selectedWidget
+          ? _value.selectedWidget
+          : selectedWidget // ignore: cast_nullable_to_non_nullable
+              as json_widget.Widget?,
+      widgetWillBeUpdatedIn: null == widgetWillBeUpdatedIn
+          ? _value.widgetWillBeUpdatedIn
+          : widgetWillBeUpdatedIn // ignore: cast_nullable_to_non_nullable
+              as json_widget.Widget,
+      hoveredWidget: null == hoveredWidget
+          ? _value.hoveredWidget
+          : hoveredWidget // ignore: cast_nullable_to_non_nullable
+              as json_widget.Widget,
+      pages: null == pages
+          ? _value.pages
+          : pages // ignore: cast_nullable_to_non_nullable
+              as List<AppCreatyPage>,
+      loadingStatus: null == loadingStatus
+          ? _value.loadingStatus
+          : loadingStatus // ignore: cast_nullable_to_non_nullable
+              as LoadingStatus,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $WidgetCopyWith<$Res> get virtualAppWidget {
+    return $WidgetCopyWith<$Res>(_value.virtualAppWidget, (value) {
+      return _then(_value.copyWith(virtualAppWidget: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $WidgetCopyWith<$Res>? get selectedWidget {
+    if (_value.selectedWidget == null) {
+      return null;
+    }
+
+    return $WidgetCopyWith<$Res>(_value.selectedWidget!, (value) {
+      return _then(_value.copyWith(selectedWidget: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $WidgetCopyWith<$Res> get widgetWillBeUpdatedIn {
+    return $WidgetCopyWith<$Res>(_value.widgetWillBeUpdatedIn, (value) {
+      return _then(_value.copyWith(widgetWillBeUpdatedIn: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $WidgetCopyWith<$Res> get hoveredWidget {
+    return $WidgetCopyWith<$Res>(_value.hoveredWidget, (value) {
+      return _then(_value.copyWith(hoveredWidget: value) as $Val);
+    });
   }
 }
 
@@ -75,8 +143,21 @@ abstract class _$$_VirtualAppStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Map<String, dynamic> virtualAppWidgetData,
-      Map<String, dynamic> selectedWidgetData});
+      {json_widget.Widget virtualAppWidget,
+      json_widget.Widget? selectedWidget,
+      json_widget.Widget widgetWillBeUpdatedIn,
+      json_widget.Widget hoveredWidget,
+      List<AppCreatyPage> pages,
+      LoadingStatus loadingStatus});
+
+  @override
+  $WidgetCopyWith<$Res> get virtualAppWidget;
+  @override
+  $WidgetCopyWith<$Res>? get selectedWidget;
+  @override
+  $WidgetCopyWith<$Res> get widgetWillBeUpdatedIn;
+  @override
+  $WidgetCopyWith<$Res> get hoveredWidget;
 }
 
 /// @nodoc
@@ -90,18 +171,38 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? virtualAppWidgetData = null,
-    Object? selectedWidgetData = null,
+    Object? virtualAppWidget = null,
+    Object? selectedWidget = freezed,
+    Object? widgetWillBeUpdatedIn = null,
+    Object? hoveredWidget = null,
+    Object? pages = null,
+    Object? loadingStatus = null,
   }) {
     return _then(_$_VirtualAppState(
-      virtualAppWidgetData: null == virtualAppWidgetData
-          ? _value._virtualAppWidgetData
-          : virtualAppWidgetData // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      selectedWidgetData: null == selectedWidgetData
-          ? _value._selectedWidgetData
-          : selectedWidgetData // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+      virtualAppWidget: null == virtualAppWidget
+          ? _value.virtualAppWidget
+          : virtualAppWidget // ignore: cast_nullable_to_non_nullable
+              as json_widget.Widget,
+      selectedWidget: freezed == selectedWidget
+          ? _value.selectedWidget
+          : selectedWidget // ignore: cast_nullable_to_non_nullable
+              as json_widget.Widget?,
+      widgetWillBeUpdatedIn: null == widgetWillBeUpdatedIn
+          ? _value.widgetWillBeUpdatedIn
+          : widgetWillBeUpdatedIn // ignore: cast_nullable_to_non_nullable
+              as json_widget.Widget,
+      hoveredWidget: null == hoveredWidget
+          ? _value.hoveredWidget
+          : hoveredWidget // ignore: cast_nullable_to_non_nullable
+              as json_widget.Widget,
+      pages: null == pages
+          ? _value._pages
+          : pages // ignore: cast_nullable_to_non_nullable
+              as List<AppCreatyPage>,
+      loadingStatus: null == loadingStatus
+          ? _value.loadingStatus
+          : loadingStatus // ignore: cast_nullable_to_non_nullable
+              as LoadingStatus,
     ));
   }
 }
@@ -110,32 +211,42 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
 
 class _$_VirtualAppState implements _VirtualAppState {
   const _$_VirtualAppState(
-      {required final Map<String, dynamic> virtualAppWidgetData,
-      required final Map<String, dynamic> selectedWidgetData})
-      : _virtualAppWidgetData = virtualAppWidgetData,
-        _selectedWidgetData = selectedWidgetData;
+      {this.virtualAppWidget = const json_widget.Scaffold(),
+      this.selectedWidget = const json_widget.Scaffold(),
+      this.widgetWillBeUpdatedIn = const json_widget.Scaffold(),
+      this.hoveredWidget = const json_widget.Scaffold(),
+      final List<AppCreatyPage> pages = const <AppCreatyPage>[],
+      this.loadingStatus = LoadingStatus.initial})
+      : _pages = pages;
 
-  final Map<String, dynamic> _virtualAppWidgetData;
   @override
-  Map<String, dynamic> get virtualAppWidgetData {
-    if (_virtualAppWidgetData is EqualUnmodifiableMapView)
-      return _virtualAppWidgetData;
+  @JsonKey()
+  final json_widget.Widget virtualAppWidget;
+  @override
+  @JsonKey()
+  final json_widget.Widget? selectedWidget;
+  @override
+  @JsonKey()
+  final json_widget.Widget widgetWillBeUpdatedIn;
+  @override
+  @JsonKey()
+  final json_widget.Widget hoveredWidget;
+  final List<AppCreatyPage> _pages;
+  @override
+  @JsonKey()
+  List<AppCreatyPage> get pages {
+    if (_pages is EqualUnmodifiableListView) return _pages;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_virtualAppWidgetData);
+    return EqualUnmodifiableListView(_pages);
   }
 
-  final Map<String, dynamic> _selectedWidgetData;
   @override
-  Map<String, dynamic> get selectedWidgetData {
-    if (_selectedWidgetData is EqualUnmodifiableMapView)
-      return _selectedWidgetData;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_selectedWidgetData);
-  }
+  @JsonKey()
+  final LoadingStatus loadingStatus;
 
   @override
   String toString() {
-    return 'VirtualAppState(virtualAppWidgetData: $virtualAppWidgetData, selectedWidgetData: $selectedWidgetData)';
+    return 'VirtualAppState(virtualAppWidget: $virtualAppWidget, selectedWidget: $selectedWidget, widgetWillBeUpdatedIn: $widgetWillBeUpdatedIn, hoveredWidget: $hoveredWidget, pages: $pages, loadingStatus: $loadingStatus)';
   }
 
   @override
@@ -143,17 +254,28 @@ class _$_VirtualAppState implements _VirtualAppState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_VirtualAppState &&
-            const DeepCollectionEquality()
-                .equals(other._virtualAppWidgetData, _virtualAppWidgetData) &&
-            const DeepCollectionEquality()
-                .equals(other._selectedWidgetData, _selectedWidgetData));
+            (identical(other.virtualAppWidget, virtualAppWidget) ||
+                other.virtualAppWidget == virtualAppWidget) &&
+            (identical(other.selectedWidget, selectedWidget) ||
+                other.selectedWidget == selectedWidget) &&
+            (identical(other.widgetWillBeUpdatedIn, widgetWillBeUpdatedIn) ||
+                other.widgetWillBeUpdatedIn == widgetWillBeUpdatedIn) &&
+            (identical(other.hoveredWidget, hoveredWidget) ||
+                other.hoveredWidget == hoveredWidget) &&
+            const DeepCollectionEquality().equals(other._pages, _pages) &&
+            (identical(other.loadingStatus, loadingStatus) ||
+                other.loadingStatus == loadingStatus));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_virtualAppWidgetData),
-      const DeepCollectionEquality().hash(_selectedWidgetData));
+      virtualAppWidget,
+      selectedWidget,
+      widgetWillBeUpdatedIn,
+      hoveredWidget,
+      const DeepCollectionEquality().hash(_pages),
+      loadingStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -164,14 +286,25 @@ class _$_VirtualAppState implements _VirtualAppState {
 
 abstract class _VirtualAppState implements VirtualAppState {
   const factory _VirtualAppState(
-          {required final Map<String, dynamic> virtualAppWidgetData,
-          required final Map<String, dynamic> selectedWidgetData}) =
-      _$_VirtualAppState;
+      {final json_widget.Widget virtualAppWidget,
+      final json_widget.Widget? selectedWidget,
+      final json_widget.Widget widgetWillBeUpdatedIn,
+      final json_widget.Widget hoveredWidget,
+      final List<AppCreatyPage> pages,
+      final LoadingStatus loadingStatus}) = _$_VirtualAppState;
 
   @override
-  Map<String, dynamic> get virtualAppWidgetData;
+  json_widget.Widget get virtualAppWidget;
   @override
-  Map<String, dynamic> get selectedWidgetData;
+  json_widget.Widget? get selectedWidget;
+  @override
+  json_widget.Widget get widgetWillBeUpdatedIn;
+  @override
+  json_widget.Widget get hoveredWidget;
+  @override
+  List<AppCreatyPage> get pages;
+  @override
+  LoadingStatus get loadingStatus;
   @override
   @JsonKey(ignore: true)
   _$$_VirtualAppStateCopyWith<_$_VirtualAppState> get copyWith =>

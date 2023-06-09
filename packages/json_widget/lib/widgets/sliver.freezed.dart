@@ -171,37 +171,16 @@ mixin _$Sliver {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -310,41 +289,20 @@ mixin _$Sliver {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -460,33 +418,13 @@ mixin _$Sliver {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1314,37 +1252,16 @@ class _$SliverAppBar implements SliverAppBar {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return appBar(
         key,
@@ -1487,41 +1404,20 @@ class _$SliverAppBar implements SliverAppBar {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return appBar?.call(
         key,
@@ -1671,33 +1567,13 @@ class _$SliverAppBar implements SliverAppBar {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (appBar != null) {
@@ -2593,37 +2469,16 @@ class _$SliverAppBarMedium implements SliverAppBarMedium {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return appBarMedium(
         key,
@@ -2765,41 +2620,20 @@ class _$SliverAppBarMedium implements SliverAppBarMedium {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return appBarMedium?.call(
         key,
@@ -2948,33 +2782,13 @@ class _$SliverAppBarMedium implements SliverAppBarMedium {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (appBarMedium != null) {
@@ -3866,37 +3680,16 @@ class _$SliverAppBarLarge implements SliverAppBarLarge {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return appBarLarge(
         key,
@@ -4038,41 +3831,20 @@ class _$SliverAppBarLarge implements SliverAppBarLarge {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return appBarLarge?.call(
         key,
@@ -4221,33 +3993,13 @@ class _$SliverAppBarLarge implements SliverAppBarLarge {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (appBarLarge != null) {
@@ -4653,37 +4405,16 @@ class _$SliverToBoxAdapter implements SliverToBoxAdapter {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return toBoxAdapter(key, child);
   }
@@ -4795,41 +4526,20 @@ class _$SliverToBoxAdapter implements SliverToBoxAdapter {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return toBoxAdapter?.call(key, child);
   }
@@ -4948,33 +4658,13 @@ class _$SliverToBoxAdapter implements SliverToBoxAdapter {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (toBoxAdapter != null) {
@@ -5319,37 +5009,16 @@ class _$SliverFillRemaining implements SliverFillRemaining {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return fillRemaining(key, child, hasScrollBody, fillOverscroll);
   }
@@ -5461,41 +5130,20 @@ class _$SliverFillRemaining implements SliverFillRemaining {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return fillRemaining?.call(key, child, hasScrollBody, fillOverscroll);
   }
@@ -5614,33 +5262,13 @@ class _$SliverFillRemaining implements SliverFillRemaining {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (fillRemaining != null) {
@@ -5990,37 +5618,16 @@ class _$SliverFillViewport implements SliverFillViewport {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return fillViewport(key, delegate, viewportFraction, padEnds);
   }
@@ -6132,41 +5739,20 @@ class _$SliverFillViewport implements SliverFillViewport {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return fillViewport?.call(key, delegate, viewportFraction, padEnds);
   }
@@ -6285,33 +5871,13 @@ class _$SliverFillViewport implements SliverFillViewport {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (fillViewport != null) {
@@ -6645,37 +6211,16 @@ class _$SliverFixedExtentList implements SliverFixedExtentList {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return fixedExtentList(key, delegate, itemExtent);
   }
@@ -6787,41 +6332,20 @@ class _$SliverFixedExtentList implements SliverFixedExtentList {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return fixedExtentList?.call(key, delegate, itemExtent);
   }
@@ -6940,33 +6464,13 @@ class _$SliverFixedExtentList implements SliverFixedExtentList {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (fixedExtentList != null) {
@@ -7298,37 +6802,16 @@ class _$SliverOffstage implements SliverOffstage {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return offstage(key, this.offstage, sliver);
   }
@@ -7440,41 +6923,20 @@ class _$SliverOffstage implements SliverOffstage {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return offstage?.call(key, this.offstage, sliver);
   }
@@ -7593,33 +7055,13 @@ class _$SliverOffstage implements SliverOffstage {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (offstage != null) {
@@ -7936,37 +7378,16 @@ class _$SliverList implements SliverList {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return list(key, delegate);
   }
@@ -8078,41 +7499,20 @@ class _$SliverList implements SliverList {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return list?.call(key, delegate);
   }
@@ -8231,33 +7631,13 @@ class _$SliverList implements SliverList {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (list != null) {
@@ -8597,37 +7977,16 @@ class _$SliverGrid implements SliverGrid {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return grid(key, delegate, gridDelegate);
   }
@@ -8739,41 +8098,20 @@ class _$SliverGrid implements SliverGrid {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return grid?.call(key, delegate, gridDelegate);
   }
@@ -8892,33 +8230,13 @@ class _$SliverGrid implements SliverGrid {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (grid != null) {
@@ -9265,37 +8583,16 @@ class _$SliverIgnorePointer implements SliverIgnorePointer {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return ignorePointer(key, ignoring, ignoringSemantics, sliver);
   }
@@ -9407,41 +8704,20 @@ class _$SliverIgnorePointer implements SliverIgnorePointer {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return ignorePointer?.call(key, ignoring, ignoringSemantics, sliver);
   }
@@ -9560,33 +8836,13 @@ class _$SliverIgnorePointer implements SliverIgnorePointer {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (ignorePointer != null) {
@@ -9933,37 +9189,16 @@ class _$SliverOpacity implements SliverOpacity {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return opacity(key, this.opacity, alwaysIncludeSemantics, sliver);
   }
@@ -10075,41 +9310,20 @@ class _$SliverOpacity implements SliverOpacity {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return opacity?.call(key, this.opacity, alwaysIncludeSemantics, sliver);
   }
@@ -10228,33 +9442,13 @@ class _$SliverOpacity implements SliverOpacity {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (opacity != null) {
@@ -10594,37 +9788,16 @@ class _$SliverPadding implements SliverPadding {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return padding(key, this.padding, sliver);
   }
@@ -10736,41 +9909,20 @@ class _$SliverPadding implements SliverPadding {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return padding?.call(key, this.padding, sliver);
   }
@@ -10889,33 +10041,13 @@ class _$SliverPadding implements SliverPadding {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (padding != null) {
@@ -11257,37 +10389,16 @@ class _$SliverPrototypeExtentList implements SliverPrototypeExtentList {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return prototypeExtendList(key, delegate, prototypeItem);
   }
@@ -11399,41 +10510,20 @@ class _$SliverPrototypeExtentList implements SliverPrototypeExtentList {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return prototypeExtendList?.call(key, delegate, prototypeItem);
   }
@@ -11552,33 +10642,13 @@ class _$SliverPrototypeExtentList implements SliverPrototypeExtentList {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (prototypeExtendList != null) {
@@ -11965,37 +11035,16 @@ class _$SliverSafeArea implements SliverSafeArea {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return safeArea(key, left, top, right, bottom, minimum, sliver);
   }
@@ -12107,41 +11156,20 @@ class _$SliverSafeArea implements SliverSafeArea {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return safeArea?.call(key, left, top, right, bottom, minimum, sliver);
   }
@@ -12260,33 +11288,13 @@ class _$SliverSafeArea implements SliverSafeArea {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (safeArea != null) {
@@ -12718,37 +11726,16 @@ class _$SliverVisibility implements SliverVisibility {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return visibility(
         key,
@@ -12869,41 +11856,20 @@ class _$SliverVisibility implements SliverVisibility {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return visibility?.call(
         key,
@@ -13031,33 +11997,13 @@ class _$SliverVisibility implements SliverVisibility {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (visibility != null) {
@@ -13431,37 +12377,16 @@ class _$SliverVisibilityMaintain implements SliverVisibilityMaintain {
         fixedExtentList,
     required TResult Function(Key? key, bool offstage, Sliver? sliver) offstage,
     required TResult Function(Key? key, SliverChildDelegate delegate) list,
-    required TResult Function(Key? key, SliverChildDelegate delegate,
-            SliverGridDelegate gridDelegate)
+    required TResult Function(
+            Key? key, SliverChildDelegate delegate, SliverGridDelegate gridDelegate)
         grid,
-    required TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)
-        ignorePointer,
-    required TResult Function(Key? key, double opacity,
-            bool alwaysIncludeSemantics, Sliver? sliver)
-        opacity,
-    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)
-        padding,
-    required TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)
-        prototypeExtendList,
-    required TResult Function(Key? key, bool left, bool top, bool right,
-            bool bottom, EdgeInsets minimum, Sliver sliver)
-        safeArea,
-    required TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)
-        visibility,
-    required TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)
-        visibilityMaintain,
+    required TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver) ignorePointer,
+    required TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver) opacity,
+    required TResult Function(Key? key, EdgeInsets padding, Sliver? sliver) padding,
+    required TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem) prototypeExtendList,
+    required TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver) safeArea,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity) visibility,
+    required TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible) visibilityMaintain,
   }) {
     return visibilityMaintain(key, sliver, replacementSliver, visible);
   }
@@ -13573,41 +12498,20 @@ class _$SliverVisibilityMaintain implements SliverVisibilityMaintain {
     TResult? Function(Key? key, SliverChildDelegate delegate,
             double viewportFraction, bool padEnds)?
         fillViewport,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, double itemExtent)?
+    TResult? Function(Key? key, SliverChildDelegate delegate, double itemExtent)?
         fixedExtentList,
     TResult? Function(Key? key, bool offstage, Sliver? sliver)? offstage,
     TResult? Function(Key? key, SliverChildDelegate delegate)? list,
     TResult? Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult? Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult? Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult? Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult? Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult? Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult? Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult? Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult? Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult? Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult? Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
   }) {
     return visibilityMaintain?.call(key, sliver, replacementSliver, visible);
   }
@@ -13726,33 +12630,13 @@ class _$SliverVisibilityMaintain implements SliverVisibilityMaintain {
     TResult Function(Key? key, SliverChildDelegate delegate,
             SliverGridDelegate gridDelegate)?
         grid,
-    TResult Function(
-            Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)?
-        ignorePointer,
-    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics,
-            Sliver? sliver)?
-        opacity,
+    TResult Function(Key? key, bool ignoring, bool? ignoringSemantics, Sliver? sliver)? ignorePointer,
+    TResult Function(Key? key, double opacity, bool alwaysIncludeSemantics, Sliver? sliver)? opacity,
     TResult Function(Key? key, EdgeInsets padding, Sliver? sliver)? padding,
-    TResult Function(
-            Key? key, SliverChildDelegate delegate, Widget prototypeItem)?
-        prototypeExtendList,
-    TResult Function(Key? key, bool left, bool top, bool right, bool bottom,
-            EdgeInsets minimum, Sliver sliver)?
-        safeArea,
-    TResult Function(
-            Key? key,
-            Sliver sliver,
-            Sliver replacementSliver,
-            bool visible,
-            bool maintainState,
-            bool maintainAnimation,
-            bool maintainSize,
-            bool maintainSemantics,
-            bool maintainInteractivity)?
-        visibility,
-    TResult Function(
-            Key? key, Sliver sliver, Sliver replacementSliver, bool visible)?
-        visibilityMaintain,
+    TResult Function(Key? key, SliverChildDelegate delegate, Widget prototypeItem)? prototypeExtendList,
+    TResult Function(Key? key, bool left, bool top, bool right, bool bottom, EdgeInsets minimum, Sliver sliver)? safeArea,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible, bool maintainState, bool maintainAnimation, bool maintainSize, bool maintainSemantics, bool maintainInteractivity)? visibility,
+    TResult Function(Key? key, Sliver sliver, Sliver replacementSliver, bool visible)? visibilityMaintain,
     required TResult orElse(),
   }) {
     if (visibilityMaintain != null) {

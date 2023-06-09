@@ -14,13 +14,19 @@ class UIComponentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final illustration = component.widget.illustration.svg(height: 60);
+    final illustration = component.widget.illustration.svg(
+      height: 60,
+      colorFilter: ColorFilter.mode(
+        context.colorScheme.onBackground,
+        BlendMode.srcIn,
+      ),
+    );
     final title = component.widget.getTitle(context);
     final widget = Container(
       height: 100,
       width: 100,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.colorScheme.background,
         border: Border.all(
           width: 2.5,
           color: context.colorScheme.onBackground,

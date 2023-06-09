@@ -1,26 +1,35 @@
-import 'package:app_creaty/presentation/tool_panel/view/component_tree_panel.dart';
-import 'package:app_creaty/presentation/tool_panel/view/components_panel.dart';
+import 'package:app_creaty/presentation/tool_panel/tool_panel.dart';
 import 'package:flutter/material.dart';
+
+enum ToolPanelTab {
+  listComponent,
+  componetTree,
+  codeView,
+  jsonView,
+  setting,
+}
 
 class ToolPanelView extends StatelessWidget {
   const ToolPanelView({
-    required this.currentIndex,
+    required this.currentTab,
     super.key,
   });
 
-  final int currentIndex;
-
-  static const int _listComponent = 0;
-  static const int _componentTree = 1;
+  final ToolPanelTab currentTab;
 
   @override
   Widget build(BuildContext context) {
-    if (currentIndex == _listComponent) {
-      return const ComponentsPanel();
+    switch (currentTab) {
+      case ToolPanelTab.listComponent:
+        return const ComponentsPanel();
+      case ToolPanelTab.componetTree:
+        return const ComponentTreePanel();
+      case ToolPanelTab.codeView:
+        return const CodeViewerPanel();
+      case ToolPanelTab.jsonView:
+        return const JsonViewerPanel();
+      case ToolPanelTab.setting:
+        return const SettingPanel();
     }
-    if (currentIndex == _componentTree) {
-      return const ComponentTreePanel();
-    }
-    return const SizedBox.shrink();
   }
 }

@@ -1,11 +1,9 @@
+import 'package:app_creaty/commons/constants/constants.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:flutter/material.dart' hide ImageProvider;
 import 'package:json_widget/json_widget.dart' as json_widget;
-
-const _defaultTextValue =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit,'
-    ' sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+import 'package:uuid/uuid.dart';
 
 enum AppCreatyComponentGroup {
   common,
@@ -13,25 +11,35 @@ enum AppCreatyComponentGroup {
   input;
 
   String getGroupName(BuildContext context) {
-    switch (this) {
-      case AppCreatyComponentGroup.common:
-        return context.l10n.commonComponents;
-      case AppCreatyComponentGroup.layout:
-        return context.l10n.layoutComponents;
-      case AppCreatyComponentGroup.input:
-        return context.l10n.inputComponents;
-    }
+    return switch (this) {
+      AppCreatyComponentGroup.common => context.l10n.commonComponents,
+      AppCreatyComponentGroup.layout => context.l10n.layoutComponents,
+      AppCreatyComponentGroup.input => context.l10n.inputComponents,
+    };
   }
+
+  bool get isCommon => this == AppCreatyComponentGroup.common;
+
+  bool get isLayout => this == AppCreatyComponentGroup.layout;
+
+  bool get isInput => this == AppCreatyComponentGroup.input;
 }
 
-enum AppCreatyWidgetRenderType { single, multi }
+enum AppCreatyWidgetRenderType {
+  single,
+  multi;
+
+  bool get isSingle => this == AppCreatyWidgetRenderType.single;
+
+  bool get isMulti => this == AppCreatyWidgetRenderType.multi;
+}
 
 abstract class IAppCreatyComponent {
   String getTitle(BuildContext context);
 
   SvgGenImage get illustration;
 
-  Map<String, dynamic> get data;
+  json_widget.Widget get data;
 
   AppCreatyWidgetRenderType get renderType;
 
@@ -48,115 +56,110 @@ enum AppCreatyComponent implements IAppCreatyComponent {
 
   @override
   String getTitle(BuildContext context) {
-    switch (this) {
-      case AppCreatyComponent.text:
-        return context.l10n.textComponent;
-      case AppCreatyComponent.column:
-        return context.l10n.columnComponent;
-      case AppCreatyComponent.row:
-        return context.l10n.rowComponent;
-      case AppCreatyComponent.container:
-        return context.l10n.containerComponent;
-      case AppCreatyComponent.image:
-        return context.l10n.imageComponent;
-      case AppCreatyComponent.elevatedButton:
-        return context.l10n.buttonComponenet;
-    }
+    return switch (this) {
+      AppCreatyComponent.text => context.l10n.textComponent,
+      AppCreatyComponent.column => context.l10n.columnComponent,
+      AppCreatyComponent.row => context.l10n.rowComponent,
+      AppCreatyComponent.container => context.l10n.containerComponent,
+      AppCreatyComponent.image => context.l10n.imageComponent,
+      AppCreatyComponent.elevatedButton => context.l10n.buttonComponenet,
+    };
   }
 
   @override
   SvgGenImage get illustration {
-    switch (this) {
-      case AppCreatyComponent.text:
-        return Assets.icons.components.text;
-      case AppCreatyComponent.column:
-        return Assets.icons.components.column;
-      case AppCreatyComponent.row:
-        return Assets.icons.components.row;
-      case AppCreatyComponent.container:
-        return Assets.icons.components.container;
-      case AppCreatyComponent.image:
-        return Assets.icons.components.image;
-      case AppCreatyComponent.elevatedButton:
-        return Assets.icons.components.button;
-    }
+    return switch (this) {
+      AppCreatyComponent.text => Assets.icons.components.text,
+      AppCreatyComponent.column => Assets.icons.components.column,
+      AppCreatyComponent.row => Assets.icons.components.row,
+      AppCreatyComponent.container => Assets.icons.components.container,
+      AppCreatyComponent.image => Assets.icons.components.image,
+      AppCreatyComponent.elevatedButton => Assets.icons.components.button,
+    };
   }
 
   @override
-  Map<String, dynamic> get data {
+  json_widget.Widget get data {
+    final key = json_widget.ValueKey(const Uuid().v4());
     switch (this) {
       case AppCreatyComponent.text:
-        return const json_widget.Widget.text(_defaultTextValue).toJson();
+        return json_widget.Widget.text(
+          Constants.kDefaultTextValue,
+          key: key,
+        );
       case AppCreatyComponent.column:
-        return const json_widget.Widget.column().toJson();
+        return json_widget.Widget.column(key: key);
       case AppCreatyComponent.row:
-        return const json_widget.Widget.row().toJson();
+        return json_widget.Widget.row(key: key);
       case AppCreatyComponent.container:
         const color = json_widget.Colors.blue;
+        // final containerChildKey = json_widget.ValueKey(const Uuid().v4());
+        // final containerChild =
+        //     json_widget.Widget.sizedBox(key: containerChildKey);
         const boxDecoration = json_widget.BoxDecoration(color: color);
-        const defaultWidthHeight = 200.0;
-        return const json_widget.Widget.container(
-          width: defaultWidthHeight,
-          height: defaultWidthHeight,
+        return json_widget.Widget.container(
+          key: key,
+          width: Constants.kDefaultWidthHeight,
+          height: Constants.kDefaultHeightWidget,
           decoration: boxDecoration,
-        ).toJson();
+          alignment: json_widget.Alignment.topLeft,
+          // child: containerChild,
+        );
       case AppCreatyComponent.image:
         final defaultImageProvider = json_widget.ImageProvider.asset(
-          Assets.images.png.defaultImage.path,
+          Assets.images.png.pleple.path,
         );
-        return json_widget.Widget.image(image: defaultImageProvider).toJson();
+        const defaultBoxFit = json_widget.BoxFit.cover;
+        return json_widget.Widget.image(
+          image: defaultImageProvider,
+          key: key,
+          height: Constants.kDefaultHeightWidget,
+          width: Constants.kDefaultWidthHeight,
+          fit: defaultBoxFit,
+        );
       case AppCreatyComponent.elevatedButton:
-        const elevatedButtonChild = json_widget.Widget.text('Button');
+        final elevatedButtonChildKey = json_widget.ValueKey(const Uuid().v4());
+        final elevatedButtonChild =
+            json_widget.Widget.text('Button', key: elevatedButtonChildKey);
         const callback = json_widget.Callback.empty();
-        return const json_widget.Widget.elevatedButton(
+        return json_widget.Widget.elevatedButton(
+          key: key,
           child: elevatedButtonChild,
           onPressed: callback,
-        ).toJson();
+        );
     }
   }
 
   @override
   List<AppCreatyComponentGroup> get groups {
-    switch (this) {
-      case AppCreatyComponent.text:
-        return [AppCreatyComponentGroup.common];
-      case AppCreatyComponent.column:
-        return [
+    return switch (this) {
+      AppCreatyComponent.text => [AppCreatyComponentGroup.common],
+      AppCreatyComponent.column => [
           AppCreatyComponentGroup.common,
           AppCreatyComponentGroup.layout,
-        ];
-      case AppCreatyComponent.row:
-        return [
+        ],
+      AppCreatyComponent.row => [
           AppCreatyComponentGroup.common,
           AppCreatyComponentGroup.layout,
-        ];
-      case AppCreatyComponent.container:
-        return [
+        ],
+      AppCreatyComponent.container => [
           AppCreatyComponentGroup.common,
           AppCreatyComponentGroup.layout,
-        ];
-      case AppCreatyComponent.image:
-        return [AppCreatyComponentGroup.common];
-      case AppCreatyComponent.elevatedButton:
-        return [AppCreatyComponentGroup.common];
-    }
+        ],
+      AppCreatyComponent.image => [AppCreatyComponentGroup.common],
+      AppCreatyComponent.elevatedButton => [AppCreatyComponentGroup.common],
+    };
   }
 
   @override
   AppCreatyWidgetRenderType get renderType {
-    switch (this) {
-      case AppCreatyComponent.text:
-        return AppCreatyWidgetRenderType.single;
-      case AppCreatyComponent.column:
-        return AppCreatyWidgetRenderType.multi;
-      case AppCreatyComponent.row:
-        return AppCreatyWidgetRenderType.multi;
-      case AppCreatyComponent.container:
-        return AppCreatyWidgetRenderType.single;
-      case AppCreatyComponent.image:
-        return AppCreatyWidgetRenderType.single;
-      case AppCreatyComponent.elevatedButton:
-        return AppCreatyWidgetRenderType.single;
-    }
+    return switch (this) {
+      AppCreatyComponent.text => AppCreatyWidgetRenderType.single,
+      AppCreatyComponent.column => AppCreatyWidgetRenderType.multi,
+      AppCreatyComponent.row => AppCreatyWidgetRenderType.multi,
+      AppCreatyComponent.container => AppCreatyWidgetRenderType.single,
+      AppCreatyComponent.image => AppCreatyWidgetRenderType.single,
+      AppCreatyComponent.elevatedButton => AppCreatyWidgetRenderType.single,
+    };
   }
 }

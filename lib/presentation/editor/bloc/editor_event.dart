@@ -1,11 +1,11 @@
 part of 'editor_bloc.dart';
 
-abstract class EditorEvent extends Equatable {
+sealed class EditorEvent extends Equatable {
   @override
   List<Object?> get props => [];
 }
 
-class ChangeDeviceFrame extends EditorEvent {
+final class ChangeDeviceFrame extends EditorEvent {
   ChangeDeviceFrame({
     required this.deviceInfo,
   });
@@ -15,8 +15,8 @@ class ChangeDeviceFrame extends EditorEvent {
   List<Object?> get props => [deviceInfo];
 }
 
-class ToggleShowDeviceFrame extends EditorEvent {
+final class ToggleShowDeviceFrame extends EditorEvent {
   ToggleShowDeviceFrame();
 }
 
-class ImportProjectData extends EditorEvent {}
+final class ImportProjectData extends EditorEvent {}

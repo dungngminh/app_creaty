@@ -21,7 +21,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   Bloc.observer = AppBlocObserver();
 
   const windowOptions = WindowOptions(
-    minimumSize: Size(540, 720),
+    minimumSize: Size(720, 960),
     center: true,
     backgroundColor: Colors.transparent,
     skipTaskbar: false,
@@ -31,7 +31,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     await windowManager.focus();
   });
 
-  await runZonedGuarded(
+  return runZonedGuarded(
     () async => runApp(await builder()),
     (error, stackTrace) =>
         logger.e('RunGuardError=>>', error.toString(), stackTrace),

@@ -42,6 +42,14 @@ class _AppEditorNavigationRailState extends State<AppEditorNavigationRail> {
           label: Text(context.l10n.componentTree),
         ),
         NavigationRailDestination(
+          icon: Assets.icons.other.code.svg(),
+          label: Text(context.l10n.codeViewLabel),
+        ),
+        NavigationRailDestination(
+          icon: Assets.icons.other.jsonBraces.svg(),
+          label: Text(context.l10n.jsonViewLabel),
+        ),
+        NavigationRailDestination(
           icon: Assets.icons.outline.setting.svg(),
           selectedIcon: Assets.icons.bold.setting.svg(),
           label: Text(context.l10n.settings),
