@@ -106,5 +106,7 @@
   "rightLabel": "Right",
   "topLabel": "Top",
   "bottomLabel": "Bottom",
-  "justifyLabel": "Justify"
+  "justifyLabel": "Justify",
+  "textSizeLabel": "Text Size",
+  "pleaseInputTextSizeErrorLabel": "Please input text size"
 }

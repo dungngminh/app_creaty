@@ -31,7 +31,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     await windowManager.focus();
   });
 
-  await runZonedGuarded(
+  return runZonedGuarded(
     () async => runApp(await builder()),
     (error, stackTrace) =>
         logger.e('RunGuardError=>>', error.toString(), stackTrace),
