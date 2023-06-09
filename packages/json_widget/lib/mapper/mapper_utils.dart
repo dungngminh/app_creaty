@@ -1543,7 +1543,7 @@ material.Decoration? $decoration(
       border: $border(context, value.border),
       borderRadius: $borderRadius(value.borderRadius),
       boxShadow: value.boxShadow
-          ?.map((e) => $shadow(context, e) as material.BoxShadow)
+          ?.map((e) => $shadow(context, e)! as material.BoxShadow)
           .toList(),
       gradient: $gradient(context, value.gradient),
       backgroundBlendMode: $enum(
@@ -1559,7 +1559,7 @@ material.Decoration? $decoration(
       color: $color(context, value.color),
       image: $imageDecoration(context, value.image),
       shadows: value.shadows
-          ?.map((e) => $shadow(context, e) as material.BoxShadow)
+          ?.map((e) => $shadow(context, e)! as material.BoxShadow)
           .toList(),
       shape: $shapeBorder(context, value.shape)!,
       gradient: $gradient(context, value.gradient),
@@ -3393,7 +3393,7 @@ material.Widget? $widget(
       borderRadius: $borderRadius(value.borderRadius)!,
       filmColor: $color(context, value.filmColor)!,
       shadows: value.shadows
-          .map((e) => $shadow(context, e) as material.BoxShadow)
+          .map((e) => $shadow(context, e)! as material.BoxShadow)
           .toList(growable: false),
       size: $size(value.size)!,
     ),
@@ -3799,7 +3799,7 @@ material.Widget? $widget(
           $enum(value.textWidthBasis, material.TextWidthBasis.values),
     ),
     selectableTextRich: (value) => material.SelectableText.rich(
-      $inlineSpan(context, value.textSpan) as material.TextSpan,
+      $inlineSpan(context, value.textSpan)! as material.TextSpan,
       key: $key(value.key),
       style: $textStyle(context, value.style),
       strutStyle: $strutStyle(context, value.strutStyle),

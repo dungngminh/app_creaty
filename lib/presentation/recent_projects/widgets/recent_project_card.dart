@@ -145,4 +145,3 @@ class _RecentProjectCardState extends State<RecentProjectCard> {
     );
   }
 }
-

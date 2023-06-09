@@ -1876,7 +1876,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         border: $border(context, value.border),
         borderRadius: $borderRadius(value.borderRadius),
         boxShadow: value.boxShadow
-            ?.map((e) => $shadow(context, e) as material.BoxShadow)
+            ?.map((e) => $shadow(context, e)! as material.BoxShadow)
             .toList(),
         gradient: $gradient(context, value.gradient),
         backgroundBlendMode: $enum(
@@ -1892,7 +1892,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         color: $color(context, value.color),
         image: $imageDecoration(context, value.image),
         shadows: value.shadows
-            ?.map((e) => $shadow(context, e) as material.BoxShadow)
+            ?.map((e) => $shadow(context, e)! as material.BoxShadow)
             .toList(),
         shape: $shapeBorder(context, value.shape)!,
         gradient: $gradient(context, value.gradient),
@@ -2447,7 +2447,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
     if (dataRow == null) return null;
     return dataRow.map(
       (value) => material.DataRow(
-        key: $key(value.key as widgets.Key) as material.LocalKey?,
+        key: $key(value.key) as material.LocalKey?,
         selected: value.selected,
         onSelectChanged: (active) {
           if (active ?? false) {
@@ -3744,7 +3744,7 @@ class _FlutterWidgetState extends material.State<FlutterWidget> {
         borderRadius: $borderRadius(value.borderRadius)!,
         filmColor: $color(context, value.filmColor)!,
         shadows: value.shadows
-            .map((e) => $shadow(context, e) as material.BoxShadow)
+            .map((e) => $shadow(context, e)! as material.BoxShadow)
             .toList(growable: false),
         size: $size(value.size)!,
       ),

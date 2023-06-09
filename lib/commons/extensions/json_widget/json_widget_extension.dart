@@ -55,4 +55,10 @@ extension WidgetInJsonExtension on Map<String, dynamic> {
   String get widgetKey {
     return this[_widgetKey].toString();
   }
+
+  List<Map<String, dynamic>> get children =>
+      this[_childrenKey] as List<Map<String, dynamic>>;
+
+  Map<String, dynamic>? get child =>
+      this[_childKey] as Map<String, dynamic>?;
 }

@@ -69,9 +69,22 @@ class _ImagePropsPanelState extends State<ImagePropsPanel> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Image',
-          style: context.textTheme.displaySmall,
+        Row(
+          children: [
+            Text(
+              'Image',
+              style: context.textTheme.displayMedium,
+            ),
+            const Gap(16),
+            IconButton(
+              icon: Assets.icons.other.trash.svg(),
+              onPressed: () {
+                context
+                    .read<VirtualAppBloc>()
+                    .add(DeleteWidget(widget: widget.jsonWidget));
+              },
+            ),
+          ],
         ),
         const Gap(32),
         _buildImageSize(),

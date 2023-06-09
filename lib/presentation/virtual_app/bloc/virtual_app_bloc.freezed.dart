@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$VirtualAppState {
   json_widget.Widget get virtualAppWidget => throw _privateConstructorUsedError;
-  json_widget.Widget get selectedWidget => throw _privateConstructorUsedError;
+  json_widget.Widget? get selectedWidget => throw _privateConstructorUsedError;
   json_widget.Widget get widgetWillBeUpdatedIn =>
       throw _privateConstructorUsedError;
   json_widget.Widget get hoveredWidget => throw _privateConstructorUsedError;
@@ -37,14 +37,14 @@ abstract class $VirtualAppStateCopyWith<$Res> {
   @useResult
   $Res call(
       {json_widget.Widget virtualAppWidget,
-      json_widget.Widget selectedWidget,
+      json_widget.Widget? selectedWidget,
       json_widget.Widget widgetWillBeUpdatedIn,
       json_widget.Widget hoveredWidget,
       List<AppCreatyPage> pages,
       LoadingStatus loadingStatus});
 
   $WidgetCopyWith<$Res> get virtualAppWidget;
-  $WidgetCopyWith<$Res> get selectedWidget;
+  $WidgetCopyWith<$Res>? get selectedWidget;
   $WidgetCopyWith<$Res> get widgetWillBeUpdatedIn;
   $WidgetCopyWith<$Res> get hoveredWidget;
 }
@@ -63,7 +63,7 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
   @override
   $Res call({
     Object? virtualAppWidget = null,
-    Object? selectedWidget = null,
+    Object? selectedWidget = freezed,
     Object? widgetWillBeUpdatedIn = null,
     Object? hoveredWidget = null,
     Object? pages = null,
@@ -74,10 +74,10 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
           ? _value.virtualAppWidget
           : virtualAppWidget // ignore: cast_nullable_to_non_nullable
               as json_widget.Widget,
-      selectedWidget: null == selectedWidget
+      selectedWidget: freezed == selectedWidget
           ? _value.selectedWidget
           : selectedWidget // ignore: cast_nullable_to_non_nullable
-              as json_widget.Widget,
+              as json_widget.Widget?,
       widgetWillBeUpdatedIn: null == widgetWillBeUpdatedIn
           ? _value.widgetWillBeUpdatedIn
           : widgetWillBeUpdatedIn // ignore: cast_nullable_to_non_nullable
@@ -107,8 +107,12 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
 
   @override
   @pragma('vm:prefer-inline')
-  $WidgetCopyWith<$Res> get selectedWidget {
-    return $WidgetCopyWith<$Res>(_value.selectedWidget, (value) {
+  $WidgetCopyWith<$Res>? get selectedWidget {
+    if (_value.selectedWidget == null) {
+      return null;
+    }
+
+    return $WidgetCopyWith<$Res>(_value.selectedWidget!, (value) {
       return _then(_value.copyWith(selectedWidget: value) as $Val);
     });
   }
@@ -140,7 +144,7 @@ abstract class _$$_VirtualAppStateCopyWith<$Res>
   @useResult
   $Res call(
       {json_widget.Widget virtualAppWidget,
-      json_widget.Widget selectedWidget,
+      json_widget.Widget? selectedWidget,
       json_widget.Widget widgetWillBeUpdatedIn,
       json_widget.Widget hoveredWidget,
       List<AppCreatyPage> pages,
@@ -149,7 +153,7 @@ abstract class _$$_VirtualAppStateCopyWith<$Res>
   @override
   $WidgetCopyWith<$Res> get virtualAppWidget;
   @override
-  $WidgetCopyWith<$Res> get selectedWidget;
+  $WidgetCopyWith<$Res>? get selectedWidget;
   @override
   $WidgetCopyWith<$Res> get widgetWillBeUpdatedIn;
   @override
@@ -168,7 +172,7 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? virtualAppWidget = null,
-    Object? selectedWidget = null,
+    Object? selectedWidget = freezed,
     Object? widgetWillBeUpdatedIn = null,
     Object? hoveredWidget = null,
     Object? pages = null,
@@ -179,10 +183,10 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
           ? _value.virtualAppWidget
           : virtualAppWidget // ignore: cast_nullable_to_non_nullable
               as json_widget.Widget,
-      selectedWidget: null == selectedWidget
+      selectedWidget: freezed == selectedWidget
           ? _value.selectedWidget
           : selectedWidget // ignore: cast_nullable_to_non_nullable
-              as json_widget.Widget,
+              as json_widget.Widget?,
       widgetWillBeUpdatedIn: null == widgetWillBeUpdatedIn
           ? _value.widgetWillBeUpdatedIn
           : widgetWillBeUpdatedIn // ignore: cast_nullable_to_non_nullable
@@ -220,7 +224,7 @@ class _$_VirtualAppState implements _VirtualAppState {
   final json_widget.Widget virtualAppWidget;
   @override
   @JsonKey()
-  final json_widget.Widget selectedWidget;
+  final json_widget.Widget? selectedWidget;
   @override
   @JsonKey()
   final json_widget.Widget widgetWillBeUpdatedIn;
@@ -283,7 +287,7 @@ class _$_VirtualAppState implements _VirtualAppState {
 abstract class _VirtualAppState implements VirtualAppState {
   const factory _VirtualAppState(
       {final json_widget.Widget virtualAppWidget,
-      final json_widget.Widget selectedWidget,
+      final json_widget.Widget? selectedWidget,
       final json_widget.Widget widgetWillBeUpdatedIn,
       final json_widget.Widget hoveredWidget,
       final List<AppCreatyPage> pages,
@@ -292,7 +296,7 @@ abstract class _VirtualAppState implements VirtualAppState {
   @override
   json_widget.Widget get virtualAppWidget;
   @override
-  json_widget.Widget get selectedWidget;
+  json_widget.Widget? get selectedWidget;
   @override
   json_widget.Widget get widgetWillBeUpdatedIn;
   @override

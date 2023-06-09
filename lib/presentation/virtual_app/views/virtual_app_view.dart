@@ -36,9 +36,9 @@ class _VirtualAppViewState extends State<VirtualAppView> {
           final virtualAppWidgetData = context.select(
             (VirtualAppBloc bloc) => bloc.state.virtualAppWidget,
           );
-          final selectedWidget = context.select(
-            (VirtualAppBloc bloc) => bloc.state.selectedWidget,
-          );
+          // final selectedWidget = context.select(
+          //   (VirtualAppBloc bloc) => bloc.state.selectedWidget,
+          // );
           final hoveredWidget =
               context.select((VirtualAppBloc bloc) => bloc.state.hoveredWidget);
           return DeviceFrame(

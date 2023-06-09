@@ -165,7 +165,7 @@ class _NewProjectViewState extends State<_NewProjectView> {
                     labelText: context.l10n.projectNameSavedAsName,
                     enabled: false,
                   ),
-                  /// TODO(dungngminh): Add field project avatar
+                  /// TODO (dungngminh): Add field project avatar
                   gap16,
                   _buildSelectLocationButton(),
                   gap32,

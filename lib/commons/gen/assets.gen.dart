@@ -298,6 +298,9 @@ class $AssetsIconsOtherGen {
   SvgGenImage get saveAtPath =>
       const SvgGenImage('assets/icons/other/save_at_path.svg');
 
+  /// File path: assets/icons/other/trash.svg
+  SvgGenImage get trash => const SvgGenImage('assets/icons/other/trash.svg');
+
   /// File path: assets/icons/other/undo.svg
   SvgGenImage get undo => const SvgGenImage('assets/icons/other/undo.svg');
 
@@ -343,6 +346,7 @@ class $AssetsIconsOtherGen {
         plus,
         redo,
         saveAtPath,
+        trash,
         undo
       ];
 }

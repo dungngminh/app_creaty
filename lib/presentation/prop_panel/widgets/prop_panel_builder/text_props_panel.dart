@@ -1,5 +1,6 @@
 import 'package:app_creaty/commons/extensions/json_widget/text_align_extension.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
+import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/prop_panel/prop_panel.dart';
 import 'package:app_creaty/presentation/prop_panel/widgets/field_builder/prop_color_picker.dart';
@@ -26,6 +27,8 @@ class TextPropsPanel extends StatefulWidget {
 class _TextPropsPanelState extends State<TextPropsPanel> {
   late TextEditingController textDataEditingController;
   late TextEditingController textSizeEditingController;
+
+
   late final ValueNotifier<bool> isTextValueEmptyNotifier;
   late final ValueNotifier<bool> isTextSizeEmptyNotifier;
 
@@ -66,6 +69,7 @@ class _TextPropsPanelState extends State<TextPropsPanel> {
   @override
   void dispose() {
     textDataEditingController.dispose();
+    textSizeEditingController.dispose();
     super.dispose();
   }
 
@@ -74,9 +78,22 @@ class _TextPropsPanelState extends State<TextPropsPanel> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Text',
-          style: context.textTheme.displayMedium,
+        Row(
+          children: [
+            Text(
+              'Text',
+              style: context.textTheme.displayMedium,
+            ),
+            const Gap(16),
+            IconButton(
+              icon: Assets.icons.other.trash.svg(),
+              onPressed: () {
+                context
+                    .read<VirtualAppBloc>()
+                    .add(DeleteWidget(widget: widget.jsonWidget));
+              },
+            ),
+          ],
         ),
         const Gap(32),
         ColumnWithSpacing(
@@ -188,22 +205,21 @@ class _TextPropsPanelState extends State<TextPropsPanel> {
   }
 
   Widget _buildTextAlignProps() {
-    final textAlignProps = List.of(json_widget.TextAlign.values)
+    final textAlignProps = json_widget.TextAlign.values.toList()
       ..remove(json_widget.TextAlign.start)
       ..remove(json_widget.TextAlign.end);
     final defaulTextAlign =
         widget.jsonWidget.textAlign ?? json_widget.TextAlign.left;
     return FieldPropTile(
-      titleText: context.l10n.mainAxisAligmentLabel,
-      child: Row(
+      titleText: context.l10n.textAlignLabel,
+      child: RowWithSpacing(
         children: textAlignProps.map((value) {
           return PropIconButton(
             icon: value.image,
             tooltip: value.name.pascalCase,
             isSelected: value == defaulTextAlign,
             onPressed: () {
-              final updatedText =
-                  widget.jsonWidget.copyWith(textAlign: defaulTextAlign);
+              final updatedText = widget.jsonWidget.copyWith(textAlign: value);
               context
                   .read<VirtualAppBloc>()
                   .add(ChangeProp(widget: updatedText));

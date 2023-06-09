@@ -11,42 +11,43 @@ class PropertiesPanelView extends StatefulWidget {
   @override
   State<PropertiesPanelView> createState() => _PropertiesPanelViewState();
 }
-
 class _PropertiesPanelViewState extends State<PropertiesPanelView> {
   @override
   Widget build(BuildContext context) {
     final selectedWidget = context.watch<VirtualAppBloc>().state.selectedWidget;
-    final key = ValueKey(selectedWidget.key.toString());
-    return switch (selectedWidget.runtimeTypeValue) {
+    final key = ValueKey(selectedWidget?.key.toString());
+    return switch (selectedWidget?.runtimeTypeValue) {
       'scaffold' => ScaffoldPropsPanel(
           key: key,
-          jsonWidget: selectedWidget as json_widget.Scaffold,
+          jsonWidget: selectedWidget! as json_widget.Scaffold,
         ),
       'text' => TextPropsPanel(
           key: key,
-          jsonWidget: selectedWidget as json_widget.Text,
+          jsonWidget: selectedWidget! as json_widget.Text,
         ),
       'image' => ImagePropsPanel(
           key: key,
-          jsonWidget: selectedWidget as json_widget.Image,
+          jsonWidget: selectedWidget! as json_widget.Image,
         ),
       'elevatedButton' => ButtonPropsPanel(
           key: key,
-          jsonWidget: selectedWidget as json_widget.ElevatedButton,
+          jsonWidget: selectedWidget! as json_widget.ElevatedButton,
         ),
       'column' => ColumnPropsPanel(
           key: key,
-          jsonWidget: selectedWidget as json_widget.Column,
+          jsonWidget: selectedWidget! as json_widget.Column,
         ),
       'row' => RowPropsPanel(
           key: key,
-          jsonWidget: selectedWidget as json_widget.Row,
+          jsonWidget: selectedWidget! as json_widget.Row,
         ),
       'container' => ContainerPropsPanel(
           key: key,
-          jsonWidget: selectedWidget as json_widget.Container,
+          jsonWidget: selectedWidget! as json_widget.Container,
         ),
-      _ => Container(),
+      _ => const Center(
+          child: Text('Nothing'),
+        ),
     };
   }
 }
