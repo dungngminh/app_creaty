@@ -6,9 +6,23 @@
   "configurations": [
 
     {
-      "name": "Launch app",
+      "name": "Launch app (Debug)",
       "request": "launch",
       "type": "dart",
+      "program": "lib/main.dart",
+    },
+    {
+      "name": "Launch app (Profile)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "program": "lib/main.dart",
+    },
+    {
+      "name": "Launch app (Release)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
       "program": "lib/main.dart",
     },
     {
