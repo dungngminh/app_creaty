@@ -10,7 +10,7 @@ This macOS demo is running in Release Mode [v0.2.0](https://github.com/dungngmin
 
 <img alt="AppLogo.jpeg" height="100" src=".github/screenshots/AppLogo.jpeg" width="100"/>
 
-Drag n Drop Mobile Development Tool created by dungngminh.
+Drag n Drop Mobile Development Tool created by [@dungngminh](https://github.com/dungngminh).
 
 ## Getting Started 🤖
 - This idea came from [FlutterFlow](https://flutterflow.io) but will be a Desktop App.
