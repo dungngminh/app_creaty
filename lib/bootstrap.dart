@@ -21,7 +21,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   Bloc.observer = AppBlocObserver();
 
   const windowOptions = WindowOptions(
-    minimumSize: Size(720, 960),
+    minimumSize: Size(1000, 960),
     center: true,
     backgroundColor: Colors.transparent,
     skipTaskbar: false,
