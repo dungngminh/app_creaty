@@ -10,7 +10,7 @@ final class AppCreatyAlgorithm {
     if (tree.widgetKey == willUpdatedIn.widgetKey) {
       if (tree.isMultiChildWidget()) {
         tree.update(
-          'children',
+          kChildrenKey,
           (values) => [
             ...values as List,
             addedWidget,
@@ -18,7 +18,7 @@ final class AppCreatyAlgorithm {
         );
       } else {
         tree.update(
-          'child',
+          kChildKey,
           (values) => addedWidget,
         );
       }
@@ -32,14 +32,16 @@ final class AppCreatyAlgorithm {
             tree: tree,
           );
         } else {
-          final newTree = tree.children.map((child) {
-            return findAndAddWidgetToTree(
-              addedWidget: addedWidget,
-              willUpdatedIn: willUpdatedIn,
-              tree: child,
-            );
-          }).toList();
-          tree.update('children', (_) => newTree);
+          final newTree = tree.children.map(
+            (child) {
+              return findAndAddWidgetToTree(
+                addedWidget: addedWidget,
+                willUpdatedIn: willUpdatedIn,
+                tree: child,
+              );
+            },
+          ).toList();
+          tree.update(kChildrenKey, (_) => newTree);
           return tree;
         }
       } else if (tree.isSingleChildWidget()) {
@@ -52,7 +54,7 @@ final class AppCreatyAlgorithm {
           willUpdatedIn: willUpdatedIn,
           tree: child,
         );
-        tree.update('child', (_) => newChild);
+        tree.update(kChildKey, (_) => newChild);
         return tree;
       }
       return tree;
@@ -76,7 +78,7 @@ final class AppCreatyAlgorithm {
               tree: child,
             );
           }).toList();
-          tree.update('children', (_) => newTree);
+          tree.update(kChildrenKey, (_) => newTree);
           return tree;
         }
       } else if (tree.isSingleChildWidget()) {
@@ -88,7 +90,7 @@ final class AppCreatyAlgorithm {
           changedWidget: changedWidget,
           tree: child,
         );
-        tree.update('child', (_) => newChild);
+        tree.update(kChildKey, (_) => newChild);
         return tree;
       }
       return tree;
@@ -107,14 +109,16 @@ final class AppCreatyAlgorithm {
         if (tree.isChildrenEmpty()) {
           return tree;
         } else {
-          final newTree = tree.children.mapNotNull((child) {
-            return findAndDeleteWidget(
-              parentWidget: tree,
-              tree: child,
-              requestedWidget: requestedWidget,
-            );
-          }).toList();
-          tree.update('children', (_) => newTree);
+          final newTree = tree.children.mapNotNull(
+            (child) {
+              return findAndDeleteWidget(
+                parentWidget: tree,
+                tree: child,
+                requestedWidget: requestedWidget,
+              );
+            },
+          ).toList();
+          tree.update(kChildrenKey, (_) => newTree);
           return tree;
         }
       } else if (tree.isSingleChildWidget()) {
@@ -127,10 +131,23 @@ final class AppCreatyAlgorithm {
           requestedWidget: requestedWidget,
           tree: child,
         );
-        tree.update('child', (_) => newChild);
+        tree.update(kChildKey, (_) => newChild);
         return tree;
       }
       return tree;
     }
+  }
+
+  static Map<String, dynamic> addToWidget({
+    required Map<String, dynamic> parent,
+    required Map<String, dynamic> child,
+  }) {
+    if (parent.isMultiChildWidget()) {
+      final updatedChildren = parent.children.toList()..add(child);
+      parent.update(kChildrenKey, (_) => updatedChildren);
+    } else {
+      parent.update(kChildKey, (_) => child);
+    }
+    return parent;
   }
 }

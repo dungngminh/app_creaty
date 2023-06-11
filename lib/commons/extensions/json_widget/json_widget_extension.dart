@@ -1,9 +1,9 @@
 import 'package:json_widget/json_widget.dart' as json_widget;
 
-const _runtimeTypeKey = 'runtimeType';
-const _childrenKey = 'children';
-const _childKey = 'child';
-const _widgetKey = 'key';
+const kRuntimeTypeKey = 'runtimeType';
+const kChildrenKey = 'children';
+const kChildKey = 'child';
+const kWidgetKey = 'key';
 
 const _multiChildWidgets = [
   'column',
@@ -23,7 +23,7 @@ const _singleChildWidget = [
 
 extension JsonWidgetExtension on json_widget.Widget {
   String get runtimeTypeValue {
-    return toJson()[_runtimeTypeKey] as String;
+    return toJson()[kRuntimeTypeKey] as String;
   }
 
   bool hasKey(Object key) {
@@ -37,28 +37,28 @@ extension JsonWidgetExtension on json_widget.Widget {
 
 extension WidgetInJsonExtension on Map<String, dynamic> {
   bool isMultiChildWidget() {
-    return _multiChildWidgets.contains(this[_runtimeTypeKey] as String);
+    return _multiChildWidgets.contains(this[kRuntimeTypeKey] as String);
   }
 
   bool isSingleChildWidget() {
-    return _singleChildWidget.contains(this[_runtimeTypeKey] as String);
+    return _singleChildWidget.contains(this[kRuntimeTypeKey] as String);
   }
 
   bool isChildrenEmpty() {
-    return (this[_childrenKey] as List<Map<String, dynamic>>).isEmpty;
+    return (this[kChildrenKey] as List<Map<String, dynamic>>).isEmpty;
   }
 
   bool isChildNull() {
-    return (this[_childKey] as Map<String, dynamic>?) == null;
+    return (this[kChildKey] as Map<String, dynamic>?) == null;
   }
 
   String get widgetKey {
-    return this[_widgetKey].toString();
+    return this[kWidgetKey].toString();
   }
 
   List<Map<String, dynamic>> get children =>
-      this[_childrenKey] as List<Map<String, dynamic>>;
+      this[kChildrenKey] as List<Map<String, dynamic>>;
 
   Map<String, dynamic>? get child =>
-      this[_childKey] as Map<String, dynamic>?;
+      this[kChildKey] as Map<String, dynamic>?;
 }

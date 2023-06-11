@@ -55,7 +55,7 @@ class _ApplicationState extends State<Application> {
             textTheme: AppTextTheme().textTheme,
             fontFamily: FontFamily.nunito,
           ),
-          darkTheme: FlexThemeData.dark(
+          darkTheme: FlexThemeData.light(
             scheme: FlexScheme.blue,
             useMaterial3: true,
             useMaterial3ErrorColors: true,

@@ -31,6 +31,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     on<ChangeWidget>(_onChangeWidget);
     on<HoverWidget>(_onHoverWidget);
     on<DeleteWidget>(_onDeleteWidget);
+    on<WrapInWidget>(_onWrapInWidget);
     add(VirtualAppLoaded());
   }
 
@@ -181,6 +182,52 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
       state.copyWith(
         selectedWidget: null,
         virtualAppWidget: updatedWidgetApp,
+      ),
+    );
+  }
+
+  void _onWrapInWidget(WrapInWidget event, Emitter<VirtualAppState> emit) {
+    final currentApp = state.virtualAppWidget as json_widget.Scaffold;
+    final currentAppBody = currentApp.body;
+    if (currentAppBody == null) return;
+
+    /// Event
+    final childWidget = event.childWidget;
+    final parentWidget = event.parentWidget;
+
+    /// Swap key of child to parent, new key is assigned to child
+    final childKey = childWidget.key;
+
+    final newChildKey = json_widget.ValueKey(const Uuid().v4());
+
+    final updatedChildWidget = childWidget.copyWith(key: newChildKey);
+
+    final updatedParentWidget = parentWidget.copyWith(key: childKey);
+
+    final updatedChildParentWidgetData = AppCreatyAlgorithm.addToWidget(
+      parent: updatedParentWidget.toJson(),
+      child: updatedChildWidget.toJson(),
+    );
+
+    final updatedAppBodyData = AppCreatyAlgorithm.findAndUpdateWidget(
+      tree: currentAppBody.toJson(),
+      changedWidget: updatedChildParentWidgetData,
+    );
+
+    final updatedAppBody = Widget.fromJson(updatedAppBodyData);
+
+    final updatedApp = currentApp.copyWith(body: updatedAppBody);
+
+    final updatedChildParentWidget =
+        Widget.fromJson(updatedChildParentWidgetData);
+
+    emit(
+      state.copyWith(
+        virtualAppWidget: updatedApp,
+        selectedWidget: updatedChildParentWidget,
+        widgetWillBeUpdatedIn: updatedChildParentWidget.canUpdateIn
+            ? updatedChildParentWidget
+            : state.widgetWillBeUpdatedIn,
       ),
     );
   }
