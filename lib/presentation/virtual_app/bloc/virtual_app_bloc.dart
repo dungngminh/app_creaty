@@ -21,8 +21,9 @@ part 'virtual_app_event.dart';
 part 'virtual_app_state.dart';
 
 class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
-  VirtualAppBloc({required this.editorBloc})
-      : super(
+  VirtualAppBloc({required EditorBloc editorBloc})
+      : _editorBloc = editorBloc,
+        super(
           const VirtualAppState(),
         ) {
     on<AddWidgetToTree>(_onAddWidgetToTree);
@@ -35,7 +36,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     add(VirtualAppLoaded());
   }
 
-  final EditorBloc editorBloc;
+  final EditorBloc _editorBloc;
 
   void _onAddWidgetToTree(
     AddWidgetToTree event,
@@ -119,7 +120,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     /// TODO: add load snapshot
     ///
     emit(state.copyWith(loadingStatus: LoadingStatus.loading));
-    log(editorBloc.state.currentProject.toString());
+    log(_editorBloc.state.currentProject.toString());
 
     final pageName = StringGen.id;
     final routeName = pageName.camelCase;
