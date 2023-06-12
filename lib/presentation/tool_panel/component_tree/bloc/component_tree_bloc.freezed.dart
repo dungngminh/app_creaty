@@ -16,8 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ComponentTreeState {
-  WidgetTreeNode? get tree => throw _privateConstructorUsedError;
+  List<WidgetTreeNode> get trees => throw _privateConstructorUsedError;
   WidgetTreeNode? get selectedNode => throw _privateConstructorUsedError;
+  LoadingStatus get loadingStatus => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ComponentTreeStateCopyWith<ComponentTreeState> get copyWith =>
@@ -30,7 +31,10 @@ abstract class $ComponentTreeStateCopyWith<$Res> {
           ComponentTreeState value, $Res Function(ComponentTreeState) then) =
       _$ComponentTreeStateCopyWithImpl<$Res, ComponentTreeState>;
   @useResult
-  $Res call({WidgetTreeNode? tree, WidgetTreeNode? selectedNode});
+  $Res call(
+      {List<WidgetTreeNode> trees,
+      WidgetTreeNode? selectedNode,
+      LoadingStatus loadingStatus});
 }
 
 /// @nodoc
@@ -46,18 +50,23 @@ class _$ComponentTreeStateCopyWithImpl<$Res, $Val extends ComponentTreeState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tree = freezed,
+    Object? trees = null,
     Object? selectedNode = freezed,
+    Object? loadingStatus = null,
   }) {
     return _then(_value.copyWith(
-      tree: freezed == tree
-          ? _value.tree
-          : tree // ignore: cast_nullable_to_non_nullable
-              as WidgetTreeNode?,
+      trees: null == trees
+          ? _value.trees
+          : trees // ignore: cast_nullable_to_non_nullable
+              as List<WidgetTreeNode>,
       selectedNode: freezed == selectedNode
           ? _value.selectedNode
           : selectedNode // ignore: cast_nullable_to_non_nullable
               as WidgetTreeNode?,
+      loadingStatus: null == loadingStatus
+          ? _value.loadingStatus
+          : loadingStatus // ignore: cast_nullable_to_non_nullable
+              as LoadingStatus,
     ) as $Val);
   }
 }
@@ -70,7 +79,10 @@ abstract class _$$_ComponentTreeStateCopyWith<$Res>
       __$$_ComponentTreeStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({WidgetTreeNode? tree, WidgetTreeNode? selectedNode});
+  $Res call(
+      {List<WidgetTreeNode> trees,
+      WidgetTreeNode? selectedNode,
+      LoadingStatus loadingStatus});
 }
 
 /// @nodoc
@@ -84,18 +96,23 @@ class __$$_ComponentTreeStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tree = freezed,
+    Object? trees = null,
     Object? selectedNode = freezed,
+    Object? loadingStatus = null,
   }) {
     return _then(_$_ComponentTreeState(
-      tree: freezed == tree
-          ? _value.tree
-          : tree // ignore: cast_nullable_to_non_nullable
-              as WidgetTreeNode?,
+      trees: null == trees
+          ? _value._trees
+          : trees // ignore: cast_nullable_to_non_nullable
+              as List<WidgetTreeNode>,
       selectedNode: freezed == selectedNode
           ? _value.selectedNode
           : selectedNode // ignore: cast_nullable_to_non_nullable
               as WidgetTreeNode?,
+      loadingStatus: null == loadingStatus
+          ? _value.loadingStatus
+          : loadingStatus // ignore: cast_nullable_to_non_nullable
+              as LoadingStatus,
     ));
   }
 }
@@ -103,16 +120,30 @@ class __$$_ComponentTreeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ComponentTreeState implements _ComponentTreeState {
-  const _$_ComponentTreeState({this.tree, this.selectedNode});
+  const _$_ComponentTreeState(
+      {final List<WidgetTreeNode> trees = const <WidgetTreeNode>[],
+      this.selectedNode,
+      this.loadingStatus = LoadingStatus.initial})
+      : _trees = trees;
+
+  final List<WidgetTreeNode> _trees;
+  @override
+  @JsonKey()
+  List<WidgetTreeNode> get trees {
+    if (_trees is EqualUnmodifiableListView) return _trees;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_trees);
+  }
 
   @override
-  final WidgetTreeNode? tree;
-  @override
   final WidgetTreeNode? selectedNode;
+  @override
+  @JsonKey()
+  final LoadingStatus loadingStatus;
 
   @override
   String toString() {
-    return 'ComponentTreeState(tree: $tree, selectedNode: $selectedNode)';
+    return 'ComponentTreeState(trees: $trees, selectedNode: $selectedNode, loadingStatus: $loadingStatus)';
   }
 
   @override
@@ -120,13 +151,16 @@ class _$_ComponentTreeState implements _ComponentTreeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ComponentTreeState &&
-            (identical(other.tree, tree) || other.tree == tree) &&
+            const DeepCollectionEquality().equals(other._trees, _trees) &&
             (identical(other.selectedNode, selectedNode) ||
-                other.selectedNode == selectedNode));
+                other.selectedNode == selectedNode) &&
+            (identical(other.loadingStatus, loadingStatus) ||
+                other.loadingStatus == loadingStatus));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, tree, selectedNode);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_trees), selectedNode, loadingStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -138,13 +172,16 @@ class _$_ComponentTreeState implements _ComponentTreeState {
 
 abstract class _ComponentTreeState implements ComponentTreeState {
   const factory _ComponentTreeState(
-      {final WidgetTreeNode? tree,
-      final WidgetTreeNode? selectedNode}) = _$_ComponentTreeState;
+      {final List<WidgetTreeNode> trees,
+      final WidgetTreeNode? selectedNode,
+      final LoadingStatus loadingStatus}) = _$_ComponentTreeState;
 
   @override
-  WidgetTreeNode? get tree;
+  List<WidgetTreeNode> get trees;
   @override
   WidgetTreeNode? get selectedNode;
+  @override
+  LoadingStatus get loadingStatus;
   @override
   @JsonKey(ignore: true)
   _$$_ComponentTreeStateCopyWith<_$_ComponentTreeState> get copyWith =>

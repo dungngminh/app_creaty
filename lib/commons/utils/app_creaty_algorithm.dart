@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:app_creaty/commons/extensions/json_widget/json_widget_extension.dart';
+import 'package:app_creaty/presentation/tool_panel/component_tree/models/widget_tree_node.dart';
 import 'package:dartx/dartx.dart';
 
 final class AppCreatyAlgorithm {
@@ -149,5 +152,35 @@ final class AppCreatyAlgorithm {
       parent.update(kChildKey, (_) => child);
     }
     return parent;
+  }
+
+  static WidgetTreeNode findAllWidgetsInTree(Map<String, dynamic> treeData) {
+    if (treeData.isSingleChildWidget()) {
+      final node = WidgetTreeNode.fromJsonWidget(treeData);
+      final child = treeData.child;
+      log(child.toString());
+      if (child == null) {
+        return node;
+      }
+      final nodeChild = WidgetTreeNode.fromJsonWidget(child);
+
+      final updatedNode = node.copyWith(children: [nodeChild]);
+      return updatedNode;
+    } else if (treeData.isMultiChildWidget()) {
+      final node = WidgetTreeNode.fromJsonWidget(treeData);
+      if (treeData.isChildrenEmpty()) {
+        return node;
+      } else {
+        final children = treeData.children.map(
+          (child) {
+            return WidgetTreeNode.fromJsonWidget(child);
+          },
+        ).toList();
+        final updatedNode = node.copyWith(children: children);
+        return updatedNode;
+      }
+    } else {
+      return WidgetTreeNode.fromJsonWidget(treeData);
+    }
   }
 }

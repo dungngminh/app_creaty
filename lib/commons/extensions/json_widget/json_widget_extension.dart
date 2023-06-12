@@ -1,4 +1,5 @@
 import 'package:json_widget/json_widget.dart' as json_widget;
+import 'package:recase/recase.dart';
 
 const kRuntimeTypeKey = 'runtimeType';
 const kChildrenKey = 'children';
@@ -59,6 +60,8 @@ extension WidgetInJsonExtension on Map<String, dynamic> {
   List<Map<String, dynamic>> get children =>
       this[kChildrenKey] as List<Map<String, dynamic>>;
 
-  Map<String, dynamic>? get child =>
-      this[kChildKey] as Map<String, dynamic>?;
+  Map<String, dynamic>? get child => this[kChildKey] as Map<String, dynamic>?;
+
+  String get runtimeTypePascalCase =>
+      (this[kRuntimeTypeKey] as String).pascalCase;
 }

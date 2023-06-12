@@ -16,3 +16,5 @@ final class WrapInWidget extends ComponentTreeEvent {
   @override
   List<Object?> get props => [child, parent];
 }
+
+final class FetchTree extends ComponentTreeEvent {}

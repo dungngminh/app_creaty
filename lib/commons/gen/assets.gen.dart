@@ -189,6 +189,10 @@ class $AssetsIconsOtherGen {
   SvgGenImage get boxFitScaleDown =>
       const SvgGenImage('assets/icons/other/box_fit_scale_down.svg');
 
+  /// File path: assets/icons/other/chevron_down.svg
+  SvgGenImage get chevronDown =>
+      const SvgGenImage('assets/icons/other/chevron_down.svg');
+
   /// File path: assets/icons/other/code.svg
   SvgGenImage get code => const SvgGenImage('assets/icons/other/code.svg');
 
@@ -318,6 +322,7 @@ class $AssetsIconsOtherGen {
         boxFitFitWidth,
         boxFitNone,
         boxFitScaleDown,
+        chevronDown,
         code,
         crossHorizontalCenter,
         crossHorizontalEnd,
