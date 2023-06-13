@@ -162,7 +162,7 @@ final class AppCreatyAlgorithm {
       if (child == null) {
         return node;
       }
-      final nodeChild = WidgetTreeNode.fromJsonWidget(child);
+      final nodeChild = findAllWidgetsInTree(child);
 
       final updatedNode = node.copyWith(children: [nodeChild]);
       return updatedNode;
@@ -172,9 +172,7 @@ final class AppCreatyAlgorithm {
         return node;
       } else {
         final children = treeData.children.map(
-          (child) {
-            return WidgetTreeNode.fromJsonWidget(child);
-          },
+              findAllWidgetsInTree,
         ).toList();
         final updatedNode = node.copyWith(children: children);
         return updatedNode;
