@@ -26,6 +26,7 @@ class ComponentTreeBloc extends Bloc<ComponentTreeEvent, ComponentTreeState> {
     on<InitTree>(_onInitTree);
     on<WrapInWidget>(_onWrapInWidget);
     on<FetchTree>(_onFetchTree);
+    on<SelectNode>(_onSelectNode);
 
     add(InitTree());
     _virtualAppStatusSubcription = _virtualAppBloc.stream
@@ -33,7 +34,6 @@ class ComponentTreeBloc extends Bloc<ComponentTreeEvent, ComponentTreeState> {
       (state) => state.virtualAppWidget,
     )
         .listen((state) {
-      log('hhehee');
       add(FetchTree());
     });
   }
@@ -79,6 +79,7 @@ class ComponentTreeBloc extends Bloc<ComponentTreeEvent, ComponentTreeState> {
       widgetName: currentApp.runtimeTypeValue.pascalCase,
       type: AppCreatyWidgetRenderType.single,
       children: children,
+      data: currentApp.toJson(),
     );
 
     emit(
@@ -87,5 +88,27 @@ class ComponentTreeBloc extends Bloc<ComponentTreeEvent, ComponentTreeState> {
         loadingStatus: LoadingStatus.done,
       ),
     );
+  }
+
+  void _onSelectNode(SelectNode event, Emitter<ComponentTreeState> emit) {
+    final selectedNode = event.node;
+    final data = selectedNode.data;
+    final currentApp =
+        _virtualAppBloc.state.virtualAppWidget as json_widget.Scaffold;
+    if (data.runTimeTypeValue == 'scaffold') {
+      _virtualAppBloc.add(ChangeWidget(selectedWidget: currentApp));
+    } else {
+      final currentAppBody = currentApp.body;
+      if (currentAppBody == null) return;
+      final foundWidgetData = AppCreatyAlgorithm.findWidget(
+        goal: data,
+        tree: currentAppBody.toJson(),
+      );
+      log(foundWidgetData.toString());
+      if (foundWidgetData == null) return;
+      final foundWidget = json_widget.Widget.fromJson(foundWidgetData);
+      _virtualAppBloc.add(ChangeWidget(selectedWidget: foundWidget));
+    }
+    emit(state.copyWith(selectedNode: selectedNode));
   }
 }

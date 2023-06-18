@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:app_creaty/commons/extensions/json_widget/json_widget_extension.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/models/widget_tree_node.dart';
 import 'package:dartx/dartx.dart';
@@ -158,7 +156,6 @@ final class AppCreatyAlgorithm {
     if (treeData.isSingleChildWidget()) {
       final node = WidgetTreeNode.fromJsonWidget(treeData);
       final child = treeData.child;
-      log(child.toString());
       if (child == null) {
         return node;
       }
@@ -171,14 +168,39 @@ final class AppCreatyAlgorithm {
       if (treeData.isChildrenEmpty()) {
         return node;
       } else {
-        final children = treeData.children.map(
+        final children = treeData.children
+            .map(
               findAllWidgetsInTree,
-        ).toList();
+            )
+            .toList();
         final updatedNode = node.copyWith(children: children);
         return updatedNode;
       }
     } else {
       return WidgetTreeNode.fromJsonWidget(treeData);
     }
+  }
+
+  static Map<String, dynamic>? findWidget({
+    required Map<String, dynamic> tree,
+    required Map<String, dynamic> goal,
+  }) {
+    final nodes = List<Map<String, dynamic>>.of([tree]);
+
+    while (nodes.isNotEmpty) {
+      final node = nodes.removeAt(0);
+
+      if (node.widgetKey == goal.widgetKey) {
+        return node;
+      }
+
+      if (node.isMultiChildWidget()) {
+        nodes.addAll(node.children);
+      } else if (node.isSingleChildWidget() && !node.isChildNull()) {
+        nodes.add(node.child!);
+      }
+    }
+
+    return null;
   }
 }

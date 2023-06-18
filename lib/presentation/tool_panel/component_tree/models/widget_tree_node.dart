@@ -8,6 +8,7 @@ class WidgetTreeNode extends Equatable {
     required this.id,
     this.children = const <WidgetTreeNode>[],
     required this.type,
+    required this.data,
   });
 
   factory WidgetTreeNode.fromJsonWidget(Map<String, dynamic> json) {
@@ -17,7 +18,7 @@ class WidgetTreeNode extends Equatable {
       type: json.isMultiChildWidget()
           ? AppCreatyWidgetRenderType.multi
           : AppCreatyWidgetRenderType.single,
-      
+      data: json,
     );
   }
 
@@ -25,21 +26,24 @@ class WidgetTreeNode extends Equatable {
   final String id;
   final List<WidgetTreeNode> children;
   final AppCreatyWidgetRenderType type;
+  final Map<String, dynamic> data;
 
   WidgetTreeNode copyWith({
     String? widgetName,
     String? id,
     List<WidgetTreeNode>? children,
     AppCreatyWidgetRenderType? type,
+    Map<String, dynamic>? data,
   }) {
     return WidgetTreeNode(
       widgetName: widgetName ?? this.widgetName,
       id: id ?? this.id,
       children: children ?? this.children,
       type: type ?? this.type,
+      data: data ?? this.data,
     );
   }
 
   @override
-  List<Object?> get props => [widgetName, id, children, type];
+  List<Object?> get props => [widgetName, id, children, type, data];
 }

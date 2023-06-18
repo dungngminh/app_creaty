@@ -18,3 +18,9 @@ final class WrapInWidget extends ComponentTreeEvent {
 }
 
 final class FetchTree extends ComponentTreeEvent {}
+
+final class SelectNode extends ComponentTreeEvent {
+  SelectNode({required this.node});
+
+  final WidgetTreeNode node;
+}

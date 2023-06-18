@@ -1,12 +1,13 @@
-import 'dart:developer';
+import 'dart:async';
 
+import 'package:after_layout/after_layout.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
-import 'package:app_creaty/commons/gen/assets.gen.dart';
+import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/bloc/component_tree_bloc.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/models/widget_tree_node.dart';
+import 'package:app_creaty/presentation/widgets/expansion_icon_widget.dart';
 import 'package:app_creaty/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:gap/gap.dart';
@@ -19,17 +20,15 @@ class ComponentTreePanel extends StatelessWidget {
     final loadingStatus = context.select(
       (ComponentTreeBloc bloc) => bloc.state.loadingStatus,
     );
-
     if (loadingStatus.isLoading || loadingStatus.isInitial) {
       return const Center(
         child: CircularProgressIndicator(),
       );
     }
-    final trees = context.select((ComponentTreeBloc bloc) => bloc.state.trees);
-
-    return ComponentTreePanelView(
-      roots: trees,
+    final trees = context.select(
+      (ComponentTreeBloc bloc) => bloc.state.trees,
     );
+    return ComponentTreePanelView(roots: trees);
   }
 }
 
@@ -42,7 +41,8 @@ class ComponentTreePanelView extends StatefulWidget {
   State<ComponentTreePanelView> createState() => _ComponentTreePanelViewState();
 }
 
-class _ComponentTreePanelViewState extends State<ComponentTreePanelView> {
+class _ComponentTreePanelViewState extends State<ComponentTreePanelView>
+    with AfterLayoutMixin {
   late final TreeController<WidgetTreeNode> _treeController;
 
   @override
@@ -52,6 +52,11 @@ class _ComponentTreePanelViewState extends State<ComponentTreePanelView> {
       roots: widget.roots,
       childrenProvider: (WidgetTreeNode node) => node.children,
     );
+  }
+
+  @override
+  FutureOr<void> afterFirstLayout(BuildContext context) {
+    _treeController.expandAll();
   }
 
   @override
@@ -65,7 +70,6 @@ class _ComponentTreePanelViewState extends State<ComponentTreePanelView> {
     return BlocListener<ComponentTreeBloc, ComponentTreeState>(
       listenWhen: (previous, current) => previous.trees != current.trees,
       listener: (context, state) {
-        log(state.trees.toString());
         _treeController
           ..roots = state.trees
           ..rebuild();
@@ -75,7 +79,7 @@ class _ComponentTreePanelViewState extends State<ComponentTreePanelView> {
         spacing: 16,
         children: [
           Text(
-            'Component Tree',
+            context.l10n.componentTree,
             style: context.textTheme.titleLarge,
           ),
           Expanded(
@@ -93,29 +97,33 @@ class _ComponentTreePanelViewState extends State<ComponentTreePanelView> {
   }
 
   Widget _buildTreeEntryView(TreeEntry<WidgetTreeNode> entry) {
-    return InkWell(
-      onTap: () => {},
-      child: TreeIndentation(
-        entry: entry,
-        child: Row(
-          children: [
-            Text('${entry.node.widgetName} - '
-                '${entry.node.id.substring(0, 8)}'),
-            const Gap(16),
-            if (entry.hasChildren)
-              IconButton(
-                icon: AnimatedRotation(
-                  duration: 300.ms,
-                  turns: _treeController.getExpansionState(entry.node)
-                      ? -1 / 2
-                      : 0,
-                  child: Assets.icons.other.chevronDown.svg(),
-                ),
-                onPressed: () {
-                  _treeController.toggleExpansion(entry.node);
-                },
+    return TreeIndentation(
+      entry: entry,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4),
+        child: InkWell(
+          onTap: () => context
+              .read<ComponentTreeBloc>()
+              .add(SelectNode(node: entry.node)),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                entry.node.widgetName,
+                style: context.textTheme.titleMedium,
               ),
-          ],
+              const Gap(16),
+              if (entry.hasChildren)
+                IconButton(
+                  icon: ExpansionIconWidget(
+                    isExpand: _treeController.getExpansionState(entry.node),
+                  ),
+                  onPressed: () {
+                    _treeController.toggleExpansion(entry.node);
+                  },
+                ),
+            ],
+          ),
         ),
       ),
     );
