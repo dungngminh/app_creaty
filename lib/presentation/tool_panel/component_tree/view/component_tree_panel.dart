@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:after_layout/after_layout.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
+import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/bloc/component_tree_bloc.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/models/widget_tree_node.dart';
@@ -108,6 +109,8 @@ class _ComponentTreePanelViewState extends State<ComponentTreePanelView>
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
+              entry.node.widgetImage.svg(width: 24),
+              const Gap(8),
               Text(
                 entry.node.widgetName,
                 style: context.textTheme.titleMedium,
@@ -127,5 +130,20 @@ class _ComponentTreePanelViewState extends State<ComponentTreePanelView>
         ),
       ),
     );
+  }
+}
+
+extension ComponentTreeText on WidgetTreeNode {
+  SvgGenImage get widgetImage {
+    return switch (widgetName) {
+      'Scaffold' => Assets.icons.components.scaffold,
+      'Text' => Assets.icons.components.text,
+      'Column' => Assets.icons.components.column,
+      'Row' => Assets.icons.components.row,
+      'Container' => Assets.icons.components.container,
+      'ElevatedButton' => Assets.icons.components.button,
+      'Image' => Assets.icons.components.image,
+      _ => Assets.icons.components.component,
+    };
   }
 }

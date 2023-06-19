@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:app_creaty/commons/enums/loading_status.dart';
 import 'package:app_creaty/commons/extensions/json_widget/json_widget_extension.dart';
-import 'package:app_creaty/commons/utils/app_creaty_algorithm.dart';
+import 'package:app_creaty/commons/algorithm/app_creaty_algorithm.dart';
 import 'package:app_creaty/commons/utils/string_gen.dart';
 import 'package:app_creaty/models/app_creaty_page.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';

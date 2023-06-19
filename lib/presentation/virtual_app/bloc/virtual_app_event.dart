@@ -19,6 +19,7 @@ final class AddWidgetToTree extends VirtualAppEvent {
   });
 
   final json_widget.Widget widget;
+  
 
   @override
   List<Object?> get props => [widget];
