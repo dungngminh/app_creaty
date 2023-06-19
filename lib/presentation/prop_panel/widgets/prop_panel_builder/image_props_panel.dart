@@ -183,7 +183,6 @@ class _ImagePropsPanelState extends State<ImagePropsPanel> {
           width: 280,
           child: AppDropDownField<String>(
             labelText: context.l10n.genericAssetImage,
-
             /// TODO: Project Assets Resource
             items: [
               Assets.images.png.appLogo.path,

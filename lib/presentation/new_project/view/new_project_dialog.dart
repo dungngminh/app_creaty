@@ -6,6 +6,7 @@ import 'package:app_creaty/commons/extensions/snack_bar_extension.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/commons/router/app_router.dart';
+import 'package:app_creaty/commons/utils/svg_color.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/new_project/cubit/new_project_cubit.dart';
 import 'package:app_creaty/presentation/widgets/app_text_field.dart';
@@ -197,9 +198,8 @@ class _NewProjectViewState extends State<_NewProjectView> {
           child: IconButton(
             tooltip: context.l10n.selectLocation,
             icon: Assets.icons.other.saveAtPath.svg(
-              colorFilter: ColorFilter.mode(
+              colorFilter: svgColor(
                 context.colorScheme.primary,
-                BlendMode.srcIn,
               ),
             ),
             onPressed: () {

@@ -27,7 +27,10 @@ enum AppCreatyComponentGroup {
 
 enum AppCreatyWidgetRenderType {
   single,
-  multi;
+  multi,
+  none;
+
+  bool get isNone => this == AppCreatyWidgetRenderType.none;
 
   bool get isSingle => this == AppCreatyWidgetRenderType.single;
 
@@ -154,12 +157,12 @@ enum AppCreatyComponent implements IAppCreatyComponent {
   @override
   AppCreatyWidgetRenderType get renderType {
     return switch (this) {
-      AppCreatyComponent.text => AppCreatyWidgetRenderType.single,
+      AppCreatyComponent.text => AppCreatyWidgetRenderType.none,
       AppCreatyComponent.column => AppCreatyWidgetRenderType.multi,
       AppCreatyComponent.row => AppCreatyWidgetRenderType.multi,
       AppCreatyComponent.container => AppCreatyWidgetRenderType.single,
-      AppCreatyComponent.image => AppCreatyWidgetRenderType.single,
-      AppCreatyComponent.elevatedButton => AppCreatyWidgetRenderType.single,
+      AppCreatyComponent.image => AppCreatyWidgetRenderType.none,
+      AppCreatyComponent.elevatedButton => AppCreatyWidgetRenderType.none,
     };
   }
 }

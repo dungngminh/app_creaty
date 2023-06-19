@@ -1,11 +1,12 @@
+![DEMO](.github/screenshots/demo.gif)
+This macOS demo is running in Release Mode [v0.2.0](https://github.com/dungngminh/app_creaty/releases/tag/0.2.0) (forward x1.5).
+
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 [![License: MIT][license_badge]][license_link]
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/dungngminh/app_creaty/deploy.yml)
 [![Version badge](https://img.shields.io/github/v/release/dungngminh/app_creaty)](https://github.com/dungngminh/app_creaty/releases)
 [![Flutter](https://img.shields.io/badge/Made%20with-Flutter-blue.svg)](https://flutter.dev/)
-![DEMO](.github/screenshots/demo.gif)
-This macOS demo is running in Release Mode [v0.2.0](https://github.com/dungngminh/app_creaty/releases/tag/0.2.0) (forward x1.5).
 # App Creaty - Drag n Drop Mobile Development Tool
 
 <img alt="AppLogo.jpeg" height="100" src=".github/screenshots/AppLogo.jpeg" width="100"/>

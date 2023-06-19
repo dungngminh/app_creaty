@@ -1,4 +1,5 @@
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
+import 'package:app_creaty/commons/utils/svg_color.dart';
 import 'package:app_creaty/models/app_creaty_component.dart';
 import 'package:app_creaty/models/ui_component.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +17,8 @@ class UIComponentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final illustration = component.widget.illustration.svg(
       height: 60,
-      colorFilter: ColorFilter.mode(
+      colorFilter: svgColor(
         context.colorScheme.onBackground,
-        BlendMode.srcIn,
       ),
     );
     final title = component.widget.getTitle(context);

@@ -1,4 +1,3 @@
-import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/models/app_creaty_component.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
@@ -36,9 +35,9 @@ class _VirtualAppViewState extends State<VirtualAppView> {
           final virtualAppWidgetData = context.select(
             (VirtualAppBloc bloc) => bloc.state.virtualAppWidget,
           );
-          // final selectedWidget = context.select(
-          //   (VirtualAppBloc bloc) => bloc.state.selectedWidget,
-          // );
+          final selectedWidget = context.select(
+            (VirtualAppBloc bloc) => bloc.state.selectedWidget,
+          );
           final hoveredWidget =
               context.select((VirtualAppBloc bloc) => bloc.state.hoveredWidget);
           return DeviceFrame(
@@ -65,6 +64,9 @@ class _VirtualAppViewState extends State<VirtualAppView> {
                               onHover: (_) {
                                 final widget = item as json_widget.Widget;
                                 if (hoveredWidget.key != widget.key) {
+                                  // context
+                                  //     .read<VirtualAppBloc>()
+                                  //     .add(HoverWidget(hoverWidget: widget));
                                 }
                               },
                               onEnter: (_) {
@@ -79,9 +81,12 @@ class _VirtualAppViewState extends State<VirtualAppView> {
                               },
                               child: DecoratedBox(
                                 decoration: BoxDecoration(
-                                  border: isHover
+                                  border: isHover ||
+                                          selectedWidget?.key ==
+                                              (item as json_widget.Widget).key
                                       ? Border.all(
-                                          color: context.colorScheme.primary,
+                                          color: Colors.red,
+                                          width: 2,
                                         )
                                       : null,
                                 ),

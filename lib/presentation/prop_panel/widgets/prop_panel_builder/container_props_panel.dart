@@ -148,26 +148,7 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
             },
           ),
         ),
-        FieldPropTile(
-          titleText: context.l10n.backgroundColorLabel,
-          child: PropColorPicker(
-            currentColor: json_widget.$color(
-                  context,
-                  widget.jsonWidget.decoration?.color,
-                ) ??
-                Colors.white,
-            onColorConfirmed: (color) {
-              final updatedBoxDecoration = widget.jsonWidget.decoration
-                  ?.copyWith(color: json_widget.Color(color.value));
-              final updatedContainer =
-                  widget.jsonWidget.copyWith(decoration: updatedBoxDecoration);
-              context
-                ..pop()
-                ..read<VirtualAppBloc>()
-                    .add(ChangeProp(widget: updatedContainer));
-            },
-          ),
-        ),
+        
       ],
     );
   }

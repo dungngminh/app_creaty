@@ -1,5 +1,6 @@
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
+import 'package:app_creaty/commons/utils/svg_color.dart';
 import 'package:flutter/material.dart';
 
 class PropIconButton extends StatelessWidget {
@@ -22,9 +23,8 @@ class PropIconButton extends StatelessWidget {
       tooltip: tooltip,
       icon: icon.svg(
         colorFilter: isSelected
-            ? ColorFilter.mode(
+            ? svgColor(
                 context.colorScheme.primary,
-                BlendMode.srcIn,
               )
             : null,
       ),

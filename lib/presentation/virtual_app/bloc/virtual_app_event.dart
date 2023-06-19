@@ -19,6 +19,7 @@ final class AddWidgetToTree extends VirtualAppEvent {
   });
 
   final json_widget.Widget widget;
+  
 
   @override
   List<Object?> get props => [widget];
@@ -72,4 +73,14 @@ final class DeleteWidget extends VirtualAppEvent {
 
   @override
   List<Object?> get props => [widget];
+}
+
+final class WrapInWidget extends VirtualAppEvent {
+  WrapInWidget({required this.childWidget, required this.parentWidget});
+
+  final json_widget.Widget childWidget;
+  final json_widget.Widget parentWidget;
+
+  @override
+  List<Object?> get props => [childWidget, parentWidget];
 }
