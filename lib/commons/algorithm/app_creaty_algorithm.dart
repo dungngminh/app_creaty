@@ -1,12 +1,15 @@
+import 'package:app_creaty/commons/algorithm/app_creaty_algorithm_exception.dart';
 import 'package:app_creaty/commons/extensions/json_widget/json_widget_extension.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/models/widget_tree_node.dart';
 import 'package:dartx/dartx.dart';
+import 'package:json_widget/json_widget.dart';
 
 final class AppCreatyAlgorithm {
   static Map<String, dynamic> findAndAddWidgetToTree({
     required Map<String, dynamic> addedWidget,
     required Map<String, dynamic> willUpdatedIn,
     required Map<String, dynamic> tree,
+    bool overwriteIfHasChild = false,
   }) {
     if (tree.widgetKey == willUpdatedIn.widgetKey) {
       if (tree.isMultiChildWidget()) {
@@ -18,10 +21,17 @@ final class AppCreatyAlgorithm {
           ],
         );
       } else {
-        tree.update(
-          kChildKey,
-          (values) => addedWidget,
-        );
+        if (overwriteIfHasChild) {
+          tree.update(
+            kChildKey,
+            (values) => addedWidget,
+          );
+        } else {
+          throw HasChildException(
+            parentWidget: Widget.fromJson(tree),
+            widget: Widget.fromJson(addedWidget),
+          );
+        }
       }
       return tree;
     } else {
