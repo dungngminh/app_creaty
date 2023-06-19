@@ -64,6 +64,9 @@ class _VirtualAppViewState extends State<VirtualAppView> {
                               onHover: (_) {
                                 final widget = item as json_widget.Widget;
                                 if (hoveredWidget.key != widget.key) {
+                                  // context
+                                  //     .read<VirtualAppBloc>()
+                                  //     .add(HoverWidget(hoverWidget: widget));
                                 }
                               },
                               onEnter: (_) {

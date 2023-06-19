@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:app_creaty/commons/algorithm/app_creaty_algorithm.dart';
+import 'package:app_creaty/commons/algorithm/app_creaty_algorithm_exception.dart';
 import 'package:app_creaty/commons/enums/loading_status.dart';
 import 'package:app_creaty/commons/extensions/json_widget/json_widget_extension.dart';
-import 'package:app_creaty/commons/algorithm/app_creaty_algorithm.dart';
 import 'package:app_creaty/commons/utils/string_gen.dart';
 import 'package:app_creaty/models/app_creaty_page.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
@@ -48,37 +49,41 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     final currentWidgetWillBeUpdatedIn = state.widgetWillBeUpdatedIn;
 
     final body = currentVirtualApp.body;
-    if (body == null) {
-      final updatedVirtualApp =
-          currentVirtualApp.copyWith(body: receviedWidget);
-      emit(
-        state.copyWith(
-          virtualAppWidget: updatedVirtualApp,
-          selectedWidget: receviedWidget,
-          widgetWillBeUpdatedIn: receviedWidget.canUpdateIn
-              ? receviedWidget
-              : state.widgetWillBeUpdatedIn,
-        ),
-      );
-    } else {
-      if (!currentWidgetWillBeUpdatedIn.canUpdateIn) return;
-      final widget = AppCreatyAlgorithm.findAndAddWidgetToTree(
-        addedWidget: receviedWidget.toJson(),
-        tree: body.toJson(),
-        willUpdatedIn: currentWidgetWillBeUpdatedIn.toJson(),
-      );
-      log(widget.toString());
-      final updatedVirtualApp =
-          currentVirtualApp.copyWith(body: Widget.fromJson(widget));
-      emit(
-        state.copyWith(
-          virtualAppWidget: updatedVirtualApp,
-          selectedWidget: receviedWidget,
-          widgetWillBeUpdatedIn: receviedWidget.canUpdateIn
-              ? receviedWidget
-              : state.widgetWillBeUpdatedIn,
-        ),
-      );
+    try {
+      if (body == null) {
+        final updatedVirtualApp =
+            currentVirtualApp.copyWith(body: receviedWidget);
+        emit(
+          state.copyWith(
+            virtualAppWidget: updatedVirtualApp,
+            selectedWidget: receviedWidget,
+            widgetWillBeUpdatedIn: receviedWidget.canUpdateIn
+                ? receviedWidget
+                : state.widgetWillBeUpdatedIn,
+          ),
+        );
+      } else {
+        if (!currentWidgetWillBeUpdatedIn.canUpdateIn) return;
+        final widget = AppCreatyAlgorithm.findAndAddWidgetToTree(
+          addedWidget: receviedWidget.toJson(),
+          tree: body.toJson(),
+          willUpdatedIn: currentWidgetWillBeUpdatedIn.toJson(),
+        );
+        log(widget.toString());
+        final updatedVirtualApp =
+            currentVirtualApp.copyWith(body: Widget.fromJson(widget));
+        emit(
+          state.copyWith(
+            virtualAppWidget: updatedVirtualApp,
+            selectedWidget: receviedWidget,
+            widgetWillBeUpdatedIn: receviedWidget.canUpdateIn
+                ? receviedWidget
+                : state.widgetWillBeUpdatedIn,
+          ),
+        );
+      }
+    } on HasChildException catch (e, st) {
+      addError(e, st);
     }
   }
 
@@ -157,7 +162,12 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
   }
 
   void _onHoverWidget(HoverWidget event, Emitter<VirtualAppState> emit) {
-    emit(state.copyWith(hoveredWidget: event.hoverWidget));
+    emit(
+      state.copyWith(
+        hoveredWidget: event.hoverWidget,
+        widgetWillBeUpdatedIn: event.hoverWidget,
+      ),
+    );
   }
 
   void _onDeleteWidget(DeleteWidget event, Emitter<VirtualAppState> emit) {

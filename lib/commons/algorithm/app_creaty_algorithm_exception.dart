@@ -1,13 +1,13 @@
 import 'package:json_widget/json_widget.dart';
 
-sealed class AppCreatyAlgorithm implements Exception {
-  AppCreatyAlgorithm({this.widget, required this.message});
+sealed class AppCreatyAlgorithmException implements Exception {
+  AppCreatyAlgorithmException({this.widget, required this.message});
   final Widget? widget;
   final String message;
   
 }
 
-final class HasChildException extends AppCreatyAlgorithm {
+final class HasChildException extends AppCreatyAlgorithmException {
   HasChildException({
     this.parentWidget,
     super.widget,

@@ -2,16 +2,15 @@ import 'dart:async';
 
 import 'package:after_layout/after_layout.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
-import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/bloc/component_tree_bloc.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/models/widget_tree_node.dart';
-import 'package:app_creaty/presentation/widgets/expansion_icon_widget.dart';
+import 'package:app_creaty/presentation/tool_panel/component_tree/widgets/component_tree_entry_view.dart';
 import 'package:app_creaty/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
-import 'package:gap/gap.dart';
 
 class ComponentTreePanel extends StatelessWidget {
   const ComponentTreePanel({super.key});
@@ -71,9 +70,13 @@ class _ComponentTreePanelViewState extends State<ComponentTreePanelView>
     return BlocListener<ComponentTreeBloc, ComponentTreeState>(
       listenWhen: (previous, current) => previous.trees != current.trees,
       listener: (context, state) {
-        _treeController
-          ..roots = state.trees
-          ..rebuild();
+        _treeController.roots = state.trees;
+
+        Future<void>.delayed(20.ms, () {
+          _treeController
+            ..rebuild()
+            ..expandAll();
+        });
       },
       child: ColumnWithSpacing(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,63 +90,20 @@ class _ComponentTreePanelViewState extends State<ComponentTreePanelView>
             child: AnimatedTreeView<WidgetTreeNode>(
               treeController: _treeController,
               nodeBuilder:
-                  (BuildContext context, TreeEntry<WidgetTreeNode> entry) {
-                return _buildTreeEntryView(entry);
+                  (context, entry) {
+                return ComponentTreeEntryView(
+                  entry: entry,
+                  isExpand: _treeController.getExpansionState(entry.node),
+                  onExpansionPressed: () => _treeController.expand(entry.node),
+                  onPressed: () => context
+                      .read<ComponentTreeBloc>()
+                      .add(SelectNode(node: entry.node)),
+                );
               },
             ),
           ),
         ],
       ),
     );
-  }
-
-  Widget _buildTreeEntryView(TreeEntry<WidgetTreeNode> entry) {
-    return TreeIndentation(
-      entry: entry,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4),
-        child: InkWell(
-          onTap: () => context
-              .read<ComponentTreeBloc>()
-              .add(SelectNode(node: entry.node)),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              entry.node.widgetImage.svg(width: 24),
-              const Gap(8),
-              Text(
-                entry.node.widgetName,
-                style: context.textTheme.titleMedium,
-              ),
-              const Gap(16),
-              if (entry.hasChildren)
-                IconButton(
-                  icon: ExpansionIconWidget(
-                    isExpand: _treeController.getExpansionState(entry.node),
-                  ),
-                  onPressed: () {
-                    _treeController.toggleExpansion(entry.node);
-                  },
-                ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-extension ComponentTreeText on WidgetTreeNode {
-  SvgGenImage get widgetImage {
-    return switch (widgetName) {
-      'Scaffold' => Assets.icons.components.scaffold,
-      'Text' => Assets.icons.components.text,
-      'Column' => Assets.icons.components.column,
-      'Row' => Assets.icons.components.row,
-      'Container' => Assets.icons.components.container,
-      'ElevatedButton' => Assets.icons.components.button,
-      'Image' => Assets.icons.components.image,
-      _ => Assets.icons.components.component,
-    };
   }
 }

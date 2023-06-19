@@ -7,8 +7,8 @@ sealed class ComponentTreeEvent extends Equatable {
 
 final class InitTree extends ComponentTreeEvent {}
 
-final class WrapInWidget extends ComponentTreeEvent {
-  WrapInWidget({required this.child, required this.parent});
+final class RequestWrapInWidget extends ComponentTreeEvent {
+  RequestWrapInWidget({required this.child, required this.parent});
 
   final json_widget.Widget child;
   final json_widget.Widget parent;
@@ -21,6 +21,13 @@ final class FetchTree extends ComponentTreeEvent {}
 
 final class SelectNode extends ComponentTreeEvent {
   SelectNode({required this.node});
+
+  final WidgetTreeNode node;
+}
+
+
+final class DeleteNode extends ComponentTreeEvent {
+  DeleteNode({required this.node});
 
   final WidgetTreeNode node;
 }

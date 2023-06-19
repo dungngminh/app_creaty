@@ -9,7 +9,7 @@ final class AppCreatyAlgorithm {
     required Map<String, dynamic> addedWidget,
     required Map<String, dynamic> willUpdatedIn,
     required Map<String, dynamic> tree,
-    bool overwriteIfHasChild = false,
+    bool overwriteIfHasChild = true,
   }) {
     if (tree.widgetKey == willUpdatedIn.widgetKey) {
       if (tree.isMultiChildWidget()) {
@@ -21,7 +21,7 @@ final class AppCreatyAlgorithm {
           ],
         );
       } else {
-        if (overwriteIfHasChild) {
+        if (overwriteIfHasChild || tree.isChildNull()) {
           tree.update(
             kChildKey,
             (values) => addedWidget,
