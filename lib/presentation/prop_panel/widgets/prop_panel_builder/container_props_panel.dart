@@ -7,6 +7,7 @@ import 'package:app_creaty/presentation/prop_panel/widgets/widgets.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/widgets.dart';
 import 'package:collection/collection.dart';
+import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -93,16 +94,18 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
   void _onLockBorderRadiusNotifierListener() {
     if (!lockBorderRadiusNotifier.value) return;
     final topRightText = topRightBorderRadiusEditingController.text;
-    final topRightValue = double.tryParse(topRightText) ?? 0.0;
     final topLeftText = topLeftBorderRadiusEditingController.text;
-    final topLeftValue = double.tryParse(topLeftText) ?? 0.0;
     final bottomRightText = bottomRightBorderRadiusEditingController.text;
-    final bottomRightValue = double.tryParse(bottomRightText) ?? 0.0;
     final bottomLeftText = bottomLeftBorderRadiusEditingController.text;
-    final bottomLeftValue = double.tryParse(bottomLeftText) ?? 0.0;
 
     final maxValue =
-        [topRightValue, topLeftValue, bottomLeftValue, bottomRightValue].max;
+        [
+      topRightText,
+      topLeftText,
+      bottomLeftText,
+      bottomRightText
+    ].mapNotNull(double.tryParse).max;
+    
     topLeftBorderRadiusEditingController.text = '$maxValue';
     topRightBorderRadiusEditingController.text = '$maxValue';
     bottomLeftBorderRadiusEditingController.text = '$maxValue';
