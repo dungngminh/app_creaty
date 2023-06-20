@@ -14,6 +14,7 @@ class AppTextField extends StatelessWidget {
     this.width,
     this.inputFormatters,
     this.errorText,
+    this.hintText,
   });
 
   final TextEditingController? controller;
@@ -36,6 +37,8 @@ class AppTextField extends StatelessWidget {
   
   final String? errorText;
 
+  final String? hintText;
+
   @override
   Widget build(BuildContext context) {
     final border = haveBorder ? const OutlineInputBorder() : null;
@@ -51,6 +54,7 @@ class AppTextField extends StatelessWidget {
           errorText: errorText,
           border: border,
           labelText: labelText,
+          hintText: hintText,
           enabled: enabled,
         ),
       ),

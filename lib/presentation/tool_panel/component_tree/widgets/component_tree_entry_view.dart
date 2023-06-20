@@ -11,10 +11,14 @@ import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:gap/gap.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 import 'package:native_context_menu/native_context_menu.dart';
+import 'package:recase/recase.dart';
 
 enum ContextMenuAction {
+  addWidget,
   wrapIn,
   delete;
+
+  bool get isAddWidget => this == ContextMenuAction.addWidget;
 
   bool get isWrapIn => this == ContextMenuAction.wrapIn;
 
@@ -35,41 +39,69 @@ class ComponentTreeEntryView extends StatelessWidget {
   final VoidCallback onPressed;
   final bool isExpand;
 
+  List<MenuItem> get menuItems {
+    return entry.node.widgetName == 'Scaffold'
+        ? [
+            MenuItem(
+              action: ContextMenuAction.addWidget,
+              title: 'Add Widget',
+              items: AppCreatyComponent.values
+                  .mapIndexed(
+                    (index, e) => MenuItem(title: e.name.pascalCase, action: e),
+                  )
+                  .toList(),
+            ),
+          ]
+        : [
+            MenuItem(
+              action: ContextMenuAction.addWidget,
+              title: 'Add Widget',
+              items: AppCreatyComponent.values
+                  .mapIndexed(
+                    (index, e) => MenuItem(title: e.name.pascalCase, action: e),
+                  )
+                  .toList(),
+            ),
+            MenuItem(
+              title: 'Wrap with Widget',
+              items: AppCreatyComponent.values
+                  .where(
+                    (e) => e.renderType.isMulti || e.renderType.isSingle,
+                  )
+                  .mapIndexed(
+                    (index, e) => MenuItem(title: e.name.pascalCase, action: e),
+                  )
+                  .toList(),
+            ),
+            MenuItem(
+              action: ContextMenuAction.delete,
+              title: 'Remove Widget',
+            ),
+          ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return ContextMenuRegion(
-      menuOffset: const Offset(0, 50),
+      menuOffset: const Offset(0, 20),
       onItemSelected: (menu) {
         if (menu.action is ContextMenuAction) {
           final menuAction = menu.action! as ContextMenuAction;
           if (menuAction.isDelete) {
             context.read<ComponentTreeBloc>().add(DeleteNode(node: entry.node));
           }
+          if (menuAction.isAddWidget) {
+            /// TODO add widget to tree from tree component view
+          }
         } else if (menu.action is AppCreatyComponent) {
           final component = menu.action! as AppCreatyComponent;
           final childWidget = json_widget.Widget.fromJson(entry.node.data);
           context.read<ComponentTreeBloc>().add(
-              RequestWrapInWidget(parent: component.data, child: childWidget));
+                RequestWrapInWidget(parent: component.data, child: childWidget),
+              );
         }
       },
-      menuItems: [
-        MenuItem(
-          title: 'Wrap with Widget',
-          items: AppCreatyComponent.values
-              .where(
-                (e) => e.renderType.isMulti || e.renderType.isSingle,
-              )
-              .mapIndexed(
-                (index, e) => MenuItem(title: e.name, action: e),
-              )
-              .toList(),
-        ),
-        MenuItem(
-          action: ContextMenuAction.delete,
-          title: 'Remove Widget',
-          onSelected: () {},
-        ),
-      ],
+      menuItems: menuItems,
       child: TreeIndentation(
         entry: entry,
         child: Padding(

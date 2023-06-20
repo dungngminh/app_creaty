@@ -95,11 +95,19 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       case AppCreatyComponent.row:
         return json_widget.Widget.row(key: key);
       case AppCreatyComponent.container:
+        /// [Container.decoration.backgroundColor]
         const color = json_widget.Colors.blue;
-        // final containerChildKey = json_widget.ValueKey(const Uuid().v4());
-        // final containerChild =
-        //     json_widget.Widget.sizedBox(key: containerChildKey);
-        const boxDecoration = json_widget.BoxDecoration(color: color);
+        /// [Container.decoration.borderRadius]
+        const borderRadius = json_widget.BorderRadius.only(
+          topRight: json_widget.Radius.zero,
+          bottomRight: json_widget.Radius.zero,
+          topLeft: json_widget.Radius.zero,
+          bottomLeft: json_widget.Radius.zero,
+        );
+
+        /// [Container.decoration]
+        const boxDecoration =
+            json_widget.BoxDecoration(color: color, borderRadius: borderRadius);
         return json_widget.Widget.container(
           key: key,
           width: Constants.kDefaultWidthHeight,
