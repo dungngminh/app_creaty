@@ -7,5 +7,9 @@ class Constants {
   static const kDefaultTextValue = 'This is Text';
 
   static const kDefaultWidthHeight = 200.0;
+
   static const kDefaultHeightWidget = 200.0;
+
+  static const kDefaultBorderRadius = 0.0;
+
 }
