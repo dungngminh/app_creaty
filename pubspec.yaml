@@ -26,7 +26,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_animate: ^4.1.1+1
+  flutter_animate: ^4.2.0
   flutter_bloc: ^8.1.2
   flutter_colorpicker: ^1.0.3
   flutter_lazy_indexed_stack: ^0.0.5
