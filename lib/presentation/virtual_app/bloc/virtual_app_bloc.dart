@@ -46,7 +46,8 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     // Recurisve function to add widget to tree
     final receviedWidget = event.widget;
     final currentVirtualApp = state.virtualAppWidget as Scaffold;
-    final currentWidgetWillBeUpdatedIn = state.widgetWillBeUpdatedIn;
+    final currentWidgetWillBeUpdatedIn =
+        event.parent ?? state.widgetWillBeUpdatedIn;
 
     final body = currentVirtualApp.body;
     try {
@@ -69,7 +70,6 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
           tree: body.toJson(),
           willUpdatedIn: currentWidgetWillBeUpdatedIn.toJson(),
         );
-        log(widget.toString());
         final updatedVirtualApp =
             currentVirtualApp.copyWith(body: Widget.fromJson(widget));
         emit(
