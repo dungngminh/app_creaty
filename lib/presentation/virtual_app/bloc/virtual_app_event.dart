@@ -16,13 +16,14 @@ final class VirtualAppLoaded extends VirtualAppEvent {
 final class AddWidgetToTree extends VirtualAppEvent {
   AddWidgetToTree({
     required this.widget,
+    this.parent,
   });
 
   final json_widget.Widget widget;
-  
+  final json_widget.Widget? parent;
 
   @override
-  List<Object?> get props => [widget];
+  List<Object?> get props => [widget, parent];
 }
 
 final class AddPageToTree extends VirtualAppEvent {

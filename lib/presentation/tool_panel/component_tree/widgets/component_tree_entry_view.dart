@@ -3,6 +3,7 @@ import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/models/app_creaty_component.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/bloc/component_tree_bloc.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/models/widget_tree_node.dart';
+import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/expansion_icon_widget.dart';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +12,14 @@ import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:gap/gap.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 import 'package:native_context_menu/native_context_menu.dart';
+import 'package:recase/recase.dart';
 
 enum ContextMenuAction {
+  addWidget,
   wrapIn,
   delete;
+
+  bool get isAddWidget => this == ContextMenuAction.addWidget;
 
   bool get isWrapIn => this == ContextMenuAction.wrapIn;
 
@@ -35,6 +40,60 @@ class ComponentTreeEntryView extends StatelessWidget {
   final VoidCallback onPressed;
   final bool isExpand;
 
+  List<MenuItem> get menuItems {
+    return entry.node.widgetName == 'Scaffold' ||
+            entry.node.widgetName == 'Text'
+        ? [
+            MenuItem(
+              action: ContextMenuAction.addWidget,
+              title: 'Add Widget',
+              items: AppCreatyComponent.values
+                  .mapIndexed(
+                    (index, e) => MenuItem(title: e.name.pascalCase, action: e),
+                  )
+                  .toList(),
+            ),
+          ]
+        : [
+            MenuItem(
+              action: ContextMenuAction.addWidget,
+              title: 'Add Widget',
+              items: AppCreatyComponent.values
+                  .mapIndexed(
+                    (index, e) => MenuItem(
+                      title: e.name.pascalCase,
+                      action: Pair<ContextMenuAction, AppCreatyComponent>(
+                        ContextMenuAction.addWidget,
+                        e,
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+            MenuItem(
+              title: 'Wrap with Widget',
+              items: AppCreatyComponent.values
+                  .where(
+                    (e) => e.renderType.isMulti || e.renderType.isSingle,
+                  )
+                  .mapIndexed(
+                    (index, e) => MenuItem(
+                      title: e.name.pascalCase,
+                      action: Pair<ContextMenuAction, AppCreatyComponent>(
+                        ContextMenuAction.wrapIn,
+                        e,
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+            MenuItem(
+              action: ContextMenuAction.delete,
+              title: 'Remove Widget',
+            ),
+          ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return ContextMenuRegion(
@@ -45,11 +104,27 @@ class ComponentTreeEntryView extends StatelessWidget {
           if (menuAction.isDelete) {
             context.read<ComponentTreeBloc>().add(DeleteNode(node: entry.node));
           }
-        } else if (menu.action is AppCreatyComponent) {
-          final component = menu.action! as AppCreatyComponent;
-          final childWidget = json_widget.Widget.fromJson(entry.node.data);
-          context.read<ComponentTreeBloc>().add(
-              RequestWrapInWidget(parent: component.data, child: childWidget));
+        } else if (menu.action is Pair<ContextMenuAction, AppCreatyComponent>) {
+          final pair =
+              menu.action! as Pair<ContextMenuAction, AppCreatyComponent>;
+          if (pair.first.isAddWidget) {
+            final parentWidget = json_widget.Widget.fromJson(entry.node.data);
+            context.read<VirtualAppBloc>().add(
+                  AddWidgetToTree(
+                    widget: pair.second.data,
+                    parent: parentWidget,
+                  ),
+                );
+          }
+          if (pair.first.isWrapIn) {
+            final childWidget = json_widget.Widget.fromJson(entry.node.data);
+            context.read<VirtualAppBloc>().add(
+                  WrapInWidget(
+                    childWidget: childWidget,
+                    parentWidget: pair.second.data,
+                  ),
+                );
+          }
         }
       },
       menuItems: [

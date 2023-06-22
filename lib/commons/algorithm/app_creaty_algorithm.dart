@@ -37,11 +37,7 @@ final class AppCreatyAlgorithm {
     } else {
       if (tree.isMultiChildWidget()) {
         if (tree.isChildrenEmpty()) {
-          return findAndAddWidgetToTree(
-            addedWidget: addedWidget,
-            willUpdatedIn: willUpdatedIn,
-            tree: tree,
-          );
+          return tree;
         } else {
           final newTree = tree.children.map(
             (child) {
