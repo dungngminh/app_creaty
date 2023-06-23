@@ -84,31 +84,55 @@ class _MainEditorViewState extends State<MainEditorView> {
         child: Text('Editor Error'),
       );
     }
-    final mainEditorView = Scaffold(
-      appBar: EditorAppBar(
-        onHomeButtonPressed: _onHomeButtonPressed,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 16, bottom: 16),
-        child: Row(
-          children: [
-            AppEditorNavigationRail(
-              onIndexChanged: (onIndexChanged) =>
-                  _currentTabNotifier.value = onIndexChanged,
-            ),
-            Expanded(
-              child: ValueListenableBuilder(
-                valueListenable: _currentTabNotifier,
-                builder: (context, currentIndex, _) {
-                  return EditorPanel(
-                    currentIndex: currentIndex,
-                  );
-                },
+    final mainEditorView = BlocListener<VirtualAppBloc, VirtualAppState>(
+      listenWhen: (previous, current) =>
+          previous.handleRequest != current.handleRequest,
+      listener: (context, state) {
+        if (state.handleRequest?.isHasChild ?? false) {
+          final handleRequest = state.handleRequest!;
+          showConfirmationDialog<void>(
+            context,
+            title: 'Are you want to override?',
+            description: 'Yes/No',
+            onCancelPressed: () => context.pop(),
+            onConfirmPressed: () => context
+              ..pop()
+              ..read<VirtualAppBloc>().add(
+                AddWidgetToTree(
+                  widget: handleRequest.childWidget,
+                  overwriteIfHasChild: true,
+                  parent: handleRequest.parentWidget,
+                ),
               ),
-            ),
-          ],
+          );
+        }
+      },
+      child: Scaffold(
+        appBar: EditorAppBar(
+          onHomeButtonPressed: _onHomeButtonPressed,
         ),
-      ).animate().fadeIn(duration: 200.ms),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 16, bottom: 16),
+          child: Row(
+            children: [
+              AppEditorNavigationRail(
+                onIndexChanged: (onIndexChanged) =>
+                    _currentTabNotifier.value = onIndexChanged,
+              ),
+              Expanded(
+                child: ValueListenableBuilder(
+                  valueListenable: _currentTabNotifier,
+                  builder: (context, currentIndex, _) {
+                    return EditorPanel(
+                      currentIndex: currentIndex,
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ).animate().fadeIn(duration: 200.ms),
+      ),
     );
     return mainEditorView;
   }

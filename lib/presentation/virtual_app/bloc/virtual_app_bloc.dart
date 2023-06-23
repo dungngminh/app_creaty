@@ -8,6 +8,7 @@ import 'package:app_creaty/commons/extensions/json_widget/json_widget_extension.
 import 'package:app_creaty/commons/utils/string_gen.dart';
 import 'package:app_creaty/models/app_creaty_page.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
+import 'package:app_creaty/presentation/virtual_app/models/handle_request_type.dart';
 import 'package:dartx/dartx.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
@@ -71,6 +72,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
           addedWidget: receviedWidget.toJson(),
           tree: body.toJson(),
           willUpdatedIn: currentWidgetWillBeUpdatedIn.toJson(),
+          overwriteIfHasChild: event.overwriteIfHasChild,
         );
         final updatedVirtualApp =
             currentVirtualApp.copyWith(body: Widget.fromJson(widget));
@@ -86,6 +88,15 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
       }
     } on HasChildException catch (e, st) {
       addError(e, st);
+      emit(
+        state.copyWith(
+          handleRequest: HandleRequest(
+            type: HandleRequestType.hasChild,
+            childWidget: event.widget,
+            parentWidget: currentWidgetWillBeUpdatedIn,
+          ),
+        ),
+      );
     }
   }
 
