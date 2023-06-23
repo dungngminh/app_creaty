@@ -1,11 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:json_widget/json_widget.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:uuid/uuid.dart';
 
 part 'app_creaty_page.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
+@HiveType(typeId: 2)
 class AppCreatyPage extends Equatable {
   AppCreatyPage({
     String? id,
@@ -17,10 +18,14 @@ class AppCreatyPage extends Equatable {
   factory AppCreatyPage.fromJson(Map<String, dynamic> json) =>
       _$AppCreatyPageFromJson(json);
 
+  @HiveField(0)
   final String id;
+  @HiveField(1)
   final String pageName;
+  @HiveField(2)
   final String routeName;
-  final Widget data;
+  @HiveField(3)
+  final Map<String, dynamic> data;
 
   @override
   List<Object?> get props => [
@@ -31,4 +36,18 @@ class AppCreatyPage extends Equatable {
       ];
 
   Map<String, dynamic> toJson() => _$AppCreatyPageToJson(this);
+
+  AppCreatyPage copyWith({
+    String? id,
+    String? pageName,
+    String? routeName,
+    Map<String, dynamic>? data,
+  }) {
+    return AppCreatyPage(
+      id: id ?? this.id,
+      pageName: pageName ?? this.pageName,
+      routeName: routeName ?? this.routeName,
+      data: data ?? this.data,
+    );
+  }
 }

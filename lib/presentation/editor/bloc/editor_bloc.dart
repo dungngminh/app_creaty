@@ -1,8 +1,11 @@
+import 'dart:async';
 import 'dart:io';
 
+import 'package:app_creaty/commons/enums/loading_status.dart';
 import 'package:app_creaty/commons/utils/yaml_to_map.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:app_creaty/presentation/editor/models/project_info.dart';
+import 'package:app_creaty/repositories/project_repository.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,8 +18,11 @@ part 'editor_event.dart';
 part 'editor_state.dart';
 
 final class EditorBloc extends Bloc<EditorEvent, EditorState> {
-  EditorBloc({required AppCreatyProject project})
-      : super(
+  EditorBloc({
+    required AppCreatyProject project,
+    required ProjectRepository projectRepository,
+  })  : _projectRepository = projectRepository,
+        super(
           EditorState(
             currentDevice: Devices.ios.iPhone13,
             currentProject: project,
@@ -25,8 +31,10 @@ final class EditorBloc extends Bloc<EditorEvent, EditorState> {
     on<ChangeDeviceFrame>(_onChangeDeviceFrame);
     on<ToggleShowDeviceFrame>(_onToggleShowDeviceFrame);
     on<ImportProjectData>(_onImportProjectData);
+    on<SaveProject>(_onSaveProject);
     add(ImportProjectData());
   }
+  final ProjectRepository _projectRepository;
 
   void _onChangeDeviceFrame(
     ChangeDeviceFrame event,
@@ -70,5 +78,16 @@ final class EditorBloc extends Bloc<EditorEvent, EditorState> {
     return yamlToMap(
       yamlDocs as YamlMap,
     );
+  }
+
+  Future<void> _onSaveProject(
+    SaveProject event,
+    Emitter<EditorState> emit,
+  ) async {
+    emit(state.copyWith(saveProjectStatus: LoadingStatus.loading));
+    final project = event.project;
+    return _projectRepository.updateProject(project).then(
+          (_) => emit(state.copyWith(saveProjectStatus: LoadingStatus.done)),
+        );
   }
 }

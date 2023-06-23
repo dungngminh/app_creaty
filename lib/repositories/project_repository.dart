@@ -31,6 +31,13 @@ class ProjectLoadFailure extends ProjectRepositoryException {
   String toString() => 'ProjectLoadFailure: $message';
 }
 
+class SaveProjectFailure extends ProjectRepositoryException {
+  const SaveProjectFailure(super.message, super.stackTrace);
+
+  @override
+  String toString() => 'SaveProjectFailure: $message';
+}
+
 abstract class ProjectRepository {
   Future<AppCreatyProject> createProject({
     required String projectName,
@@ -45,9 +52,7 @@ abstract class ProjectRepository {
 
   Future<void> removeAll();
 
-  // Future<void> updateProject(){
-
-  // }
+  Future<void> updateProject(AppCreatyProject project);
 }
 
 class ProjectRepositoryImpl extends ProjectRepository {
@@ -160,5 +165,24 @@ class ProjectRepositoryImpl extends ProjectRepository {
       ]);
     }
     await _appCreatyBoxHelper.removeProject(project.projectId);
+  }
+
+  @override
+  Future<void> updateProject(AppCreatyProject project) async {
+    try {
+      final projectFullPath = project.projectFullPath;
+      _logger.i(
+        'Save Flutter project in'
+        '$projectFullPath',
+      );
+      final metadataFile = File(join(projectFullPath, 'metadata.json'));
+      final updatedProject = project.copyWith(updatedAt: DateTime.now());
+      await Future.wait([
+        metadataFile.writeAsString(jsonEncode(updatedProject.toJson())),
+        _appCreatyBoxHelper.saveProject(updatedProject),
+      ]);
+    } catch (e, s) {
+      throw SaveProjectFailure(e, s);
+    }
   }
 }

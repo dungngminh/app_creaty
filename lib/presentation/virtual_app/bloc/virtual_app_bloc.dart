@@ -18,6 +18,7 @@ import 'package:json_widget/json_widget.dart' as json_widget;
 import 'package:json_widget/widgets/widget.dart';
 import 'package:recase/recase.dart';
 import 'package:replay_bloc/replay_bloc.dart';
+import 'package:rxdart_ext/rxdart_ext.dart';
 import 'package:uuid/uuid.dart';
 
 part 'virtual_app_bloc.freezed.dart';
@@ -32,11 +33,18 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
         ) {
     on<AddWidgetToTree>(_onAddWidgetToTree);
     on<ChangeProp>(_onChangeProp);
+    on<ChangePage>(_onChangePage);
     on<VirtualAppLoaded>(_onVirtualAppLoaded);
     on<ChangeWidget>(_onChangeWidget);
     on<HoverWidget>(_onHoverWidget);
     on<DeleteWidget>(_onDeleteWidget);
     on<WrapInWidget>(_onWrapInWidget);
+    on<RequestToSaveProject>(_onRequestToSaveProject);
+    on<UpdateDataToPage>(_onUpdateDataToPage);
+    stream
+        .distinctBy((state) => state.virtualAppWidget)
+        .debounceTime(2.ms)
+        .listen((_) => add(UpdateDataToPage()));
     add(VirtualAppLoaded());
   }
 
@@ -139,24 +147,35 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     ///
     emit(state.copyWith(loadingStatus: LoadingStatus.loading));
     log(_editorBloc.state.currentProject.toString());
+    final currentProject = _editorBloc.state.currentProject;
+    late AppCreatyPage page;
+    final pages = currentProject.pages;
+    if (pages.isEmpty) {
+      final pageName = StringGen.id;
+      final routeName = pageName.camelCase;
+      final initialKey = json_widget.ValueKey(const Uuid().v4());
+      final initialWidget = json_widget.Scaffold(key: initialKey);
+      page = AppCreatyPage(
+        pageName: pageName,
+        routeName: routeName,
+        data: initialWidget.toJson(),
+      );
+    } else {
+      page = pages.first;
+    }
 
-    final pageName = StringGen.id;
-    final routeName = pageName.camelCase;
-    final page = AppCreatyPage(
-      pageName: pageName,
-      routeName: routeName,
-      data: state.virtualAppWidget,
-    );
-    final initialKey = json_widget.ValueKey(const Uuid().v4());
-    final initialWidget = json_widget.Scaffold(key: initialKey);
     await Future<void>.delayed(4.seconds);
+
+    final widget = Widget.fromJson(page.data);
+
     emit(
       state.copyWith(
-        pages: [page],
+        pages: pages.isEmpty ? [page] : pages,
+        currentPage: page,
         loadingStatus: LoadingStatus.done,
-        selectedWidget: initialWidget,
-        virtualAppWidget: initialWidget,
-        widgetWillBeUpdatedIn: initialWidget,
+        selectedWidget: widget,
+        virtualAppWidget: widget,
+        widgetWillBeUpdatedIn: widget,
       ),
     );
     clearHistory();
@@ -260,5 +279,34 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
             : state.widgetWillBeUpdatedIn,
       ),
     );
+  }
+
+  void _onRequestToSaveProject(
+    RequestToSaveProject event,
+    Emitter<VirtualAppState> emit,
+  ) {
+    final currentPages = state.pages;
+    final currentProject = _editorBloc.state.currentProject;
+    final updatedProject =
+        currentProject.copyWith(pages: currentPages.toList());
+    _editorBloc.add(SaveProject(project: updatedProject));
+  }
+
+  FutureOr<void> _onChangePage(
+    ChangePage event,
+    Emitter<VirtualAppState> emit,
+  ) {}
+
+  void _onUpdateDataToPage(
+    UpdateDataToPage event,
+    Emitter<VirtualAppState> emit,
+  ) {
+    final currentPage = state.currentPage;
+    if (currentPage == null) return;
+    final currentApp = state.virtualAppWidget;
+    final updatedPage = currentPage.copyWith(data: currentApp.toJson());
+    final index = state.pages.indexOf(currentPage);
+    final updatedPages = state.pages.toList()..[index] = updatedPage;
+    emit(state.copyWith(currentPage: updatedPage, pages: updatedPages));
   }
 }

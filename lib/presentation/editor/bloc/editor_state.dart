@@ -8,5 +8,6 @@ class EditorState with _$EditorState {
     @Default(true) bool isFrameVisible,
     @Default(false) bool isVirtualKeyboardEnable,
     ProjectInfo? projectInfo,
+    @Default(LoadingStatus.initial) LoadingStatus saveProjectStatus, 
   }) = _EditorState;
 }

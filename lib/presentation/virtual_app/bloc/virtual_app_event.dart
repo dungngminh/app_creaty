@@ -87,3 +87,11 @@ final class WrapInWidget extends VirtualAppEvent {
   @override
   List<Object?> get props => [childWidget, parentWidget];
 }
+
+final class RequestToSaveProject extends VirtualAppEvent {
+  @override
+  List<Object?> get props => [];
+}
+
+final class UpdateDataToPage extends VirtualAppEvent {
+}

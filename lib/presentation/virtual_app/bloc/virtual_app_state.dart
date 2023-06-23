@@ -9,6 +9,7 @@ class VirtualAppState with _$VirtualAppState {
     @Default(json_widget.Scaffold())json_widget.Widget widgetWillBeUpdatedIn,
     @Default(json_widget.Scaffold()) json_widget.Widget hoveredWidget,
     @Default(<AppCreatyPage>[]) List<AppCreatyPage> pages,
+    AppCreatyPage? currentPage,
     @Default(LoadingStatus.initial) LoadingStatus loadingStatus,
     HandleRequest? handleRequest,
   }) = _VirtualAppState;

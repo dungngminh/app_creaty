@@ -22,6 +22,7 @@ mixin _$VirtualAppState {
       throw _privateConstructorUsedError;
   json_widget.Widget get hoveredWidget => throw _privateConstructorUsedError;
   List<AppCreatyPage> get pages => throw _privateConstructorUsedError;
+  AppCreatyPage? get currentPage => throw _privateConstructorUsedError;
   LoadingStatus get loadingStatus => throw _privateConstructorUsedError;
   HandleRequest? get handleRequest => throw _privateConstructorUsedError;
 
@@ -42,6 +43,7 @@ abstract class $VirtualAppStateCopyWith<$Res> {
       json_widget.Widget widgetWillBeUpdatedIn,
       json_widget.Widget hoveredWidget,
       List<AppCreatyPage> pages,
+      AppCreatyPage? currentPage,
       LoadingStatus loadingStatus,
       HandleRequest? handleRequest});
 
@@ -69,6 +71,7 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
     Object? widgetWillBeUpdatedIn = null,
     Object? hoveredWidget = null,
     Object? pages = null,
+    Object? currentPage = freezed,
     Object? loadingStatus = null,
     Object? handleRequest = freezed,
   }) {
@@ -93,6 +96,10 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
           ? _value.pages
           : pages // ignore: cast_nullable_to_non_nullable
               as List<AppCreatyPage>,
+      currentPage: freezed == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as AppCreatyPage?,
       loadingStatus: null == loadingStatus
           ? _value.loadingStatus
           : loadingStatus // ignore: cast_nullable_to_non_nullable
@@ -155,6 +162,7 @@ abstract class _$$_VirtualAppStateCopyWith<$Res>
       json_widget.Widget widgetWillBeUpdatedIn,
       json_widget.Widget hoveredWidget,
       List<AppCreatyPage> pages,
+      AppCreatyPage? currentPage,
       LoadingStatus loadingStatus,
       HandleRequest? handleRequest});
 
@@ -184,6 +192,7 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
     Object? widgetWillBeUpdatedIn = null,
     Object? hoveredWidget = null,
     Object? pages = null,
+    Object? currentPage = freezed,
     Object? loadingStatus = null,
     Object? handleRequest = freezed,
   }) {
@@ -208,6 +217,10 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
           ? _value._pages
           : pages // ignore: cast_nullable_to_non_nullable
               as List<AppCreatyPage>,
+      currentPage: freezed == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as AppCreatyPage?,
       loadingStatus: null == loadingStatus
           ? _value.loadingStatus
           : loadingStatus // ignore: cast_nullable_to_non_nullable
@@ -231,6 +244,7 @@ class _$_VirtualAppState
       this.widgetWillBeUpdatedIn = const json_widget.Scaffold(),
       this.hoveredWidget = const json_widget.Scaffold(),
       final List<AppCreatyPage> pages = const <AppCreatyPage>[],
+      this.currentPage,
       this.loadingStatus = LoadingStatus.initial,
       this.handleRequest})
       : _pages = pages;
@@ -257,6 +271,8 @@ class _$_VirtualAppState
   }
 
   @override
+  final AppCreatyPage? currentPage;
+  @override
   @JsonKey()
   final LoadingStatus loadingStatus;
   @override
@@ -264,7 +280,7 @@ class _$_VirtualAppState
 
   @override
   String toString() {
-    return 'VirtualAppState(virtualAppWidget: $virtualAppWidget, selectedWidget: $selectedWidget, widgetWillBeUpdatedIn: $widgetWillBeUpdatedIn, hoveredWidget: $hoveredWidget, pages: $pages, loadingStatus: $loadingStatus, handleRequest: $handleRequest)';
+    return 'VirtualAppState(virtualAppWidget: $virtualAppWidget, selectedWidget: $selectedWidget, widgetWillBeUpdatedIn: $widgetWillBeUpdatedIn, hoveredWidget: $hoveredWidget, pages: $pages, currentPage: $currentPage, loadingStatus: $loadingStatus, handleRequest: $handleRequest)';
   }
 
   @override
@@ -294,6 +310,8 @@ class _$_VirtualAppState
             (identical(other.hoveredWidget, hoveredWidget) ||
                 other.hoveredWidget == hoveredWidget) &&
             const DeepCollectionEquality().equals(other._pages, _pages) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage) &&
             (identical(other.loadingStatus, loadingStatus) ||
                 other.loadingStatus == loadingStatus) &&
             (identical(other.handleRequest, handleRequest) ||
@@ -308,6 +326,7 @@ class _$_VirtualAppState
       widgetWillBeUpdatedIn,
       hoveredWidget,
       const DeepCollectionEquality().hash(_pages),
+      currentPage,
       loadingStatus,
       handleRequest);
 
@@ -325,6 +344,7 @@ abstract class _VirtualAppState implements VirtualAppState {
       final json_widget.Widget widgetWillBeUpdatedIn,
       final json_widget.Widget hoveredWidget,
       final List<AppCreatyPage> pages,
+      final AppCreatyPage? currentPage,
       final LoadingStatus loadingStatus,
       final HandleRequest? handleRequest}) = _$_VirtualAppState;
 
@@ -338,6 +358,8 @@ abstract class _VirtualAppState implements VirtualAppState {
   json_widget.Widget get hoveredWidget;
   @override
   List<AppCreatyPage> get pages;
+  @override
+  AppCreatyPage? get currentPage;
   @override
   LoadingStatus get loadingStatus;
   @override

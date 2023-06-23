@@ -23,15 +23,17 @@ class AppCreatyProjectAdapter extends TypeAdapter<AppCreatyProject> {
       projectPreviewImage: fields[2] as String?,
       sourceCodePath: fields[4] as String,
       createdBy: fields[5] as AppCreatyCreator?,
-      createdAt: fields[6] as DateTime?,
-      updatedAt: fields[7] as DateTime?,
+      pages: (fields[6] as List).cast<AppCreatyPage>(),
+      assets: (fields[7] as List).cast<AppCreatyAsset>(),
+      createdAt: fields[8] as DateTime?,
+      updatedAt: fields[9] as DateTime?,
     );
   }
 
   @override
   void write(BinaryWriter writer, AppCreatyProject obj) {
     writer
-      ..writeByte(8)
+      ..writeByte(10)
       ..writeByte(0)
       ..write(obj.projectId)
       ..writeByte(1)
@@ -45,8 +47,12 @@ class AppCreatyProjectAdapter extends TypeAdapter<AppCreatyProject> {
       ..writeByte(5)
       ..write(obj.createdBy)
       ..writeByte(6)
-      ..write(obj.createdAt)
+      ..write(obj.pages)
       ..writeByte(7)
+      ..write(obj.assets)
+      ..writeByte(8)
+      ..write(obj.createdAt)
+      ..writeByte(9)
       ..write(obj.updatedAt);
   }
 
@@ -76,6 +82,14 @@ AppCreatyProject _$AppCreatyProjectFromJson(Map<String, dynamic> json) =>
           ? null
           : AppCreatyCreator.fromJson(
               json['createdBy'] as Map<String, dynamic>),
+      pages: (json['pages'] as List<dynamic>?)
+              ?.map((e) => AppCreatyPage.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <AppCreatyPage>[],
+      assets: (json['assets'] as List<dynamic>?)
+              ?.map((e) => AppCreatyAsset.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <AppCreatyAsset>[],
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
@@ -91,7 +105,9 @@ Map<String, dynamic> _$AppCreatyProjectToJson(AppCreatyProject instance) =>
       'projectPreviewImage': instance.projectPreviewImage,
       'projectLogoAppImage': instance.projectLogoAppImage,
       'sourceCodePath': instance.sourceCodePath,
-      'createdBy': instance.createdBy,
+      'createdBy': instance.createdBy.toJson(),
+      'pages': instance.pages.map((e) => e.toJson()).toList(),
+      'assets': instance.assets.map((e) => e.toJson()).toList(),
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt.toIso8601String(),
     };

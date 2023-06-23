@@ -1,41 +1,38 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'app_creaty_page.dart';
+part of 'app_creaty_asset.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class AppCreatyPageAdapter extends TypeAdapter<AppCreatyPage> {
+class AppCreatyAssetAdapter extends TypeAdapter<AppCreatyAsset> {
   @override
-  final int typeId = 2;
+  final int typeId = 3;
 
   @override
-  AppCreatyPage read(BinaryReader reader) {
+  AppCreatyAsset read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return AppCreatyPage(
+    return AppCreatyAsset(
       id: fields[0] as String?,
-      pageName: fields[1] as String,
-      routeName: fields[2] as String,
-      data: (fields[3] as Map).cast<String, dynamic>(),
+      assetName: fields[1] as String,
+      relativePath: fields[2] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, AppCreatyPage obj) {
+  void write(BinaryWriter writer, AppCreatyAsset obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.pageName)
+      ..write(obj.assetName)
       ..writeByte(2)
-      ..write(obj.routeName)
-      ..writeByte(3)
-      ..write(obj.data);
+      ..write(obj.relativePath);
   }
 
   @override
@@ -44,7 +41,7 @@ class AppCreatyPageAdapter extends TypeAdapter<AppCreatyPage> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is AppCreatyPageAdapter &&
+      other is AppCreatyAssetAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
@@ -53,18 +50,16 @@ class AppCreatyPageAdapter extends TypeAdapter<AppCreatyPage> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-AppCreatyPage _$AppCreatyPageFromJson(Map<String, dynamic> json) =>
-    AppCreatyPage(
+AppCreatyAsset _$AppCreatyAssetFromJson(Map<String, dynamic> json) =>
+    AppCreatyAsset(
       id: json['id'] as String?,
-      pageName: json['pageName'] as String,
-      routeName: json['routeName'] as String,
-      data: json['data'] as Map<String, dynamic>,
+      assetName: json['assetName'] as String,
+      relativePath: json['relativePath'] as String,
     );
 
-Map<String, dynamic> _$AppCreatyPageToJson(AppCreatyPage instance) =>
+Map<String, dynamic> _$AppCreatyAssetToJson(AppCreatyAsset instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'pageName': instance.pageName,
-      'routeName': instance.routeName,
-      'data': instance.data,
+      'assetName': instance.assetName,
+      'relativePath': instance.relativePath,
     };

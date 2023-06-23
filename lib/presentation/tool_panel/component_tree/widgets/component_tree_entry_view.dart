@@ -57,7 +57,8 @@ class ComponentTreeEntryView extends StatelessWidget {
             ),
           ]
         : [
-            if (entry.node.widgetName != 'Text')
+            if (entry.node.widgetName != 'Text' ||
+                entry.node.widgetName != 'Image')
             MenuItem(
               action: ContextMenuAction.addWidget,
               title: 'Add Widget',
