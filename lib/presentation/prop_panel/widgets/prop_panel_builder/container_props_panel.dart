@@ -98,14 +98,13 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
     final bottomRightText = bottomRightBorderRadiusEditingController.text;
     final bottomLeftText = bottomLeftBorderRadiusEditingController.text;
 
-    final maxValue =
-        [
+    final maxValue = [
       topRightText,
       topLeftText,
       bottomLeftText,
       bottomRightText
     ].mapNotNull(double.tryParse).max;
-    
+
     topLeftBorderRadiusEditingController.text = '$maxValue';
     topRightBorderRadiusEditingController.text = '$maxValue';
     bottomLeftBorderRadiusEditingController.text = '$maxValue';
@@ -169,13 +168,12 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
 
   void _onTopLeftTextEditingListner() {
     final topLeftText = topLeftBorderRadiusEditingController.text;
-    if (topLeftText.isEmpty) return;
-    final topLeftValue = double.tryParse(topLeftText);
+    final topLeftValue = double.tryParse(topLeftText) ?? 0.0;
 
     json_widget.BorderRadiusOnly updatedBorderRadius;
 
     if (lockBorderRadiusNotifier.value) {
-      final radiusValue = json_widget.RadiusCircular(topLeftValue ?? 0.0);
+      final radiusValue = json_widget.RadiusCircular(topLeftValue);
       updatedBorderRadius = json_widget.BorderRadiusOnly(
         topLeft: radiusValue,
         topRight: radiusValue,
@@ -186,7 +184,7 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
       bottomLeftBorderRadiusEditingController.text = topLeftText;
       bottomRightBorderRadiusEditingController.text = topLeftText;
     } else {
-      final radiusValue = json_widget.RadiusCircular(topLeftValue ?? 0.0);
+      final radiusValue = json_widget.RadiusCircular(topLeftValue);
       final currentDecoration =
           widget.jsonWidget.decoration! as json_widget.BoxDecoration;
       final currentBorderRadius =
@@ -206,13 +204,15 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
 
   void _onBottomRightTextEditingListener() {
     final bottomRight = bottomRightBorderRadiusEditingController.text;
-    if (bottomRight.isEmpty) return;
-    final bottomRightValue = double.tryParse(bottomRight);
+    if (bottomRight.isEmpty) {
+      bottomRightBorderRadiusEditingController.text = '0';
+    }
+    final bottomRightValue = double.tryParse(bottomRight) ?? 0.0;
 
     json_widget.BorderRadiusOnly updatedBorderRadius;
 
     if (lockBorderRadiusNotifier.value) {
-      final radiusValue = json_widget.RadiusCircular(bottomRightValue ?? 0.0);
+      final radiusValue = json_widget.RadiusCircular(bottomRightValue);
       updatedBorderRadius = json_widget.BorderRadiusOnly(
         topLeft: radiusValue,
         topRight: radiusValue,
@@ -223,7 +223,7 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
       bottomLeftBorderRadiusEditingController.text = bottomRight;
       topLeftBorderRadiusEditingController.text = bottomRight;
     } else {
-      final radiusValue = json_widget.RadiusCircular(bottomRightValue ?? 0.0);
+      final radiusValue = json_widget.RadiusCircular(bottomRightValue);
       final currentDecoration =
           widget.jsonWidget.decoration! as json_widget.BoxDecoration;
       final currentBorderRadius =
@@ -243,7 +243,9 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
 
   void _onBottomLeftTextEditingListener() {
     final bottomLeft = bottomLeftBorderRadiusEditingController.text;
-    if (bottomLeft.isEmpty) return;
+    if (bottomLeft.isEmpty) {
+      bottomLeftBorderRadiusEditingController.text = '0';
+    }
     final bottomLeftValue = double.tryParse(bottomLeft);
 
     json_widget.BorderRadiusOnly updatedBorderRadius;
