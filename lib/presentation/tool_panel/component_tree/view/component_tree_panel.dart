@@ -1,11 +1,13 @@
 import 'dart:async';
 
 import 'package:after_layout/after_layout.dart';
+import 'package:app_creaty/commons/extensions/json_widget/json_widget_extension.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/bloc/component_tree_bloc.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/models/widget_tree_node.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/widgets/component_tree_entry_view.dart';
+import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -89,12 +91,23 @@ class _ComponentTreePanelViewState extends State<ComponentTreePanelView>
           Expanded(
             child: AnimatedTreeView<WidgetTreeNode>(
               treeController: _treeController,
-              nodeBuilder:
-                  (context, entry) {
+              nodeBuilder: (context, entry) {
+                final selectedWidget = context
+                    .select((VirtualAppBloc bloc) => bloc.state.selectedWidget);
+                final isExpand = _treeController.getExpansionState(entry.node);
+                final isSelected = selectedWidget?.toJson().widgetKey ==
+                    entry.node.data.widgetKey;
                 return ComponentTreeEntryView(
                   entry: entry,
-                  isExpand: _treeController.getExpansionState(entry.node),
-                  onExpansionPressed: () => _treeController.expand(entry.node),
+                  isExpand: isExpand,
+                  isSelected: isSelected,
+                  onExpansionPressed: () {
+                    if (isExpand) {
+                      _treeController.collapse(entry.node);
+                    } else {
+                      _treeController.expand(entry.node);
+                    }
+                  },
                   onPressed: () => context
                       .read<ComponentTreeBloc>()
                       .add(SelectNode(node: entry.node)),

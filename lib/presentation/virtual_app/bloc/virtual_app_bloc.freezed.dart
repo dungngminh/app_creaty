@@ -296,8 +296,8 @@ class _$_VirtualAppState
             const DeepCollectionEquality().equals(other._pages, _pages) &&
             (identical(other.loadingStatus, loadingStatus) ||
                 other.loadingStatus == loadingStatus) &&
-            const DeepCollectionEquality()
-                .equals(other.handleRequest, handleRequest));
+            (identical(other.handleRequest, handleRequest) ||
+                other.handleRequest == handleRequest));
   }
 
   @override
@@ -309,7 +309,7 @@ class _$_VirtualAppState
       hoveredWidget,
       const DeepCollectionEquality().hash(_pages),
       loadingStatus,
-      const DeepCollectionEquality().hash(handleRequest));
+      handleRequest);
 
   @JsonKey(ignore: true)
   @override

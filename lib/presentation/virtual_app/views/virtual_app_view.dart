@@ -53,6 +53,7 @@ class _VirtualAppViewState extends State<VirtualAppView> {
                     builder: (context) {
                       var isHover = false;
                       return GestureDetector(
+                        behavior: HitTestBehavior.opaque,
                         onTap: () => context.read<VirtualAppBloc>().add(
                               ChangeWidget(
                                 selectedWidget: item as json_widget.Widget,
