@@ -10,18 +10,6 @@ class StartupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AppBloc(),
-      child: const _StartupView(),
-    );
-  }
-}
-
-class _StartupView extends StatelessWidget {
-  const _StartupView();
-
-  @override
-  Widget build(BuildContext context) {
     final appState = context.watch<AppBloc>().state;
     final loadingView = Scaffold(
       body: const Center(
@@ -35,7 +23,7 @@ class _StartupView extends StatelessWidget {
     final homeView = const HomeView().animate().fade(duration: 500.ms);
     return appState.maybeWhen(
       loading: () => loadingView,
-      loaded: (_) => homeView,
+      auth: (_) => homeView,
       orElse: Scaffold.new,
     );
   }

@@ -12,12 +12,21 @@ part 'app_state.dart';
 class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc() : super(const AppState.initial()) {
     on<AppStarted>(_onAppStarted);
+    on<ChangeUser>(_onChangeUser);
     add(AppStarted());
   }
 
   Future<void> _onAppStarted(AppStarted event, Emitter<AppState> emit) async {
     emit(const AppState.loading());
     await Future<void>.delayed(const Duration(seconds: 5));
-    emit(AppState.loaded(user: AppCreatyCreator.local()));
+    emit(AppState.auth(user: AppCreatyCreator.local()));
+  }
+
+  void _onChangeUser(ChangeUser event, Emitter<AppState> emit) {
+    if (event.user == null) {
+      emit(const AppState.unAuth());
+    } else {
+      emit(AppState.auth(user: event.user!));
+    }
   }
 }

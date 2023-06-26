@@ -1,3 +1,7 @@
+import 'dart:async';
+
+import 'package:after_layout/after_layout.dart';
+import 'package:app_creaty/presentation/auth/auth_dialog.dart';
 import 'package:app_creaty/presentation/home/widgets/home_navigation_rail.dart';
 import 'package:app_creaty/presentation/new_project/new_project.dart';
 import 'package:app_creaty/presentation/recent_projects/cubit/recent_projects_cubit.dart';
@@ -15,13 +19,18 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomeView> with AfterLayoutMixin {
   late int currentIndexTab;
 
   @override
   void initState() {
     super.initState();
     currentIndexTab = 1;
+  }
+
+  @override
+  FutureOr<void> afterFirstLayout(BuildContext context) {
+    showAuthDialog<void>(context);
   }
 
   void _onCurrentIndexTab(int newIndex) {

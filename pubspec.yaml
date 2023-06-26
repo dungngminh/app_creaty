@@ -65,6 +65,8 @@ dependencies:
   rxdart_ext: ^0.2.9
   native_context_menu: ^0.2.2+5
   supabase_flutter: ^1.10.4
+  flutter_secure_storage: ^8.0.0
+  string_validator: ^1.0.0
 
 dev_dependencies:
   build_runner: ^2.3.3

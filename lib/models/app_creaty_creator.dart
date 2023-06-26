@@ -12,6 +12,7 @@ class AppCreatyCreator extends Equatable {
     required this.name,
     required this.email,
   });
+
   factory AppCreatyCreator.local() {
     return const AppCreatyCreator(
       id: 'localhost',
@@ -29,6 +30,8 @@ class AppCreatyCreator extends Equatable {
   final String name;
   @HiveField(2)
   final String? email;
+
+  bool get isLocalhost => id == 'localhost';
 
   Map<String, dynamic> toJson() => _$AppCreatyCreatorToJson(this);
 

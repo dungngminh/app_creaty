@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class AppTextField extends StatelessWidget {
+class AppTextField extends StatefulWidget {
   const AppTextField({
     super.key,
     this.controller,
@@ -14,6 +14,7 @@ class AppTextField extends StatelessWidget {
     this.width,
     this.inputFormatters,
     this.errorText,
+    this.obscureText = false,
   });
 
   final TextEditingController? controller;
@@ -33,25 +34,35 @@ class AppTextField extends StatelessWidget {
   final double? width;
 
   final List<TextInputFormatter>? inputFormatters;
-  
+
   final String? errorText;
+
+  final bool obscureText;
+
+  @override
+  State<AppTextField> createState() => _AppTextFieldState();
+}
+
+class _AppTextFieldState extends State<AppTextField> {
+
 
   @override
   Widget build(BuildContext context) {
-    final border = haveBorder ? const OutlineInputBorder() : null;
+    final border = widget.haveBorder ? const OutlineInputBorder() : null;
     return Container(
-      height: height,
-      width: width,
+      height: widget.height,
+      width: widget.width,
       color: Colors.white,
       child: TextFormField(
-        inputFormatters: inputFormatters,
-        readOnly: readOnly,
-        controller: controller,
+        obscureText: widget.obscureText,
+        inputFormatters: widget.inputFormatters,
+        readOnly: widget.readOnly,
+        controller: widget.controller,
         decoration: InputDecoration(
-          errorText: errorText,
+          errorText: widget.errorText,
           border: border,
-          labelText: labelText,
-          enabled: enabled,
+          labelText: widget.labelText,
+          enabled: widget.enabled,
         ),
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
-import 'package:app_creaty/presentation/auth/auth.dart';
+import 'package:app_creaty/presentation/home/widgets/app_creaty_user_widget.dart';
 import 'package:app_creaty/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -64,20 +64,7 @@ class _HomeNavigationRailState extends State<HomeNavigationRail> {
             child: ColumnWithSpacing(
               mainAxisSize: MainAxisSize.min,
               children: [
-                IconButton(
-                  icon: ColumnWithSpacing(
-                    children: [
-                      const CircleAvatar(),
-                      Text(
-                        context.l10n.loginLabel,
-                        style: context.textTheme.labelSmall,
-                      )
-                    ],
-                  ),
-                  onPressed: () {
-                    showAuthDialog<void>(context);
-                  },
-                ),
+                const AppCreatyUserWidget(),
                 IconButton(
                   icon: ColumnWithSpacing(
                     children: [

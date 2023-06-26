@@ -1,1 +1,1 @@
-export 'view/auth_dialog.dart';
+export 'auth_dialog.dart';

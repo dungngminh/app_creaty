@@ -209,7 +209,9 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_VirtualAppState implements _VirtualAppState {
+class _$_VirtualAppState
+    with DiagnosticableTreeMixin
+    implements _VirtualAppState {
   const _$_VirtualAppState(
       {this.virtualAppWidget = const json_widget.Scaffold(),
       this.selectedWidget = const json_widget.Scaffold(),
@@ -245,8 +247,21 @@ class _$_VirtualAppState implements _VirtualAppState {
   final LoadingStatus loadingStatus;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'VirtualAppState(virtualAppWidget: $virtualAppWidget, selectedWidget: $selectedWidget, widgetWillBeUpdatedIn: $widgetWillBeUpdatedIn, hoveredWidget: $hoveredWidget, pages: $pages, loadingStatus: $loadingStatus)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'VirtualAppState'))
+      ..add(DiagnosticsProperty('virtualAppWidget', virtualAppWidget))
+      ..add(DiagnosticsProperty('selectedWidget', selectedWidget))
+      ..add(DiagnosticsProperty('widgetWillBeUpdatedIn', widgetWillBeUpdatedIn))
+      ..add(DiagnosticsProperty('hoveredWidget', hoveredWidget))
+      ..add(DiagnosticsProperty('pages', pages))
+      ..add(DiagnosticsProperty('loadingStatus', loadingStatus));
   }
 
   @override
