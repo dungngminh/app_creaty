@@ -10,6 +10,8 @@ import 'package:app_creaty/models/app_creaty_page.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
 import 'package:dartx/dartx.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 import 'package:json_widget/widgets/widget.dart';
@@ -197,7 +199,10 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     );
   }
 
-  void _onWrapInWidget(WrapInWidget event, Emitter<VirtualAppState> emit) {
+  Future<void> _onWrapInWidget(
+    WrapInWidget event,
+    Emitter<VirtualAppState> emit,
+  ) async {
     final currentApp = state.virtualAppWidget as json_widget.Scaffold;
     final currentAppBody = currentApp.body;
     if (currentAppBody == null) return;
@@ -230,7 +235,10 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     final updatedApp = currentApp.copyWith(body: updatedAppBody);
 
     final updatedChildParentWidget =
-        Widget.fromJson(updatedChildParentWidgetData);
+        await compute(
+      Widget.fromJson,
+      updatedChildParentWidgetData,
+    );
 
     emit(
       state.copyWith(

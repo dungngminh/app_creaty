@@ -108,5 +108,15 @@
   "bottomLabel": "Bottom",
   "justifyLabel": "Justify",
   "textSizeLabel": "Text Size",
-  "pleaseInputTextSizeErrorLabel": "Please input text size"
+  "pleaseInputTextSizeErrorLabel": "Please input text size",
+  "borderRadiusLabel": "Border Radius",
+  "shapeLabel": "Shape",
+  "borderColorLabel": "Border Color",
+  "borderWidthLabel": "Border Width",
+  "paddingLabel": "Padding",
+  "marginLabel": "Margin",
+  "alignmentLabel": "Alignment",
+  "clipBehaviorLabel": "Clip Behavior",
+  "loginLabel": "Login",
+  "loginWithLocalhostLabel": "Login with localhost" 
 }

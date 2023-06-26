@@ -1,6 +1,8 @@
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
+import 'package:app_creaty/presentation/auth/auth.dart';
+import 'package:app_creaty/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class HomeNavigationRail extends StatefulWidget {
@@ -59,21 +61,40 @@ class _HomeNavigationRailState extends State<HomeNavigationRail> {
         trailing: Expanded(
           child: Align(
             alignment: Alignment.bottomCenter,
-            child: Column(
+            child: ColumnWithSpacing(
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
-                  icon: currentIndex == null
-                      ? Assets.icons.bold.setting.svg(height: 28)
-                      : Assets.icons.outline.setting.svg(height: 28),
+                  icon: ColumnWithSpacing(
+                    children: [
+                      const CircleAvatar(),
+                      Text(
+                        context.l10n.loginLabel,
+                        style: context.textTheme.labelSmall,
+                      )
+                    ],
+                  ),
+                  onPressed: () {
+                    showAuthDialog<void>(context);
+                  },
+                ),
+                IconButton(
+                  icon: ColumnWithSpacing(
+                    children: [
+                      if (currentIndex == null)
+                        Assets.icons.bold.setting.svg(height: 28)
+                      else
+                        Assets.icons.outline.setting.svg(height: 28),
+                      Text(
+                        context.l10n.settings,
+                        style: context.textTheme.labelSmall,
+                      )
+                    ],
+                  ),
                   onPressed: () {
                     _onDestinationSelected(2);
                   },
                 ),
-                Text(
-                  context.l10n.settings,
-                  style: context.textTheme.labelSmall,
-                )
               ],
             ),
           ),

@@ -1,6 +1,4 @@
-import 'dart:async';
 
-import 'package:after_layout/after_layout.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
@@ -21,33 +19,7 @@ class ButtonPropsPanel extends StatefulWidget {
   State<ButtonPropsPanel> createState() => _ButtonPropsPanelState();
 }
 
-class _ButtonPropsPanelState extends State<ButtonPropsPanel>
-    with AfterLayoutMixin {
-  Scaffold? scaffoldMaterialWidget;
-  Color? backgroundColor;
-  PreferredSizeWidget? appBar;
-
-  Color pickedColor = Colors.red;
-
-  @override
-  void didUpdateWidget(covariant ButtonPropsPanel oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    bindPropsToPropWidget();
-  }
-
-  void bindPropsToPropWidget() {
-    backgroundColor = scaffoldMaterialWidget?.backgroundColor;
-    appBar = scaffoldMaterialWidget?.appBar;
-  }
-
-  void changeColor(Color color) {
-    setState(() => pickedColor = color);
-  }
-
-  @override
-  FutureOr<void> afterFirstLayout(BuildContext context) {
-    bindPropsToPropWidget();
-  }
+class _ButtonPropsPanelState extends State<ButtonPropsPanel> {
 
   @override
   Widget build(BuildContext context) {
@@ -83,33 +55,9 @@ class _ButtonPropsPanelState extends State<ButtonPropsPanel>
       children: [
         FieldPropTile(
           titleText: context.l10n.backgroundColorLabel,
-          child: _buildBackgroundColorPicker(),
+          child: const Text('Call back'),
         ),
       ],
-    );
-  }
-
-  Widget _buildBackgroundColorPicker() {
-    return ElevatedButton(
-      child: Row(
-        children: [
-          const Text('Color Picker'),
-          const Gap(12),
-          Container(
-            height: 20,
-            width: 30,
-            decoration: BoxDecoration(
-              color:
-                  backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(),
-            ),
-          )
-        ],
-      ),
-      onPressed: () {
-        
-      },
     );
   }
 }
