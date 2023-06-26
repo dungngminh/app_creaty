@@ -10,6 +10,9 @@
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
+      "toolArgs": [
+        "--dart-define-from-file=env.json"
+      ]
     },
     {
       "name": "Launch app (Profile)",
@@ -17,6 +20,9 @@
       "type": "dart",
       "flutterMode": "profile",
       "program": "lib/main.dart",
+      "toolArgs": [
+        "--dart-define-from-file=env.json"
+      ]
     },
     {
       "name": "Launch app (Release)",
@@ -24,6 +30,9 @@
       "type": "dart",
       "flutterMode": "release",
       "program": "lib/main.dart",
+      "toolArgs": [
+        "--dart-define-from-file=env.json"
+      ]
     },
     {
       "name": "Dart: Run all Tests",

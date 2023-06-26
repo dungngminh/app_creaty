@@ -1,9 +1,9 @@
 name: app_creaty
-description: An app can create app
+description: App Creaty - Drag n Drop Mobile Developement Tool
 
 publish_to: "none"
 
-version: 0.2.0+1
+version: 0.3.1+1
 
 environment:
   sdk: ">=3.0.0"
@@ -64,6 +64,7 @@ dependencies:
   rxdart: ^0.27.7
   rxdart_ext: ^0.2.9
   native_context_menu: ^0.2.2+5
+  supabase_flutter: ^1.10.4
 
 dev_dependencies:
   build_runner: ^2.3.3

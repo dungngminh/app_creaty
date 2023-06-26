@@ -10,11 +10,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:layout/layout.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class Application extends StatefulWidget {
-  const Application({super.key, required this.appCreatyLocalBox});
+  const Application({
+    super.key,
+    required this.appCreatyLocalBox,
+    required this.supabase,
+  });
 
   final Box<AppCreatyProject> appCreatyLocalBox;
+  final SupabaseClient supabase;
 
   @override
   State<Application> createState() => _ApplicationState();
