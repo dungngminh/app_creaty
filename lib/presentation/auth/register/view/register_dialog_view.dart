@@ -123,17 +123,10 @@ class _RegisterDialogViewState extends State<RegisterDialogView> {
     return BlocListener<RegisterCubit, RegisterState>(
       listenWhen: (previous, current) => previous != current,
       listener: (context, state) {
-        if (state.loadingStatus.isLoading) {
-          showLoadingViewDialog<void>(context);
-        } else if (state.loadingStatus.isDone) {
+        if (state.loadingStatus.isDone) {
           context.pop();
           widget.onHaveAccountButtonPressed.call();
-        } else {
-          context
-            ..pop()
-            ..pop()
-            ..showSnackBar('Register error');
-        }
+        } 
       },
       child: Center(
         child: SizedBox(
@@ -204,8 +197,21 @@ class _RegisterDialogViewState extends State<RegisterDialogView> {
                   ),
                   const Gap(8),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      Builder(
+                        builder: (context) {
+                          final loadingStatus = context
+                              .watch<RegisterCubit>()
+                              .state
+                              .loadingStatus;
+
+                          return Visibility(
+                            visible: loadingStatus.isError,
+                            child: const Text('Register error'),
+                          );
+                        },
+                      ),
                       TextButton(
                         onPressed: widget.onHaveAccountButtonPressed,
                         child: const Text('Have account?'),
@@ -238,6 +244,15 @@ class _RegisterDialogViewState extends State<RegisterDialogView> {
                               ),
                             ),
                             builder: (context, value) {
+                              final loadingStatus = context
+                                  .watch<RegisterCubit>()
+                                  .state
+                                  .loadingStatus;
+                              if (loadingStatus.isLoading) {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
                               return FilledButton(
                                 onPressed:
                                     value.data == null || value.data == false

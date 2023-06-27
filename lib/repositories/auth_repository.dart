@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:app_creaty/local/secure_storage_helper.dart';
 import 'package:app_creaty/models/app_creaty_creator.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -25,6 +27,8 @@ class RegisterException extends AuthRepositoryException {
 }
 
 abstract interface class AuthRepository {
+  Stream<AuthState> get authStateChangeSubcription;
+
   Future<AppCreatyCreator> loginWithEmailAndPassword({
     required String email,
     required String password,
@@ -66,10 +70,6 @@ final class AuthRepositoryImpl implements AuthRepository {
         throw Exception('Session or user is null');
       }
 
-      await Future.wait([
-        _secureStorageHelper.storeAccessToken(session.accessToken),
-      ]);
-
       return AppCreatyCreator(
         id: user.id,
         email: user.email,
@@ -98,4 +98,8 @@ final class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<void> signOut() =>
       _supabaseAuth.signOut().then((_) => _secureStorageHelper.removeAllKeys());
+
+  @override
+  Stream<AuthState> get authStateChangeSubcription =>
+      _supabaseAuth.onAuthStateChange;
 }

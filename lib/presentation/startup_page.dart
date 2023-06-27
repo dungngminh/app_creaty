@@ -24,6 +24,7 @@ class StartupPage extends StatelessWidget {
     return appState.maybeWhen(
       loading: () => loadingView,
       auth: (_) => homeView,
+      unAuth: () => homeView,
       orElse: Scaffold.new,
     );
   }

@@ -17,3 +17,7 @@ class ChangeUser extends AppEvent {
   @override
   List<Object?> get props => [user];
 }
+
+class RequestToLogOut extends AppEvent {
+  const RequestToLogOut();
+}

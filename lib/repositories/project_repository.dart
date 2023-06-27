@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:app_creaty/local/app_creaty_box_helper.dart';
+import 'package:app_creaty/models/app_creaty_creator.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -35,6 +36,7 @@ abstract class ProjectRepository {
     required String projectName,
     required String projectNameInSnackCase,
     required Directory directory,
+       AppCreatyCreator? createdBy,
   });
 
   ValueListenable<Box<AppCreatyProject>> get projects;
@@ -64,6 +66,7 @@ class ProjectRepositoryImpl extends ProjectRepository {
     required String projectName,
     required String projectNameInSnackCase,
     required Directory directory,
+    AppCreatyCreator? createdBy,
   }) async {
     final isProjectDuplicated =
         _appCreatyBoxHelper.isProjectDuplicated(projectNameInSnackCase);
@@ -101,6 +104,7 @@ class ProjectRepositoryImpl extends ProjectRepository {
       final localProject = AppCreatyProject(
         projectId: projectNameInSnackCase,
         projectName: projectName,
+        createdBy: createdBy,
         sourceCodePath: join(sourceCodeDirectoryPath, 'source_code'),
       );
       metadataFile.writeAsStringSync(jsonEncode(localProject.toJson()));

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:after_layout/after_layout.dart';
+import 'package:app_creaty/presentation/app/app.dart';
 import 'package:app_creaty/presentation/auth/auth_dialog.dart';
 import 'package:app_creaty/presentation/home/widgets/home_navigation_rail.dart';
 import 'package:app_creaty/presentation/new_project/new_project.dart';
@@ -30,7 +31,10 @@ class _HomeViewState extends State<HomeView> with AfterLayoutMixin {
 
   @override
   FutureOr<void> afterFirstLayout(BuildContext context) {
-    showAuthDialog<void>(context);
+    final state = context.read<AppBloc>().state;
+    if ((state is Auth && state.user.isLocalhost) || state is UnAuth) {
+      showAuthDialog<void>(context);
+    }
   }
 
   void _onCurrentIndexTab(int newIndex) {

@@ -96,18 +96,10 @@ class _LoginDialogViewState extends State<LoginDialogView> {
     return BlocListener<LoginCubit, LoginState>(
       listenWhen: (previous, current) => previous != current,
       listener: (context, state) {
-        if (state.loadingStatus.isLoading) {
-          showLoadingViewDialog<void>(context);
-        } else if (state.loadingStatus.isDone) {
+        if (state.loadingStatus.isDone) {
           context
-            ..pop()
             ..pop()
             ..showSnackBar('Login successfully');
-        } else {
-          context
-            ..pop()
-            ..pop()
-            ..showSnackBar('Login error');
         }
       },
       child: Center(
@@ -162,8 +154,19 @@ class _LoginDialogViewState extends State<LoginDialogView> {
                   ),
                   gap16,
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      Builder(
+                        builder: (context) {
+                          final loadingStatus =
+                              context.watch<LoginCubit>().state.loadingStatus;
+
+                          return Visibility(
+                            visible: loadingStatus.isError,
+                            child: const Text('Login error'),
+                          );
+                        },
+                      ),
                       TextButton(
                         onPressed: widget.onRegisterButtonPressed,
                         child: const Text('Register?'),
@@ -193,6 +196,15 @@ class _LoginDialogViewState extends State<LoginDialogView> {
                               (a, b) => [a, b].every((value) => value == null),
                             ),
                             builder: (context, value) {
+                              final loadingStatus = context
+                                  .watch<LoginCubit>()
+                                  .state
+                                  .loadingStatus;
+                              if (loadingStatus.isLoading) {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
                               return FilledButton(
                                 onPressed:
                                     value.data == false || value.data == null

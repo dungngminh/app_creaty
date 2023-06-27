@@ -65,7 +65,9 @@ class _ApplicationState extends State<Application> {
       ],
       child: Layout(
         child: BlocProvider(
-          create: (context) => AppBloc(),
+          create: (context) => AppBloc(
+            authRepository: context.read<AuthRepository>(),
+          ),
           child: MaterialApp.router(
             routeInformationParser: AppRouter.router.routeInformationParser,
             routeInformationProvider: AppRouter.router.routeInformationProvider,

@@ -8,6 +8,7 @@ import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/commons/router/app_router.dart';
 import 'package:app_creaty/commons/utils/svg_color.dart';
 import 'package:app_creaty/l10n/l10n.dart';
+import 'package:app_creaty/presentation/app/app.dart';
 import 'package:app_creaty/presentation/new_project/cubit/new_project_cubit.dart';
 import 'package:app_creaty/presentation/widgets/app_text_field.dart';
 import 'package:app_creaty/presentation/widgets/loading_view.dart';
@@ -228,6 +229,7 @@ class _NewProjectViewState extends State<_NewProjectView> {
                             selectLocationTextEditingController.text.trim(),
                         projectNameInSnakeCase:
                             saveProjectAsNameTextEditingController.text.trim(),
+                        createdBy: (context.read<AppBloc>().state as Auth).user,
                       );
                 }
               : null,

@@ -3,6 +3,7 @@ import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/app/bloc/app_bloc.dart';
 import 'package:app_creaty/presentation/auth/auth_dialog.dart';
+import 'package:app_creaty/presentation/auth/widgets/sign_out_dialog.dart';
 import 'package:app_creaty/presentation/widgets/column_with_spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -52,7 +53,7 @@ class AppCreatyUserWidget extends StatelessWidget {
                 if (state.user.isLocalhost) {
                   showAuthDialog<void>(context);
                 } else {
-                  ///TODO: show logout dialog
+                  showSignOutDialog<void>(context);
                 }
               },
             );

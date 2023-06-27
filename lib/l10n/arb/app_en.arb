@@ -118,5 +118,9 @@
   "alignmentLabel": "Alignment",
   "clipBehaviorLabel": "Clip Behavior",
   "loginLabel": "Login",
-  "loginWithLocalhostLabel": "Login with localhost" 
+  "loginWithLocalhostLabel": "Login with localhost",
+  "logoutLabel": "Log out",
+  "logoutConfirmationLabel": "Are you sure you want to log out?",
+  "genericYes": "Yes",
+  "genericNo": "No"
 }

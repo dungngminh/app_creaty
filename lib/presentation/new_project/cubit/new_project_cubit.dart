@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:app_creaty/commons/enums/loading_status.dart';
+import 'package:app_creaty/models/app_creaty_creator.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:app_creaty/repositories/project_repository.dart';
 import 'package:equatable/equatable.dart';
@@ -35,6 +36,7 @@ class NewProjectCubit extends Cubit<NewProjectState> {
     required String projectPath,
     required String projectName,
     required String projectNameInSnakeCase,
+    AppCreatyCreator? createdBy,
   }) async {
     emit(state.copyWith(processLoadingStatus: LoadingStatus.loading));
     try {
