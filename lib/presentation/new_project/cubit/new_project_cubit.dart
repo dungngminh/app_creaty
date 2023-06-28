@@ -44,6 +44,7 @@ class NewProjectCubit extends Cubit<NewProjectState> {
         projectName: projectName,
         directory: Directory(projectPath),
         projectNameInSnackCase: projectNameInSnakeCase,
+        createdBy: createdBy,
       );
       emit(
         state.copyWith(

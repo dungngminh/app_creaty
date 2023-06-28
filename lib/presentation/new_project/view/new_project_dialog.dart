@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:app_creaty/commons/enums/loading_status.dart';
 import 'package:app_creaty/commons/extensions/media_query_extension.dart';
@@ -8,6 +9,7 @@ import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/commons/router/app_router.dart';
 import 'package:app_creaty/commons/utils/svg_color.dart';
 import 'package:app_creaty/l10n/l10n.dart';
+import 'package:app_creaty/models/app_creaty_creator.dart';
 import 'package:app_creaty/presentation/app/app.dart';
 import 'package:app_creaty/presentation/new_project/cubit/new_project_cubit.dart';
 import 'package:app_creaty/presentation/widgets/app_text_field.dart';
@@ -121,6 +123,25 @@ class _NewProjectViewState extends State<_NewProjectView> {
     setState(() {});
   }
 
+  void _handleOnCreateProjectPressed() {
+    AppCreatyCreator createdBy;
+    final state = context.read<AppBloc>().state;
+    if (state is Auth) {
+      createdBy = state.user;
+    } else {
+      createdBy = AppCreatyCreator.local();
+    }
+    log(createdBy.toString());
+
+    context.read<NewProjectCubit>().createProject(
+          projectName: projectNameTextEditingController.text.trim(),
+          projectPath: selectLocationTextEditingController.text.trim(),
+          projectNameInSnakeCase:
+              saveProjectAsNameTextEditingController.text.trim(),
+          createdBy: createdBy,
+        );
+  }
+
   @override
   Widget build(BuildContext context) {
     const gap16 = Gap(16);
@@ -167,6 +188,7 @@ class _NewProjectViewState extends State<_NewProjectView> {
                     labelText: context.l10n.projectNameSavedAsName,
                     enabled: false,
                   ),
+
                   /// TODO (dungngminh): Add field project avatar
                   gap16,
                   _buildSelectLocationButton(),
@@ -216,23 +238,13 @@ class _NewProjectViewState extends State<_NewProjectView> {
     final hasProjectNameAndLocation =
         saveProjectAsNameTextEditingController.text.isNotBlank &&
             selectLocationTextEditingController.text.isNotBlank;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         FilledButton(
-          onPressed: hasProjectNameAndLocation
-              ? () {
-                  context.read<NewProjectCubit>().createProject(
-                        projectName:
-                            projectNameTextEditingController.text.trim(),
-                        projectPath:
-                            selectLocationTextEditingController.text.trim(),
-                        projectNameInSnakeCase:
-                            saveProjectAsNameTextEditingController.text.trim(),
-                        createdBy: (context.read<AppBloc>().state as Auth).user,
-                      );
-                }
-              : null,
+          onPressed:
+              hasProjectNameAndLocation ? _handleOnCreateProjectPressed : null,
           child: Text(context.l10n.generalCreate),
         ),
         const Gap(24),
