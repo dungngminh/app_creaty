@@ -1,5 +1,6 @@
 import 'package:app_creaty/commons/extensions/json_widget/json_widget_extension.dart';
 import 'package:app_creaty/presentation/prop_panel/prop_panel.dart';
+import 'package:app_creaty/presentation/prop_panel/widgets/prop_panel_builder/center_props_panel.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,6 +45,10 @@ class _PropertiesPanelViewState extends State<PropertiesPanelView> {
       'container' => ContainerPropsPanel(
           key: key,
           jsonWidget: selectedWidget! as json_widget.Container,
+        ),
+      'center' => CenterPropsPanel(
+          key: key,
+          jsonWidget: selectedWidget! as json_widget.Center,
         ),
       _ => const Center(
           child: Text('Nothing'),
