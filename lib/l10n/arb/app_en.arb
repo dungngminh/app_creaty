@@ -125,6 +125,7 @@
   "genericNo": "No"
   "centerComponent": "Center"
   "centerComponent": "Center",
-  "stackComponent": "Stack"
-
+  "stackComponent": "Stack",
+  "listViewComponent": "List View",
+  "alignComponent": "Align"
 }

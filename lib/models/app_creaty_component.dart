@@ -57,7 +57,8 @@ enum AppCreatyComponent implements IAppCreatyComponent {
   image,
   elevatedButton,
   center,
-  stack;
+  stack,
+  listView;
 
   @override
   String getTitle(BuildContext context) {
@@ -70,6 +71,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       AppCreatyComponent.elevatedButton => context.l10n.buttonComponenet,
       AppCreatyComponent.center => context.l10n.centerComponent,
       AppCreatyComponent.stack => context.l10n.stackComponent,
+      AppCreatyComponent.listView => context.l10n.listViewComponent,
     };
   }
 
@@ -84,6 +86,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       AppCreatyComponent.elevatedButton => Assets.icons.components.button,
       AppCreatyComponent.center => Assets.icons.components.center,
       AppCreatyComponent.stack => Assets.icons.components.stack,
+      AppCreatyComponent.listView => Assets.icons.components.listView,
     };
   }
 
@@ -148,6 +151,9 @@ enum AppCreatyComponent implements IAppCreatyComponent {
         );
       case AppCreatyComponent.stack:
         return json_widget.Widget.stack(key: key);
+      case AppCreatyComponent.listView:
+        return json_widget.Widget.listView(key: key);
+     
     }
   }
 
@@ -177,6 +183,10 @@ enum AppCreatyComponent implements IAppCreatyComponent {
           AppCreatyComponentGroup.layout,
           AppCreatyComponentGroup.common
         ],
+      AppCreatyComponent.listView => [
+          AppCreatyComponentGroup.layout,
+          AppCreatyComponentGroup.common
+        ],
     };
   }
 
@@ -191,6 +201,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       AppCreatyComponent.elevatedButton => AppCreatyWidgetRenderType.none,
       AppCreatyComponent.center => AppCreatyWidgetRenderType.single,
       AppCreatyComponent.stack => AppCreatyWidgetRenderType.multi,
+      AppCreatyComponent.listView => AppCreatyWidgetRenderType.multi,
     };
   }
 }

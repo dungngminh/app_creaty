@@ -53,6 +53,10 @@ class _PropertiesPanelViewState extends State<PropertiesPanelView> {
           key: key,
           jsonWidget: selectedWidget! as json_widget.Stack,
         ),
+      'listView' => ListViewPropsPanel(
+          key: key,
+          jsonWidget: selectedWidget! as json_widget.ListView,
+        ),
       _ => const Center(
           child: Text('Nothing'),
         ),

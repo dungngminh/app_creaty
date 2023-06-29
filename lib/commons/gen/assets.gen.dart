@@ -107,6 +107,10 @@ class $AssetsIconsBoldGen {
 class $AssetsIconsComponentsGen {
   const $AssetsIconsComponentsGen();
 
+  /// File path: assets/icons/components/align.svg
+  SvgGenImage get align =>
+      const SvgGenImage('assets/icons/components/align.svg');
+
   /// File path: assets/icons/components/button.svg
   SvgGenImage get button =>
       const SvgGenImage('assets/icons/components/button.svg');
@@ -135,6 +139,10 @@ class $AssetsIconsComponentsGen {
   SvgGenImage get image =>
       const SvgGenImage('assets/icons/components/image.svg');
 
+  /// File path: assets/icons/components/list_view.svg
+  SvgGenImage get listView =>
+      const SvgGenImage('assets/icons/components/list_view.svg');
+
   /// File path: assets/icons/components/row.svg
   SvgGenImage get row => const SvgGenImage('assets/icons/components/row.svg');
 
@@ -151,6 +159,7 @@ class $AssetsIconsComponentsGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
+        align,
         button,
         center,
         column,
@@ -158,6 +167,7 @@ class $AssetsIconsComponentsGen {
         container,
         divider,
         image,
+        listView,
         row,
         scaffold,
         stack,

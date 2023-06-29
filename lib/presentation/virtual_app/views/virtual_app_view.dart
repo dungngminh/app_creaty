@@ -21,9 +21,7 @@ class VirtualAppView extends StatefulWidget {
 class _VirtualAppViewState extends State<VirtualAppView> {
   @override
   Widget build(BuildContext context) {
-    return InteractiveViewer(
-      transformationController: widget.interactiveViewController,
-      child: DragTarget<AppCreatyComponent>(
+    return DragTarget<AppCreatyComponent>(
         builder: (context, candidateData, rejectedData) {
           final currentDevice =
               context.select((EditorBloc bloc) => bloc.state.currentDevice);
@@ -112,8 +110,7 @@ class _VirtualAppViewState extends State<VirtualAppView> {
           context
               .read<VirtualAppBloc>()
               .add(AddWidgetToTree(widget: component.data));
-        },
-      ),
+      },
     );
   }
 }

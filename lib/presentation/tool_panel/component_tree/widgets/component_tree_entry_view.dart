@@ -202,6 +202,7 @@ extension ComponentTreeText on WidgetTreeNode {
       'Image' => Assets.icons.components.image,
       'Center' => Assets.icons.components.center,
       'Stack' => Assets.icons.components.stack,
+      'ListView' => Assets.icons.components.listView,
       _ => Assets.icons.components.component,
     };
   }
