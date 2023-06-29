@@ -66,4 +66,5 @@ extension WidgetInJsonExtension on Map<String, dynamic> {
       (this[kRuntimeTypeKey] as String).pascalCase;
     
   String get runTimeTypeValue => this[kRuntimeTypeKey] as String;
+
 }

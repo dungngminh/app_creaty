@@ -123,4 +123,5 @@
   "logoutConfirmationLabel": "Are you sure you want to log out?",
   "genericYes": "Yes",
   "genericNo": "No"
+  "centerComponent": "Center"
 }

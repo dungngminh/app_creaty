@@ -55,7 +55,8 @@ enum AppCreatyComponent implements IAppCreatyComponent {
   row,
   container,
   image,
-  elevatedButton;
+  elevatedButton,
+  center;
 
   @override
   String getTitle(BuildContext context) {
@@ -66,6 +67,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       AppCreatyComponent.container => context.l10n.containerComponent,
       AppCreatyComponent.image => context.l10n.imageComponent,
       AppCreatyComponent.elevatedButton => context.l10n.buttonComponenet,
+      AppCreatyComponent.center => context.l10n.centerComponent,
     };
   }
 
@@ -78,6 +80,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       AppCreatyComponent.container => Assets.icons.components.container,
       AppCreatyComponent.image => Assets.icons.components.image,
       AppCreatyComponent.elevatedButton => Assets.icons.components.button,
+      AppCreatyComponent.center => Assets.icons.components.center
     };
   }
 
@@ -130,6 +133,15 @@ enum AppCreatyComponent implements IAppCreatyComponent {
           child: elevatedButtonChild,
           onPressed: callback,
         );
+      case AppCreatyComponent.center:
+        final centerKey = json_widget.ValueKey(const Uuid().v4());
+        return json_widget.Widget.center(
+          key: centerKey,
+          child: const json_widget.SizedBox(
+            width: Constants.kDefaultWidthHeight,
+            height: Constants.kDefaultHeightWidget,
+          ),
+        );
     }
   }
 
@@ -151,6 +163,11 @@ enum AppCreatyComponent implements IAppCreatyComponent {
         ],
       AppCreatyComponent.image => [AppCreatyComponentGroup.common],
       AppCreatyComponent.elevatedButton => [AppCreatyComponentGroup.common],
+      AppCreatyComponent.center => [
+          AppCreatyComponentGroup.layout,
+          AppCreatyComponentGroup.common
+        ],
+
     };
   }
 
@@ -163,6 +180,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       AppCreatyComponent.container => AppCreatyWidgetRenderType.single,
       AppCreatyComponent.image => AppCreatyWidgetRenderType.none,
       AppCreatyComponent.elevatedButton => AppCreatyWidgetRenderType.none,
+      AppCreatyComponent.center => AppCreatyWidgetRenderType.single
     };
   }
 }
