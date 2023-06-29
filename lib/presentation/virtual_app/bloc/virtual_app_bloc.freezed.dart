@@ -279,7 +279,7 @@ class _$_VirtualAppState
   final HandleRequest? handleRequest;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'VirtualAppState(virtualAppWidget: $virtualAppWidget, selectedWidget: $selectedWidget, widgetWillBeUpdatedIn: $widgetWillBeUpdatedIn, hoveredWidget: $hoveredWidget, pages: $pages, currentPage: $currentPage, loadingStatus: $loadingStatus, handleRequest: $handleRequest)';
   }
 
@@ -293,7 +293,9 @@ class _$_VirtualAppState
       ..add(DiagnosticsProperty('widgetWillBeUpdatedIn', widgetWillBeUpdatedIn))
       ..add(DiagnosticsProperty('hoveredWidget', hoveredWidget))
       ..add(DiagnosticsProperty('pages', pages))
-      ..add(DiagnosticsProperty('loadingStatus', loadingStatus));
+      ..add(DiagnosticsProperty('currentPage', currentPage))
+      ..add(DiagnosticsProperty('loadingStatus', loadingStatus))
+      ..add(DiagnosticsProperty('handleRequest', handleRequest));
   }
 
   @override

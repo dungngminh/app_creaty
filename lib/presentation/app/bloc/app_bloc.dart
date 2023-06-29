@@ -20,7 +20,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     add(AppStarted());
 
     authListenSubscription =
-        authRepository.authStateChangeSubcription.distinct().listen((state) {
+        authRepository.onAuthStateChanged.distinct().listen((state) {
       final event = state.event;
       if (event == AuthChangeEvent.signedIn) {
         final user = state.session?.user;

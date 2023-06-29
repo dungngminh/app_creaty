@@ -3,6 +3,8 @@
 # Author : dungngminh
 # Script follows here:
 
+# install `derry`
+
 # run `flutter pub get`
 echo "Run flutter pub get:"
 flutter pub get

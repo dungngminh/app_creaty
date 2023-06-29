@@ -1,6 +1,7 @@
 import 'package:app_creaty/commons/gen/fonts.gen.dart';
 import 'package:app_creaty/commons/router/app_router.dart';
 import 'package:app_creaty/commons/theme/app_text_theme.dart';
+import 'package:app_creaty/data/auth_service.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/local/app_creaty_box_helper.dart';
 import 'package:app_creaty/local/secure_storage_helper.dart';
@@ -43,18 +44,27 @@ class _ApplicationState extends State<Application> {
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
+        RepositoryProvider(
+          create: (_) => AuthService(
+            supabaseAuth: widget.supabase.auth,
+          ),
+        ),
         RepositoryProvider<SecureStorageHelper>(
           create: (_) =>
-              SecureStorageHelperImpl(secureStorage: widget.secureStorage),
+              SecureStorageHelperImpl(
+            secureStorage: widget.secureStorage,
+          ),
         ),
         RepositoryProvider<AppCreatyBoxHelper>(
           create: (_) =>
-              AppCreatyBoxHelperImpl(appCreatyBox: widget.appCreatyLocalBox),
+              AppCreatyBoxHelperImpl(
+            appCreatyBox: widget.appCreatyLocalBox,
+          ),
         ),
         RepositoryProvider<AuthRepository>(
           create: (context) => AuthRepositoryImpl(
-            supabaseAuth: widget.supabase.auth,
             secureStorageHelper: context.read<SecureStorageHelper>(),
+            authService: context.read<AuthService>(),
           ),
         ),
         RepositoryProvider<ProjectRepository>(
