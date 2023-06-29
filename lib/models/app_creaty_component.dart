@@ -56,7 +56,8 @@ enum AppCreatyComponent implements IAppCreatyComponent {
   container,
   image,
   elevatedButton,
-  center;
+  center,
+  stack;
 
   @override
   String getTitle(BuildContext context) {
@@ -68,6 +69,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       AppCreatyComponent.image => context.l10n.imageComponent,
       AppCreatyComponent.elevatedButton => context.l10n.buttonComponenet,
       AppCreatyComponent.center => context.l10n.centerComponent,
+      AppCreatyComponent.stack => context.l10n.stackComponent,
     };
   }
 
@@ -80,7 +82,8 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       AppCreatyComponent.container => Assets.icons.components.container,
       AppCreatyComponent.image => Assets.icons.components.image,
       AppCreatyComponent.elevatedButton => Assets.icons.components.button,
-      AppCreatyComponent.center => Assets.icons.components.center
+      AppCreatyComponent.center => Assets.icons.components.center,
+      AppCreatyComponent.stack => Assets.icons.components.stack,
     };
   }
 
@@ -134,14 +137,17 @@ enum AppCreatyComponent implements IAppCreatyComponent {
           onPressed: callback,
         );
       case AppCreatyComponent.center:
-        final centerKey = json_widget.ValueKey(const Uuid().v4());
+        final dummySizedBoxKey = json_widget.ValueKey(const Uuid().v4());
         return json_widget.Widget.center(
-          key: centerKey,
-          child: const json_widget.SizedBox(
+          key: key,
+          child: json_widget.SizedBox(
+            key: dummySizedBoxKey,
             width: Constants.kDefaultWidthHeight,
             height: Constants.kDefaultHeightWidget,
           ),
         );
+      case AppCreatyComponent.stack:
+        return json_widget.Widget.stack(key: key);
     }
   }
 
@@ -167,7 +173,10 @@ enum AppCreatyComponent implements IAppCreatyComponent {
           AppCreatyComponentGroup.layout,
           AppCreatyComponentGroup.common
         ],
-
+      AppCreatyComponent.stack => [
+          AppCreatyComponentGroup.layout,
+          AppCreatyComponentGroup.common
+        ],
     };
   }
 
@@ -180,7 +189,8 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       AppCreatyComponent.container => AppCreatyWidgetRenderType.single,
       AppCreatyComponent.image => AppCreatyWidgetRenderType.none,
       AppCreatyComponent.elevatedButton => AppCreatyWidgetRenderType.none,
-      AppCreatyComponent.center => AppCreatyWidgetRenderType.single
+      AppCreatyComponent.center => AppCreatyWidgetRenderType.single,
+      AppCreatyComponent.stack => AppCreatyWidgetRenderType.multi,
     };
   }
 }

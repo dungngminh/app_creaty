@@ -201,6 +201,7 @@ extension ComponentTreeText on WidgetTreeNode {
       'ElevatedButton' => Assets.icons.components.button,
       'Image' => Assets.icons.components.image,
       'Center' => Assets.icons.components.center,
+      'Stack' => Assets.icons.components.stack,
       _ => Assets.icons.components.component,
     };
   }

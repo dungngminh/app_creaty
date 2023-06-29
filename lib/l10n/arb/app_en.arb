@@ -124,4 +124,7 @@
   "genericYes": "Yes",
   "genericNo": "No"
   "centerComponent": "Center"
+  "centerComponent": "Center",
+  "stackComponent": "Stack"
+
 }

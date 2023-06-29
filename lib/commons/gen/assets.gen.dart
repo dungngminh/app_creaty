@@ -142,6 +142,10 @@ class $AssetsIconsComponentsGen {
   SvgGenImage get scaffold =>
       const SvgGenImage('assets/icons/components/scaffold.svg');
 
+  /// File path: assets/icons/components/stack.svg
+  SvgGenImage get stack =>
+      const SvgGenImage('assets/icons/components/stack.svg');
+
   /// File path: assets/icons/components/text.svg
   SvgGenImage get text => const SvgGenImage('assets/icons/components/text.svg');
 
@@ -156,6 +160,7 @@ class $AssetsIconsComponentsGen {
         image,
         row,
         scaffold,
+        stack,
         text
       ];
 }
