@@ -308,9 +308,11 @@ packages:
   device_frame:
     dependency: "direct main"
     description:
-      path: "packages/device_frame"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: b5bb941ac83ba2ea20592f3d88a0f5ac506e09e8
+      url: "https://github.com/dungngminh/adjusted_device_frame.git"
+    source: git
     version: "1.1.0"
   equatable:
     dependency: "direct main"
@@ -823,9 +825,11 @@ packages:
   json_widget:
     dependency: "direct main"
     description:
-      path: "packages/json_widget"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: "6309752c7b1e92dfca0125a9a1a9bc554ae5b386"
+      url: "https://github.com/dungngminh/adjusted_json_widget.git"
+    source: git
     version: "0.1.0+1"
   jwt_decode:
     dependency: transitive

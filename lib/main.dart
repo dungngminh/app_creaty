@@ -18,7 +18,7 @@ void main() {
         anonKey: Env.supabaseAnon,
       );
       final supabase = Supabase.instance.client;
-      final secureStorage = FlutterSecureStorage();
+      const secureStorage = FlutterSecureStorage();
       final appCreatyLocalBox =
           await Hive.openBox<AppCreatyProject>(_appCreatyLocalBoxName);
       return Application(
