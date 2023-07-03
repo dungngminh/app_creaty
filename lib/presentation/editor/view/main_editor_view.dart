@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:app_creaty/commons/enums/loading_status.dart';
 import 'package:app_creaty/commons/extensions/snack_bar_extension.dart';
 import 'package:app_creaty/commons/router/app_router.dart';
@@ -5,6 +7,7 @@ import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
 import 'package:app_creaty/presentation/editor/editor.dart';
+import 'package:app_creaty/presentation/virtual_app/models/handle_request_type.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/app_confirmation_alert_dialog.dart';
 import 'package:app_creaty/presentation/widgets/loading_view.dart';
@@ -96,27 +99,7 @@ class _MainEditorViewState extends State<MainEditorView> {
         BlocListener<VirtualAppBloc, VirtualAppState>(
           listenWhen: (previous, current) =>
               previous.handleRequest != current.handleRequest,
-          listener: (context, state) {
-            if (state.handleRequest?.isHasChild ?? false) {
-              final handleRequest = state.handleRequest!;
-              showConfirmationDialog<void>(
-                context,
-                title: 'Are you want to override?',
-                description: 'Yes/No',
-                onCancelPressed: () => context.pop(),
-                onConfirmPressed: () => context
-                  ..pop()
-                  ..pop()
-                  ..read<VirtualAppBloc>().add(
-                    AddWidgetToTree(
-                      widget: handleRequest.childWidget,
-                      overwriteIfHasChild: true,
-                      parent: handleRequest.parentWidget,
-                    ),
-                  ),
-              );
-            }
-          },
+          listener: _onHandleRequestListener,
         ),
         BlocListener<EditorBloc, EditorState>(
           listenWhen: (previous, current) =>
@@ -161,5 +144,30 @@ class _MainEditorViewState extends State<MainEditorView> {
       ),
     );
     return mainEditorView;
+  }
+
+  void _onHandleRequestListener(BuildContext context, VirtualAppState state) {
+    log(state.handleRequest.toString());
+    return switch (state.handleRequest?.type) {
+      HandleRequestType.cannotRemoveChild =>
+        context.showSnackBar('You cannot remove this widget!!'),
+      HandleRequestType.hasChild => showConfirmationDialog<void>(
+          context,
+          title: 'Are you want to override?',
+          description: 'Yes/No',
+          onCancelPressed: () => context.pop(),
+          onConfirmPressed: () => context
+            ..pop()
+            ..read<VirtualAppBloc>().add(
+              AddWidgetToTree(
+                widget: state.handleRequest!.childWidget,
+                overwriteIfHasChild: true,
+                parent: state.handleRequest!.parentWidget,
+              ),
+            ),
+        ),
+      HandleRequestType.wrapIn => context.showSnackBar('You wrapped in'),
+      _ => () {}
+    };
   }
 }

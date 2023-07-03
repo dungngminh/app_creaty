@@ -52,6 +52,8 @@ final class EditorBloc extends Bloc<EditorEvent, EditorState> {
     ImportProjectData event,
     Emitter<EditorState> emit,
   ) async {
+    
+
     final projectSpec = _getProjectPubspecData();
     final projectVersion = projectSpec['version'] as String;
     final dartVersion =

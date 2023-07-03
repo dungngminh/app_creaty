@@ -57,8 +57,7 @@ class ComponentTreeEntryView extends StatelessWidget {
             ),
           ]
         : [
-            if (entry.node.widgetName != 'Text' ||
-                entry.node.widgetName != 'Image')
+            if (!['Text', 'Image'].contains(entry.node.widgetName))
             MenuItem(
               action: ContextMenuAction.addWidget,
               title: 'Add Widget',
@@ -101,7 +100,7 @@ class ComponentTreeEntryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContextMenuRegion(
-      menuOffset: const Offset(0, 50),
+      menuOffset: const Offset(0, 16),
       onItemSelected: (menu) {
         if (menu.action is ContextMenuAction) {
           final menuAction = menu.action! as ContextMenuAction;
@@ -131,24 +130,7 @@ class ComponentTreeEntryView extends StatelessWidget {
           }
         }
       },
-      menuItems: [
-        MenuItem(
-          title: 'Wrap with Widget',
-          items: AppCreatyComponent.values
-              .where(
-                (e) => e.renderType.isMulti || e.renderType.isSingle,
-              )
-              .mapIndexed(
-                (index, e) => MenuItem(title: e.name, action: e),
-              )
-              .toList(),
-        ),
-        MenuItem(
-          action: ContextMenuAction.delete,
-          title: 'Remove Widget',
-          onSelected: () {},
-        ),
-      ],
+      menuItems: menuItems,
       child: TreeIndentation(
         entry: entry,
         child: Padding(

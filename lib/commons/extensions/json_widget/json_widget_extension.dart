@@ -22,6 +22,8 @@ const _singleChildWidget = [
   'expanded'
 ];
 
+const _needChildWidget = ['center'];
+
 extension JsonWidgetExtension on json_widget.Widget {
   String get runtimeTypeValue {
     return toJson()[kRuntimeTypeKey] as String;
@@ -64,7 +66,8 @@ extension WidgetInJsonExtension on Map<String, dynamic> {
 
   String get runtimeTypePascalCase =>
       (this[kRuntimeTypeKey] as String).pascalCase;
-    
+
   String get runTimeTypeValue => this[kRuntimeTypeKey] as String;
 
+  bool isNeedChildWidget() => _multiChildWidgets.contains(runTimeTypeValue);
 }

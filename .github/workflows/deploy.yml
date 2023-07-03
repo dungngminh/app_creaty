@@ -26,6 +26,8 @@ jobs:
         run: flutter pub run build_runner build --delete-conflicting-outputs
       - name: Enable linux build
         run: flutter config --enable-linux-desktop
+      - name: Run install some deps
+        run: sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev
       - name: Build artifacts
         run: flutter build linux --release
       - name: Package Release files

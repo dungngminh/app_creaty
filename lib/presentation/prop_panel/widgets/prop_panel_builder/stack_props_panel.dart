@@ -1,10 +1,5 @@
-import 'package:app_creaty/commons/extensions/json_widget/cross_axis_alignment_extension.dart';
-import 'package:app_creaty/commons/extensions/json_widget/main_axis_alignment_extension.dart';
-import 'package:app_creaty/commons/extensions/json_widget/main_axis_size_extension.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
-import 'package:app_creaty/l10n/l10n.dart';
-import 'package:app_creaty/presentation/prop_panel/widgets/widgets.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -47,11 +42,6 @@ class _StackPropsPanelState extends State<StackPropsPanel> {
         const Gap(16),
         ColumnWithSpacing(
           spacing: 24,
-          children: [
-            // _buildMainAxisSizeProp(),
-            // _buildCrossAxisAlignmentProp(),
-            // _buildMainAxisAlignmentProp(),
-          ],
         )
       ],
     );
