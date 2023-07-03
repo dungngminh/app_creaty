@@ -69,5 +69,5 @@ extension WidgetInJsonExtension on Map<String, dynamic> {
 
   String get runTimeTypeValue => this[kRuntimeTypeKey] as String;
 
-  bool isNeedChildWidget() => _multiChildWidgets.contains(runTimeTypeValue);
+  bool isNeedChildWidget() => _needChildWidget.contains(runTimeTypeValue);
 }

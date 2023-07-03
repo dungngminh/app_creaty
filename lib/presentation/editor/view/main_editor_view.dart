@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:app_creaty/commons/enums/loading_status.dart';
 import 'package:app_creaty/commons/extensions/snack_bar_extension.dart';
@@ -147,7 +146,6 @@ class _MainEditorViewState extends State<MainEditorView> {
   }
 
   void _onHandleRequestListener(BuildContext context, VirtualAppState state) {
-    log(state.handleRequest.toString());
     return switch (state.handleRequest?.type) {
       HandleRequestType.cannotRemoveChild =>
         context.showSnackBar('You cannot remove this widget!!'),

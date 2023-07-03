@@ -189,7 +189,7 @@ class _NewProjectViewState extends State<_NewProjectView> {
                     enabled: false,
                   ),
 
-                  /// TODO (dungngminh): Add field project avatar
+                  // TODO(dungngminh): Add field project avatar
                   gap16,
                   _buildSelectLocationButton(),
                   gap32,

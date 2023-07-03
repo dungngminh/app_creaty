@@ -41,8 +41,7 @@ class _RecentProjectCardActionButtonState
   void _onItemSelected(RecentProjectCardAction action) {
     switch (action) {
       case RecentProjectCardAction.edit:
-
-        /// TODO: handle edit project feature
+        // TODO(dungngminh): handle edit project feature
         return log('This is Edit project ');
       case RecentProjectCardAction.delete:
         showConfirmationDialog<void>(

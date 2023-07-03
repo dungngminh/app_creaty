@@ -39,6 +39,8 @@ class AppTextField extends StatefulWidget {
   final String? errorText;
 
   final bool obscureText;
+  
+  final String? hintText;
 
   @override
   State<AppTextField> createState() => _AppTextFieldState();
@@ -46,7 +48,6 @@ class AppTextField extends StatefulWidget {
 
 class _AppTextFieldState extends State<AppTextField> {
 
-  final String? hintText;
 
   @override
   Widget build(BuildContext context) {
@@ -65,9 +66,7 @@ class _AppTextFieldState extends State<AppTextField> {
           border: border,
           labelText: widget.labelText,
           enabled: widget.enabled,
-          labelText: labelText,
-          hintText: hintText,
-          enabled: enabled,
+          hintText: widget.hintText,
         ),
       ),
     );

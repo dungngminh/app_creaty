@@ -31,7 +31,7 @@ jobs:
         uses: jsdaniell/create-json@v1.2.2
         with:
           name: "env.json"
-          json: '{"SUPABASE_URL":""${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
+          json: '{"SUPABASE_URL":"${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
       - name: Build artifacts
         run: flutter build linux --release --dart-define-from-file=env.json
       - name: Package Release files
@@ -69,7 +69,7 @@ jobs:
         uses: jsdaniell/create-json@v1.2.2
         with:
           name: "env.json"
-          json: '{"SUPABASE_URL":""${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
+          json: '{"SUPABASE_URL":"${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
       - name: Build artifacts
         run: flutter build windows --release --dart-define-from-file=env.json
       - name: Package Release
@@ -106,7 +106,7 @@ jobs:
         uses: jsdaniell/create-json@v1.2.2
         with:
           name: "env.json"
-          json: '{"SUPABASE_URL":""${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
+          json: '{"SUPABASE_URL":"${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
       - name: Build artifacts
         run: flutter build macos --release --no-tree-shake-icons --dart-define-from-file=env.json
       - name: Package Release
