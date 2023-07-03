@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:app_creaty/commons/algorithm/app_creaty_algorithm.dart';
 import 'package:app_creaty/commons/algorithm/app_creaty_algorithm_exception.dart';
@@ -9,13 +11,13 @@ import 'package:app_creaty/commons/utils/string_gen.dart';
 import 'package:app_creaty/models/app_creaty_page.dart';
 import 'package:app_creaty/presentation/editor/bloc/editor_bloc.dart';
 import 'package:app_creaty/presentation/virtual_app/models/handle_request_type.dart';
-import 'package:dartx/dartx.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 import 'package:json_widget/widgets/widget.dart';
+import 'package:path/path.dart';
 import 'package:recase/recase.dart';
 import 'package:replay_bloc/replay_bloc.dart';
 import 'package:rxdart_ext/rxdart_ext.dart';
@@ -28,9 +30,7 @@ part 'virtual_app_state.dart';
 class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
   VirtualAppBloc({required EditorBloc editorBloc})
       : _editorBloc = editorBloc,
-        super(
-          const VirtualAppState(),
-        ) {
+        super(const VirtualAppState()) {
     on<AddWidgetToTree>(_onAddWidgetToTree);
     on<ChangeProp>(_onChangeProp);
     on<ChangePage>(_onChangePage);
@@ -54,6 +54,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     AddWidgetToTree event,
     Emitter<VirtualAppState> emit,
   ) {
+    emit(state.copyWith(handleRequest: null));
     // Recurisve function to add widget to tree
     final receviedWidget = event.widget;
     final currentVirtualApp = state.virtualAppWidget as Scaffold;
@@ -101,7 +102,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
           handleRequest: HandleRequest(
             type: HandleRequestType.hasChild,
             childWidget: event.widget,
-            parentWidget: currentWidgetWillBeUpdatedIn,
+            parentWidget: e.parentWidget,
           ),
         ),
       );
@@ -143,13 +144,17 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     VirtualAppLoaded event,
     Emitter<VirtualAppState> emit,
   ) async {
-    /// TODO: add load snapshot
-    ///
     emit(state.copyWith(loadingStatus: LoadingStatus.loading));
-    log(_editorBloc.state.currentProject.toString());
     final currentProject = _editorBloc.state.currentProject;
     late AppCreatyPage page;
-    final pages = currentProject.pages;
+    final metadataPath = join(currentProject.projectFullPath, 'metadata.json');
+    final metadataFile = File(metadataPath);
+    final rawData =
+        jsonDecode(metadataFile.readAsStringSync()) as Map<String, dynamic>;
+    final pageData = (rawData['pages'] as List)
+        .map((e) => AppCreatyPage.fromJson(e as Map<String, dynamic>))
+        .toList();
+    final pages = pageData;
     if (pages.isEmpty) {
       final pageName = StringGen.id;
       final routeName = pageName.camelCase;
@@ -164,9 +169,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
       page = pages.first;
     }
 
-    await Future<void>.delayed(4.seconds);
-
-    final widget = Widget.fromJson(page.data);
+    final widget = await compute(Widget.fromJson, page.data);
 
     emit(
       state.copyWith(
@@ -203,6 +206,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
   }
 
   void _onDeleteWidget(DeleteWidget event, Emitter<VirtualAppState> emit) {
+    emit(state.copyWith(handleRequest: null));
     final requestToDeleteWidget = event.widget;
 
     final currentApp = state.virtualAppWidget as json_widget.Scaffold;
@@ -210,23 +214,35 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     final currentAppBody = currentApp.body;
 
     if (currentAppBody == null) return;
+    try {
+      final updatedAppBodyData = AppCreatyAlgorithm.findAndDeleteWidget(
+        tree: currentAppBody.toJson(),
+        parentWidget: currentAppBody.toJson(),
+        requestedWidget: requestToDeleteWidget.toJson(),
+      );
 
-    final updatedAppBodyData = AppCreatyAlgorithm.findAndDeleteWidget(
-      tree: currentAppBody.toJson(),
-      parentWidget: currentAppBody.toJson(),
-      requestedWidget: requestToDeleteWidget.toJson(),
-    );
-
-    final updatedAppBody = updatedAppBodyData == null
-        ? null
-        : json_widget.Widget.fromJson(updatedAppBodyData);
-    final updatedWidgetApp = currentApp.copyWith(body: updatedAppBody);
-    emit(
-      state.copyWith(
-        selectedWidget: null,
-        virtualAppWidget: updatedWidgetApp,
-      ),
-    );
+      final updatedAppBody = updatedAppBodyData == null
+          ? null
+          : json_widget.Widget.fromJson(updatedAppBodyData);
+      final updatedWidgetApp = currentApp.copyWith(body: updatedAppBody);
+      emit(
+        state.copyWith(
+          selectedWidget: null,
+          virtualAppWidget: updatedWidgetApp,
+        ),
+      );
+    } on NeedChildException catch (e, st) {
+      addError(e, st);
+      emit(
+        state.copyWith(
+          handleRequest: HandleRequest(
+            type: HandleRequestType.cannotRemoveChild,
+            childWidget: event.widget,
+            parentWidget: e.parentWidget,
+          ),
+        ),
+      );
+    }
   }
 
   Future<void> _onWrapInWidget(
@@ -264,8 +280,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
 
     final updatedApp = currentApp.copyWith(body: updatedAppBody);
 
-    final updatedChildParentWidget =
-        await compute(
+    final updatedChildParentWidget = await compute(
       Widget.fromJson,
       updatedChildParentWidgetData,
     );

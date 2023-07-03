@@ -16,3 +16,13 @@ final class HasChildException extends AppCreatyAlgorithmException {
 
   final Widget? parentWidget;
 }
+
+final class NeedChildException extends AppCreatyAlgorithmException {
+  NeedChildException({
+    this.parentWidget,
+    super.widget,
+    super.message = 'Need Child in this widget',
+  });
+
+  final Widget? parentWidget;
+}

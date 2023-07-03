@@ -107,9 +107,17 @@ class $AssetsIconsBoldGen {
 class $AssetsIconsComponentsGen {
   const $AssetsIconsComponentsGen();
 
+  /// File path: assets/icons/components/align.svg
+  SvgGenImage get align =>
+      const SvgGenImage('assets/icons/components/align.svg');
+
   /// File path: assets/icons/components/button.svg
   SvgGenImage get button =>
       const SvgGenImage('assets/icons/components/button.svg');
+
+  /// File path: assets/icons/components/center.svg
+  SvgGenImage get center =>
+      const SvgGenImage('assets/icons/components/center.svg');
 
   /// File path: assets/icons/components/column.svg
   SvgGenImage get column =>
@@ -131,6 +139,10 @@ class $AssetsIconsComponentsGen {
   SvgGenImage get image =>
       const SvgGenImage('assets/icons/components/image.svg');
 
+  /// File path: assets/icons/components/list_view.svg
+  SvgGenImage get listView =>
+      const SvgGenImage('assets/icons/components/list_view.svg');
+
   /// File path: assets/icons/components/row.svg
   SvgGenImage get row => const SvgGenImage('assets/icons/components/row.svg');
 
@@ -138,19 +150,27 @@ class $AssetsIconsComponentsGen {
   SvgGenImage get scaffold =>
       const SvgGenImage('assets/icons/components/scaffold.svg');
 
+  /// File path: assets/icons/components/stack.svg
+  SvgGenImage get stack =>
+      const SvgGenImage('assets/icons/components/stack.svg');
+
   /// File path: assets/icons/components/text.svg
   SvgGenImage get text => const SvgGenImage('assets/icons/components/text.svg');
 
   /// List of all assets
   List<SvgGenImage> get values => [
+        align,
         button,
+        center,
         column,
         component,
         container,
         divider,
         image,
+        listView,
         row,
         scaffold,
+        stack,
         text
       ];
 }

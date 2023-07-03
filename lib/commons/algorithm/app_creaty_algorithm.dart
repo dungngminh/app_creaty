@@ -110,7 +110,14 @@ final class AppCreatyAlgorithm {
     required Map<String, dynamic> requestedWidget,
   }) {
     if (tree.widgetKey == requestedWidget.widgetKey) {
-      return null;
+      if (!requestedWidget.isNeedChildWidget()) {
+        return null;
+      } else {
+        throw NeedChildException(
+          parentWidget: Widget.fromJson(parentWidget),
+          widget: Widget.fromJson(requestedWidget),
+        );
+      }
     } else {
       if (tree.isMultiChildWidget()) {
         if (tree.isChildrenEmpty()) {
@@ -143,6 +150,7 @@ final class AppCreatyAlgorithm {
       }
       return tree;
     }
+    return null;
   }
 
   static Map<String, dynamic> addToWidget({

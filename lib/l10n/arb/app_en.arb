@@ -122,5 +122,9 @@
   "logoutLabel": "Log out",
   "logoutConfirmationLabel": "Are you sure you want to log out?",
   "genericYes": "Yes",
-  "genericNo": "No"
+  "genericNo": "No",
+  "centerComponent": "Center",
+  "stackComponent": "Stack",
+  "listViewComponent": "List View",
+  "alignComponent": "Align"
 }
