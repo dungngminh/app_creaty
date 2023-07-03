@@ -7,7 +7,6 @@ analyzer:
     - lib/**/*.g.dart
     - lib/**/*.freezed.dart
 
-
 linter:
   rules:
     public_member_api_docs: false
@@ -22,6 +21,7 @@ linter:
     unnecessary_string_interpolations: true
     omit_local_variable_types: true
     always_put_required_named_parameters_first: false
+    sort_pub_dependencies: false
 
 dart_code_metrics:
   metrics:

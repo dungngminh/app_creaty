@@ -110,7 +110,7 @@ final class AppCreatyAlgorithm {
     required Map<String, dynamic> requestedWidget,
   }) {
     if (tree.widgetKey == requestedWidget.widgetKey) {
-      if (!requestedWidget.isNeedChildWidget()) {
+      if (!parentWidget.isNeedChildWidget()) {
         return null;
       } else {
         throw NeedChildException(
@@ -150,7 +150,6 @@ final class AppCreatyAlgorithm {
       }
       return tree;
     }
-    return null;
   }
 
   static Map<String, dynamic> addToWidget({
