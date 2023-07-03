@@ -12,9 +12,10 @@ class AppCreatyCreator extends Equatable {
     required this.name,
     required this.email,
   });
+
   factory AppCreatyCreator.local() {
     return const AppCreatyCreator(
-      id: null,
+      id: 'localhost',
       name: 'Localhost',
       email: null,
     );
@@ -24,11 +25,13 @@ class AppCreatyCreator extends Equatable {
       _$AppCreatyCreatorFromJson(json);
 
   @HiveField(0)
-  final String? id;
+  final String id;
   @HiveField(1)
   final String name;
   @HiveField(2)
   final String? email;
+
+  bool get isLocalhost => id == 'localhost';
 
   Map<String, dynamic> toJson() => _$AppCreatyCreatorToJson(this);
 

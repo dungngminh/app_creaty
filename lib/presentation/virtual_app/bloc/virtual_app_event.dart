@@ -17,13 +17,15 @@ final class AddWidgetToTree extends VirtualAppEvent {
   AddWidgetToTree({
     required this.widget,
     this.parent,
+    this.overwriteIfHasChild = false,
   });
 
   final json_widget.Widget widget;
   final json_widget.Widget? parent;
+  final bool overwriteIfHasChild;
 
   @override
-  List<Object?> get props => [widget, parent];
+  List<Object?> get props => [widget, parent, overwriteIfHasChild];
 }
 
 final class AddPageToTree extends VirtualAppEvent {
@@ -84,4 +86,12 @@ final class WrapInWidget extends VirtualAppEvent {
 
   @override
   List<Object?> get props => [childWidget, parentWidget];
+}
+
+final class RequestToSaveProject extends VirtualAppEvent {
+  @override
+  List<Object?> get props => [];
+}
+
+final class UpdateDataToPage extends VirtualAppEvent {
 }

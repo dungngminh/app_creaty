@@ -7,9 +7,10 @@ part of 'app_bloc.dart';
 class AppState with _$AppState {
   const factory AppState.initial() = Initial;
   const factory AppState.loading() = Loading;
-  const factory AppState.loaded({
+  const factory AppState.auth({
    required AppCreatyCreator user,
-  }) = Loaded;
+  }) = Auth;
+  const factory AppState.unAuth() = UnAuth;
   const factory AppState.error({
     String? error,
   }) = Error;

@@ -1,3 +1,5 @@
+import 'package:app_creaty/commons/enums/loading_status.dart';
+import 'package:app_creaty/commons/extensions/snack_bar_extension.dart';
 import 'package:app_creaty/commons/router/app_router.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
@@ -6,6 +8,7 @@ import 'package:app_creaty/presentation/editor/editor.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/app_confirmation_alert_dialog.dart';
 import 'package:app_creaty/presentation/widgets/loading_view.dart';
+import 'package:app_creaty/repositories/project_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +24,10 @@ class MainEditorPage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => EditorBloc(project: project),
+          create: (context) => EditorBloc(
+            project: project,
+            projectRepository: context.read<ProjectRepository>(),
+          ),
         ),
         BlocProvider<VirtualAppBloc>(
           create: (context) => VirtualAppBloc(
@@ -55,7 +61,8 @@ class _MainEditorViewState extends State<MainEditorView> {
       context,
       title: context.l10n.returnHomeQuestion,
       description: context.l10n.returnHomeQuestionDescription,
-      onConfirmPressed: () => context.go(AppRouter.routePathHomePage),
+      onConfirmPressed: () =>
+          context.read<VirtualAppBloc>().add(RequestToSaveProject()),
       onCancelPressed: () => context.pop(),
     );
   }
@@ -84,31 +91,74 @@ class _MainEditorViewState extends State<MainEditorView> {
         child: Text('Editor Error'),
       );
     }
-    final mainEditorView = Scaffold(
-      appBar: EditorAppBar(
-        onHomeButtonPressed: _onHomeButtonPressed,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 16, bottom: 16),
-        child: Row(
-          children: [
-            AppEditorNavigationRail(
-              onIndexChanged: (onIndexChanged) =>
-                  _currentTabNotifier.value = onIndexChanged,
-            ),
-            Expanded(
-              child: ValueListenableBuilder(
-                valueListenable: _currentTabNotifier,
-                builder: (context, currentIndex, _) {
-                  return EditorPanel(
-                    currentIndex: currentIndex,
-                  );
-                },
-              ),
-            ),
-          ],
+    final mainEditorView = MultiBlocListener(
+      listeners: [
+        BlocListener<VirtualAppBloc, VirtualAppState>(
+          listenWhen: (previous, current) =>
+              previous.handleRequest != current.handleRequest,
+          listener: (context, state) {
+            if (state.handleRequest?.isHasChild ?? false) {
+              final handleRequest = state.handleRequest!;
+              showConfirmationDialog<void>(
+                context,
+                title: 'Are you want to override?',
+                description: 'Yes/No',
+                onCancelPressed: () => context.pop(),
+                onConfirmPressed: () => context
+                  ..pop()
+                  ..pop()
+                  ..read<VirtualAppBloc>().add(
+                    AddWidgetToTree(
+                      widget: handleRequest.childWidget,
+                      overwriteIfHasChild: true,
+                      parent: handleRequest.parentWidget,
+                    ),
+                  ),
+              );
+            }
+          },
         ),
-      ).animate().fadeIn(duration: 200.ms),
+        BlocListener<EditorBloc, EditorState>(
+          listenWhen: (previous, current) =>
+              previous.saveProjectStatus != current.saveProjectStatus,
+          listener: (context, state) {
+            return switch (state.saveProjectStatus) {
+              LoadingStatus.loading => showLoadingViewDialog<void>(context),
+              LoadingStatus.done => context.go(AppRouter.routePathHomePage),
+              LoadingStatus.error => context
+                ..pop()
+                ..showSnackBar('Error'),
+              _ => () {}
+            };
+          },
+        ),
+      ],
+      child: Scaffold(
+        appBar: EditorAppBar(
+          onHomeButtonPressed: _onHomeButtonPressed,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 16, bottom: 16),
+          child: Row(
+            children: [
+              AppEditorNavigationRail(
+                onIndexChanged: (onIndexChanged) =>
+                    _currentTabNotifier.value = onIndexChanged,
+              ),
+              Expanded(
+                child: ValueListenableBuilder(
+                  valueListenable: _currentTabNotifier,
+                  builder: (context, currentIndex, _) {
+                    return EditorPanel(
+                      currentIndex: currentIndex,
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ).animate().fadeIn(duration: 200.ms),
+      ),
     );
     return mainEditorView;
   }

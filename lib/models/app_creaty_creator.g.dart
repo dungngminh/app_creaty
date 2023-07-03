@@ -17,7 +17,7 @@ class AppCreatyCreatorAdapter extends TypeAdapter<AppCreatyCreator> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return AppCreatyCreator(
-      id: fields[0] as String?,
+      id: fields[0] as String,
       name: fields[1] as String,
       email: fields[2] as String?,
     );
@@ -52,7 +52,7 @@ class AppCreatyCreatorAdapter extends TypeAdapter<AppCreatyCreator> {
 
 AppCreatyCreator _$AppCreatyCreatorFromJson(Map<String, dynamic> json) =>
     AppCreatyCreator(
-      id: json['id'] as String?,
+      id: json['id'] as String,
       name: json['name'] as String,
       email: json['email'] as String?,
     );

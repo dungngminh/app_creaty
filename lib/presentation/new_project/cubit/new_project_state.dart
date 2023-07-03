@@ -13,8 +13,6 @@ class NewProjectState extends Equatable {
   final AppCreatyProject? createdProject;
   final dynamic error;
 
-
-
   @override
   List<Object?> get props =>
       [processLoadingStatus, selectedLocation, createdProject, error];

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:app_creaty/local/app_creaty_box_helper.dart';
+import 'package:app_creaty/models/app_creaty_creator.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -30,11 +31,19 @@ class ProjectLoadFailure extends ProjectRepositoryException {
   String toString() => 'ProjectLoadFailure: $message';
 }
 
+class SaveProjectFailure extends ProjectRepositoryException {
+  const SaveProjectFailure(super.message, super.stackTrace);
+
+  @override
+  String toString() => 'SaveProjectFailure: $message';
+}
+
 abstract class ProjectRepository {
   Future<AppCreatyProject> createProject({
     required String projectName,
     required String projectNameInSnackCase,
     required Directory directory,
+       AppCreatyCreator? createdBy,
   });
 
   ValueListenable<Box<AppCreatyProject>> get projects;
@@ -43,9 +52,7 @@ abstract class ProjectRepository {
 
   Future<void> removeAll();
 
-  // Future<void> updateProject(){
-
-  // }
+  Future<void> updateProject(AppCreatyProject project);
 }
 
 class ProjectRepositoryImpl extends ProjectRepository {
@@ -64,6 +71,7 @@ class ProjectRepositoryImpl extends ProjectRepository {
     required String projectName,
     required String projectNameInSnackCase,
     required Directory directory,
+    AppCreatyCreator? createdBy,
   }) async {
     final isProjectDuplicated =
         _appCreatyBoxHelper.isProjectDuplicated(projectNameInSnackCase);
@@ -101,6 +109,7 @@ class ProjectRepositoryImpl extends ProjectRepository {
       final localProject = AppCreatyProject(
         projectId: projectNameInSnackCase,
         projectName: projectName,
+        createdBy: createdBy,
         sourceCodePath: join(sourceCodeDirectoryPath, 'source_code'),
       );
       metadataFile.writeAsStringSync(jsonEncode(localProject.toJson()));
@@ -156,5 +165,24 @@ class ProjectRepositoryImpl extends ProjectRepository {
       ]);
     }
     await _appCreatyBoxHelper.removeProject(project.projectId);
+  }
+
+  @override
+  Future<void> updateProject(AppCreatyProject project) async {
+    try {
+      final projectFullPath = project.projectFullPath;
+      _logger.i(
+        'Save Flutter project in'
+        '$projectFullPath',
+      );
+      final metadataFile = File(join(projectFullPath, 'metadata.json'));
+      final updatedProject = project.copyWith(updatedAt: DateTime.now());
+      await Future.wait([
+        metadataFile.writeAsString(jsonEncode(updatedProject.toJson())),
+        _appCreatyBoxHelper.saveProject(updatedProject),
+      ]);
+    } catch (e, s) {
+      throw SaveProjectFailure(e, s);
+    }
   }
 }

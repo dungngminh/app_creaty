@@ -1,5 +1,6 @@
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
+import 'package:app_creaty/commons/utils/svg_color.dart';
 import 'package:app_creaty/models/app_creaty_component.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/bloc/component_tree_bloc.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/models/widget_tree_node.dart';
@@ -33,16 +34,17 @@ class ComponentTreeEntryView extends StatelessWidget {
     required this.onPressed,
     required this.entry,
     required this.isExpand,
+    required this.isSelected,
   });
 
   final TreeEntry<WidgetTreeNode> entry;
   final VoidCallback onExpansionPressed;
   final VoidCallback onPressed;
   final bool isExpand;
+  final bool isSelected;
 
   List<MenuItem> get menuItems {
-    return entry.node.widgetName == 'Scaffold' ||
-            entry.node.widgetName == 'Text'
+    return entry.node.widgetName == 'Scaffold'
         ? [
             MenuItem(
               action: ContextMenuAction.addWidget,
@@ -55,6 +57,8 @@ class ComponentTreeEntryView extends StatelessWidget {
             ),
           ]
         : [
+            if (entry.node.widgetName != 'Text' ||
+                entry.node.widgetName != 'Image')
             MenuItem(
               action: ContextMenuAction.addWidget,
               title: 'Add Widget',
@@ -154,11 +158,20 @@ class ComponentTreeEntryView extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                entry.node.widgetImage.svg(width: 24),
+                entry.node.widgetImage.svg(
+                  width: 24,
+                  colorFilter:
+                      isSelected ? svgColor(context.colorScheme.primary) : null,
+                ),
                 const Gap(8),
                 Text(
                   entry.node.widgetName,
-                  style: context.textTheme.titleMedium,
+                  style: isSelected
+                      ? context.textTheme.titleMedium?.copyWith(
+                          color: context.colorScheme.primary,
+                          fontWeight: FontWeight.w800,
+                        )
+                      : context.textTheme.titleMedium,
                 ),
                 const Gap(16),
                 if (entry.hasChildren)

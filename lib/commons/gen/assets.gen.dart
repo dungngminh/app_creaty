@@ -3,13 +3,13 @@
 ///  FlutterGen
 /// *****************************************************
 
+import 'package:flutter/services.dart';
 // coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter/services.dart';
 
 class $AssetsFontsGen {
   const $AssetsFontsGen();
@@ -319,6 +319,14 @@ class $AssetsIconsOtherGen {
   SvgGenImage get saveAtPath =>
       const SvgGenImage('assets/icons/other/save_at_path.svg');
 
+  /// File path: assets/icons/other/shape_circle.svg
+  SvgGenImage get shapeCircle =>
+      const SvgGenImage('assets/icons/other/shape_circle.svg');
+
+  /// File path: assets/icons/other/shape_rect.svg
+  SvgGenImage get shapeRect =>
+      const SvgGenImage('assets/icons/other/shape_rect.svg');
+
   /// File path: assets/icons/other/trash.svg
   SvgGenImage get trash => const SvgGenImage('assets/icons/other/trash.svg');
 
@@ -368,6 +376,8 @@ class $AssetsIconsOtherGen {
         plus,
         redo,
         saveAtPath,
+        shapeCircle,
+        shapeRect,
         trash,
         undo
       ];

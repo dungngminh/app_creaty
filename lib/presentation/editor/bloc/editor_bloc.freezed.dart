@@ -21,6 +21,7 @@ mixin _$EditorState {
   bool get isFrameVisible => throw _privateConstructorUsedError;
   bool get isVirtualKeyboardEnable => throw _privateConstructorUsedError;
   ProjectInfo? get projectInfo => throw _privateConstructorUsedError;
+  LoadingStatus get saveProjectStatus => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EditorStateCopyWith<EditorState> get copyWith =>
@@ -38,7 +39,8 @@ abstract class $EditorStateCopyWith<$Res> {
       AppCreatyProject currentProject,
       bool isFrameVisible,
       bool isVirtualKeyboardEnable,
-      ProjectInfo? projectInfo});
+      ProjectInfo? projectInfo,
+      LoadingStatus saveProjectStatus});
 
   $DeviceInfoCopyWith<$Res> get currentDevice;
 }
@@ -61,6 +63,7 @@ class _$EditorStateCopyWithImpl<$Res, $Val extends EditorState>
     Object? isFrameVisible = null,
     Object? isVirtualKeyboardEnable = null,
     Object? projectInfo = freezed,
+    Object? saveProjectStatus = null,
   }) {
     return _then(_value.copyWith(
       currentDevice: null == currentDevice
@@ -83,6 +86,10 @@ class _$EditorStateCopyWithImpl<$Res, $Val extends EditorState>
           ? _value.projectInfo
           : projectInfo // ignore: cast_nullable_to_non_nullable
               as ProjectInfo?,
+      saveProjectStatus: null == saveProjectStatus
+          ? _value.saveProjectStatus
+          : saveProjectStatus // ignore: cast_nullable_to_non_nullable
+              as LoadingStatus,
     ) as $Val);
   }
 
@@ -108,7 +115,8 @@ abstract class _$$_EditorStateCopyWith<$Res>
       AppCreatyProject currentProject,
       bool isFrameVisible,
       bool isVirtualKeyboardEnable,
-      ProjectInfo? projectInfo});
+      ProjectInfo? projectInfo,
+      LoadingStatus saveProjectStatus});
 
   @override
   $DeviceInfoCopyWith<$Res> get currentDevice;
@@ -130,6 +138,7 @@ class __$$_EditorStateCopyWithImpl<$Res>
     Object? isFrameVisible = null,
     Object? isVirtualKeyboardEnable = null,
     Object? projectInfo = freezed,
+    Object? saveProjectStatus = null,
   }) {
     return _then(_$_EditorState(
       currentDevice: null == currentDevice
@@ -152,6 +161,10 @@ class __$$_EditorStateCopyWithImpl<$Res>
           ? _value.projectInfo
           : projectInfo // ignore: cast_nullable_to_non_nullable
               as ProjectInfo?,
+      saveProjectStatus: null == saveProjectStatus
+          ? _value.saveProjectStatus
+          : saveProjectStatus // ignore: cast_nullable_to_non_nullable
+              as LoadingStatus,
     ));
   }
 }
@@ -164,7 +177,8 @@ class _$_EditorState implements _EditorState {
       required this.currentProject,
       this.isFrameVisible = true,
       this.isVirtualKeyboardEnable = false,
-      this.projectInfo});
+      this.projectInfo,
+      this.saveProjectStatus = LoadingStatus.initial});
 
   @override
   final DeviceInfo currentDevice;
@@ -178,10 +192,13 @@ class _$_EditorState implements _EditorState {
   final bool isVirtualKeyboardEnable;
   @override
   final ProjectInfo? projectInfo;
+  @override
+  @JsonKey()
+  final LoadingStatus saveProjectStatus;
 
   @override
   String toString() {
-    return 'EditorState(currentDevice: $currentDevice, currentProject: $currentProject, isFrameVisible: $isFrameVisible, isVirtualKeyboardEnable: $isVirtualKeyboardEnable, projectInfo: $projectInfo)';
+    return 'EditorState(currentDevice: $currentDevice, currentProject: $currentProject, isFrameVisible: $isFrameVisible, isVirtualKeyboardEnable: $isVirtualKeyboardEnable, projectInfo: $projectInfo, saveProjectStatus: $saveProjectStatus)';
   }
 
   @override
@@ -199,12 +216,14 @@ class _$_EditorState implements _EditorState {
                     other.isVirtualKeyboardEnable, isVirtualKeyboardEnable) ||
                 other.isVirtualKeyboardEnable == isVirtualKeyboardEnable) &&
             (identical(other.projectInfo, projectInfo) ||
-                other.projectInfo == projectInfo));
+                other.projectInfo == projectInfo) &&
+            (identical(other.saveProjectStatus, saveProjectStatus) ||
+                other.saveProjectStatus == saveProjectStatus));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, currentDevice, currentProject,
-      isFrameVisible, isVirtualKeyboardEnable, projectInfo);
+      isFrameVisible, isVirtualKeyboardEnable, projectInfo, saveProjectStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -219,7 +238,8 @@ abstract class _EditorState implements EditorState {
       required final AppCreatyProject currentProject,
       final bool isFrameVisible,
       final bool isVirtualKeyboardEnable,
-      final ProjectInfo? projectInfo}) = _$_EditorState;
+      final ProjectInfo? projectInfo,
+      final LoadingStatus saveProjectStatus}) = _$_EditorState;
 
   @override
   DeviceInfo get currentDevice;
@@ -231,6 +251,8 @@ abstract class _EditorState implements EditorState {
   bool get isVirtualKeyboardEnable;
   @override
   ProjectInfo? get projectInfo;
+  @override
+  LoadingStatus get saveProjectStatus;
   @override
   @JsonKey(ignore: true)
   _$$_EditorStateCopyWith<_$_EditorState> get copyWith =>

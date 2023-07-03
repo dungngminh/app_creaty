@@ -20,3 +20,13 @@ final class ToggleShowDeviceFrame extends EditorEvent {
 }
 
 final class ImportProjectData extends EditorEvent {}
+
+final class SaveProject extends EditorEvent {
+  SaveProject({
+    required this.project,
+  });
+  final AppCreatyProject project;
+
+  @override
+  List<Object?> get props => [project];
+}
