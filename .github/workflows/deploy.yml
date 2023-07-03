@@ -30,7 +30,7 @@ jobs:
         id: create-json
         uses: jsdaniell/create-json@v1.2.2
         with:
-          name: "new-json-file.json"
+          name: "env.json"
           json: '{"SUPABASE_URL":""${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
       - name: Build artifacts
         run: flutter build linux --release --dart-define-from-file=env.json
@@ -68,7 +68,7 @@ jobs:
         id: create-json
         uses: jsdaniell/create-json@v1.2.2
         with:
-          name: "new-json-file.json"
+          name: "env.json"
           json: '{"SUPABASE_URL":""${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
       - name: Build artifacts
         run: flutter build windows --release --dart-define-from-file=env.json
@@ -105,7 +105,7 @@ jobs:
         id: create-json
         uses: jsdaniell/create-json@v1.2.2
         with:
-          name: "new-json-file.json"
+          name: "env.json"
           json: '{"SUPABASE_URL":""${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
       - name: Build artifacts
         run: flutter build macos --release --no-tree-shake-icons --dart-define-from-file=env.json
