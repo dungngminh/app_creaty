@@ -19,7 +19,7 @@ jobs:
           flutter-version: ${{env.FLUTTER_VERSION}}
           channel: "stable"
       - name: Install os dependencies
-        run: sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-good
+        run: sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev libunwind-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-good
       - name: Install project dependencies
         run: flutter pub get
       - name: Generate intermediates
@@ -27,13 +27,16 @@ jobs:
       - name: Enable linux build
         run: flutter config --enable-linux-desktop
       - name: Build artifacts
-        run: flutter build linux --release
+      - name: Create env.json
+        run: echo "{\"SUPABASE_URL\": \"${{secrets.SUPABASE_URL}}\", \"SUPABASE_ANON\": \"${{secrets.SUPABASE_ANON}}\"}" > env.json
+        run: flutter build linux --release --dart-define-from-file=env.json
       - name: Package Release files
         uses: thedoctor0/zip-release@master
         with:
           type: "zip"
           filename: app_creaty-${{github.ref_name}}-linux.zip
           directory: build/linux/x64/release/bundle
+
       - name: Release to github
         uses: softprops/action-gh-release@v1
         env:
@@ -57,8 +60,10 @@ jobs:
         run: flutter pub run build_runner build --delete-conflicting-outputs
       - name: Enable windows build
         run: flutter config --enable-windows-desktop
+      - name: Create env.json
+        run: echo "{\"SUPABASE_URL\": \"${{secrets.SUPABASE_URL}}\", \"SUPABASE_ANON\": \"${{secrets.SUPABASE_ANON}}\"}" > env.json
       - name: Build artifacts
-        run: flutter build windows --release
+        run: flutter build windows --release --dart-define-from-file=env.json
       - name: Package Release
         uses: thedoctor0/zip-release@master
         with:
@@ -88,8 +93,10 @@ jobs:
         run: flutter pub run build_runner build --delete-conflicting-outputs
       - name: Enable macOS build
         run: flutter config --enable-macos-desktop
+      - name: Create env.json
+        run: echo "{\"SUPABASE_URL\": \"${{secrets.SUPABASE_URL}}\", \"SUPABASE_ANON\": \"${{secrets.SUPABASE_ANON}}\"}" > env.json
       - name: Build artifacts
-        run: flutter build macos --release --no-tree-shake-icons
+        run: flutter build macos --release --no-tree-shake-icons --dart-define-from-file=env.json
       - name: Package Release
         uses: thedoctor0/zip-release@master
         with:
