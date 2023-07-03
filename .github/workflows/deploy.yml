@@ -26,9 +26,13 @@ jobs:
         run: flutter pub run build_runner build --delete-conflicting-outputs
       - name: Enable linux build
         run: flutter config --enable-linux-desktop
-      - name: Build artifacts
       - name: Create env.json
-        run: echo "{\"SUPABASE_URL\": \"${{secrets.SUPABASE_URL}}\", \"SUPABASE_ANON\": \"${{secrets.SUPABASE_ANON}}\"}" > env.json
+        id: create-json
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: "new-json-file.json"
+          json: '{"SUPABASE_URL":""${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
+      - name: Build artifacts
         run: flutter build linux --release --dart-define-from-file=env.json
       - name: Package Release files
         uses: thedoctor0/zip-release@master
@@ -61,7 +65,11 @@ jobs:
       - name: Enable windows build
         run: flutter config --enable-windows-desktop
       - name: Create env.json
-        run: echo "{\"SUPABASE_URL\": \"${{secrets.SUPABASE_URL}}\", \"SUPABASE_ANON\": \"${{secrets.SUPABASE_ANON}}\"}" > env.json
+        id: create-json
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: "new-json-file.json"
+          json: '{"SUPABASE_URL":""${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
       - name: Build artifacts
         run: flutter build windows --release --dart-define-from-file=env.json
       - name: Package Release
@@ -94,7 +102,11 @@ jobs:
       - name: Enable macOS build
         run: flutter config --enable-macos-desktop
       - name: Create env.json
-        run: echo "{\"SUPABASE_URL\": \"${{secrets.SUPABASE_URL}}\", \"SUPABASE_ANON\": \"${{secrets.SUPABASE_ANON}}\"}" > env.json
+        id: create-json
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: "new-json-file.json"
+          json: '{"SUPABASE_URL":""${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
       - name: Build artifacts
         run: flutter build macos --release --no-tree-shake-icons --dart-define-from-file=env.json
       - name: Package Release
