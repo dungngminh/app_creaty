@@ -124,7 +124,6 @@ class _RegisterDialogViewState extends State<RegisterDialogView> {
       listenWhen: (previous, current) => previous != current,
       listener: (context, state) {
         if (state.loadingStatus.isDone) {
-          context.pop();
           widget.onHaveAccountButtonPressed.call();
         } 
       },

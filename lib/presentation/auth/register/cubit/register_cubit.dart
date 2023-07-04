@@ -1,3 +1,4 @@
+
 import 'package:app_creaty/commons/enums/loading_status.dart';
 import 'package:app_creaty/presentation/auth/register/cubit/register_state.dart';
 import 'package:app_creaty/repositories/auth_repository.dart';
@@ -18,13 +19,14 @@ final class RegisterCubit extends Cubit<RegisterState> {
     emit(state.copyWith(loadingStatus: LoadingStatus.loading));
     return _authRepository
         .registerWithEmailAndPassword(
-          email: email,
-          password: password,
-        )
+      email: email,
+      password: password,
+    )
         .then(
-          (_) => emit(state.copyWith(loadingStatus: LoadingStatus.done)),
-          onError: (_) =>
-              emit(state.copyWith(loadingStatus: LoadingStatus.error)),
-        );
+      (_) => emit(state.copyWith(loadingStatus: LoadingStatus.done)),
+      onError: (_) {
+        emit(state.copyWith(loadingStatus: LoadingStatus.error));
+      },
+    );
   }
 }
