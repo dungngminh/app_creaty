@@ -5,7 +5,7 @@ import 'package:uuid/uuid.dart';
 
 part 'app_creaty_page.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
 @HiveType(typeId: 2)
 class AppCreatyPage extends Equatable {
   AppCreatyPage({

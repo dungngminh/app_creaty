@@ -8,7 +8,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'app_creaty_project.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
 @HiveType(typeId: 0)
 class AppCreatyProject extends Equatable {
   AppCreatyProject({

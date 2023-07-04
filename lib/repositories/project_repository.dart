@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:app_creaty/data/project_database_service.dart';
 import 'package:app_creaty/local/app_creaty_box_helper.dart';
 import 'package:app_creaty/models/app_creaty_creator.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logger/logger.dart';
 import 'package:path/path.dart';
+import 'package:uuid/uuid.dart';
 
 class ProjectRepositoryException implements Exception {
   const ProjectRepositoryException(this.message, this.stackTrace);
@@ -43,7 +45,7 @@ abstract class ProjectRepository {
     required String projectName,
     required String projectNameInSnackCase,
     required Directory directory,
-       AppCreatyCreator? createdBy,
+    AppCreatyCreator? createdBy,
   });
 
   ValueListenable<Box<AppCreatyProject>> get projects;
@@ -59,12 +61,16 @@ class ProjectRepositoryImpl extends ProjectRepository {
   ProjectRepositoryImpl({
     Logger? logger,
     required AppCreatyBoxHelper appCreatyBoxHelper,
+    required ProjectDatabaseService projectDatabaseService,
   })  : _logger = logger ?? Logger(),
-        _appCreatyBoxHelper = appCreatyBoxHelper;
+        _appCreatyBoxHelper = appCreatyBoxHelper,
+        _projectDatabaseService = projectDatabaseService;
 
   final Logger _logger;
 
   final AppCreatyBoxHelper _appCreatyBoxHelper;
+
+  final ProjectDatabaseService _projectDatabaseService;
 
   @override
   Future<AppCreatyProject> createProject({
@@ -106,13 +112,13 @@ class ProjectRepositoryImpl extends ProjectRepository {
             ..createSync();
       final sourceCodeDirectoryPath =
           join(workingDirectory, projectNameInSnackCase);
-      final localProject = AppCreatyProject(
-        projectId: projectNameInSnackCase,
+      final project = AppCreatyProject(
+        projectId: const Uuid().v4(),
         projectName: projectName,
         createdBy: createdBy,
         sourceCodePath: join(sourceCodeDirectoryPath, 'source_code'),
       );
-      metadataFile.writeAsStringSync(jsonEncode(localProject.toJson()));
+      metadataFile.writeAsStringSync(jsonEncode(project.toJson()));
       _logger.i(
         'Creating Flutter source code in'
         '$sourceCodeDirectoryPath',
@@ -128,8 +134,12 @@ class ProjectRepositoryImpl extends ProjectRepository {
           'Created $projectNameInSnackCase in'
           '${join(workingDirectory, projectNameInSnackCase)}',
         );
-      await _appCreatyBoxHelper.saveProject(localProject);
-      return localProject;
+
+      await Future.wait([
+        _appCreatyBoxHelper.saveProject(project),
+        _projectDatabaseService.insertNewProject(project)
+      ]);
+      return project;
     } catch (e, s) {
       throw ProjectCreateFailure(e, s);
     }
@@ -180,6 +190,7 @@ class ProjectRepositoryImpl extends ProjectRepository {
       await Future.wait([
         metadataFile.writeAsString(jsonEncode(updatedProject.toJson())),
         _appCreatyBoxHelper.saveProject(updatedProject),
+        _projectDatabaseService.updateProject(updatedProject),
       ]);
     } catch (e, s) {
       throw SaveProjectFailure(e, s);

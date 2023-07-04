@@ -53,13 +53,13 @@ class AppCreatyAssetAdapter extends TypeAdapter<AppCreatyAsset> {
 AppCreatyAsset _$AppCreatyAssetFromJson(Map<String, dynamic> json) =>
     AppCreatyAsset(
       id: json['id'] as String?,
-      assetName: json['assetName'] as String,
-      relativePath: json['relativePath'] as String,
+      assetName: json['asset_name'] as String,
+      relativePath: json['relative_path'] as String,
     );
 
 Map<String, dynamic> _$AppCreatyAssetToJson(AppCreatyAsset instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'assetName': instance.assetName,
-      'relativePath': instance.relativePath,
+      'asset_name': instance.assetName,
+      'relative_path': instance.relativePath,
     };

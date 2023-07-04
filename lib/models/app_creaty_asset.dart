@@ -5,7 +5,7 @@ import 'package:uuid/uuid.dart';
 
 part 'app_creaty_asset.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
 @HiveType(typeId: 3)
 class AppCreatyAsset extends Equatable {
   AppCreatyAsset({

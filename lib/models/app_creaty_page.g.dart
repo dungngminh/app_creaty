@@ -56,15 +56,15 @@ class AppCreatyPageAdapter extends TypeAdapter<AppCreatyPage> {
 AppCreatyPage _$AppCreatyPageFromJson(Map<String, dynamic> json) =>
     AppCreatyPage(
       id: json['id'] as String?,
-      pageName: json['pageName'] as String,
-      routeName: json['routeName'] as String,
+      pageName: json['page_name'] as String,
+      routeName: json['route_name'] as String,
       data: json['data'] as Map<String, dynamic>,
     );
 
 Map<String, dynamic> _$AppCreatyPageToJson(AppCreatyPage instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'pageName': instance.pageName,
-      'routeName': instance.routeName,
+      'page_name': instance.pageName,
+      'route_name': instance.routeName,
       'data': instance.data,
     };
