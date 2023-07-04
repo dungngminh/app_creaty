@@ -109,6 +109,9 @@ final class AppCreatyAlgorithm {
     required Map<String, dynamic> parentWidget,
     required Map<String, dynamic> requestedWidget,
   }) {
+    if (parentWidget.widgetKey == requestedWidget.widgetKey) {
+      return null;
+    }
     if (tree.widgetKey == requestedWidget.widgetKey) {
       if (!parentWidget.isNeedChildWidget()) {
         return null;
