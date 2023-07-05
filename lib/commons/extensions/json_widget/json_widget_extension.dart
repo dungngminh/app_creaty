@@ -16,13 +16,16 @@ const _multiChildWidgets = [
 const _singleChildWidget = [
   'elevatedButton',
   'container',
-  'singleChildScroll',
   'sizedBox',
   'center',
-  'expanded'
+  'expanded',
+  'padding',
 ];
 
-const _needChildWidget = ['center'];
+const _needChildWidget = [
+  'center',
+  'padding',
+];
 
 extension JsonWidgetExtension on json_widget.Widget {
   String get runtimeTypeValue {

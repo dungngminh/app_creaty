@@ -2,6 +2,7 @@ import 'package:app_creaty/commons/gen/fonts.gen.dart';
 import 'package:app_creaty/commons/router/app_router.dart';
 import 'package:app_creaty/commons/theme/app_text_theme.dart';
 import 'package:app_creaty/data/auth_service.dart';
+import 'package:app_creaty/data/project_database_service.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/local/app_creaty_box_helper.dart';
 import 'package:app_creaty/local/secure_storage_helper.dart';
@@ -49,6 +50,11 @@ class _ApplicationState extends State<Application> {
             supabaseAuth: widget.supabase.auth,
           ),
         ),
+        RepositoryProvider(
+          create: (_) => ProjectDatabaseService(
+            supabaseClient: widget.supabase,
+          ),
+        ),
         RepositoryProvider<SecureStorageHelper>(
           create: (_) =>
               SecureStorageHelperImpl(
@@ -70,6 +76,7 @@ class _ApplicationState extends State<Application> {
         RepositoryProvider<ProjectRepository>(
           create: (context) => ProjectRepositoryImpl(
             appCreatyBoxHelper: context.read<AppCreatyBoxHelper>(),
+            projectDatabaseService: context.read<ProjectDatabaseService>(),
           ),
         ),
       ],

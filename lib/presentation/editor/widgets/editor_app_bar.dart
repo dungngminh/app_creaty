@@ -57,7 +57,14 @@ class _EditorAppBarState extends State<EditorAppBar> {
               const Gap(4),
               _buildShowDeviceFrameCheckBox(),
             ],
-          )
+          ),
+          const Spacer(),
+          IconButton.filledTonal(
+            icon: const Icon(Icons.save),
+            onPressed: () =>
+                context.read<VirtualAppBloc>().add(RequestToSaveProject()),
+          ),
+          const Gap(24),
         ],
       ),
     );

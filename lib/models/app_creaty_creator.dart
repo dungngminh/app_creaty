@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'app_creaty_creator.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 @HiveType(typeId: 1)
 class AppCreatyCreator extends Equatable {
   const AppCreatyCreator({

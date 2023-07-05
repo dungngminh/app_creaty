@@ -89,7 +89,9 @@ final class EditorBloc extends Bloc<EditorEvent, EditorState> {
     emit(state.copyWith(saveProjectStatus: LoadingStatus.loading));
     final project = event.project;
     return _projectRepository.updateProject(project).then(
-          (_) => emit(state.copyWith(saveProjectStatus: LoadingStatus.done)),
+          (_) => event.backToHomePage
+              ? emit(state.copyWith(saveProjectStatus: LoadingStatus.done))
+              : emit(state.copyWith(saveProjectStatus: LoadingStatus.initial)),
         );
   }
 }

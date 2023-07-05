@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:app_creaty/commons/algorithm/app_creaty_algorithm.dart';
 import 'package:app_creaty/commons/enums/loading_status.dart';
 import 'package:app_creaty/commons/extensions/json_widget/json_widget_extension.dart';
+import 'package:app_creaty/commons/gen_code/gen_code_module.dart';
 import 'package:app_creaty/models/app_creaty_component.dart';
 import 'package:app_creaty/presentation/tool_panel/component_tree/models/widget_tree_node.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
@@ -112,6 +113,8 @@ class ComponentTreeBloc extends Bloc<ComponentTreeEvent, ComponentTreeState> {
       log(foundWidgetData.toString());
       if (foundWidgetData == null) return;
       final foundWidget = json_widget.Widget.fromJson(foundWidgetData);
+      log(foundWidget.toString());
+      log(GenCodeModule.gen(foundWidget));
       _virtualAppBloc.add(ChangeWidget(selectedWidget: foundWidget));
     }
     emit(state.copyWith(selectedNode: selectedNode));

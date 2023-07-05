@@ -18,6 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$VirtualAppState {
   json_widget.Widget get virtualAppWidget => throw _privateConstructorUsedError;
   json_widget.Widget? get selectedWidget => throw _privateConstructorUsedError;
+  json_widget.Widget? get selectedWidgetToPreview =>
+      throw _privateConstructorUsedError;
   json_widget.Widget get widgetWillBeUpdatedIn =>
       throw _privateConstructorUsedError;
   json_widget.Widget get hoveredWidget => throw _privateConstructorUsedError;
@@ -40,6 +42,7 @@ abstract class $VirtualAppStateCopyWith<$Res> {
   $Res call(
       {json_widget.Widget virtualAppWidget,
       json_widget.Widget? selectedWidget,
+      json_widget.Widget? selectedWidgetToPreview,
       json_widget.Widget widgetWillBeUpdatedIn,
       json_widget.Widget hoveredWidget,
       List<AppCreatyPage> pages,
@@ -49,6 +52,7 @@ abstract class $VirtualAppStateCopyWith<$Res> {
 
   $WidgetCopyWith<$Res> get virtualAppWidget;
   $WidgetCopyWith<$Res>? get selectedWidget;
+  $WidgetCopyWith<$Res>? get selectedWidgetToPreview;
   $WidgetCopyWith<$Res> get widgetWillBeUpdatedIn;
   $WidgetCopyWith<$Res> get hoveredWidget;
 }
@@ -68,6 +72,7 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
   $Res call({
     Object? virtualAppWidget = null,
     Object? selectedWidget = freezed,
+    Object? selectedWidgetToPreview = freezed,
     Object? widgetWillBeUpdatedIn = null,
     Object? hoveredWidget = null,
     Object? pages = null,
@@ -83,6 +88,10 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
       selectedWidget: freezed == selectedWidget
           ? _value.selectedWidget
           : selectedWidget // ignore: cast_nullable_to_non_nullable
+              as json_widget.Widget?,
+      selectedWidgetToPreview: freezed == selectedWidgetToPreview
+          ? _value.selectedWidgetToPreview
+          : selectedWidgetToPreview // ignore: cast_nullable_to_non_nullable
               as json_widget.Widget?,
       widgetWillBeUpdatedIn: null == widgetWillBeUpdatedIn
           ? _value.widgetWillBeUpdatedIn
@@ -133,6 +142,18 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
 
   @override
   @pragma('vm:prefer-inline')
+  $WidgetCopyWith<$Res>? get selectedWidgetToPreview {
+    if (_value.selectedWidgetToPreview == null) {
+      return null;
+    }
+
+    return $WidgetCopyWith<$Res>(_value.selectedWidgetToPreview!, (value) {
+      return _then(_value.copyWith(selectedWidgetToPreview: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $WidgetCopyWith<$Res> get widgetWillBeUpdatedIn {
     return $WidgetCopyWith<$Res>(_value.widgetWillBeUpdatedIn, (value) {
       return _then(_value.copyWith(widgetWillBeUpdatedIn: value) as $Val);
@@ -159,6 +180,7 @@ abstract class _$$_VirtualAppStateCopyWith<$Res>
   $Res call(
       {json_widget.Widget virtualAppWidget,
       json_widget.Widget? selectedWidget,
+      json_widget.Widget? selectedWidgetToPreview,
       json_widget.Widget widgetWillBeUpdatedIn,
       json_widget.Widget hoveredWidget,
       List<AppCreatyPage> pages,
@@ -170,6 +192,8 @@ abstract class _$$_VirtualAppStateCopyWith<$Res>
   $WidgetCopyWith<$Res> get virtualAppWidget;
   @override
   $WidgetCopyWith<$Res>? get selectedWidget;
+  @override
+  $WidgetCopyWith<$Res>? get selectedWidgetToPreview;
   @override
   $WidgetCopyWith<$Res> get widgetWillBeUpdatedIn;
   @override
@@ -189,6 +213,7 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
   $Res call({
     Object? virtualAppWidget = null,
     Object? selectedWidget = freezed,
+    Object? selectedWidgetToPreview = freezed,
     Object? widgetWillBeUpdatedIn = null,
     Object? hoveredWidget = null,
     Object? pages = null,
@@ -204,6 +229,10 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
       selectedWidget: freezed == selectedWidget
           ? _value.selectedWidget
           : selectedWidget // ignore: cast_nullable_to_non_nullable
+              as json_widget.Widget?,
+      selectedWidgetToPreview: freezed == selectedWidgetToPreview
+          ? _value.selectedWidgetToPreview
+          : selectedWidgetToPreview // ignore: cast_nullable_to_non_nullable
               as json_widget.Widget?,
       widgetWillBeUpdatedIn: null == widgetWillBeUpdatedIn
           ? _value.widgetWillBeUpdatedIn
@@ -241,6 +270,7 @@ class _$_VirtualAppState
   const _$_VirtualAppState(
       {this.virtualAppWidget = const json_widget.Scaffold(),
       this.selectedWidget = const json_widget.Scaffold(),
+      this.selectedWidgetToPreview = const json_widget.Scaffold(),
       this.widgetWillBeUpdatedIn = const json_widget.Scaffold(),
       this.hoveredWidget = const json_widget.Scaffold(),
       final List<AppCreatyPage> pages = const <AppCreatyPage>[],
@@ -255,6 +285,9 @@ class _$_VirtualAppState
   @override
   @JsonKey()
   final json_widget.Widget? selectedWidget;
+  @override
+  @JsonKey()
+  final json_widget.Widget? selectedWidgetToPreview;
   @override
   @JsonKey()
   final json_widget.Widget widgetWillBeUpdatedIn;
@@ -280,7 +313,7 @@ class _$_VirtualAppState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'VirtualAppState(virtualAppWidget: $virtualAppWidget, selectedWidget: $selectedWidget, widgetWillBeUpdatedIn: $widgetWillBeUpdatedIn, hoveredWidget: $hoveredWidget, pages: $pages, currentPage: $currentPage, loadingStatus: $loadingStatus, handleRequest: $handleRequest)';
+    return 'VirtualAppState(virtualAppWidget: $virtualAppWidget, selectedWidget: $selectedWidget, selectedWidgetToPreview: $selectedWidgetToPreview, widgetWillBeUpdatedIn: $widgetWillBeUpdatedIn, hoveredWidget: $hoveredWidget, pages: $pages, currentPage: $currentPage, loadingStatus: $loadingStatus, handleRequest: $handleRequest)';
   }
 
   @override
@@ -290,6 +323,8 @@ class _$_VirtualAppState
       ..add(DiagnosticsProperty('type', 'VirtualAppState'))
       ..add(DiagnosticsProperty('virtualAppWidget', virtualAppWidget))
       ..add(DiagnosticsProperty('selectedWidget', selectedWidget))
+      ..add(DiagnosticsProperty(
+          'selectedWidgetToPreview', selectedWidgetToPreview))
       ..add(DiagnosticsProperty('widgetWillBeUpdatedIn', widgetWillBeUpdatedIn))
       ..add(DiagnosticsProperty('hoveredWidget', hoveredWidget))
       ..add(DiagnosticsProperty('pages', pages))
@@ -307,6 +342,9 @@ class _$_VirtualAppState
                 other.virtualAppWidget == virtualAppWidget) &&
             (identical(other.selectedWidget, selectedWidget) ||
                 other.selectedWidget == selectedWidget) &&
+            (identical(
+                    other.selectedWidgetToPreview, selectedWidgetToPreview) ||
+                other.selectedWidgetToPreview == selectedWidgetToPreview) &&
             (identical(other.widgetWillBeUpdatedIn, widgetWillBeUpdatedIn) ||
                 other.widgetWillBeUpdatedIn == widgetWillBeUpdatedIn) &&
             (identical(other.hoveredWidget, hoveredWidget) ||
@@ -325,6 +363,7 @@ class _$_VirtualAppState
       runtimeType,
       virtualAppWidget,
       selectedWidget,
+      selectedWidgetToPreview,
       widgetWillBeUpdatedIn,
       hoveredWidget,
       const DeepCollectionEquality().hash(_pages),
@@ -343,6 +382,7 @@ abstract class _VirtualAppState implements VirtualAppState {
   const factory _VirtualAppState(
       {final json_widget.Widget virtualAppWidget,
       final json_widget.Widget? selectedWidget,
+      final json_widget.Widget? selectedWidgetToPreview,
       final json_widget.Widget widgetWillBeUpdatedIn,
       final json_widget.Widget hoveredWidget,
       final List<AppCreatyPage> pages,
@@ -354,6 +394,8 @@ abstract class _VirtualAppState implements VirtualAppState {
   json_widget.Widget get virtualAppWidget;
   @override
   json_widget.Widget? get selectedWidget;
+  @override
+  json_widget.Widget? get selectedWidgetToPreview;
   @override
   json_widget.Widget get widgetWillBeUpdatedIn;
   @override

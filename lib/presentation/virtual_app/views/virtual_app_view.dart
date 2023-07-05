@@ -9,10 +9,8 @@ import 'package:json_widget/json_widget.dart' as json_widget;
 class VirtualAppView extends StatefulWidget {
   const VirtualAppView({
     super.key,
-    required this.interactiveViewController,
   });
 
-  final TransformationController interactiveViewController;
 
   @override
   State<VirtualAppView> createState() => _VirtualAppViewState();
@@ -33,8 +31,8 @@ class _VirtualAppViewState extends State<VirtualAppView> {
           final virtualAppWidgetData = context.select(
             (VirtualAppBloc bloc) => bloc.state.virtualAppWidget,
           );
-          final selectedWidget = context.select(
-            (VirtualAppBloc bloc) => bloc.state.selectedWidget,
+        final selectedWidgetToPreview = context.select(
+          (VirtualAppBloc bloc) => bloc.state.selectedWidgetToPreview,
           );
           final hoveredWidget =
               context.select((VirtualAppBloc bloc) => bloc.state.hoveredWidget);
@@ -81,7 +79,7 @@ class _VirtualAppViewState extends State<VirtualAppView> {
                               child: DecoratedBox(
                                 decoration: BoxDecoration(
                                   border: isHover ||
-                                          selectedWidget?.key ==
+                                        selectedWidgetToPreview?.key ==
                                               (item as json_widget.Widget).key
                                       ? Border.all(
                                           color: Colors.red,

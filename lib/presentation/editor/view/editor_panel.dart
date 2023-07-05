@@ -19,16 +19,14 @@ class EditorPanel extends StatefulWidget {
 class _EditorPanelState extends State<EditorPanel> {
   late final MultiSplitViewController _splitViewController;
   late final ValueNotifier<int> _currentToolPanelNotifier;
-  late final TransformationController _interactiveViewController;
 
   @override
   void initState() {
     super.initState();
-    _interactiveViewController = TransformationController();
     _splitViewController = MultiSplitViewController(
       areas: [
         Area(minimalWeight: .25),
-        Area(minimalWeight: .35),
+        Area(minimalWeight: .40),
         Area(minimalWeight: .25)
       ],
     );
@@ -46,7 +44,6 @@ class _EditorPanelState extends State<EditorPanel> {
   @override
   void dispose() {
     _splitViewController.dispose();
-    _interactiveViewController.dispose();
     super.dispose();
   }
 
@@ -71,9 +68,7 @@ class _EditorPanelState extends State<EditorPanel> {
               );
             },
           ),
-          VirtualAppView(
-            interactiveViewController: _interactiveViewController,
-          ),
+          const VirtualAppView(),
           const PropertiesPanelView(),
         ],
       ),

@@ -3,7 +3,7 @@ description: App Creaty - Drag n Drop Mobile Developement Tool
 
 publish_to: "none"
 
-version: 0.5.0+1
+version: 0.8.0+1
 
 environment:
   sdk: ">=3.0.0"
@@ -68,9 +68,11 @@ dependencies:
   supabase_flutter: ^1.10.4
   flutter_secure_storage: ^8.0.0
   string_validator: ^1.0.0
+  dart_code_viewer2: ^1.0.1
+  listenable_stream: ^1.1.0
 
 dev_dependencies:
-  build_runner: ^2.3.3
+  build_runner: ^2.4.6
   dart_code_metrics: ^5.7.2
   flutter_test:
     sdk: flutter

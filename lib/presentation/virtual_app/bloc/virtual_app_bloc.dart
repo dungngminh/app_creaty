@@ -41,6 +41,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     on<WrapInWidget>(_onWrapInWidget);
     on<RequestToSaveProject>(_onRequestToSaveProject);
     on<UpdateDataToPage>(_onUpdateDataToPage);
+    on<PreviewWidget>(_onPreviewWidget);
     stream
         .distinctBy((state) => state.virtualAppWidget)
         .debounceTime(2.ms)
@@ -192,6 +193,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
             ? selectedWidget
             : state.widgetWillBeUpdatedIn,
         selectedWidget: selectedWidget,
+        selectedWidgetToPreview: selectedWidget,
       ),
     );
   }
@@ -228,6 +230,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
       emit(
         state.copyWith(
           selectedWidget: null,
+          selectedWidgetToPreview: null,
           virtualAppWidget: updatedWidgetApp,
         ),
       );
@@ -289,6 +292,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
       state.copyWith(
         virtualAppWidget: updatedApp,
         selectedWidget: updatedChildParentWidget,
+        selectedWidgetToPreview: updatedChildParentWidget,
         widgetWillBeUpdatedIn: updatedChildParentWidget.canUpdateIn
             ? updatedChildParentWidget
             : state.widgetWillBeUpdatedIn,
@@ -304,7 +308,9 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     final currentProject = _editorBloc.state.currentProject;
     final updatedProject =
         currentProject.copyWith(pages: currentPages.toList());
-    _editorBloc.add(SaveProject(project: updatedProject));
+    _editorBloc.add(
+      SaveProject(project: updatedProject, backToHomePage: event.backToHome),
+    );
   }
 
   FutureOr<void> _onChangePage(
@@ -323,5 +329,13 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     final index = state.pages.indexOf(currentPage);
     final updatedPages = state.pages.toList()..[index] = updatedPage;
     emit(state.copyWith(currentPage: updatedPage, pages: updatedPages));
+  }
+
+  void _onPreviewWidget(PreviewWidget event, Emitter<VirtualAppState> emit) {
+    emit(
+      state.copyWith(
+        selectedWidgetToPreview: event.selectedWidget,
+      ),
+    );
   }
 }

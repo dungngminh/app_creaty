@@ -73,15 +73,15 @@ class AppCreatyProjectAdapter extends TypeAdapter<AppCreatyProject> {
 
 AppCreatyProject _$AppCreatyProjectFromJson(Map<String, dynamic> json) =>
     AppCreatyProject(
-      projectId: json['projectId'] as String,
-      projectName: json['projectName'] as String,
-      projectLogoAppImage: json['projectLogoAppImage'] as String?,
-      projectPreviewImage: json['projectPreviewImage'] as String?,
-      sourceCodePath: json['sourceCodePath'] as String,
-      createdBy: json['createdBy'] == null
+      projectId: json['project_id'] as String,
+      projectName: json['project_name'] as String,
+      projectLogoAppImage: json['project_logo_app_image'] as String?,
+      projectPreviewImage: json['project_preview_image'] as String?,
+      sourceCodePath: json['source_code_path'] as String,
+      createdBy: json['created_by'] == null
           ? null
           : AppCreatyCreator.fromJson(
-              json['createdBy'] as Map<String, dynamic>),
+              json['created_by'] as Map<String, dynamic>),
       pages: (json['pages'] as List<dynamic>?)
               ?.map((e) => AppCreatyPage.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -90,24 +90,24 @@ AppCreatyProject _$AppCreatyProjectFromJson(Map<String, dynamic> json) =>
               ?.map((e) => AppCreatyAsset.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <AppCreatyAsset>[],
-      createdAt: json['createdAt'] == null
+      createdAt: json['created_at'] == null
           ? null
-          : DateTime.parse(json['createdAt'] as String),
-      updatedAt: json['updatedAt'] == null
+          : DateTime.parse(json['created_at'] as String),
+      updatedAt: json['updated_at'] == null
           ? null
-          : DateTime.parse(json['updatedAt'] as String),
+          : DateTime.parse(json['updated_at'] as String),
     );
 
 Map<String, dynamic> _$AppCreatyProjectToJson(AppCreatyProject instance) =>
     <String, dynamic>{
-      'projectId': instance.projectId,
-      'projectName': instance.projectName,
-      'projectPreviewImage': instance.projectPreviewImage,
-      'projectLogoAppImage': instance.projectLogoAppImage,
-      'sourceCodePath': instance.sourceCodePath,
-      'createdBy': instance.createdBy.toJson(),
+      'project_id': instance.projectId,
+      'project_name': instance.projectName,
+      'project_preview_image': instance.projectPreviewImage,
+      'project_logo_app_image': instance.projectLogoAppImage,
+      'source_code_path': instance.sourceCodePath,
+      'created_by': instance.createdBy.toJson(),
       'pages': instance.pages.map((e) => e.toJson()).toList(),
       'assets': instance.assets.map((e) => e.toJson()).toList(),
-      'createdAt': instance.createdAt.toIso8601String(),
-      'updatedAt': instance.updatedAt.toIso8601String(),
+      'created_at': instance.createdAt.toIso8601String(),
+      'updated_at': instance.updatedAt.toIso8601String(),
     };

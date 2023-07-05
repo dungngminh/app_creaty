@@ -60,6 +60,15 @@ final class ChangeWidget extends VirtualAppEvent {
   List<Object?> get props => [selectedWidget];
 }
 
+final class PreviewWidget extends VirtualAppEvent {
+  PreviewWidget({required this.selectedWidget});
+
+  final json_widget.Widget selectedWidget;
+
+  @override
+  List<Object?> get props => [selectedWidget];
+}
+
 final class HoverWidget extends VirtualAppEvent {
   HoverWidget({required this.hoverWidget});
 
@@ -89,9 +98,10 @@ final class WrapInWidget extends VirtualAppEvent {
 }
 
 final class RequestToSaveProject extends VirtualAppEvent {
+  RequestToSaveProject({this.backToHome = false});
+  final bool backToHome;
   @override
   List<Object?> get props => [];
 }
 
-final class UpdateDataToPage extends VirtualAppEvent {
-}
+final class UpdateDataToPage extends VirtualAppEvent {}

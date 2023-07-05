@@ -1,4 +1,5 @@
 import 'package:app_creaty/commons/extensions/json_widget/cross_axis_alignment_extension.dart';
+import 'package:app_creaty/commons/extensions/json_widget/json_widget_extension.dart';
 import 'package:app_creaty/commons/extensions/json_widget/main_axis_alignment_extension.dart';
 import 'package:app_creaty/commons/extensions/json_widget/main_axis_size_extension.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
+import 'package:recase/recase.dart';
 
 class RowPropsPanel extends StatefulWidget {
   const RowPropsPanel({super.key, required this.jsonWidget});
@@ -51,6 +53,7 @@ class _RowPropsPanelState extends State<RowPropsPanel> {
             _buildMainAxisSizeProp(),
             _buildCrossAxisAlignmentProp(),
             _buildMainAxisAlignmentProp(),
+            _buildChildrenList(),
           ],
         )
       ],
@@ -122,6 +125,52 @@ class _RowPropsPanelState extends State<RowPropsPanel> {
           );
         }).toList(),
       ),
+    );
+  }
+
+  Widget _buildChildrenList() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          context.l10n.childrenLabel,
+          style: context.textTheme.titleMedium,
+        ),
+        const Gap(16),
+        ReorderableListView.builder(
+          shrinkWrap: true,
+          itemCount: widget.jsonWidget.children.length,
+          itemBuilder: (context, index) {
+            final child = widget.jsonWidget.children[index];
+            return ListTile(
+              onTap: () => context
+                  .read<VirtualAppBloc>()
+                  .add(PreviewWidget(selectedWidget: child)),
+              onLongPress: () => context
+                  .read<VirtualAppBloc>()
+                  .add(ChangeWidget(selectedWidget: child)),
+              key: ValueKey(child.key.toString()),
+              leading: ReorderableDragStartListener(
+                index: index,
+                child: const Icon(Icons.drag_handle),
+              ),
+              title: Text(child.runtimeTypeValue.pascalCase),
+            );
+          },
+          onReorder: (int oldIndex, int newIndex) {
+            setState(() {
+              if (oldIndex < newIndex) {
+                newIndex -= 1;
+              }
+            });
+            final children = List.of(widget.jsonWidget.children);
+            final item = children.removeAt(oldIndex);
+            children.insert(newIndex, item);
+            final updatedRow = widget.jsonWidget.copyWith(children: children);
+            context.read<VirtualAppBloc>().add(ChangeProp(widget: updatedRow));
+          },
+        ),
+      ],
     );
   }
 }

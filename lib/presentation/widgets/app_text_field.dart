@@ -16,6 +16,7 @@ class AppTextField extends StatefulWidget {
     this.errorText,
     this.obscureText = false,
     this.hintText,
+    this.onFieldSubmitted,
   });
 
   final TextEditingController? controller;
@@ -42,6 +43,8 @@ class AppTextField extends StatefulWidget {
   
   final String? hintText;
 
+  final ValueChanged<String>? onFieldSubmitted;
+
   @override
   State<AppTextField> createState() => _AppTextFieldState();
 }
@@ -61,6 +64,7 @@ class _AppTextFieldState extends State<AppTextField> {
         inputFormatters: widget.inputFormatters,
         readOnly: widget.readOnly,
         controller: widget.controller,
+        onFieldSubmitted: widget.onFieldSubmitted,
         decoration: InputDecoration(
           errorText: widget.errorText,
           border: border,

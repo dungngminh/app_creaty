@@ -24,9 +24,11 @@ final class ImportProjectData extends EditorEvent {}
 final class SaveProject extends EditorEvent {
   SaveProject({
     required this.project,
+    this.backToHomePage = false,
   });
   final AppCreatyProject project;
+  final bool backToHomePage;
 
   @override
-  List<Object?> get props => [project];
+  List<Object?> get props => [project, backToHomePage];
 }

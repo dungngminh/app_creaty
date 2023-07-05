@@ -45,34 +45,24 @@ class ComponentTreeEntryView extends StatelessWidget {
 
   List<MenuItem> get menuItems {
     return entry.node.widgetName == 'Scaffold'
-        ? [
-            MenuItem(
-              action: ContextMenuAction.addWidget,
-              title: 'Add Widget',
-              items: AppCreatyComponent.values
-                  .mapIndexed(
-                    (index, e) => MenuItem(title: e.name.pascalCase, action: e),
-                  )
-                  .toList(),
-            ),
-          ]
+        ? []
         : [
             if (!['Text', 'Image'].contains(entry.node.widgetName))
-            MenuItem(
-              action: ContextMenuAction.addWidget,
-              title: 'Add Widget',
-              items: AppCreatyComponent.values
-                  .mapIndexed(
-                    (index, e) => MenuItem(
-                      title: e.name.pascalCase,
-                      action: Pair<ContextMenuAction, AppCreatyComponent>(
-                        ContextMenuAction.addWidget,
-                        e,
+              MenuItem(
+                action: ContextMenuAction.addWidget,
+                title: 'Add Widget',
+                items: AppCreatyComponent.values
+                    .mapIndexed(
+                      (index, e) => MenuItem(
+                        title: e.name.pascalCase,
+                        action: Pair<ContextMenuAction, AppCreatyComponent>(
+                          ContextMenuAction.addWidget,
+                          e,
+                        ),
                       ),
-                    ),
-                  )
-                  .toList(),
-            ),
+                    )
+                    .toList(),
+              ),
             MenuItem(
               title: 'Wrap with Widget',
               items: AppCreatyComponent.values
@@ -185,6 +175,9 @@ extension ComponentTreeText on WidgetTreeNode {
       'Center' => Assets.icons.components.center,
       'Stack' => Assets.icons.components.stack,
       'ListView' => Assets.icons.components.listView,
+      'TextFormField' => Assets.icons.components.textField,
+      'Padding' => Assets.icons.components.padding,
+      'SizedBox' => Assets.icons.components.sizedBox,
       _ => Assets.icons.components.component,
     };
   }

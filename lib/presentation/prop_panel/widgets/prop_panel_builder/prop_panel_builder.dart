@@ -9,5 +9,6 @@ export 'list_view_props_panel.dart';
 export 'prop_icon_button.dart';
 export 'row_props_panel.dart';
 export 'scaffold_props_panel.dart';
+export 'sized_box_props_panel.dart';
 export 'stack_props_panel.dart';
 export 'text_props_panel.dart';

@@ -58,7 +58,10 @@ enum AppCreatyComponent implements IAppCreatyComponent {
   elevatedButton,
   center,
   stack,
-  listView;
+  listView,
+  textField,
+  padding,
+  sizedBox;
 
   @override
   String getTitle(BuildContext context) {
@@ -72,6 +75,9 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       AppCreatyComponent.center => context.l10n.centerComponent,
       AppCreatyComponent.stack => context.l10n.stackComponent,
       AppCreatyComponent.listView => context.l10n.listViewComponent,
+      AppCreatyComponent.textField => context.l10n.textFieldComponent,
+      AppCreatyComponent.padding => context.l10n.paddingLabel,
+      AppCreatyComponent.sizedBox => context.l10n.sizedBoxComponent,
     };
   }
 
@@ -87,6 +93,9 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       AppCreatyComponent.center => Assets.icons.components.center,
       AppCreatyComponent.stack => Assets.icons.components.stack,
       AppCreatyComponent.listView => Assets.icons.components.listView,
+      AppCreatyComponent.textField => Assets.icons.components.textField,
+      AppCreatyComponent.padding => Assets.icons.components.padding,
+      AppCreatyComponent.sizedBox => Assets.icons.components.sizedBox,
     };
   }
 
@@ -104,8 +113,10 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       case AppCreatyComponent.row:
         return json_widget.Widget.row(key: key);
       case AppCreatyComponent.container:
+
         /// [Container.decoration.backgroundColor]
         const color = json_widget.Colors.blue;
+
         /// [Container.decoration.borderRadius]
         const borderRadius = json_widget.BorderRadius.only(
           topRight: json_widget.Radius.zero,
@@ -161,7 +172,32 @@ enum AppCreatyComponent implements IAppCreatyComponent {
         return json_widget.Widget.stack(key: key);
       case AppCreatyComponent.listView:
         return json_widget.Widget.listView(key: key);
-     
+      case AppCreatyComponent.textField:
+        const outlineDecoration = json_widget.InputDecoration(
+          border: json_widget.OutlineInputBorder(),
+        );
+        return json_widget.Widget.textFormField(
+          key: key,
+          decoration: outlineDecoration,
+        );
+      case AppCreatyComponent.padding:
+        final dummySizedBoxKey = json_widget.ValueKey(const Uuid().v4());
+        const defaulPadding = json_widget.EdgeInsets.all(8);
+        return json_widget.Widget.padding(
+          key: key,
+          padding: defaulPadding,
+          child: json_widget.SizedBox(
+            key: dummySizedBoxKey,
+            width: Constants.kDefaultWidthHeight,
+            height: Constants.kDefaultHeightWidget,
+          ),
+        );
+      case AppCreatyComponent.sizedBox:
+        return json_widget.SizedBox(
+          key: key,
+          width: 100,
+          height: 100,
+        );
     }
   }
 
@@ -195,6 +231,17 @@ enum AppCreatyComponent implements IAppCreatyComponent {
           AppCreatyComponentGroup.layout,
           AppCreatyComponentGroup.common
         ],
+      AppCreatyComponent.textField => [
+          AppCreatyComponentGroup.input,
+          AppCreatyComponentGroup.common
+        ],
+      AppCreatyComponent.padding => [
+          AppCreatyComponentGroup.layout,
+        ],
+      AppCreatyComponent.sizedBox => [
+          AppCreatyComponentGroup.layout,
+          AppCreatyComponentGroup.common,
+        ],
     };
   }
 
@@ -210,6 +257,9 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       AppCreatyComponent.center => AppCreatyWidgetRenderType.single,
       AppCreatyComponent.stack => AppCreatyWidgetRenderType.multi,
       AppCreatyComponent.listView => AppCreatyWidgetRenderType.multi,
+      AppCreatyComponent.textField => AppCreatyWidgetRenderType.none,
+      AppCreatyComponent.padding => AppCreatyWidgetRenderType.single,
+      AppCreatyComponent.sizedBox => AppCreatyWidgetRenderType.single,
     };
   }
 }
