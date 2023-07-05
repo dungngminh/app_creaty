@@ -64,7 +64,9 @@ class _MainEditorViewState extends State<MainEditorView> {
       title: context.l10n.returnHomeQuestion,
       description: context.l10n.returnHomeQuestionDescription,
       onConfirmPressed: () =>
-          context.read<VirtualAppBloc>().add(RequestToSaveProject()),
+          context
+          .read<VirtualAppBloc>()
+          .add(RequestToSaveProject(backToHome: true)),
       onCancelPressed: () => context.pop(),
     );
   }
@@ -110,7 +112,7 @@ class _MainEditorViewState extends State<MainEditorView> {
               LoadingStatus.error => context
                 ..pop()
                 ..showSnackBar('Error'),
-              _ => () {}
+              _ => context.pop(),
             };
           },
         ),

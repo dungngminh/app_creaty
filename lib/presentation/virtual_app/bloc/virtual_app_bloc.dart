@@ -304,7 +304,9 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
     final currentProject = _editorBloc.state.currentProject;
     final updatedProject =
         currentProject.copyWith(pages: currentPages.toList());
-    _editorBloc.add(SaveProject(project: updatedProject));
+    _editorBloc.add(
+      SaveProject(project: updatedProject, backToHomePage: event.backToHome),
+    );
   }
 
   FutureOr<void> _onChangePage(

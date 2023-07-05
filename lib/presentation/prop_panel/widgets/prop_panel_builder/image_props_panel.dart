@@ -1,4 +1,3 @@
-
 import 'package:app_creaty/commons/constants/constants.dart';
 import 'package:app_creaty/commons/extensions/json_widget/box_fit_extension.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
@@ -15,6 +14,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:json_widget/json_widget.dart' as json_widget;
 import 'package:recase/recase.dart';
+import 'package:string_validator/string_validator.dart';
 
 class ImagePropsPanel extends StatefulWidget {
   const ImagePropsPanel({super.key, required this.jsonWidget});
@@ -228,6 +228,17 @@ class _ImagePropsPanelState extends State<ImagePropsPanel> {
       return FieldPropTile(
         titleText: context.l10n.imageUrlLabel,
         child: AppTextField(
+          onFieldSubmitted: (url) {
+            if (!isURL(url)) return;
+            final imageProvider = json_widget.ImageProvider.network(
+              url,
+            );
+            final updatedImage =
+                widget.jsonWidget.copyWith(image: imageProvider);
+            context
+                .read<VirtualAppBloc>()
+                .add(ChangeProp(widget: updatedImage));
+          },
           width: 250,
           labelText: context.l10n.imageUrlLabel,
         ),

@@ -89,9 +89,10 @@ final class WrapInWidget extends VirtualAppEvent {
 }
 
 final class RequestToSaveProject extends VirtualAppEvent {
+  RequestToSaveProject({this.backToHome = false});
+  final bool backToHome;
   @override
   List<Object?> get props => [];
 }
 
-final class UpdateDataToPage extends VirtualAppEvent {
-}
+final class UpdateDataToPage extends VirtualAppEvent {}
