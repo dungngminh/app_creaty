@@ -42,7 +42,7 @@ dependencies:
   go_router: ^8.0.0
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  image_picker: ^0.8.7
+  image_picker: ^1.0.0
   intl: ^0.18.0
   json_annotation: ^4.8.0
   json_widget:
