@@ -63,11 +63,13 @@ class _MainEditorViewState extends State<MainEditorView> {
       context,
       title: context.l10n.returnHomeQuestion,
       description: context.l10n.returnHomeQuestionDescription,
+      cancelTitle: context.l10n.unSavedChangesLabel,
+      confirmTitle: context.l10n.save,
       onConfirmPressed: () =>
           context
           .read<VirtualAppBloc>()
           .add(RequestToSaveProject(backToHome: true)),
-      onCancelPressed: () => context.pop(),
+      onCancelPressed: () => context.go(AppRouter.routePathHomePage),
     );
   }
 

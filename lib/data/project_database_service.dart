@@ -10,12 +10,13 @@ class ProjectDatabaseService {
 
   final SupabaseClient _supabaseClient;
 
-  Stream<List<Map<String, dynamic>>> getProjects(AppCreatyCreator user) =>
-      _supabaseClient
-          .from(_projectTable)
-          .select<List<Map<String, dynamic>>>()
-          .filter('created_by', 'eq', user.toJson())
-          .asStream();
+  Future<List<AppCreatyProject>> getProjects(AppCreatyCreator user) async {
+    final results = await _supabaseClient
+        .from(_projectTable)
+        .select<List<Map<String, dynamic>>>()
+        .eq('created_by->>id', user.id);
+    return results.map<AppCreatyProject>(AppCreatyProject.fromJson).toList();
+  }
 
   Future<void> insertNewProject(AppCreatyProject project) =>
       _supabaseClient.from(_projectTable).insert(project.toJson());
@@ -23,5 +24,10 @@ class ProjectDatabaseService {
   Future<void> updateProject(AppCreatyProject project) => _supabaseClient
       .from(_projectTable)
       .update(project.toJson())
+      .eq('project_id', project.projectId);
+
+  Future<void> removeProject(AppCreatyProject project) => _supabaseClient
+      .from(_projectTable)
+      .delete()
       .eq('project_id', project.projectId);
 }

@@ -3,13 +3,13 @@
 ///  FlutterGen
 /// *****************************************************
 
-import 'package:flutter/services.dart';
 // coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/services.dart';
 
 class $AssetsFontsGen {
   const $AssetsFontsGen();
@@ -143,6 +143,10 @@ class $AssetsIconsComponentsGen {
   SvgGenImage get listView =>
       const SvgGenImage('assets/icons/components/list_view.svg');
 
+  /// File path: assets/icons/components/padding.svg
+  SvgGenImage get padding =>
+      const SvgGenImage('assets/icons/components/padding.svg');
+
   /// File path: assets/icons/components/row.svg
   SvgGenImage get row => const SvgGenImage('assets/icons/components/row.svg');
 
@@ -150,12 +154,20 @@ class $AssetsIconsComponentsGen {
   SvgGenImage get scaffold =>
       const SvgGenImage('assets/icons/components/scaffold.svg');
 
+  /// File path: assets/icons/components/sized_box.svg
+  SvgGenImage get sizedBox =>
+      const SvgGenImage('assets/icons/components/sized_box.svg');
+
   /// File path: assets/icons/components/stack.svg
   SvgGenImage get stack =>
       const SvgGenImage('assets/icons/components/stack.svg');
 
   /// File path: assets/icons/components/text.svg
   SvgGenImage get text => const SvgGenImage('assets/icons/components/text.svg');
+
+  /// File path: assets/icons/components/text_field.svg
+  SvgGenImage get textField =>
+      const SvgGenImage('assets/icons/components/text_field.svg');
 
   /// List of all assets
   List<SvgGenImage> get values => [
@@ -168,10 +180,13 @@ class $AssetsIconsComponentsGen {
         divider,
         image,
         listView,
+        padding,
         row,
         scaffold,
+        sizedBox,
         stack,
-        text
+        text,
+        textField
       ];
 }
 

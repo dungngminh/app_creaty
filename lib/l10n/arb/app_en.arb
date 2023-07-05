@@ -126,5 +126,9 @@
   "centerComponent": "Center",
   "stackComponent": "Stack",
   "listViewComponent": "List View",
-  "alignComponent": "Align"
+  "alignComponent": "Align",
+  "textFieldComponent": "Text Field",
+  "sizedBoxComponent": "Sized Box",
+  "childrenLabel": "Children",
+  "unSavedChangesLabel": "Unsaved changes"
 }

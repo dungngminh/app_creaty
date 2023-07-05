@@ -92,10 +92,12 @@ class _ComponentTreePanelViewState extends State<ComponentTreePanelView>
             child: AnimatedTreeView<WidgetTreeNode>(
               treeController: _treeController,
               nodeBuilder: (context, entry) {
-                final selectedWidget = context
-                    .select((VirtualAppBloc bloc) => bloc.state.selectedWidget);
+                final selectedWidgetToPreview = context.select(
+                  (VirtualAppBloc bloc) => bloc.state.selectedWidgetToPreview,
+                );
                 final isExpand = _treeController.getExpansionState(entry.node);
-                final isSelected = selectedWidget?.toJson().widgetKey ==
+                final isSelected =
+                    selectedWidgetToPreview?.toJson().widgetKey ==
                     entry.node.data.widgetKey;
                 return ComponentTreeEntryView(
                   entry: entry,

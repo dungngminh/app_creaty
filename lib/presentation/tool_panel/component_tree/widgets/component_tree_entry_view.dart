@@ -175,6 +175,9 @@ extension ComponentTreeText on WidgetTreeNode {
       'Center' => Assets.icons.components.center,
       'Stack' => Assets.icons.components.stack,
       'ListView' => Assets.icons.components.listView,
+      'TextFormField' => Assets.icons.components.textField,
+      'Padding' => Assets.icons.components.padding,
+      'SizedBox' => Assets.icons.components.sizedBox,
       _ => Assets.icons.components.component,
     };
   }

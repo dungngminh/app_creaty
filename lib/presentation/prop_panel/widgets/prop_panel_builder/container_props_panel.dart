@@ -283,7 +283,6 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
   @override
   void dispose() {
     lockBorderRadiusNotifier.dispose();
-
     heightTextEditingController.dispose();
     widthTextEditingController.dispose();
     topLeftBorderRadiusEditingController.dispose();
@@ -351,10 +350,11 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
             onChanged: (value) {
               if (value.isEmpty) return;
               final newWidth = double.tryParse(value);
-              final updatedImage = widget.jsonWidget.copyWith(width: newWidth);
+              final updatedContainer =
+                  widget.jsonWidget.copyWith(width: newWidth);
               context
                   .read<VirtualAppBloc>()
-                  .add(ChangeProp(widget: updatedImage));
+                  .add(ChangeProp(widget: updatedContainer));
             },
           ),
         )

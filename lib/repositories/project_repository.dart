@@ -174,7 +174,11 @@ class ProjectRepositoryImpl extends ProjectRepository {
         projectFullPath,
       ]);
     }
-    await _appCreatyBoxHelper.removeProject(project.projectId);
+   
+    await Future.wait([
+      _appCreatyBoxHelper.removeProject(project.projectId),
+      _projectDatabaseService.removeProject(project)
+    ]);
   }
 
   @override
