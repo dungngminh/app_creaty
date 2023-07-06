@@ -130,5 +130,8 @@
   "textFieldComponent": "Text Field",
   "sizedBoxComponent": "Sized Box",
   "childrenLabel": "Children",
-  "unSavedChangesLabel": "Unsaved changes"
+  "unSavedChangesLabel": "Unsaved changes",
+  "hintTextLabel": "Hint Text",
+  "labelTextLabel": "Label Text",
+  "obscureTextLabel": "Obscure Text"
 }

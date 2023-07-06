@@ -1,6 +1,8 @@
 import 'package:app_creaty/presentation/prop_panel/prop_panel.dart';
 import 'package:app_creaty/presentation/tool_panel/tool_panel.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
+import 'package:app_creaty/presentation/virtual_app/widgets/widget_will_be_updated_in_info_view.dart';
+import 'package:app_creaty/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_split_view/multi_split_view.dart';
 
@@ -69,7 +71,14 @@ class _EditorPanelState extends State<EditorPanel> {
             },
           ),
           const VirtualAppView(),
-          const PropertiesPanelView(),
+          ColumnWithSpacing(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 32,
+            children: const [
+              WidgetWillBeUpdatedInInfoView(),
+              PropertiesPanelView(),
+            ],
+          ),
         ],
       ),
     );

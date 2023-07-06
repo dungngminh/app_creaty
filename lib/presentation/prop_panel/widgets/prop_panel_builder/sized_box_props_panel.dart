@@ -88,7 +88,7 @@ class _SizedBoxPropsPanelState extends State<SizedBoxPropsPanel> {
             ),
           ],
         ),
-        const Gap(16),
+          const Gap(32),
         _buildSizeForm(),
       ],
     );

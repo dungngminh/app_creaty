@@ -46,7 +46,7 @@ class _ColumnPropsPanelState extends State<ColumnPropsPanel> {
             ),
           ],
         ),
-        const Gap(16),
+            const Gap(32),
         ColumnWithSpacing(
           spacing: 24,
           children: [
@@ -140,10 +140,12 @@ class _ColumnPropsPanelState extends State<ColumnPropsPanel> {
         const Gap(16),
         ReorderableListView.builder(
           shrinkWrap: true,
+          buildDefaultDragHandles: false,
           itemCount: widget.jsonWidget.children.length,
           itemBuilder: (context, index) {
             final child = widget.jsonWidget.children[index];
             return ListTile(
+            
               onTap: () => context
                   .read<VirtualAppBloc>()
                   .add(PreviewWidget(selectedWidget: child)),

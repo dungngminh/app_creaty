@@ -17,6 +17,7 @@ class AppTextField extends StatefulWidget {
     this.obscureText = false,
     this.hintText,
     this.onFieldSubmitted,
+    this.initialText,
   });
 
   final TextEditingController? controller;
@@ -40,18 +41,18 @@ class AppTextField extends StatefulWidget {
   final String? errorText;
 
   final bool obscureText;
-  
+
   final String? hintText;
 
   final ValueChanged<String>? onFieldSubmitted;
+
+  final String? initialText;
 
   @override
   State<AppTextField> createState() => _AppTextFieldState();
 }
 
 class _AppTextFieldState extends State<AppTextField> {
-
-
   @override
   Widget build(BuildContext context) {
     final border = widget.haveBorder ? const OutlineInputBorder() : null;
@@ -60,6 +61,7 @@ class _AppTextFieldState extends State<AppTextField> {
       width: widget.width,
       color: Colors.white,
       child: TextFormField(
+        initialValue: widget.initialText,
         obscureText: widget.obscureText,
         inputFormatters: widget.inputFormatters,
         readOnly: widget.readOnly,

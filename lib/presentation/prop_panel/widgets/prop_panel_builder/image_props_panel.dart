@@ -3,7 +3,6 @@ import 'package:app_creaty/commons/extensions/json_widget/box_fit_extension.dart
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/l10n/l10n.dart';
-import 'package:app_creaty/presentation/prop_panel/widgets/models/image_type.dart';
 import 'package:app_creaty/presentation/prop_panel/widgets/widgets.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/app_drop_down_field.dart';
@@ -180,7 +179,7 @@ class _ImagePropsPanelState extends State<ImagePropsPanel> {
         rowCrossAxisAlignment: CrossAxisAlignment.start,
         titleText: context.l10n.selectImageLabel,
         child: SizedBox(
-          width: 280,
+          width: 300,
           child: AppDropDownField<String>(
             labelText: context.l10n.genericAssetImage,
             // TODO(dungngminh): Project Assets Resource
@@ -225,9 +224,13 @@ class _ImagePropsPanelState extends State<ImagePropsPanel> {
         ),
       );
     } else {
+      final url = (widget.jsonWidget.image as json_widget.NetworkImage).url;
+
       return FieldPropTile(
         titleText: context.l10n.imageUrlLabel,
         child: AppTextField(
+          width: 300,
+          initialText: url,
           onFieldSubmitted: (url) {
             if (!isURL(url)) return;
             final imageProvider = json_widget.ImageProvider.network(
@@ -239,7 +242,6 @@ class _ImagePropsPanelState extends State<ImagePropsPanel> {
                 .read<VirtualAppBloc>()
                 .add(ChangeProp(widget: updatedImage));
           },
-          width: 250,
           labelText: context.l10n.imageUrlLabel,
         ),
       );

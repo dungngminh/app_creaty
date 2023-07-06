@@ -113,10 +113,8 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       case AppCreatyComponent.row:
         return json_widget.Widget.row(key: key);
       case AppCreatyComponent.container:
-
         /// [Container.decoration.backgroundColor]
         const color = json_widget.Colors.blue;
-
         /// [Container.decoration.borderRadius]
         const borderRadius = json_widget.BorderRadius.only(
           topRight: json_widget.Radius.zero,
@@ -124,7 +122,6 @@ enum AppCreatyComponent implements IAppCreatyComponent {
           topLeft: json_widget.Radius.zero,
           bottomLeft: json_widget.Radius.zero,
         );
-
         /// [Container.decoration]
         const boxDecoration =
             json_widget.BoxDecoration(color: color, borderRadius: borderRadius);
@@ -182,7 +179,12 @@ enum AppCreatyComponent implements IAppCreatyComponent {
         );
       case AppCreatyComponent.padding:
         final dummySizedBoxKey = json_widget.ValueKey(const Uuid().v4());
-        const defaulPadding = json_widget.EdgeInsets.all(8);
+        const defaulPadding = json_widget.EdgeInsets.only(
+          top: 8,
+          left: 8,
+          right: 8,
+          bottom: 8,
+        );
         return json_widget.Widget.padding(
           key: key,
           padding: defaulPadding,

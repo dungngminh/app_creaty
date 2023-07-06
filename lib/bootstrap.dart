@@ -22,7 +22,6 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   Bloc.observer = AppBlocObserver();
   GoRouter.optionURLReflectsImperativeAPIs = true;
 
-
   const windowOptions = WindowOptions(
     minimumSize: Size(1000, 960),
     center: true,
@@ -34,9 +33,5 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     await windowManager.focus();
   });
 
-  return runZonedGuarded(
-    () async => runApp(await builder()),
-    (error, stackTrace) =>
-        logger.e('RunGuardError=>>', error.toString(), stackTrace),
-  );
+  runApp(await builder());
 }
