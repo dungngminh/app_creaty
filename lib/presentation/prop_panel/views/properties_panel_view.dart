@@ -1,6 +1,7 @@
 import 'package:app_creaty/commons/extensions/json_widget/json_widget_extension.dart';
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/presentation/prop_panel/prop_panel.dart';
+import 'package:app_creaty/presentation/prop_panel/widgets/prop_panel_builder/padding_props_panel.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -62,12 +63,18 @@ class _PropertiesPanelViewState extends State<PropertiesPanelView> {
           key: key,
           jsonWidget: selectedWidget! as json_widget.SizedBox,
         ),
-      _ => Center(
-          child: Text(
+      'textFormField' => TextFieldPropsPanel(
+          key: key,
+          jsonWidget: selectedWidget! as json_widget.TextFormField,
+        ),
+      'padding' => PaddingPropsPanel(
+          key: key,
+          jsonWidget: selectedWidget! as json_widget.Padding,
+        ),
+      _ => Text(
             'Please press a widget',
             style: context.textTheme.bodyLarge,
             textAlign: TextAlign.center,
-          ),
         ),
     };
   }

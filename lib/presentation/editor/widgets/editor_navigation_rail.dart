@@ -38,7 +38,7 @@ class _AppEditorNavigationRailState extends State<AppEditorNavigationRail> {
         ),
         NavigationRailDestination(
           icon: Assets.icons.outline.components.svg(),
-          selectedIcon: Assets.icons.bold.components.svg(),
+          selectedIcon: Assets.icons.outline.components.svg(),
           label: Text(context.l10n.componentTree),
         ),
         NavigationRailDestination(

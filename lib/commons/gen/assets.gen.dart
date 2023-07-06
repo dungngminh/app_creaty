@@ -82,10 +82,6 @@ class $AssetsIconsBoldGen {
   SvgGenImage get clockRecent =>
       const SvgGenImage('assets/icons/bold/clock_recent.svg');
 
-  /// File path: assets/icons/bold/components.svg
-  SvgGenImage get components =>
-      const SvgGenImage('assets/icons/bold/components.svg');
-
   /// File path: assets/icons/bold/file_new.svg
   SvgGenImage get fileNew =>
       const SvgGenImage('assets/icons/bold/file_new.svg');
@@ -101,7 +97,7 @@ class $AssetsIconsBoldGen {
 
   /// List of all assets
   List<SvgGenImage> get values =>
-      [addComponent, clockRecent, components, fileNew, home, pen, setting];
+      [addComponent, clockRecent, fileNew, home, pen, setting];
 }
 
 class $AssetsIconsComponentsGen {

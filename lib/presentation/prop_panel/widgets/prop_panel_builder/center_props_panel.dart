@@ -39,7 +39,7 @@ class _CenterPropsPanelState extends State<CenterPropsPanel> {
             ),
           ],
         ),
-        const Gap(16),
+       const Gap(32),
         _buildPropsForm(),
       ],
     );

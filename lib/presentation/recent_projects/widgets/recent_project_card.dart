@@ -2,6 +2,7 @@ import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/router/app_router.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:app_creaty/presentation/recent_projects/widgets/recent_project_card_action_botton.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dart_date/dart_date.dart';
 import 'package:device_frame/device_frame.dart';
@@ -106,6 +107,12 @@ class _RecentProjectCardState extends State<RecentProjectCard> {
         ),
         Text(
           widget.project.createdAt.timeago(),
+        ),
+        AutoSizeText(
+          widget.project.createdBy.name,
+          style: context.textTheme.titleSmall?.copyWith(
+            color: context.colorScheme.onBackground,
+          ),
         ),
       ],
     );

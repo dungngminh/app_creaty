@@ -314,7 +314,7 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
             ),
           ],
         ),
-        const Gap(16),
+    const Gap(32),
         _buildSizeForm(),
         _buildPropsForm(),
       ],

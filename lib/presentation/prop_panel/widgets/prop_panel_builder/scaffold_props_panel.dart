@@ -1,7 +1,6 @@
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/prop_panel/prop_panel.dart';
-import 'package:app_creaty/presentation/prop_panel/widgets/field_builder/prop_color_picker.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';

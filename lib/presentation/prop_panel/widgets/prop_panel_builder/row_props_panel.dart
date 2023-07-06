@@ -46,7 +46,7 @@ class _RowPropsPanelState extends State<RowPropsPanel> {
             ),
           ],
         ),
-        const Gap(16),
+        const Gap(32),
         ColumnWithSpacing(
           spacing: 24,
           children: [
@@ -139,6 +139,7 @@ class _RowPropsPanelState extends State<RowPropsPanel> {
         const Gap(16),
         ReorderableListView.builder(
           shrinkWrap: true,
+          buildDefaultDragHandles: false,
           itemCount: widget.jsonWidget.children.length,
           itemBuilder: (context, index) {
             final child = widget.jsonWidget.children[index];

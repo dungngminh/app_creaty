@@ -43,7 +43,7 @@ class _ButtonPropsPanelState extends State<ButtonPropsPanel> {
             ),
           ],
         ),
-        const Gap(16),
+         const Gap(32),
         _buildPropsForm(),
       ],
     );

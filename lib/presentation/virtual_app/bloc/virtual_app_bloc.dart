@@ -71,6 +71,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
           state.copyWith(
             virtualAppWidget: updatedVirtualApp,
             selectedWidget: receviedWidget,
+            selectedWidgetToPreview: receviedWidget,
             widgetWillBeUpdatedIn: receviedWidget.canUpdateIn
                 ? receviedWidget
                 : state.widgetWillBeUpdatedIn,
@@ -90,6 +91,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
           state.copyWith(
             virtualAppWidget: updatedVirtualApp,
             selectedWidget: receviedWidget,
+            selectedWidgetToPreview: receviedWidget,
             widgetWillBeUpdatedIn: receviedWidget.canUpdateIn
                 ? receviedWidget
                 : state.widgetWillBeUpdatedIn,
@@ -117,6 +119,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
         state.copyWith(
           virtualAppWidget: changedWidget,
           selectedWidget: changedWidget,
+          selectedWidgetToPreview: changedWidget,
         ),
       );
       return;
@@ -137,6 +140,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
       state.copyWith(
         selectedWidget: changedWidget,
         virtualAppWidget: updatedWidgetApp,
+        selectedWidgetToPreview: changedWidget,
       ),
     );
   }

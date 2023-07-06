@@ -22,6 +22,7 @@ linter:
     omit_local_variable_types: true
     always_put_required_named_parameters_first: false
     sort_pub_dependencies: false
+    avoid_positional_boolean_parameters: false
 
 dart_code_metrics:
   metrics:
