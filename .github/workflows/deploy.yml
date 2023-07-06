@@ -19,7 +19,7 @@ jobs:
           flutter-version: ${{env.FLUTTER_VERSION}}
           channel: "stable"
       - name: Install os dependencies
-        run: sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev libunwind-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-good
+        run: sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev libsecret-1-dev liblzma-dev libjsoncpp-dev libstdc++-12-dev libunwind-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-good
       - name: Install project dependencies
         run: flutter pub get
       - name: Generate intermediates
