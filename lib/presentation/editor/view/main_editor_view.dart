@@ -156,7 +156,7 @@ class _MainEditorViewState extends State<MainEditorView> {
       HandleRequestType.hasChild => showConfirmationDialog<void>(
           context,
           title: 'Are you want to override?',
-          description: 'Yes/No',
+          description: 'If yes, new widget will override exist widget',
           onCancelPressed: () => context.pop(),
           onConfirmPressed: () => context
             ..pop()
