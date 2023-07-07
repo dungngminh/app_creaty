@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:app_creaty/app_bloc_observer.dart';
+import 'package:app_creaty/env.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:window_manager/window_manager.dart';
 
 final logger = Logger(
@@ -32,6 +34,12 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     await windowManager.show();
     await windowManager.focus();
   });
+  await SentryFlutter.init(
+    (options) {
+      options.dsn = Env.sentryDSN;
+    },
+    appRunner: () async => runApp(await builder()),
+  );
 
   runApp(await builder());
 }

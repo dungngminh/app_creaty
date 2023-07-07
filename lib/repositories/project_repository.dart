@@ -9,6 +9,7 @@ import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logger/logger.dart';
 import 'package:path/path.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:uuid/uuid.dart';
 
 class ProjectRepositoryException implements Exception {
@@ -127,6 +128,7 @@ class ProjectRepositoryImpl extends ProjectRepository {
         'flutter',
         ['create', 'source_code'],
         workingDirectory: sourceCodeDirectoryPath,
+        runInShell: true,
       );
       _logger
         ..i(process.stdout)
@@ -141,6 +143,10 @@ class ProjectRepositoryImpl extends ProjectRepository {
       ]);
       return project;
     } catch (e, s) {
+      await Sentry.captureException(
+        e,
+        stackTrace: s,
+      );
       throw ProjectCreateFailure(e, s);
     }
   }
@@ -174,7 +180,7 @@ class ProjectRepositoryImpl extends ProjectRepository {
         projectFullPath,
       ]);
     }
-   
+
     await Future.wait([
       _appCreatyBoxHelper.removeProject(project.projectId),
       _projectDatabaseService.removeProject(project)
@@ -197,6 +203,10 @@ class ProjectRepositoryImpl extends ProjectRepository {
         _projectDatabaseService.updateProject(updatedProject),
       ]);
     } catch (e, s) {
+      await Sentry.captureException(
+        e,
+        stackTrace: s,
+      );
       throw SaveProjectFailure(e, s);
     }
   }
