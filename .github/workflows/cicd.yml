@@ -35,16 +35,14 @@ jobs:
           json: '{"SUPABASE_URL":"${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
       - name: Get version
         id: version
-        uses: mikefarah/yq@master
-        with:
-          cmd: yq -r '.version' 'pubspec.yaml'
+        uses: NiklasLehnfeld/flutter-version-number-action@main
       - name: Build artifacts
         run: flutter build linux --release --dart-define-from-file=env.json
       - name: Package Release files
         uses: thedoctor0/zip-release@master
         with:
           type: "zip"
-          filename: app_creaty-${{ steps.version.outputs.result }}-linux.zip
+          filename: app_creaty-${{ steps.version.outputs.version-number }}-linux.zip
           directory: build/linux/x64/release/bundle
 
       - name: Get previous tag
@@ -64,13 +62,13 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: ${{ steps.version.outputs.result }}
-          tag: ${{ steps.version.outputs.result }}
+          name: ${{ steps.version.outputs.version-number }}
+          tag: ${{ steps.version.outputs.version-number }}
           body: |
             ${{ steps.changelog.outputs.changelog }}
 
             ${{ steps.changelog.outputs.compareurl }}
-          artifacts: build/linux/x64/release/bundle/app_creaty-${{ steps.version.outputs.result }}-linux.zip
+          artifacts: build/linux/x64/release/bundle/app_creaty-${{ steps.version.outputs.version-number }}-linux.zip
 
   build_on_windows:
     name: Build on Windows
@@ -92,16 +90,14 @@ jobs:
           json: '{"SUPABASE_URL":"${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
       - name: Get version
         id: version
-        uses: mikefarah/yq@master
-        with:
-          cmd: yq -r '.version' 'pubspec.yaml'
+        uses: NiklasLehnfeld/flutter-version-number-action@main
       - name: Build artifacts
         run: flutter build windows --release --dart-define-from-file=env.json
       - name: Package Release
         uses: thedoctor0/zip-release@master
         with:
           type: "zip"
-          filename: app_creaty-${{ steps.version.outputs.result }}-windows.zip
+          filename: app_creaty-${{ steps.version.outputs.version-number }}-windows.zip
           directory: build/windows/runner/Release
       - name: Get previous tag
         id: get_previous_tag
@@ -120,14 +116,14 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: ${{ steps.version.outputs.result }}
-          tag: ${{ steps.version.outputs.result }}
+          name: ${{ steps.version.outputs.version-number }}
+          tag: ${{ steps.version.outputs.version-number }}
           body: |
             ${{ steps.changelog.outputs.changelog }}
 
             ${{ steps.changelog.outputs.compareurl }}
 
-          artifacts: build/windows/runner/Release/app_creaty-${{ steps.version.outputs.result }}-windows.zip
+          artifacts: build/windows/runner/Release/app_creaty-${{ steps.version.outputs.version-number }}-windows.zip
 
   build_on_macos:
     name: Build on macOS
@@ -149,9 +145,7 @@ jobs:
           json: '{"SUPABASE_URL":"${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
       - name: Get version
         id: version
-        uses: mikefarah/yq@master
-        with:
-          cmd: yq -r '.version' 'pubspec.yaml'
+        uses: NiklasLehnfeld/flutter-version-number-action@main
       - name: Build artifacts
         run: flutter build macos --release --no-tree-shake-icons --dart-define-from-file=env.json
       - name: Package Release
@@ -177,10 +171,10 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: ${{ steps.version.outputs.result }}
-          tag: ${{ steps.version.outputs.result }}
+          name: ${{ steps.version.outputs.version-number }}
+          tag: ${{ steps.version.outputs.version-number }}
           body: |
             ${{ steps.changelog.outputs.changelog }}
 
             ${{ steps.changelog.outputs.compareurl }}
-          artifacts: build/macos/Build/Products/Release/app_creaty-${{steps.version.outputs.result}}-macos.zip
+          artifacts: build/macos/Build/Products/Release/app_creaty-${{steps.version.outputs.version-number}}-macos.zip
