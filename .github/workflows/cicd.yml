@@ -44,30 +44,12 @@ jobs:
           type: "zip"
           filename: app_creaty-${{ steps.version.outputs.version-number }}-linux.zip
           directory: build/linux/x64/release/bundle
-
-      - name: Get previous tag
-        id: get_previous_tag
-        uses: younited/get-previous-tag-action@v1.1.0
-      - name: Generate changelog
-        id: changelog
-        uses: jaywcjlove/changelog-generator@main
-        if: ${{ steps.get_previous_tag.outputs.previous-tag != '' }}
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          filter-author: (jaywcjlove|小弟调调™|dependabot|renovate\\[bot\\]|dependabot\\[bot\\]|Renovate Bot)
-          filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
-      - name: Get the changelog
-        run: echo "${{ steps.changelog.outputs.changelog }}"
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: v${{ steps.version.outputs.version-number }}
           tag: ${{ steps.version.outputs.version-number }}
-          body: |
-            ${{ steps.changelog.outputs.changelog }}
-
-            ${{ steps.changelog.outputs.compareurl }}
           artifacts: build/linux/x64/release/bundle/app_creaty-${{ steps.version.outputs.version-number }}-linux.zip
 
   build_on_windows:
@@ -99,30 +81,12 @@ jobs:
           type: "zip"
           filename: app_creaty-${{ steps.version.outputs.version-number }}-windows.zip
           directory: build/windows/runner/Release
-      - name: Get previous tag
-        id: get_previous_tag
-        uses: younited/get-previous-tag-action@v1.1.0
-      - name: Generate changelog
-        id: changelog
-        uses: jaywcjlove/changelog-generator@main
-        if: ${{ steps.get_previous_tag.outputs.previous-tag != '' }}
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          filter-author: (jaywcjlove|小弟调调™|dependabot|renovate\\[bot\\]|dependabot\\[bot\\]|Renovate Bot)
-          filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
-      - name: Get the changelog
-        run: echo "${{ steps.changelog.outputs.changelog }}"
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: v${{ steps.version.outputs.version-number }}
           tag: ${{ steps.version.outputs.version-number }}
-          body: |
-            ${{ steps.changelog.outputs.changelog }}
-
-            ${{ steps.changelog.outputs.compareurl }}
-
           artifacts: build/windows/runner/Release/app_creaty-${{ steps.version.outputs.version-number }}-windows.zip
 
   build_on_macos:
@@ -154,27 +118,11 @@ jobs:
           type: "zip"
           filename: app_creaty-${{github.ref_name}}-macos.zip
           directory: build/macos/Build/Products/Release
-      - name: Get previous tag
-        id: get_previous_tag
-        uses: younited/get-previous-tag-action@v1.1.0
-      - name: Generate changelog
-        id: changelog
-        uses: jaywcjlove/changelog-generator@main
-        if: ${{ steps.get_previous_tag.outputs.previous-tag != '' }}
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          filter-author: (jaywcjlove|小弟调调™|dependabot|renovate\\[bot\\]|dependabot\\[bot\\]|Renovate Bot)
-          filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
-      - name: Get the changelog
-        run: echo "${{ steps.changelog.outputs.changelog }}"
+
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: v${{ steps.version.outputs.version-number }}
           tag: ${{ steps.version.outputs.version-number }}
-          body: |
-            ${{ steps.changelog.outputs.changelog }}
-
-            ${{ steps.changelog.outputs.compareurl }}
           artifacts: build/macos/Build/Products/Release/app_creaty-${{steps.version.outputs.version-number}}-macos.zip
