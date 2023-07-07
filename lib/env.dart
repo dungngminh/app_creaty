@@ -5,4 +5,6 @@ class Env {
 
   static String get supabaseAnon =>
       const String.fromEnvironment('SUPABASE_ANON');
+  
+  static String get sentryDSN => const String.fromEnvironment('SENTRY_DSN');
 }

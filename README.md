@@ -21,24 +21,24 @@ Drag n Drop Mobile Development Tool created by [@dungngminh](https://github.com/
 ## Features 🔥
 
 - Create and sync project in local.
-- Sync to Supabase (WIP).
+- Sync to Supabase.
 - Drag n Drop Widget:
   - Add Widget to Tree.
   - Change properties of Widget.
   - Delete Widget.
-  - Wrap in child to parent (WIP).
-  - Support callback.(WIP)
-- Widget Tree (WIP)
-- Generate source code by widgets (WIP)
+  - Wrap in child to parent.
+  - Support state.(WIP)
+- Widget Tree.
+- Generate source code by widgets.
+- Preview app via mobile app
 - Assets Manager (WIP)
-- Preview app via local internet (WIP)
 - Build apk file (WIP).
 
 ## What I used 💪
 
-- Adjusted Flutter Widget pure Dart classes (Thanks [@rodydavis](https://github.com/rodydavis) for original version) in project's local package.
+- [Adjusted Flutter Widget](https://github.com/dungngminh/adjusted_json_widget) pure Dart classes (Thanks [@rodydavis](https://github.com/rodydavis) for original version).
 - Recursive Algorithm (will optimize soon to fit with Composite Pattern).
-- Adjusted [device_frame](https://pub.dev/packages/device_preview) in project's local package.
+- [Adjusted](https://github.com/dungngminh/adjusted_device_frame) [device_frame](https://pub.dev/packages/device_preview)
 - Material 3.
 - [Supabase](https://supabase.com/) for backend side.
 
@@ -61,6 +61,11 @@ Drag n Drop Mobile Development Tool created by [@dungngminh](https://github.com/
 - `Container`
 - `ElevatedButton`
 - `Image`: `AssetImage`, `NetworkImage`
+- `Stack`
+- `SizedBox`
+- `ListView`
+- `TextFormField`
+- `Padding`
 - ... to be continue
 
 ## Contributors 🌟
