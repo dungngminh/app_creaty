@@ -1,4 +1,4 @@
-name: CI AppCreaty
+name: CICD AppCreaty
 
 on:
   push:
@@ -44,13 +44,15 @@ jobs:
           type: "zip"
           filename: app_creaty-${{ steps.version.outputs.version-number }}-linux.zip
           directory: build/linux/x64/release/bundle
-      - name: Create Release
-        uses: ncipollo/release-action@v1
+      - name: Release to github
+        uses: softprops/action-gh-release@v0.1.15
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           name: v${{ steps.version.outputs.version-number }}
-          tag: ${{ steps.version.outputs.version-number }}
-          artifacts: build/linux/x64/release/bundle/app_creaty-${{ steps.version.outputs.version-number }}-linux.zip
+          tag_name: ${{ steps.version.outputs.version-number }}
+          generate_release_notes: true
+          files: build/linux/x64/release/bundle/app_creaty-${{ steps.version.outputs.version-number }}-linux.zip
 
   build_on_windows:
     name: Build on Windows
@@ -81,13 +83,15 @@ jobs:
           type: "zip"
           filename: app_creaty-${{ steps.version.outputs.version-number }}-windows.zip
           directory: build/windows/runner/Release
-      - name: Create Release
-        uses: ncipollo/release-action@v1
+      - name: Release to github
+        uses: softprops/action-gh-release@v0.1.15
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           name: v${{ steps.version.outputs.version-number }}
-          tag: ${{ steps.version.outputs.version-number }}
-          artifacts: build/windows/runner/Release/app_creaty-${{ steps.version.outputs.version-number }}-windows.zip
+          tag_name: ${{ steps.version.outputs.version-number }}
+          generate_release_notes: true
+          files: build/windows/runner/Release/app_creaty-${{ steps.version.outputs.version-number }}-windows.zip
 
   build_on_macos:
     name: Build on macOS
@@ -118,11 +122,12 @@ jobs:
           type: "zip"
           filename: app_creaty-${{github.ref_name}}-macos.zip
           directory: build/macos/Build/Products/Release
-
-      - name: Create Release
-        uses: ncipollo/release-action@v1
+      - name: Release to github
+        uses: softprops/action-gh-release@v0.1.15
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           name: v${{ steps.version.outputs.version-number }}
-          tag: ${{ steps.version.outputs.version-number }}
-          artifacts: build/macos/Build/Products/Release/app_creaty-${{steps.version.outputs.version-number}}-macos.zip
+          tag_name: ${{ steps.version.outputs.version-number }}
+          generate_release_notes: true
+          files: build/macos/Build/Products/Release/app_creaty-${{steps.version.outputs.version-number}}-macos.zip
