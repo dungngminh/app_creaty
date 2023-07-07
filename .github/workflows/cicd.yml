@@ -47,7 +47,7 @@ jobs:
 
       - name: Get previous tag
         id: get_previous_tag
-        run: git describe --tags --abbrev=0 2>/dev/null || echo '')
+        run: git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1)
       - name: Generate changelog
         id: changelog
         uses: jaywcjlove/changelog-generator@main
@@ -101,7 +101,7 @@ jobs:
           directory: build/windows/runner/Release
       - name: Get previous tag
         id: get_previous_tag
-        run: git describe --tags --abbrev=0 2>/dev/null || echo '')
+        run: git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1)
       - name: Generate changelog
         id: changelog
         uses: jaywcjlove/changelog-generator@main
@@ -156,7 +156,7 @@ jobs:
           directory: build/macos/Build/Products/Release
       - name: Get previous tag
         id: get_previous_tag
-        run: git describe --tags --abbrev=0 2>/dev/null || echo '')
+        run: git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1)
       - name: Generate changelog
         id: changelog
         uses: jaywcjlove/changelog-generator@main
