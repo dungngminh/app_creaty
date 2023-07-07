@@ -236,6 +236,7 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
           selectedWidget: null,
           selectedWidgetToPreview: null,
           virtualAppWidget: updatedWidgetApp,
+          widgetWillBeUpdatedIn: updatedWidgetApp,
         ),
       );
     } on NeedChildException catch (e, st) {
