@@ -666,10 +666,10 @@ packages:
     dependency: transitive
     description:
       name: gotrue
-      sha256: "3639beedcbf3d63d9b2a6ca856138aff03d9e09bddd4c5477de77c58f36c83ae"
+      sha256: "5f368af50b8483c2733aab43eb5958be3a962370e83dce453371a2f4ae4f3599"
       url: "https://pub.dev"
     source: hosted
-    version: "1.9.0"
+    version: "1.10.0"
   graphs:
     dependency: transitive
     description:
@@ -1384,18 +1384,18 @@ packages:
     dependency: transitive
     description:
       name: supabase
-      sha256: d854acbcfcfe0b3b703854aedd05858d684b2e46f8dca70b262665d7f70ad3d8
+      sha256: "8a3844ca04ee02d09963e709ee7af41ab32bfa9104af0bb9610fae4059c18d5e"
       url: "https://pub.dev"
     source: hosted
-    version: "1.9.5"
+    version: "1.9.6"
   supabase_flutter:
     dependency: "direct main"
     description:
       name: supabase_flutter
-      sha256: "2a32140420a3bd1a9e8c093c08d12bbd93ee9fbb8fc373397ef5a3ad9d93f55c"
+      sha256: e4dfd7832430c2494559ed735181274d0cf1f6b1f38500025a45ec9664818e98
       url: "https://pub.dev"
     source: hosted
-    version: "1.10.6"
+    version: "1.10.7"
   synchronized:
     dependency: transitive
     description:
