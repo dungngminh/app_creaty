@@ -366,10 +366,10 @@ packages:
     dependency: "direct main"
     description:
       name: file_selector
-      sha256: "1d2fde93dddf634a9c3c0faa748169d7ac0d83757135555707e52f02c017ad4f"
+      sha256: "59b35aa4af7988be7ec88f9ddaa6c71c5b54bf0f8b35009389d9343b10e9c3af"
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.5"
+    version: "1.0.0"
   file_selector_android:
     dependency: transitive
     description:
