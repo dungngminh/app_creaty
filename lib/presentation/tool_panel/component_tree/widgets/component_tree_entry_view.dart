@@ -45,7 +45,23 @@ class ComponentTreeEntryView extends StatelessWidget {
 
   List<MenuItem> get menuItems {
     return entry.node.widgetName == 'Scaffold'
-        ? []
+        ? [
+            MenuItem(
+              action: ContextMenuAction.addWidget,
+              title: 'Add Widget',
+              items: AppCreatyComponent.values
+                  .mapIndexed(
+                    (index, e) => MenuItem(
+                      title: e.name.pascalCase,
+                      action: Pair<ContextMenuAction, AppCreatyComponent>(
+                        ContextMenuAction.addWidget,
+                        e,
+                      ),
+                    ),
+                  )
+                  .toList(),
+            )
+          ]
         : [
             if (!['Text', 'Image'].contains(entry.node.widgetName))
               MenuItem(

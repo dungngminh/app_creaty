@@ -39,6 +39,10 @@ extension JsonWidgetExtension on json_widget.Widget {
   bool get canUpdateIn {
     return hasKey('child') || hasKey('body') || hasKey('children');
   }
+
+  bool isScaffold() {
+    return hasKey('body');
+  }
 }
 
 extension WidgetInJsonExtension on Map<String, dynamic> {

@@ -78,6 +78,28 @@ class VirtualAppBloc extends ReplayBloc<VirtualAppEvent, VirtualAppState> {
           ),
         );
       } else {
+        if (currentWidgetWillBeUpdatedIn.isScaffold()) {
+          if (!event.overwriteIfHasChild) {
+            throw HasChildException(
+              parentWidget: state.virtualAppWidget,
+              widget: event.widget,
+            );
+          } else {
+            final updatedVirtualApp =
+                currentVirtualApp.copyWith(body: receviedWidget);
+            emit(
+              state.copyWith(
+                virtualAppWidget: updatedVirtualApp,
+                selectedWidget: receviedWidget,
+                selectedWidgetToPreview: receviedWidget,
+                widgetWillBeUpdatedIn: receviedWidget.canUpdateIn
+                    ? receviedWidget
+                    : state.widgetWillBeUpdatedIn,
+              ),
+            );
+            return;
+          }
+        }
         if (!currentWidgetWillBeUpdatedIn.canUpdateIn) return;
         final widget = AppCreatyAlgorithm.findAndAddWidgetToTree(
           addedWidget: receviedWidget.toJson(),

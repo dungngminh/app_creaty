@@ -37,17 +37,21 @@ class _VirtualAppViewState extends State<VirtualAppView> {
         return DeviceFrame(
           device: currentDevice,
           isFrameVisible: isFrameVisible,
-          screen: FlutterWidget(
-            widget: virtualAppWidgetData,
-            wrappingBuilder: (context, item, child) {
-              return WidgetChildPreview(
-                key: ValueKey(item.hashCode),
-                isSelected: selectedWidgetToPreview?.hashCode == item.hashCode,
-                item: item,
-                materialWidget: child,
-              );
-            },
+          screen: VirtualKeyboard(
+            isEnabled: isVirtualKeyboardEnable,
+            child: FlutterWidget(
+              widget: virtualAppWidgetData,
+              wrappingBuilder: (context, item, child) {
+                return WidgetChildPreview(
+                  key: ValueKey(item.hashCode),
+                  isSelected:
+                      selectedWidgetToPreview?.hashCode == item.hashCode,
+                  item: item,
+                  materialWidget: child,
+                );
+              },
             ),
+          ),
         );
       },
       onAccept: (component) {

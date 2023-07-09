@@ -62,6 +62,7 @@ class _PropColorPickerState extends State<PropColorPicker> {
               title: const Text('Pick a color!'),
               content: SingleChildScrollView(
                 child: ColorPicker(
+                  hexInputBar: true,
                   pickerColor: widget.currentColor,
                   onColorChanged: _onColorChanged,
                 ),

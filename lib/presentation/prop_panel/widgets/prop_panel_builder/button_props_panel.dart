@@ -1,7 +1,5 @@
-
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
-import 'package:app_creaty/l10n/l10n.dart';
 import 'package:app_creaty/presentation/prop_panel/widgets/widgets.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/widgets.dart';
@@ -20,6 +18,7 @@ class ButtonPropsPanel extends StatefulWidget {
 }
 
 class _ButtonPropsPanelState extends State<ButtonPropsPanel> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +42,7 @@ class _ButtonPropsPanelState extends State<ButtonPropsPanel> {
             ),
           ],
         ),
-         const Gap(32),
+        const Gap(32),
         _buildPropsForm(),
       ],
     );
@@ -52,10 +51,10 @@ class _ButtonPropsPanelState extends State<ButtonPropsPanel> {
   Widget _buildPropsForm() {
     return ColumnWithSpacing(
       spacing: 24,
-      children: [
+      children: const [
         FieldPropTile(
-          titleText: context.l10n.backgroundColorLabel,
-          child: const Text('Call back'),
+          titleText: 'Call back',
+          child: Text('Will update soon'),
         ),
       ],
     );
