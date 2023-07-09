@@ -11,6 +11,7 @@ import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:app_creaty/presentation/widgets/app_confirmation_alert_dialog.dart';
 import 'package:app_creaty/presentation/widgets/loading_view.dart';
 import 'package:app_creaty/repositories/project_repository.dart';
+import 'package:context_menus/context_menus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -97,7 +98,8 @@ class _MainEditorViewState extends State<MainEditorView> {
         child: Text('Editor Error'),
       );
     }
-    final mainEditorView = MultiBlocListener(
+    final mainEditorView = ContextMenuOverlay(
+      child: MultiBlocListener(
       listeners: [
         BlocListener<VirtualAppBloc, VirtualAppState>(
           listenWhen: (previous, current) =>
@@ -144,6 +146,7 @@ class _MainEditorViewState extends State<MainEditorView> {
             ],
           ),
         ).animate().fadeIn(duration: 200.ms),
+      ),
       ),
     );
     return mainEditorView;
