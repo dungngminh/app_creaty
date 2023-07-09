@@ -45,6 +45,8 @@ final class AppCreatyAlgorithm {
                 addedWidget: addedWidget,
                 willUpdatedIn: willUpdatedIn,
                 tree: child,
+                overwriteIfHasChild: overwriteIfHasChild,
+
               );
             },
           ).toList();
@@ -60,6 +62,7 @@ final class AppCreatyAlgorithm {
           addedWidget: addedWidget,
           willUpdatedIn: willUpdatedIn,
           tree: child,
+          overwriteIfHasChild: overwriteIfHasChild,
         );
         tree.update(kChildKey, (_) => newChild);
         return tree;
