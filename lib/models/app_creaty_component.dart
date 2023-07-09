@@ -135,7 +135,7 @@ enum AppCreatyComponent implements IAppCreatyComponent {
         );
       case AppCreatyComponent.image:
         final defaultImageProvider = json_widget.ImageProvider.asset(
-          Assets.images.png.pleple.path,
+          Assets.images.png.defaultImage.path,
         );
         const defaultBoxFit = json_widget.BoxFit.cover;
         return json_widget.Widget.image(

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:app_creaty/app_bloc_observer.dart';
 import 'package:app_creaty/env.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -36,10 +37,10 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   });
   await SentryFlutter.init(
     (options) {
-      options.dsn = Env.sentryDSN;
+      options
+        ..dsn = Env.sentryDSN
+        ..sampleRate = kDebugMode ? 0.0 : 1.0;
     },
     appRunner: () async => runApp(await builder()),
   );
-
-  runApp(await builder());
 }

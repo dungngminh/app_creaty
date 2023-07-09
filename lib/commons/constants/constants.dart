@@ -2,7 +2,7 @@ class Constants {
   Constants._();
 
   static const kDefaultNetworImageUrl =
-      'https://i.im.ge/2023/06/03/hY5HE6.coughting-cat.png';
+      'https://avatars.githubusercontent.com/u/91960967?s=200&v=4';
 
   static const kDefaultTextValue = 'This is Text';
 
