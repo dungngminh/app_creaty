@@ -1,5 +1,6 @@
-import 'package:app_creaty/commons/extensions/material_widget_extension.dart';
+
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
+import 'package:app_creaty/commons/extensions/widget_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/models/app_creaty_component.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
@@ -34,7 +35,7 @@ class _WidgetChildPreviewState extends State<WidgetChildPreview> {
 
   List<ContextMenuButtonConfig> get menuConfigs {
     final configs = <ContextMenuButtonConfig>[];
-    if (widget.materialWidget.canAddChild) {
+    if (widgetName.canAddChild) {
       configs.addAll(
         [
           AppCreatyComponent.column,
@@ -53,14 +54,14 @@ class _WidgetChildPreviewState extends State<WidgetChildPreview> {
         ),
       );
     }
-    if (widget.materialWidget.canBeWrapIn) {
+    if (widgetName.canBeWrapIn) {
       configs.addAll(
         [
           AppCreatyComponent.column,
           AppCreatyComponent.row,
           AppCreatyComponent.container,
           AppCreatyComponent.padding,
-          AppCreatyComponent.stack
+          AppCreatyComponent.stack,
         ].map(
           (e) => ContextMenuButtonConfig(
             'Wrap with ${e.name.pascalCase}',
@@ -103,7 +104,20 @@ class _WidgetChildPreviewState extends State<WidgetChildPreview> {
             );
       },
       child: ContextMenuRegion(
-        contextMenu: GenericContextMenu(buttonConfigs: menuConfigs),
+        contextMenu: Column(
+          children: [
+            ContextMenuCard(
+              padding: const EdgeInsets.all(8),
+              children: [
+                Text(
+                  widgetName,
+                  style: context.textTheme.bodyLarge,
+                )
+              ],
+            ),
+            GenericContextMenu(buttonConfigs: menuConfigs),
+          ],
+        ),
         child: MouseRegion(
           onEnter: (_) {
             setState(() {

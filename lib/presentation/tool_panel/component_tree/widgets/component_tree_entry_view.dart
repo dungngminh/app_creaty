@@ -1,4 +1,5 @@
 import 'package:app_creaty/commons/extensions/theme_extension.dart';
+import 'package:app_creaty/commons/extensions/widget_extension.dart';
 import 'package:app_creaty/commons/gen/assets.gen.dart';
 import 'package:app_creaty/commons/utils/svg_color.dart';
 import 'package:app_creaty/models/app_creaty_component.dart';
@@ -63,7 +64,7 @@ class ComponentTreeEntryView extends StatelessWidget {
             )
           ]
         : [
-            if (!['Text', 'Image'].contains(entry.node.widgetName))
+            if (canAddChildWidgets.contains(entry.node.widgetName))
               MenuItem(
                 action: ContextMenuAction.addWidget,
                 title: 'Add Widget',

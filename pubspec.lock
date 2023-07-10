@@ -850,8 +850,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: HEAD
-      resolved-ref: "435a5bbf763cbbb6dd73200d823d41c13b3b1d5e"
+      ref: main
+      resolved-ref: ee25de06892b980080505fa6f0900d2276789871
       url: "https://github.com/dungngminh/adjusted_json_widget.git"
     source: git
     version: "0.1.0+1"
