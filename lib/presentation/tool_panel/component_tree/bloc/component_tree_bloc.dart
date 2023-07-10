@@ -114,7 +114,7 @@ class ComponentTreeBloc extends Bloc<ComponentTreeEvent, ComponentTreeState> {
       if (foundWidgetData == null) return;
       final foundWidget = json_widget.Widget.fromJson(foundWidgetData);
       log(foundWidget.toString());
-      log(GenCodeModule.gen(foundWidget));
+      log(GenCodeModule.gen3(foundWidget));
       _virtualAppBloc.add(ChangeWidget(selectedWidget: foundWidget));
     }
     emit(state.copyWith(selectedNode: selectedNode));

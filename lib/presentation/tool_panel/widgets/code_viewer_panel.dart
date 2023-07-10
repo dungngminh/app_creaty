@@ -1,4 +1,3 @@
-import 'package:app_creaty/commons/extensions/media_query_extension.dart';
 import 'package:app_creaty/commons/gen_code/gen_code_module.dart';
 import 'package:app_creaty/presentation/virtual_app/virtual_app.dart';
 import 'package:dart_code_viewer2/dart_code_viewer2.dart';
@@ -17,11 +16,8 @@ class CodeViewerPanel extends StatelessWidget {
         child: Text('Please selected a widget'),
       );
     }
-    final code = GenCodeModule.gen(selectedWidget);
+    final code = GenCodeModule.gen3(selectedWidget);
 
-    return DartCodeViewer(
-      code,
-      width: context.mediaQuerySize.width * 0.3,
-    );
+    return DartCodeViewer(code);
   }
 }
