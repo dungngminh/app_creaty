@@ -126,8 +126,11 @@ flutter_gen:
     flutter_svg: true
 
 scripts:
-  assets:
+  asset:
     - fluttergen
+
+  get:
+    - flutter pub get
 
   runner:
     - flutter pub run build_runner build --delete-conflicting-outputs
