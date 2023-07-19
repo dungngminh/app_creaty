@@ -8,6 +8,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   flutter_secure_storage_windows
   native_context_menu
   screen_retriever
+  sentry_flutter
   url_launcher_windows
   window_manager
 )

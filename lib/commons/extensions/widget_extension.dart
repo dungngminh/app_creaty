@@ -7,6 +7,7 @@ final canBeWrapInWidgets = [
   'Image',
   'SizedBox',
   'TextFormField',
+  'ElevatedButton',
   'Stack',
   'Center',
 ];
