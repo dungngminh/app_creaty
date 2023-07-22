@@ -59,7 +59,7 @@ Drag n Drop Mobile Development Tool created by [@dungngminh](https://github.com/
 - ✅ macOS
 - 🚧 Windows
 
-## How can I run this app? 🚀
+## How can I run this app? 🚀 (UPDATE SOON)
 
 ### Linux 🐧
 
