@@ -1,3 +1,5 @@
+https://github.com/dungngminh/app_creaty/assets/63831488/3a27a137-be28-4e10-b069-fc0364aa0284
+
 This macOS demo is running in Release Mode [v0.11.2](https://github.com/dungngminh/app_creaty/releases/tag/0.11.2) (forward x1.5).
 
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
