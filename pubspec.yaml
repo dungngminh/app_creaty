@@ -3,7 +3,7 @@ description: App Creaty - Drag n Drop Mobile Developement Tool
 
 publish_to: "none"
 
-version: 0.11.1-graduation-version
+version: 0.11.2
 
 environment:
   sdk: ">=3.0.0"
