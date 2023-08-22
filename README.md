@@ -1,5 +1,4 @@
-![DEMO](.github/screenshots/demo.gif)
-This macOS demo is running in Release Mode [v0.2.0](https://github.com/dungngminh/app_creaty/releases/tag/0.2.0) (forward x1.5).
+This macOS demo is running in Release Mode [v0.11.2](https://github.com/dungngminh/app_creaty/releases/tag/0.11.2) (forward x1.5).
 
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
@@ -123,12 +122,11 @@ Generate files
 flutter pub run build_runner build --delete-conflicting-outputs
 ```
 
-Run 
+Run
 
 ```bash
 flutter run
 ```
-
 
 #### Optional: Using derry for run command (Flutter global command only)
 
@@ -165,7 +163,8 @@ derry runner
 
 ### Prepare env configuration
 
-  Clone `env.json` from `env.example.json`. Key and value in `env.example.json` is:
+Clone `env.json` from `env.example.json`. Key and value in `env.example.json` is:
+
 ```json
 {
   "SUPABASE_URL": "PASTE_YOUR_SUPABASE_URL",
@@ -175,6 +174,7 @@ derry runner
 ```
 
 You can create a new Supabase project with [this configuration](SUPABASE_CONFIG.md) or use my configuration below:
+
 ```json
 {
   "SUPABASE_URL": "https://yznpjybdklkbnjaqgpor.supabase.co",
@@ -182,14 +182,20 @@ You can create a new Supabase project with [this configuration](SUPABASE_CONFIG.
   "SENTRY_DSN": "https://f3ce107186614265a0c9f9fc1e00f190@o4505489138450432.ingest.sentry.io/4505489139302400"
 }
 ```
+
 ### Run project
+
 #### Use command line
+
 Use this command to run project
+
 ```bash
 flutter run --dart-define-from-file=env.json
 ```
+
 #### Use VSCode configuration
-You can use VSCode configuration in [this](.vscode/launch.json) to run this project. 
+
+You can use VSCode configuration in [this](.vscode/launch.json) to run this project.
 
 ## Supported Widgets 🤖
 
