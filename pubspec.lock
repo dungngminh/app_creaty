@@ -618,10 +618,10 @@ packages:
     dependency: transitive
     description:
       name: gotrue
-      sha256: "6ba95e38c06af30d4a365112b433567df70f83d5853923274cb894ea9702c5fa"
+      sha256: "3d15ee24bd05c6b4e5587f6dba727a7c031e5513424aa2ab4fb35b42f8c45ba7"
       url: "https://pub.dev"
     source: hosted
-    version: "1.11.2"
+    version: "1.12.2"
   graphs:
     dependency: transitive
     description:
@@ -947,10 +947,10 @@ packages:
     dependency: transitive
     description:
       name: postgrest
-      sha256: d6cc0f60c7dc761f84d1c6d11d9e02b3ad90399bd84639a28c1c024adbaa9bde
+      sha256: "87e35d3a59e327188321befbfbfcc5a7a2e71f0d0a13d975cbc7d169387ec712"
       url: "https://pub.dev"
     source: hosted
-    version: "1.5.0"
+    version: "1.5.1"
   process:
     dependency: transitive
     description:
@@ -987,10 +987,10 @@ packages:
     dependency: transitive
     description:
       name: realtime_client
-      sha256: b4b7bb293417dafc73943ed639209b2dcb796db8495e56bba29a4e26fadef5cd
+      sha256: e84e328dbca6830dec6c4b168ba452ea8c667f5bf45039505b3c8acb5e2c9d82
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.1"
+    version: "1.2.2"
   recase:
     dependency: "direct main"
     description:
@@ -1216,10 +1216,10 @@ packages:
     dependency: transitive
     description:
       name: storage_client
-      sha256: a3024569213b064587d616827747b766f9bc796e80cec99bd5ffb597b8aeb018
+      sha256: "4bf2fc76f09c3698f0ba3f1a44d567995796f6aef76501f194631d0c03752ab7"
       url: "https://pub.dev"
     source: hosted
-    version: "1.5.1"
+    version: "1.5.2"
   stream_channel:
     dependency: transitive
     description:
@@ -1256,18 +1256,18 @@ packages:
     dependency: transitive
     description:
       name: supabase
-      sha256: c48671b62720f15067f6b31abe964950bf1405b7eec367a97f683dee25715a77
+      sha256: "0b4625845558b42639a3cd13b0d3ea69132e6228bdbf484f38ef4c71363f82b1"
       url: "https://pub.dev"
     source: hosted
-    version: "1.11.1"
+    version: "1.11.5"
   supabase_flutter:
     dependency: "direct main"
     description:
       name: supabase_flutter
-      sha256: a9070f578d8b21799b43d7145586b32838b7970c831a5637f67e91f3bd3ea287
+      sha256: cbc955e44f5feaa2958793f0df1fe055ea7a5ca003184a51172492bcdde8a724
       url: "https://pub.dev"
     source: hosted
-    version: "1.10.14"
+    version: "1.10.18"
   synchronized:
     dependency: transitive
     description:
