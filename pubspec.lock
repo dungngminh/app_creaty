@@ -459,10 +459,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_fancy_tree_view
-      sha256: "8c1f9f2c5b56ecdc87599435a6babe2d5e0506564ba8cd2dbd884e4054450cb7"
+      sha256: "55798fccd2f8760303392a5e6f470072054c8a6ef3d067eb9ebec5c6221af9d6"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.1"
+    version: "1.4.0"
   flutter_json_viewer:
     dependency: "direct main"
     description:
