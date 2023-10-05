@@ -28,7 +28,7 @@ dependencies:
   flutter_animate: ^4.1.1+1
   flutter_bloc: ^8.1.2
   flutter_colorpicker: ^1.0.3
-  flutter_fancy_tree_view: ^1.1.1
+  flutter_fancy_tree_view: ^1.4.1
   flutter_json_viewer: ^1.0.1
   flutter_lazy_indexed_stack: ^0.0.5
   flutter_localizations:
