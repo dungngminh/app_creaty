@@ -53,13 +53,13 @@ class _RecentProjectCardState extends State<RecentProjectCard> {
                   const Spacer(),
                   RecentProjectCardActionButton(
                     project: widget.project,
-                  )
+                  ),
                 ],
               ),
               if (!widget.isInListView) ...[
                 const Spacer(),
-                _buildPreviewDevice()
-              ]
+                _buildPreviewDevice(),
+              ],
             ],
           ),
         ),

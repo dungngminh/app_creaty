@@ -42,7 +42,7 @@ class _ListViewPropsPanelState extends State<ListViewPropsPanel> {
         const Gap(16),
         ColumnWithSpacing(
           spacing: 24,
-        )
+        ),
       ],
     );
   }

@@ -21,7 +21,7 @@ class ColumnWithSpacing extends Column {
                 w,
                 Gap(spacing),
               ],
-            )
+            ),
           ],
         );
 }

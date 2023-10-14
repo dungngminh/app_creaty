@@ -37,7 +37,7 @@ class SignOutDialog extends StatelessWidget {
             context.pop();
           },
           child: Text(context.l10n.genericNo),
-        )
+        ),
       ],
     );
   }

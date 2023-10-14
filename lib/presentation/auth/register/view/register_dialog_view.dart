@@ -214,7 +214,7 @@ class _RegisterDialogViewState extends State<RegisterDialogView> {
                       TextButton(
                         onPressed: widget.onHaveAccountButtonPressed,
                         child: const Text('Have account?'),
-                      )
+                      ),
                     ],
                   ),
                   gap16,
@@ -267,9 +267,9 @@ class _RegisterDialogViewState extends State<RegisterDialogView> {
                             onPressed: () => context.pop(),
                           ),
                         ],
-                      )
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

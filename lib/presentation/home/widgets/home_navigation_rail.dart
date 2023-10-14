@@ -75,7 +75,7 @@ class _HomeNavigationRailState extends State<HomeNavigationRail> {
                       Text(
                         context.l10n.settings,
                         style: context.textTheme.labelSmall,
-                      )
+                      ),
                     ],
                   ),
                   onPressed: () {

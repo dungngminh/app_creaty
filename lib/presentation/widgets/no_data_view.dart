@@ -33,7 +33,7 @@ class NoDataView extends StatelessWidget {
           if (actionWidget != null) ...[
             const Gap(20),
             actionWidget!,
-          ]
+          ],
         ],
       ),
     );

@@ -29,7 +29,7 @@ class _EditorPanelState extends State<EditorPanel> {
       areas: [
         Area(minimalWeight: .25),
         Area(minimalWeight: .40),
-        Area(minimalWeight: .25)
+        Area(minimalWeight: .25),
       ],
     );
     _currentToolPanelNotifier = ValueNotifier(widget.currentIndex);

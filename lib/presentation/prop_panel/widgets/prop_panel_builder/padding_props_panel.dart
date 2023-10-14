@@ -179,7 +179,7 @@ class _PaddingPropsPanelState extends State<PaddingPropsPanel> {
             width: 120,
             labelText: context.l10n.rightLabel,
           ),
-        )
+        ),
       ],
     );
   }

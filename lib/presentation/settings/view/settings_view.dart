@@ -12,7 +12,7 @@ class SettingsView extends StatelessWidget {
         Text(
           context.l10n.settings,
           style: context.textTheme.displaySmall,
-        )
+        ),
       ],
     );
   }

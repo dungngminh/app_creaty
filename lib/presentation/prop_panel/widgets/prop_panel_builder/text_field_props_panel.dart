@@ -134,9 +134,9 @@ class _TextFieldPropsPanelState extends State<TextFieldPropsPanel> {
                 value: widget.jsonWidget.obscureText,
                 onChanged: onObscureTextChanged,
               ),
-            )
+            ),
           ],
-        )
+        ),
       ],
     );
   }

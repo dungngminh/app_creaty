@@ -137,8 +137,8 @@ class _EditorAppBarState extends State<EditorAppBar> {
           Text(
             context.l10n.projectVersionLabel(projectInfo.projectVersion),
             style: context.textTheme.titleSmall,
-          )
-        ]
+          ),
+        ],
       ],
     );
   }

@@ -55,7 +55,7 @@ class _RowPropsPanelState extends State<RowPropsPanel> {
             _buildMainAxisAlignmentProp(),
             _buildChildrenList(),
           ],
-        )
+        ),
       ],
     );
   }

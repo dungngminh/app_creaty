@@ -42,7 +42,7 @@ class _WidgetChildPreviewState extends State<WidgetChildPreview> {
           AppCreatyComponent.row,
           AppCreatyComponent.image,
           AppCreatyComponent.container,
-          AppCreatyComponent.text
+          AppCreatyComponent.text,
         ].map(
           (e) => ContextMenuButtonConfig(
             'Add ${e.name.pascalCase}',
@@ -112,7 +112,7 @@ class _WidgetChildPreviewState extends State<WidgetChildPreview> {
                 Text(
                   widgetName,
                   style: context.textTheme.bodyLarge,
-                )
+                ),
               ],
             ),
             GenericContextMenu(buttonConfigs: menuConfigs),
@@ -170,7 +170,7 @@ class _WidgetChildPreviewState extends State<WidgetChildPreview> {
                       ),
                     ),
                   ),
-                )
+                ),
             ],
           ),
         ),
