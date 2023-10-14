@@ -109,7 +109,7 @@ class _ImagePropsPanelState extends State<ImagePropsPanel> {
   Widget _buildImageBoxFitSelection() {
     return FieldPropTile(
       titleText: context.l10n.boxFitLabel,
-      child: Row(
+      child: Wrap(
         children: json_widget.BoxFit.values.map((value) {
           return PropIconButton(
             icon: value.image,
@@ -179,7 +179,7 @@ class _ImagePropsPanelState extends State<ImagePropsPanel> {
         rowCrossAxisAlignment: CrossAxisAlignment.start,
         titleText: context.l10n.selectImageLabel,
         child: SizedBox(
-          width: 300,
+          width: 250,
           child: AppDropDownField<String>(
             labelText: context.l10n.genericAssetImage,
             // TODO(dungngminh): Project Assets Resource

@@ -23,6 +23,7 @@ class FieldPropTile extends StatelessWidget {
     return usingRow ? _buildRow(context) : _buildColumn(context);
   }
 
+
   Widget _buildColumn(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
