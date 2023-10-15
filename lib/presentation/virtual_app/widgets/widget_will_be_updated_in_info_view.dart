@@ -23,7 +23,7 @@ class WidgetWillBeUpdatedInInfoView extends StatelessWidget {
             fontWeight: FontWeight.bold,
             color: context.colorScheme.primary,
           ),
-        )
+        ),
       ],
     );
   }

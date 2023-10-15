@@ -130,7 +130,7 @@ class _SizedBoxPropsPanelState extends State<SizedBoxPropsPanel> {
                   .add(ChangeProp(widget: updatedSizedBox));
             },
           ),
-        )
+        ),
       ],
     );
   }

@@ -223,19 +223,19 @@ enum AppCreatyComponent implements IAppCreatyComponent {
       AppCreatyComponent.elevatedButton => [AppCreatyComponentGroup.common],
       AppCreatyComponent.center => [
           AppCreatyComponentGroup.layout,
-          AppCreatyComponentGroup.common
+          AppCreatyComponentGroup.common,
         ],
       AppCreatyComponent.stack => [
           AppCreatyComponentGroup.layout,
-          AppCreatyComponentGroup.common
+          AppCreatyComponentGroup.common,
         ],
       AppCreatyComponent.listView => [
           AppCreatyComponentGroup.layout,
-          AppCreatyComponentGroup.common
+          AppCreatyComponentGroup.common,
         ],
       AppCreatyComponent.textField => [
           AppCreatyComponentGroup.input,
-          AppCreatyComponentGroup.common
+          AppCreatyComponentGroup.common,
         ],
       AppCreatyComponent.padding => [
           AppCreatyComponentGroup.layout,

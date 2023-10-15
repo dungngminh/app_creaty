@@ -193,7 +193,7 @@ class _NewProjectViewState extends State<_NewProjectView> {
                   gap16,
                   _buildSelectLocationButton(),
                   gap32,
-                  _buildActionWidgets()
+                  _buildActionWidgets(),
                 ],
               ),
             ),
@@ -251,7 +251,7 @@ class _NewProjectViewState extends State<_NewProjectView> {
         TextButton(
           child: Text(context.l10n.cancel),
           onPressed: () => context.pop(),
-        )
+        ),
       ],
     );
   }

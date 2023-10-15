@@ -61,7 +61,7 @@ class ComponentTreeEntryView extends StatelessWidget {
                     ),
                   )
                   .toList(),
-            )
+            ),
           ]
         : [
             if (canAddChildWidgets.contains(entry.node.widgetName))

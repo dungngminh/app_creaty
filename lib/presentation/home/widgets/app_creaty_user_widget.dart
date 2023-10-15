@@ -24,7 +24,7 @@ class AppCreatyUserWidget extends StatelessWidget {
                   Text(
                     context.l10n.loginLabel,
                     style: context.textTheme.labelSmall,
-                  )
+                  ),
                 ],
               ),
               onPressed: () {
@@ -46,7 +46,7 @@ class AppCreatyUserWidget extends StatelessWidget {
                   Text(
                     '${state.user.name.substring(0, 5)}...',
                     style: context.textTheme.labelSmall,
-                  )
+                  ),
                 ],
               ),
               onPressed: () {
@@ -66,7 +66,7 @@ class AppCreatyUserWidget extends StatelessWidget {
                   Text(
                     context.l10n.loginLabel,
                     style: context.textTheme.labelSmall,
-                  )
+                  ),
                 ],
               ),
               onPressed: () {

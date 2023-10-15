@@ -21,7 +21,7 @@ class RowWithSpacing extends Row {
                 w,
                 Gap(spacing),
               ],
-            )
+            ),
           ],
         );
 }

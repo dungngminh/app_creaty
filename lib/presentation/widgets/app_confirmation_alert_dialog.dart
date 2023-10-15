@@ -56,7 +56,7 @@ class AppConfirmationAlertDialog extends StatelessWidget {
         TextButton(
           onPressed: onCancelPressed,
           child: Text(cancelTitle ?? context.l10n.cancel),
-        )
+        ),
       ],
     );
   }

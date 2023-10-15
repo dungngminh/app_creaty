@@ -170,7 +170,7 @@ class _LoginDialogViewState extends State<LoginDialogView> {
                       TextButton(
                         onPressed: widget.onRegisterButtonPressed,
                         child: const Text('Register?'),
-                      )
+                      ),
                     ],
                   ),
                   gap16,
@@ -222,9 +222,9 @@ class _LoginDialogViewState extends State<LoginDialogView> {
                             onPressed: () => context.pop(),
                           ),
                         ],
-                      )
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

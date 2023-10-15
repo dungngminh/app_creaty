@@ -40,7 +40,7 @@ class UIComponentCard extends StatelessWidget {
           Text(
             title,
             style: context.textTheme.titleMedium,
-          )
+          ),
         ],
       ),
     );

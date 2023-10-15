@@ -43,7 +43,7 @@ class RecentProjectView extends StatelessWidget {
           const Gap(8),
           const Expanded(
             child: RecentProjectsContentView(),
-          )
+          ),
         ],
       ),
     );

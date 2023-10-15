@@ -139,7 +139,7 @@ class ProjectRepositoryImpl extends ProjectRepository {
 
       await Future.wait([
         _appCreatyBoxHelper.saveProject(project),
-        _projectDatabaseService.insertNewProject(project)
+        _projectDatabaseService.insertNewProject(project),
       ]);
       return project;
     } catch (e, s) {
@@ -183,7 +183,7 @@ class ProjectRepositoryImpl extends ProjectRepository {
 
     await Future.wait([
       _appCreatyBoxHelper.removeProject(project.projectId),
-      _projectDatabaseService.removeProject(project)
+      _projectDatabaseService.removeProject(project),
     ]);
   }
 

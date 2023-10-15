@@ -51,7 +51,7 @@ class _PropColorPickerState extends State<PropColorPicker> {
               borderRadius: BorderRadius.circular(8),
               border: Border.all(),
             ),
-          )
+          ),
         ],
       ),
       onPressed: () {

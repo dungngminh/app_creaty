@@ -101,7 +101,7 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
       topRightText,
       topLeftText,
       bottomLeftText,
-      bottomRightText
+      bottomRightText,
     ].mapNotNull(double.tryParse).max;
 
     topLeftBorderRadiusEditingController.text = '$maxValue';
@@ -356,7 +356,7 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
                   .add(ChangeProp(widget: updatedContainer));
             },
           ),
-        )
+        ),
       ],
     );
   }
@@ -430,7 +430,7 @@ class _ContainerPropsPanelState extends State<ContainerPropsPanel> {
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

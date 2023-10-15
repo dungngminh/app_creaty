@@ -283,7 +283,7 @@ class _ImagePropsPanelState extends State<ImagePropsPanel> {
                   .add(ChangeProp(widget: updatedImage));
             },
           ),
-        )
+        ),
       ],
     );
   }
