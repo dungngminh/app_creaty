@@ -103,11 +103,11 @@ class _$EditorStateCopyWithImpl<$Res, $Val extends EditorState>
 }
 
 /// @nodoc
-abstract class _$$_EditorStateCopyWith<$Res>
+abstract class _$$EditorStateImplCopyWith<$Res>
     implements $EditorStateCopyWith<$Res> {
-  factory _$$_EditorStateCopyWith(
-          _$_EditorState value, $Res Function(_$_EditorState) then) =
-      __$$_EditorStateCopyWithImpl<$Res>;
+  factory _$$EditorStateImplCopyWith(
+          _$EditorStateImpl value, $Res Function(_$EditorStateImpl) then) =
+      __$$EditorStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -123,11 +123,11 @@ abstract class _$$_EditorStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EditorStateCopyWithImpl<$Res>
-    extends _$EditorStateCopyWithImpl<$Res, _$_EditorState>
-    implements _$$_EditorStateCopyWith<$Res> {
-  __$$_EditorStateCopyWithImpl(
-      _$_EditorState _value, $Res Function(_$_EditorState) _then)
+class __$$EditorStateImplCopyWithImpl<$Res>
+    extends _$EditorStateCopyWithImpl<$Res, _$EditorStateImpl>
+    implements _$$EditorStateImplCopyWith<$Res> {
+  __$$EditorStateImplCopyWithImpl(
+      _$EditorStateImpl _value, $Res Function(_$EditorStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -140,7 +140,7 @@ class __$$_EditorStateCopyWithImpl<$Res>
     Object? projectInfo = freezed,
     Object? saveProjectStatus = null,
   }) {
-    return _then(_$_EditorState(
+    return _then(_$EditorStateImpl(
       currentDevice: null == currentDevice
           ? _value.currentDevice
           : currentDevice // ignore: cast_nullable_to_non_nullable
@@ -171,8 +171,8 @@ class __$$_EditorStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EditorState implements _EditorState {
-  const _$_EditorState(
+class _$EditorStateImpl implements _EditorState {
+  const _$EditorStateImpl(
       {required this.currentDevice,
       required this.currentProject,
       this.isFrameVisible = true,
@@ -205,7 +205,7 @@ class _$_EditorState implements _EditorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EditorState &&
+            other is _$EditorStateImpl &&
             (identical(other.currentDevice, currentDevice) ||
                 other.currentDevice == currentDevice) &&
             (identical(other.currentProject, currentProject) ||
@@ -228,8 +228,8 @@ class _$_EditorState implements _EditorState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EditorStateCopyWith<_$_EditorState> get copyWith =>
-      __$$_EditorStateCopyWithImpl<_$_EditorState>(this, _$identity);
+  _$$EditorStateImplCopyWith<_$EditorStateImpl> get copyWith =>
+      __$$EditorStateImplCopyWithImpl<_$EditorStateImpl>(this, _$identity);
 }
 
 abstract class _EditorState implements EditorState {
@@ -239,7 +239,7 @@ abstract class _EditorState implements EditorState {
       final bool isFrameVisible,
       final bool isVirtualKeyboardEnable,
       final ProjectInfo? projectInfo,
-      final LoadingStatus saveProjectStatus}) = _$_EditorState;
+      final LoadingStatus saveProjectStatus}) = _$EditorStateImpl;
 
   @override
   DeviceInfo get currentDevice;
@@ -255,6 +255,6 @@ abstract class _EditorState implements EditorState {
   LoadingStatus get saveProjectStatus;
   @override
   @JsonKey(ignore: true)
-  _$$_EditorStateCopyWith<_$_EditorState> get copyWith =>
+  _$$EditorStateImplCopyWith<_$EditorStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -170,11 +170,11 @@ class _$VirtualAppStateCopyWithImpl<$Res, $Val extends VirtualAppState>
 }
 
 /// @nodoc
-abstract class _$$_VirtualAppStateCopyWith<$Res>
+abstract class _$$VirtualAppStateImplCopyWith<$Res>
     implements $VirtualAppStateCopyWith<$Res> {
-  factory _$$_VirtualAppStateCopyWith(
-          _$_VirtualAppState value, $Res Function(_$_VirtualAppState) then) =
-      __$$_VirtualAppStateCopyWithImpl<$Res>;
+  factory _$$VirtualAppStateImplCopyWith(_$VirtualAppStateImpl value,
+          $Res Function(_$VirtualAppStateImpl) then) =
+      __$$VirtualAppStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -201,11 +201,11 @@ abstract class _$$_VirtualAppStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_VirtualAppStateCopyWithImpl<$Res>
-    extends _$VirtualAppStateCopyWithImpl<$Res, _$_VirtualAppState>
-    implements _$$_VirtualAppStateCopyWith<$Res> {
-  __$$_VirtualAppStateCopyWithImpl(
-      _$_VirtualAppState _value, $Res Function(_$_VirtualAppState) _then)
+class __$$VirtualAppStateImplCopyWithImpl<$Res>
+    extends _$VirtualAppStateCopyWithImpl<$Res, _$VirtualAppStateImpl>
+    implements _$$VirtualAppStateImplCopyWith<$Res> {
+  __$$VirtualAppStateImplCopyWithImpl(
+      _$VirtualAppStateImpl _value, $Res Function(_$VirtualAppStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -221,7 +221,7 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
     Object? loadingStatus = null,
     Object? handleRequest = freezed,
   }) {
-    return _then(_$_VirtualAppState(
+    return _then(_$VirtualAppStateImpl(
       virtualAppWidget: null == virtualAppWidget
           ? _value.virtualAppWidget
           : virtualAppWidget // ignore: cast_nullable_to_non_nullable
@@ -264,10 +264,10 @@ class __$$_VirtualAppStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_VirtualAppState
+class _$VirtualAppStateImpl
     with DiagnosticableTreeMixin
     implements _VirtualAppState {
-  const _$_VirtualAppState(
+  const _$VirtualAppStateImpl(
       {this.virtualAppWidget = const json_widget.Scaffold(),
       this.selectedWidget = const json_widget.Scaffold(),
       this.selectedWidgetToPreview = const json_widget.Scaffold(),
@@ -337,7 +337,7 @@ class _$_VirtualAppState
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_VirtualAppState &&
+            other is _$VirtualAppStateImpl &&
             (identical(other.virtualAppWidget, virtualAppWidget) ||
                 other.virtualAppWidget == virtualAppWidget) &&
             (identical(other.selectedWidget, selectedWidget) ||
@@ -374,8 +374,9 @@ class _$_VirtualAppState
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_VirtualAppStateCopyWith<_$_VirtualAppState> get copyWith =>
-      __$$_VirtualAppStateCopyWithImpl<_$_VirtualAppState>(this, _$identity);
+  _$$VirtualAppStateImplCopyWith<_$VirtualAppStateImpl> get copyWith =>
+      __$$VirtualAppStateImplCopyWithImpl<_$VirtualAppStateImpl>(
+          this, _$identity);
 }
 
 abstract class _VirtualAppState implements VirtualAppState {
@@ -388,7 +389,7 @@ abstract class _VirtualAppState implements VirtualAppState {
       final List<AppCreatyPage> pages,
       final AppCreatyPage? currentPage,
       final LoadingStatus loadingStatus,
-      final HandleRequest? handleRequest}) = _$_VirtualAppState;
+      final HandleRequest? handleRequest}) = _$VirtualAppStateImpl;
 
   @override
   json_widget.Widget get virtualAppWidget;
@@ -410,6 +411,6 @@ abstract class _VirtualAppState implements VirtualAppState {
   HandleRequest? get handleRequest;
   @override
   @JsonKey(ignore: true)
-  _$$_VirtualAppStateCopyWith<_$_VirtualAppState> get copyWith =>
+  _$$VirtualAppStateImplCopyWith<_$VirtualAppStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -3,6 +3,7 @@ import 'package:app_creaty/bootstrap.dart';
 import 'package:app_creaty/env.dart';
 import 'package:app_creaty/local/intiialize_hive.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive/hive.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -10,6 +11,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 const _appCreatyLocalBoxName = 'app_creaty_box';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   bootstrap(
     () async {
       await initializeHive();

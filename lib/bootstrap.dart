@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:app_creaty/app_bloc_observer.dart';
+import 'package:app_creaty/commons/utils/platform_util.dart';
 import 'package:app_creaty/env.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -17,24 +18,24 @@ final logger = Logger(
   ),
 );
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
-  // FlutterError.onError = (details) {
-  //   logger.e('Flutter Error =>>', details.exceptionAsString(), details.stack)
-  // };
-  WidgetsFlutterBinding.ensureInitialized();
-  await windowManager.ensureInitialized();
+  /// Set up window manager for desktop platform
+  if (kIsLinux || kIsMacOS || kIsWindows) {
+    await windowManager.ensureInitialized();
+    const windowOptions = WindowOptions(
+      minimumSize: Size(1000, 960),
+      center: true,
+      backgroundColor: Colors.transparent,
+      skipTaskbar: false,
+    );
+    await windowManager.waitUntilReadyToShow(windowOptions, () async {
+      await windowManager.show();
+      await windowManager.focus();
+    });
+  }
+
   Bloc.observer = AppBlocObserver();
   GoRouter.optionURLReflectsImperativeAPIs = true;
 
-  const windowOptions = WindowOptions(
-    minimumSize: Size(1000, 960),
-    center: true,
-    backgroundColor: Colors.transparent,
-    skipTaskbar: false,
-  );
-  await windowManager.waitUntilReadyToShow(windowOptions, () async {
-    await windowManager.show();
-    await windowManager.focus();
-  });
   await SentryFlutter.init(
     (options) {
       options

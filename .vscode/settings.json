@@ -1,3 +1,4 @@
 {
-    "dart.flutterSdkPath": "/Users/dungngminh/fvm/versions/3.10.5"
+  "dart.flutterSdkPath": "~/fvm/default",
+  "docwriter.hotkey.mac": "⌥ + ."
 }
