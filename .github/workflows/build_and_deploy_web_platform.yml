@@ -12,8 +12,6 @@ jobs:
   initialize:
     name: Initialize
     uses: ./.github/workflows/initialize.yml
-    with:
-      workflow_call: init_job
 
   build_on_web:
     name: Build on Web
