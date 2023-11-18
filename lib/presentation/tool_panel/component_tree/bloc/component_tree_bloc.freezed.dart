@@ -72,11 +72,11 @@ class _$ComponentTreeStateCopyWithImpl<$Res, $Val extends ComponentTreeState>
 }
 
 /// @nodoc
-abstract class _$$_ComponentTreeStateCopyWith<$Res>
+abstract class _$$ComponentTreeStateImplCopyWith<$Res>
     implements $ComponentTreeStateCopyWith<$Res> {
-  factory _$$_ComponentTreeStateCopyWith(_$_ComponentTreeState value,
-          $Res Function(_$_ComponentTreeState) then) =
-      __$$_ComponentTreeStateCopyWithImpl<$Res>;
+  factory _$$ComponentTreeStateImplCopyWith(_$ComponentTreeStateImpl value,
+          $Res Function(_$ComponentTreeStateImpl) then) =
+      __$$ComponentTreeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -86,11 +86,11 @@ abstract class _$$_ComponentTreeStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ComponentTreeStateCopyWithImpl<$Res>
-    extends _$ComponentTreeStateCopyWithImpl<$Res, _$_ComponentTreeState>
-    implements _$$_ComponentTreeStateCopyWith<$Res> {
-  __$$_ComponentTreeStateCopyWithImpl(
-      _$_ComponentTreeState _value, $Res Function(_$_ComponentTreeState) _then)
+class __$$ComponentTreeStateImplCopyWithImpl<$Res>
+    extends _$ComponentTreeStateCopyWithImpl<$Res, _$ComponentTreeStateImpl>
+    implements _$$ComponentTreeStateImplCopyWith<$Res> {
+  __$$ComponentTreeStateImplCopyWithImpl(_$ComponentTreeStateImpl _value,
+      $Res Function(_$ComponentTreeStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$_ComponentTreeStateCopyWithImpl<$Res>
     Object? selectedNode = freezed,
     Object? loadingStatus = null,
   }) {
-    return _then(_$_ComponentTreeState(
+    return _then(_$ComponentTreeStateImpl(
       trees: null == trees
           ? _value._trees
           : trees // ignore: cast_nullable_to_non_nullable
@@ -119,8 +119,8 @@ class __$$_ComponentTreeStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ComponentTreeState implements _ComponentTreeState {
-  const _$_ComponentTreeState(
+class _$ComponentTreeStateImpl implements _ComponentTreeState {
+  const _$ComponentTreeStateImpl(
       {final List<WidgetTreeNode> trees = const <WidgetTreeNode>[],
       this.selectedNode,
       this.loadingStatus = LoadingStatus.initial})
@@ -150,7 +150,7 @@ class _$_ComponentTreeState implements _ComponentTreeState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ComponentTreeState &&
+            other is _$ComponentTreeStateImpl &&
             const DeepCollectionEquality().equals(other._trees, _trees) &&
             (identical(other.selectedNode, selectedNode) ||
                 other.selectedNode == selectedNode) &&
@@ -165,8 +165,8 @@ class _$_ComponentTreeState implements _ComponentTreeState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ComponentTreeStateCopyWith<_$_ComponentTreeState> get copyWith =>
-      __$$_ComponentTreeStateCopyWithImpl<_$_ComponentTreeState>(
+  _$$ComponentTreeStateImplCopyWith<_$ComponentTreeStateImpl> get copyWith =>
+      __$$ComponentTreeStateImplCopyWithImpl<_$ComponentTreeStateImpl>(
           this, _$identity);
 }
 
@@ -174,7 +174,7 @@ abstract class _ComponentTreeState implements ComponentTreeState {
   const factory _ComponentTreeState(
       {final List<WidgetTreeNode> trees,
       final WidgetTreeNode? selectedNode,
-      final LoadingStatus loadingStatus}) = _$_ComponentTreeState;
+      final LoadingStatus loadingStatus}) = _$ComponentTreeStateImpl;
 
   @override
   List<WidgetTreeNode> get trees;
@@ -184,6 +184,6 @@ abstract class _ComponentTreeState implements ComponentTreeState {
   LoadingStatus get loadingStatus;
   @override
   @JsonKey(ignore: true)
-  _$$_ComponentTreeStateCopyWith<_$_ComponentTreeState> get copyWith =>
+  _$$ComponentTreeStateImplCopyWith<_$ComponentTreeStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

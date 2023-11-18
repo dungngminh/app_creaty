@@ -1,0 +1,62 @@
+name: Build and Deploy Web Platform
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  FLUTTER_VERSION: "3.16.x"
+
+jobs:
+  initialize:
+    name: Initialize
+    uses: ./.github/workflows/initialize.yml
+    with:
+      workflow_call: init_job
+
+  build_on_web:
+    name: Build on Web
+    needs: initialize
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get version
+        id: version
+        uses: NiklasLehnfeld/flutter-version-number-action@main
+      - name: Build artifacts
+        run: flutter build web --dart-define-from-file=env.json
+      - name: Package Release
+        uses: thedoctor0/zip-release@master
+        with:
+          type: "zip"
+          filename: app_creaty-${{ steps.version.outputs.version-number }}-web.zip
+          directory: build/web
+      - name: Release to github
+        uses: softprops/action-gh-release@v0.1.15
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+            name: v${{ steps.version.outputs.version-number }}
+            tag_name: ${{ steps.version.outputs.version-number }}
+            generate_release_notes: true
+            files: build/web/app_creaty-${{ steps.version.outputs.version-number }}-web.zip
+    
+  deploy_on_web:
+    name: Deploy on Web
+    needs: build_on_web
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2.0
+        with:
+          publish-dir: './build/web'
+          production-branch: master
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
