@@ -9,13 +9,35 @@ env:
   FLUTTER_VERSION: "3.16.x"
 
 jobs:
-  initialize:
-    name: Initialize
-    uses: ./.github/workflows/initialize.yml
+  init_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2.10.0
+        with:
+          flutter-version: ${{env.FLUTTER_VERSION}}
+          channel: "stable"
+      - name: Create env.json
+        id: create-json
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: "env.json"
+          json: '{"SUPABASE_URL":"${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
+      - name: Enable desktop platform
+        run: |
+          flutter config --enable-linux-desktop
+          flutter config --enable-windows-desktop
+          flutter config --enable-macos-desktop
+          flutter config --enable-web
+      - name: Install project dependencies
+        run: flutter pub get
+      - name: Generate intermediates
+        run: flutter pub run build_runner build --delete-conflicting-outputs
 
   build_on_web:
     name: Build on Web
-    needs: initialize
+    needs: init_job
     runs-on: ubuntu-latest
     steps:
       - name: Get version
@@ -34,11 +56,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-            name: v${{ steps.version.outputs.version-number }}
-            tag_name: ${{ steps.version.outputs.version-number }}
-            generate_release_notes: true
-            files: build/web/app_creaty-${{ steps.version.outputs.version-number }}-web.zip
-    
+          name: v${{ steps.version.outputs.version-number }}
+          tag_name: ${{ steps.version.outputs.version-number }}
+          generate_release_notes: true
+          files: build/web/app_creaty-${{ steps.version.outputs.version-number }}-web.zip
+
   deploy_on_web:
     name: Deploy on Web
     needs: build_on_web
@@ -47,7 +69,7 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
-          publish-dir: './build/web'
+          publish-dir: "./build/web"
           production-branch: master
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
