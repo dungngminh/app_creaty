@@ -56,6 +56,7 @@ Drag n Drop Mobile Development Tool created by [@dungngminh](https://github.com/
 
 ## Platform 📦
 
+- ✅ [Web](https://app-creaty.netlify.app)
 - ✅ Linux
 - ✅ macOS
 - 🚧 Windows
@@ -88,20 +89,21 @@ fvm flutter [command]
 
 ---
 
-or this if you want use `3.10.6` for global version.
+or this if you want use `3.16.0` for global version.
 
 ```bash
-fvm global 3.10.6
+fvm global 3.16.0
 ```
 
 ---
 
-Enable desktop app support config:
+Enable desktop app and web support config:
 
 ```bash
 flutter config --enable-macos-desktop
 flutter config --enable-linux-desktop
 flutter config --enable-windows-desktop
+flutter config --enable-web
 ```
 
 ### Use Flutter
@@ -127,7 +129,7 @@ flutter pub run build_runner build --delete-conflicting-outputs
 Run
 
 ```bash
-flutter run
+flutter run 
 ```
 
 #### Optional: Using derry for run command (Flutter global command only)
