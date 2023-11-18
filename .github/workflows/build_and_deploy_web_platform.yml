@@ -39,7 +39,7 @@ jobs:
         id: version
         uses: NiklasLehnfeld/flutter-version-number-action@main
       - name: Build artifacts
-        run: flutter build web --dart-define-from-file=env.json
+        run: flutter build web --dart-define-from-file=env.json --no-tree-shake-icons
       - name: Package Release
         uses: thedoctor0/zip-release@master
         with:
@@ -55,12 +55,6 @@ jobs:
           tag_name: ${{ steps.version.outputs.version-number }}
           generate_release_notes: true
           files: build/web/app_creaty-${{ steps.version.outputs.version-number }}-web.zip
-
-  deploy_on_web:
-    name: Deploy on Web
-    needs: build_on_web
-    runs-on: ubuntu-latest
-    steps:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
@@ -75,3 +69,4 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 1
+      
