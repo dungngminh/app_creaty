@@ -5,6 +5,8 @@ on:
     branches:
       - master
 
+  workflow_call:
+
 env:
   FLUTTER_VERSION: "3.16.x"
 
