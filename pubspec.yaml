@@ -50,7 +50,7 @@ dependencies:
   layout: ^1.0.5
   logger: ^2.0.2+1
   multi_split_view: ^2.4.0
-  package_info_plus: ^4.2.0
+  package_info_plus: ^5.0.1
   path: ^1.8.2
   recase: ^4.1.0
   replay_bloc: ^0.2.3
