@@ -25,7 +25,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_animate: ^4.1.1+1
+  flutter_animate: ^4.3.0
   flutter_bloc: ^8.1.2
   flutter_colorpicker: ^1.0.3
   flutter_fancy_tree_view: ^1.1.1
