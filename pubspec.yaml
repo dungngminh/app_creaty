@@ -53,7 +53,7 @@ dependencies:
   package_info_plus: ^5.0.1
   path: ^1.8.2
   recase: ^4.1.0
-  replay_bloc: ^0.2.3
+  replay_bloc: ^0.2.5
   shortid: ^0.1.2
   uuid: ^4.2.1
   window_manager: ^0.3.2
