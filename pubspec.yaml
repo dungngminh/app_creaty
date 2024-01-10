@@ -55,7 +55,7 @@ dependencies:
   recase: ^4.1.0
   replay_bloc: ^0.2.5
   shortid: ^0.1.2
-  uuid: ^4.2.2
+  uuid: ^4.3.2
   window_manager: ^0.3.2
   yaml: ^3.1.1
   rxdart_ext: ^0.2.9
