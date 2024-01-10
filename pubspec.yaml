@@ -60,7 +60,7 @@ dependencies:
   yaml: ^3.1.1
   rxdart_ext: ^0.2.9
   native_context_menu: ^0.2.2+5
-  supabase_flutter: ^2.1.0
+  supabase_flutter: ^2.2.0
   flutter_secure_storage: ^9.0.0
   string_validator: ^1.0.0
   dart_code_viewer2: ^1.0.1
