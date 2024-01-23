@@ -64,7 +64,7 @@ dependencies:
   flutter_secure_storage: ^9.0.0
   string_validator: ^1.0.0
   dart_code_viewer2: ^1.0.1
-  sentry_flutter: ^7.14.0
+  sentry_flutter: ^7.15.0
   context_menus: ^1.0.2
 
 dev_dependencies:
