@@ -21,7 +21,7 @@ jobs:
           channel: "stable"
       - name: Create env.json
         id: create-json
-        uses: jsdaniell/create-json@v1.2.2
+        uses: jsdaniell/create-json@v1.2.3
         with:
           name: "env.json"
           json: '{"SUPABASE_URL":"${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
@@ -72,7 +72,7 @@ jobs:
           channel: "stable"
       - name: Create env.json
         id: create-json
-        uses: jsdaniell/create-json@v1.2.2
+        uses: jsdaniell/create-json@v1.2.3
         with:
           name: "env.json"
           json: '{"SUPABASE_URL":"${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
@@ -119,7 +119,7 @@ jobs:
           channel: "stable"
       - name: Create env.json
         id: create-json
-        uses: jsdaniell/create-json@v1.2.2
+        uses: jsdaniell/create-json@v1.2.3
         with:
           name: "env.json"
           json: '{"SUPABASE_URL":"${{secrets.SUPABASE_URL}}", "SUPABASE_ANON":"${{secrets.SUPABASE_ANON}}"}'
