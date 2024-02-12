@@ -1003,10 +1003,10 @@ packages:
     dependency: "direct main"
     description:
       name: replay_bloc
-      sha256: "268a7b9adb9b91f00c673a782838305df3194f51588dc7a6ff0c35d08a45557c"
+      sha256: "799463f32aa9de4b8938ea2919797ed0d9b15496d4bc80734fde0771f4775e91"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.5"
+    version: "0.2.6"
   retry:
     dependency: transitive
     description:
