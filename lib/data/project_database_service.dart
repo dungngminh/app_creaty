@@ -2,11 +2,11 @@ import 'package:app_creaty/models/app_creaty_creator.dart';
 import 'package:app_creaty/models/app_creaty_project.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+const _projectTable = 'projects';
+
 class ProjectDatabaseService {
   ProjectDatabaseService({required SupabaseClient supabaseClient})
       : _supabaseClient = supabaseClient;
-
-  static const _projectTable = 'projects';
 
   final SupabaseClient _supabaseClient;
 
