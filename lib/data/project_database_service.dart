@@ -13,7 +13,7 @@ class ProjectDatabaseService {
   Future<List<AppCreatyProject>> getProjects(AppCreatyCreator user) async {
     final results = await _supabaseClient
         .from(_projectTable)
-        .select<List<Map<String, dynamic>>>()
+        .select()
         .eq('created_by->>id', user.id);
     return results.map<AppCreatyProject>(AppCreatyProject.fromJson).toList();
   }
