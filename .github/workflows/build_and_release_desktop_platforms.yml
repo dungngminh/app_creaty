@@ -51,7 +51,7 @@ jobs:
           filename: app_creaty-${{ steps.version.outputs.version-number }}-linux.zip
           directory: build/linux/x64/release/bundle
       - name: Release to github
-        uses: softprops/action-gh-release@v0.1.15
+        uses: softprops/action-gh-release@v2.0.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -98,7 +98,7 @@ jobs:
           filename: app_creaty-${{ steps.version.outputs.version-number }}-windows.zip
           directory: build/windows/runner/Release
       - name: Release to github
-        uses: softprops/action-gh-release@v0.1.15
+        uses: softprops/action-gh-release@v2.0.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -145,7 +145,7 @@ jobs:
           filename: app_creaty-${{steps.version.outputs.version-number}}-macos.zip
           directory: build/macos/Build/Products/Release
       - name: Release to github
-        uses: softprops/action-gh-release@v0.1.15
+        uses: softprops/action-gh-release@v2.0.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
