@@ -17,7 +17,7 @@ Drag n Drop Mobile Development Tool created by [@dungngminh](https://github.com/
 
 ## Getting Started 🤖
 
-- This idea came from [FlutterFlow](https://flutterflow.io) but will be a Desktop App.
+- This idea came from [FlutterFlow](https://flutterflow.io).
 
 ## Feature set 🔥
 
