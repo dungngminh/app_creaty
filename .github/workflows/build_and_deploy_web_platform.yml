@@ -47,7 +47,7 @@ jobs:
           filename: app_creaty-${{ steps.version.outputs.version-number }}-web.zip
           directory: build/web
       - name: Release to github
-        uses: softprops/action-gh-release@v0.1.15
+        uses: softprops/action-gh-release@v2.0.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
