@@ -15,7 +15,7 @@ This macOS demo is running in Release Mode [v0.11.2](https://github.com/dungngmi
 
 Drag n Drop Mobile Development Tool created by [@dungngminh](https://github.com/dungngminh).
 
-This project is tested with BrowserStack
+This project is tested with BrowserStack.
 
 ## Getting Started 🤖
 
